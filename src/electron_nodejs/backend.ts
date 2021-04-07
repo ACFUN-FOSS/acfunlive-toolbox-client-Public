@@ -10,10 +10,7 @@ class Backend {
 	init() {
 		const exepath = path.join(process.resourcesPath, "backend.exe");
 		// console.log(exepath);
-		this.process = spawn(exepath, ["--debug"], {
-			windowshide: false,
-			shell: false
-		});
+		this.process = spawn(exepath);
 	}
 
 	kill() {
