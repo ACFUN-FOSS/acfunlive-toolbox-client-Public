@@ -1,0 +1,16 @@
+.hint {
+	margin-top: 8px;
+	user-select: none;
+	font-size: var(--generalStyle_fontSize_S);
+	color: var(--generalStyle_fontColor_Second);
+}
+.online {
+	user-select: none;
+	font-size: var(--generalStyle_fontSize_S);
+	color: var(--generalStyle_color_success);
+}
+.offline {
+	user-select: none;
+	font-size: var(--generalStyle_fontSize_S);
+	color: var(--generalStyle_color_danger);
+}

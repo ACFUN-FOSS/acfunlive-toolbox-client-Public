@@ -1,0 +1,42 @@
+{
+	"fontSize": {
+		"ESS": "10px",
+		"ES": "12px",
+		"S": "13px",
+		"B": "14px",
+		"M": "16px",
+		"L": "18px",
+		"EL": "20px",
+		"LOGO": "36px"
+	},
+	"fontColor": {
+		"Header": "#303133",
+		"First": "#606266",
+		"Second": "#909399",
+		"Third": "#c0c4cc"
+	},
+	"color": {
+		"background": "#fafafa",
+		"primary": "#FD4C5A",
+		"primary_L": "#FF7380",
+		"primary_EL": "#FF8E99",
+		"success": "#67c23a",
+		"warning": "#e6a23c",
+		"danger": "#f56c6c",
+		"info": "#F6F6F6"
+	},
+	"shadow": {
+		"hover": "0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04)",
+		"base": "0 2px 4px rgba(0, 0, 0, 0.18), 0 0 6px rgba(0, 0, 0.05, 0.06)",
+		"deep": "0px 2px 10px rgba(0, 0, 0, 0.36), 0 0 12px rgba(0, 0, 0, 0.24)"
+	},
+	"border": {
+		"solid": "1px solid #eee",
+		"dash": "2px dashed #eee"
+	},
+	"radius": {
+		"small": "2px",
+		"large": "4px",
+		"round": "30px"
+	}
+}

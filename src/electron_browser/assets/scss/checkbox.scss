@@ -1,0 +1,19 @@
+@mixin checkboxBase($backgroundColor) {
+	&:deep {
+		.el-checkbox__input {
+			.el-checkbox__inner {
+				&:hover {
+					border-color: $backgroundColor;
+				}
+			}
+			&.is-checked .el-checkbox__inner {
+				background-color: $backgroundColor !important;
+				border-color: $backgroundColor;
+			}
+		}
+	}
+}
+
+:export {
+	checkboxBase: checkboxBase;
+}
