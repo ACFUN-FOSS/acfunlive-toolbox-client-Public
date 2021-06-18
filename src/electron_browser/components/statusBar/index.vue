@@ -1,8 +1,6 @@
 <template>
 	<div id="statusBar" :class="{unfold:isUnfold}" element-loading-background="rgba(0, 0, 0, 0)">
-		<div class="switch" @click="unfold" v-if="$store.getters.streamMonitor"><span
-				class="el-icon-arrow-up" />{{isUnfold?'折叠':'展开'}}</div>
-
+		<div class="switch" @click="unfold" v-if="streamStatus.step=='danmakuing'"><span class="el-icon-arrow-up" />{{isUnfold?'折叠':'展开'}}</div>
 		<transition name="fade">
 			<component :is="currentComp" />
 		</transition>
@@ -11,13 +9,15 @@
 
 <script lang="ts">
 import { defineAsyncComponent, defineComponent } from "vue";
-import { mapGetters, mapState } from "vuex";
-import { room } from "@fe/api/ws_h";
+import { mapState } from "vuex";
+import { event } from "@front/util_function/eventBus";
+import { wsevent } from "@front/api";
+import { ElMessage } from "element-plus";
 const mainPanel = defineAsyncComponent(() =>
-	import("@fe/views/streamMonitor/index.vue")
+	import("@front/views/streamMonitor/index.vue")
 );
 const shrink = defineAsyncComponent(() =>
-	import("@fe/views/streamMonitor/shrink.vue")
+	import("@front/views/streamMonitor/shrink.vue")
 );
 
 export default defineComponent({
@@ -33,37 +33,75 @@ export default defineComponent({
 			checkTimeout
 		};
 	},
-	created() {
-		this.$Event.on("routeChange", this.unfold);
-		this.$Event.on("roomStatusChanged", this.checkStatus);
-	},
 	mounted() {
-		this.$store.dispatch("checkStreamStatus");
-		this.checkStatus(null);
+		event.on("routeChange", this.unfold);
+		event.on("streamStatusChanged", this.handleStatusChange);
+		wsevent.on("get-session", this.sendSession);
+		wsevent.on("get-settings", this.sendSettings);
+		this.registerWS();
+		this.unfold({
+			name: "statusPanel"
+		});
 	},
 	beforeUnmount() {
-		this.$Event.off("roomStatusChanged", this.checkStatus);
-		this.$Event.off("routeChange", this.unfold);
+		event.off("routeChange", this.unfold);
+		event.off("streamStatusChanged", this.handleStatusChange);
+		wsevent.off("get-session", this.sendSession);
+		wsevent.off("get-settings", this.sendSettings);
 	},
 	computed: {
-		...mapGetters(["streamMonitor"]),
-		...mapState(["roomProfile"]),
-		api() {
-			return this.$store.state.api;
-		},
-		currentComp() {
-			if (this.isUnfold) {
-				return mainPanel;
-			}
-			if (!this.isUnfold) {
-				return shrink;
-			}
-			return null;
+		...mapState([
+			"roomProfile",
+			"streamStatus",
+			"danmakuProfile",
+			"danmakuSession",
+			"userSession"
+		]),
+		currentComp(): any {
+			return this.isUnfold ? mainPanel : shrink;
 		}
 	},
 	methods: {
+		handleStatusChange() {
+			const step = this.streamStatus.step;
+			let msg = "";
+			switch (step) {
+				case "online":
+					this.registerWS();
+					break;
+				case "danmakuing":
+					this.registerWS();
+					msg = "直播已开启";
+					this.isUnfold = true;
+					break;
+				case "streamEnded":
+					msg = "直播已结束";
+					this.isUnfold = false;
+					break;
+				default:
+					break;
+			}
+			if (msg) {
+				ElMessage({
+					message: msg,
+					duration: 1500,
+					type: "success",
+					offset: 60
+				});
+			}
+		},
+		registerWS() {
+			wsevent.register("server");
+		},
+		sendSettings() {
+			wsevent.wsEmit("update-settings", {}, "client");
+		},
+		sendSession() {
+			const { userID } = this.userSession;
+			wsevent.wsEmit("update-session", { userID }, "client");
+		},
 		unfold(e: any) {
-			if (!this.streamMonitor) {
+			if (this.streamStatus.step !== "danmakuing") {
 				this.isUnfold = false;
 				return;
 			}
@@ -72,30 +110,23 @@ export default defineComponent({
 				return;
 			}
 			this.isUnfold = e.name === "statusPanel";
-		},
-		checkStatus(res: room.profileDetail | null | undefined) {
-			console.log("===================");
-			console.log(res);
-			if (!res) {
-				this.isUnfold = Boolean(this.roomProfile.liveID);
-			} else {
-				this.isUnfold = Boolean(res!.liveID);
-			}
 		}
 	}
 });
 </script>
 
 <style scoped lang='scss'>
+@import "@front/styles/index.scss";
 #statusBar {
 	width: 100%;
 	height: 100%;
 	position: absolute;
+	z-index: 1002;
 	bottom: 0px;
 	transition: all 0.5s;
 	transform: translateY(calc(100% - 70px));
-	border-top: 1px solid var(--generalStyle_fontColor_Third);
-	background-color: var(--generalStyle_color_background);
+	border-top: 1px solid $--color-text-placeholder;
+	background-color: $--background-color-base;
 	&.unfold {
 		// border-color: rgba(0, 0, 0, 0);
 		transform: translateY(0px);
@@ -108,12 +139,12 @@ export default defineComponent({
 		top: 8px;
 		right: 25px;
 		z-index: 10;
-		color: var(--generalStyle_fontColor_Second);
+		color: $--color-text-secondary;
 		user-select: none;
 		cursor: pointer;
 		transition: all 0.25s;
 		&:hover {
-			color: var(--generalStyle_fontColor_First);
+			color: $--color-text-primary;
 		}
 		span {
 			transition: all 0.25s;

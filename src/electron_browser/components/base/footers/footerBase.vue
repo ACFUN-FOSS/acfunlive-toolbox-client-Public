@@ -1,13 +1,15 @@
 <template>
-	<div class="foter">{{ generalConfig.footer }}</div>
+	<div class="foter">{{ footer.base }}</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { config } from "@fe/mixins/mixin";
+import { footer } from "@front/texts";
 export default defineComponent({
 	name: "footerBase",
-	mixins: [config]
+	computed: {
+		footer
+	}
 });
 </script>
 

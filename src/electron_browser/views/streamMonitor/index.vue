@@ -1,50 +1,80 @@
 <template>
 	<title-frame id="streamMonitor" title="监控面板">
-		<content-frame id="dashboard" align="column">
+		<content-frame align="column">
 			<row-frame style="height:100%">
 				<row-frame width="100%" title="房间信息">
 					<row-span>
 						<room-info />
 					</row-span>
 				</row-frame>
-				<row-frame width="100%" title="功能开关" :flex="true">
-					<row-span :span="6" style="margin-bottom:8px">
-						<el-switch disabled active-text="鸡鸡人" />
-					</row-span>
-					<row-span :span="6" style="margin-bottom:8px">
-						<el-switch disabled active-text="合并弹幕" />
-					</row-span>
-				</row-frame>
-				<row-frame title="黑幕抽奖">
+				<shotcut />
+				<row-frame title="更多功能 敬请期待">
 					<row-span>
 					</row-span>
 				</row-frame>
 			</row-frame>
-			<row-frame style="height:100%" title="弹幕流" :flex="true">
-				<row-span :span="12">
-					<danmaku-flow style="width:100%;height:550px;font-size:18px!important" />
-				</row-span>
+			<row-frame class="danmakuPanel" style="height:100%">
+				<row-frame width="100%" title="">
+					<row-span style="z-index:10000">
+						<room-list />
+					</row-span>
+				</row-frame>
+				<row-frame width="100%" title="弹幕流" :flex="true" :content-default-class="true">
+					<row-span :span="12" style="padding:0px">
+						<div class="list-add-btn" style="top:0px">
+							<div class="slider">背景亮度：
+								<el-slider style="width:100px" v-model="brightness" :min="20" :max="100" :step="1" />
+							</div>
+						</div>
+						<div class="danmaku-list-bg" :style="{'--brightness':(100- brightness)/100}">
+							<danmaku-flow style="height:350px;font-size:18px!important" :danmakuList="danmakuList" :settings="settings" />
+						</div>
+					</row-span>
+				</row-frame>
+				<row-frame width="100%">
+					<row-span :span="12" style="padding:0px">
+						<room-chat />
+					</row-span>
+				</row-frame>
 			</row-frame>
+
 		</content-frame>
 	</title-frame>
+	<minify v-if="minify" />
 </template>
 
-<script>
-import { defineComponent, defineAsyncComponent } from "vue";
-const roomInfo = defineAsyncComponent(() => import("./roomInfo"));
-const danmakuFlow = defineAsyncComponent(() =>
-	import("@fe/components/danmakuSelf")
-);
+<script lang="ts">
+import { defineComponent } from "vue";
+import { mapGetters, mapState } from "vuex";
+import roomInfo from "./roomInfo.vue";
+import danmakuFlow from "@front/components/danmakuFlow/index.vue";
+import shotcut from "./shotcut.vue";
+import roomList from "@front/components/roomList/roomList.vue";
+import roomChat from "@front/components/roomChat/index.vue";
+import minify from "@front/components/minify/index.vue";
 export default defineComponent({
 	name: "streamMonitor",
 	components: {
 		roomInfo,
-		danmakuFlow
+		danmakuFlow,
+		shotcut,
+		roomList,
+		roomChat,
+		minify
 	},
 	data() {
-		return {};
+		return {
+			brightness: 50
+		};
 	},
-	computed: {},
+	computed: {
+		...mapGetters(["danmakuProfile", "danmakuList"]),
+		...mapState(["minify"]),
+		settings() {
+			// @ts-ignore
+			return this.danmakuProfile("toolBox");
+		}
+	},
 	watch: {},
 	methods: {}
 });
@@ -53,5 +83,34 @@ export default defineComponent({
 #streamMonitor {
 	width: 100%;
 	height: 100%;
+	position: absolute;
+	z-index: 100;
+}
+.danmaku-list-bg {
+	width: 100%;
+	position: relative;
+
+	overflow: hidden;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		opacity: var(--brightness);
+	}
+}
+.list-add-btn {
+	position: absolute;
+	right: 0px;
+	display: flex;
+	.slider {
+		display: flex;
+		align-items: center;
+		margin-top: -35px;
+		margin-right: 20px;
+	}
 }
 </style>

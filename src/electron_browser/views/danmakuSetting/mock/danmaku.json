@@ -1,0 +1,6158 @@
+[{
+	"liverUID": 44753354,
+	"type": 1006,
+	"data": {
+		"sendTime": 0,
+		"segments": [{
+			"type": 1900,
+			"segment": {
+				"userInfo": {
+					"userID": 670542,
+					"nickname": "ヤ艾玫镓蔟メ叶落花眠",
+					"avatar": "https://imgs.aixifan.com/style/image/201907/d5AU7EkN1XtqOomIPMo9ImZoS8uREZNr.jpg",
+					"medal": {
+						"uperID": 41086280,
+						"userID": 670542,
+						"clubName": "死鬼",
+						"level": 8
+					},
+					"managerType": 0
+				},
+				"color": "#409BEF"
+			}
+		}, {
+			"type": 1901,
+			"segment": {
+				"text": " 发了一个红包，总金额99AC币",
+				"color": ""
+			}
+		}]
+	}
+}, {
+	"liverUID": 44753354,
+	"type": 1006,
+	"data": {
+		"sendTime": 0,
+		"segments": [{
+			"type": 1900,
+			"segment": {
+				"userInfo": {
+					"userID": 47566067,
+					"nickname": "Midori緑",
+					"avatar": "https://imgs.aixifan.com/FvW927692zt3yhfenj4zYemdVFY5",
+					"medal": {
+						"uperID": 44753354,
+						"userID": 47566067,
+						"clubName": "夜上海",
+						"level": 5
+					},
+					"managerType": 0
+				},
+				"color": "#409BEF"
+			}
+		}, {
+			"type": 1901,
+			"segment": {
+				"text": " 领取了 ",
+				"color": ""
+			}
+		}, {
+			"type": 1900,
+			"segment": {
+				"userInfo": {
+					"userID": 670542,
+					"nickname": "ヤ艾玫镓蔟メ叶落花眠",
+					"avatar": "https://imgs.aixifan.com/style/image/201907/d5AU7EkN1XtqOomIPMo9ImZoS8uREZNr.jpg",
+					"medal": {
+						"uperID": 41086280,
+						"userID": 670542,
+						"clubName": "死鬼",
+						"level": 8
+					},
+					"managerType": 0
+				},
+				"color": "#409BEF"
+			}
+		}, {
+			"type": 1901,
+			"segment": {
+				"text": " 发的3AC币",
+				"color": ""
+			}
+		}]
+	}
+}, {
+	"liverUID": 44753354,
+	"type": 1006,
+	"data": {
+		"sendTime": 0,
+		"segments": [{
+			"type": 1900,
+			"segment": {
+				"userInfo": {
+					"userID": 447535,
+					"nickname": "豆豆豆豆豆豆腐腐",
+					"avatar": "https://imgs.aixifan.com/content/2019_07_10/1562745292272.JPG",
+					"medal": {
+						"uperID": 23682490,
+						"userID": 447535,
+						"clubName": "ACER",
+						"level": 9
+					},
+					"managerType": 0
+				},
+				"color": "#409BEF"
+			}
+		}, {
+			"type": 1901,
+			"segment": {
+				"text": " 领取了 ",
+				"color": ""
+			}
+		}, {
+			"type": 1900,
+			"segment": {
+				"userInfo": {
+					"userID": 670542,
+					"nickname": "ヤ艾玫镓蔟メ叶落花眠",
+					"avatar": "https://imgs.aixifan.com/style/image/201907/d5AU7EkN1XtqOomIPMo9ImZoS8uREZNr.jpg",
+					"medal": {
+						"uperID": 41086280,
+						"userID": 670542,
+						"clubName": "死鬼",
+						"level": 8
+					},
+					"managerType": 0
+				},
+				"color": "#409BEF"
+			}
+		}, {
+			"type": 1901,
+			"segment": {
+				"text": " 发的1AC币",
+				"color": ""
+			}
+		}]
+	}
+}, {
+	"liverUID": 44753354,
+	"type": 1006,
+	"data": {
+		"sendTime": 0,
+		"segments": [{
+			"type": 1900,
+			"segment": {
+				"userInfo": {
+					"userID": 8189193,
+					"nickname": "黄昏的麦田守望者",
+					"avatar": "https://imgs.aixifan.com/style/image/201907/UhdGXrwmzd0nnI1rW9GHdYmCShBawYzS.jpg",
+					"medal": {
+						"uperID": 42281494,
+						"userID": 8189193,
+						"clubName": "只羊",
+						"level": 6
+					},
+					"managerType": 0
+				},
+				"color": "#409BEF"
+			}
+		}, {
+			"type": 1901,
+			"segment": {
+				"text": " 领取了 ",
+				"color": ""
+			}
+		}, {
+			"type": 1900,
+			"segment": {
+				"userInfo": {
+					"userID": 670542,
+					"nickname": "ヤ艾玫镓蔟メ叶落花眠",
+					"avatar": "https://imgs.aixifan.com/style/image/201907/d5AU7EkN1XtqOomIPMo9ImZoS8uREZNr.jpg",
+					"medal": {
+						"uperID": 41086280,
+						"userID": 670542,
+						"clubName": "死鬼",
+						"level": 8
+					},
+					"managerType": 0
+				},
+				"color": "#409BEF"
+			}
+		}, {
+			"type": 1901,
+			"segment": {
+				"text": " 发的2AC币",
+				"color": ""
+			}
+		}]
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750147671,
+			"userInfo": {
+				"userID": 748555,
+				"nickname": "嘴硬的男人",
+				"avatar": "https://imgs.aixifan.com/content/2020_7_5/1.5939125626213293E9.png",
+				"medal": {
+					"uperID": 2889712,
+					"userID": 748555,
+					"clubName": "小夜灯",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "门前大桥下，游过一群鸭！"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750148059,
+			"userInfo": {
+				"userID": 736277,
+				"nickname": "Acfun爱一直在",
+				"avatar": "https://imgs.aixifan.com/Fv3FGFxUmqcngAZViRDDvcxj1SVI",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 736277,
+					"clubName": "ACER",
+					"level": 13
+				},
+				"managerType": 0
+			}
+		},
+		"content": "主人是阿婵的话 也不是不可以"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750148096,
+			"userInfo": {
+				"userID": 14203039,
+				"nickname": "好男人伊藤诚先生",
+				"avatar": "https://imgs.aixifan.com/content/2020_4_30/1.5882141363682728E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 14203039,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"content": "他是婵小姐的狗"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750150206,
+			"userInfo": {
+				"userID": 892250,
+				"nickname": "拖沓剋剋果冻帝",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/gZJsFBJRnUlvCKkn02HPN0eDPCfYe8BY.jpg",
+				"medal": {
+					"uperID": 45409175,
+					"userID": 892250,
+					"clubName": "胸大肌",
+					"level": 5
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750150077",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750150277,
+			"userInfo": {
+				"userID": 26090924,
+				"nickname": "留清月",
+				"avatar": "https://imgs.aixifan.com/content/2021_04_14/1618368618390.JPG",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 12,
+			"giftName": "打Call",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 10,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200326112443kfWQhpaG.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141131ukNHkGeU.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316110407BdolKFLb.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": true,
+			"magicFaceID": 0,
+			"description": "为你转身为你爆灯，为你打CALL日夜不分",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 10000,
+		"comboID": "12_12_1618750150261",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750158676,
+			"userInfo": {
+				"userID": 748555,
+				"nickname": "嘴硬的男人",
+				"avatar": "https://imgs.aixifan.com/content/2020_7_5/1.5939125626213293E9.png",
+				"medal": {
+					"uperID": 2889712,
+					"userID": 748555,
+					"clubName": "小夜灯",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "哈哈哈哈"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750161257,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750162698,
+			"userInfo": {
+				"userID": 274180,
+				"nickname": "阿婵不会输",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/2jyFksVKPhYL5Pv0KR1DnetOrQlpLFkd.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 274180,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "雅达"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750163383,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750165544,
+		"userInfo": {
+			"userID": 1835492,
+			"nickname": "御坂伯爵",
+			"avatar": "https://imgs.aixifan.com/content/2021_1_25/1.6115881005712943E9.png",
+			"medal": {
+				"uperID": 30352828,
+				"userID": 1835492,
+				"clubName": "三班岛",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750165404,
+			"userInfo": {
+				"userID": 736277,
+				"nickname": "Acfun爱一直在",
+				"avatar": "https://imgs.aixifan.com/Fv3FGFxUmqcngAZViRDDvcxj1SVI",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 736277,
+					"clubName": "ACER",
+					"level": 13
+				},
+				"managerType": 0
+			}
+		},
+		"content": "我好了"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750167014,
+			"userInfo": {
+				"userID": 12765064,
+				"nickname": "国士无双秋歪秋",
+				"avatar": "https://imgs.aixifan.com/FlYEYS9Ll96W-NpmDF3jciMAkaVb",
+				"medal": {
+					"uperID": 23512715,
+					"userID": 12765064,
+					"clubName": "哥思辣",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "(〃∀〃)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750166994,
+			"userInfo": {
+				"userID": 698413,
+				"nickname": "jjooyy",
+				"avatar": "https://imgs.aixifan.com/FrdbH-uYIl64ypCyQnpBDaPeaBDe",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 698413,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 46,
+			"giftName": "好听",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 10,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134821IpQdbDlH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134825ZChMMLSj.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134832MUgSPdcx.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "说的唱的都好听！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 10000,
+		"comboID": "46_46_1618750167418",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750167170,
+			"userInfo": {
+				"userID": 698413,
+				"nickname": "jjooyy",
+				"avatar": "https://imgs.aixifan.com/FrdbH-uYIl64ypCyQnpBDaPeaBDe",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 698413,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 46,
+			"giftName": "好听",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 10,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134821IpQdbDlH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134825ZChMMLSj.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134832MUgSPdcx.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "说的唱的都好听！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 2,
+		"value": 10000,
+		"comboID": "46_46_1618750167418",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750167613,
+			"userInfo": {
+				"userID": 11472676,
+				"nickname": "钛金龟壳",
+				"avatar": "https://imgs.aixifan.com/content/2021_1_22/1.6113121133376002E9.png",
+				"medal": {
+					"uperID": 40656720,
+					"userID": 11472676,
+					"clubName": "艾哭鬼",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"content": "亚达"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750167421,
+			"userInfo": {
+				"userID": 698413,
+				"nickname": "jjooyy",
+				"avatar": "https://imgs.aixifan.com/FrdbH-uYIl64ypCyQnpBDaPeaBDe",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 698413,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 46,
+			"giftName": "好听",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 10,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134821IpQdbDlH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134825ZChMMLSj.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134832MUgSPdcx.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "说的唱的都好听！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 3,
+		"value": 10000,
+		"comboID": "46_46_1618750167418",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750167550,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750168348,
+			"userInfo": {
+				"userID": 284558,
+				"nickname": "小兵路过病毒",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/t4VbupMBf07nANSP74GlqPAu9mhHohzd.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 284558,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "再来点"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750168947,
+			"userInfo": {
+				"userID": 76151,
+				"nickname": "春哥是我男朋友",
+				"avatar": "https://imgs.aixifan.com/Fr6tsLJAxJUk4YQJdAqWqm8zpy_t",
+				"medal": {
+					"uperID": 179922,
+					"userID": 76151,
+					"clubName": "黎明",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "完了"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750169190,
+			"userInfo": {
+				"userID": 748555,
+				"nickname": "嘴硬的男人",
+				"avatar": "https://imgs.aixifan.com/content/2020_7_5/1.5939125626213293E9.png",
+				"medal": {
+					"uperID": 2889712,
+					"userID": 748555,
+					"clubName": "小夜灯",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "蒂总大喜！"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750171938,
+			"userInfo": {
+				"userID": 153884,
+				"nickname": "バカンス",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_13/1.6182676401061654E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 153884,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"content": "kimo"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750174561,
+			"userInfo": {
+				"userID": 1254372,
+				"nickname": "超超玄著",
+				"avatar": "https://imgs.aixifan.com/content/2020_12_23/1.6087120566042314E9.gif",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 1254372,
+					"clubName": "ACER",
+					"level": 6
+				},
+				"managerType": 0
+			}
+		},
+		"content": "我好了"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750174891,
+			"userInfo": {
+				"userID": 11198916,
+				"nickname": "啊丶哈哈哈哈",
+				"avatar": "https://imgs.aixifan.com/content/2019_12_12/1.5761297719534645E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"content": "(￣∇￣)(￣∇￣)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750175156,
+			"userInfo": {
+				"userID": 14127983,
+				"nickname": "王婵所1919",
+				"avatar": "https://imgs.aixifan.com/content/2021_3_24/1.6165598910071144E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 14127983,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"content": "(゜ロ゜)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750175240,
+			"userInfo": {
+				"userID": 12123571,
+				"nickname": "Hjj777",
+				"avatar": "https://imgs.aixifan.com/content/2020_6_25/1.593080333253993E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 12123571,
+					"clubName": "ACER",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "(＞д＜)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750176864,
+			"userInfo": {
+				"userID": 235096,
+				"nickname": "在妹子海上荡漾的水手",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/E4K24NYXU3gkgMWiZS8RHkFBRlpiB0D1.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 235096,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "摩多摩多"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750177191,
+			"userInfo": {
+				"userID": 456519,
+				"nickname": "少女祈祷中..",
+				"avatar": "https://imgs.aixifan.com/content/2019_11_4/1.5728593627718115E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 456519,
+					"clubName": "ACER",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "e6c4e22a-64e3-448a-a795-b23537473daa",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750177044,
+			"userInfo": {
+				"userID": 7070492,
+				"nickname": "秒速深水狐",
+				"avatar": "https://imgs.aixifan.com/content/2020_5_25/1.5903973889893346E9.gif",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 7070492,
+					"clubName": "ACER",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"content": "不要停"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750178768,
+			"userInfo": {
+				"userID": 873415,
+				"nickname": "condy",
+				"avatar": "https://imgs.aixifan.com/content/2019_9_20/1.5689575386185381E9.png",
+				"medal": {
+					"uperID": 20680343,
+					"userID": 873415,
+					"clubName": "酱紫鸭",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"content": "Yada!"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750179002,
+			"userInfo": {
+				"userID": 164198,
+				"nickname": "鲨鲨，我的鲨鲨",
+				"avatar": "https://imgs.aixifan.com/content/2021_03_03/1614777987009.JPG",
+				"medal": {
+					"uperID": 156843,
+					"userID": 164198,
+					"clubName": "人传人",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "莫多莫多"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750180068,
+			"userInfo": {
+				"userID": 11632035,
+				"nickname": "梅文尔",
+				"avatar": "https://imgs.aixifan.com/content/2019_06_18/1560872657759.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 11632035,
+					"clubName": "ACER",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"content": "多骂点"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750180492,
+			"userInfo": {
+				"userID": 51146081,
+				"nickname": "死记解说",
+				"avatar": "https://imgs.aixifan.com/content/2021_04_18/1618726950199.JPG",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"content": "有毒"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750180942,
+			"userInfo": {
+				"userID": 14203039,
+				"nickname": "好男人伊藤诚先生",
+				"avatar": "https://imgs.aixifan.com/content/2020_4_30/1.5882141363682728E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 14203039,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 46,
+			"giftName": "好听",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 10,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134821IpQdbDlH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134825ZChMMLSj.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200916134832MUgSPdcx.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "说的唱的都好听！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 10000,
+		"comboID": "bb1fbcf2-7923-4340-ac8b-3d72fa1a4076",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750182795,
+			"userInfo": {
+				"userID": 1310244,
+				"nickname": "有事48G无事星座团",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/5PqOvu14Sxk17sPva08GxevJy7qcBeZo.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 1310244,
+					"clubName": "ACER",
+					"level": 6
+				},
+				"managerType": 0
+			}
+		},
+		"content": "Kimojikimoji"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750183669,
+			"userInfo": {
+				"userID": 39939781,
+				"nickname": "阿婵超可爱",
+				"avatar": "https://imgs.aixifan.com/content/2021_3_8/1.6151933726268013E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"content": "(＞д＜)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750184258,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750186907,
+			"userInfo": {
+				"userID": 992697,
+				"nickname": "变幻之风",
+				"avatar": "https://imgs.aixifan.com/content/2021_03_23/1616498745258.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 992697,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"content": "\\(^O^)/"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750187507,
+			"userInfo": {
+				"userID": 1140066,
+				"nickname": "下辈子想做黄瓜",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/eaYL12XntHn55EgKJD6DSEOnQsd6iuMh.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 1140066,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750187857,
+			"userInfo": {
+				"userID": 374416,
+				"nickname": "有偿猴🐵",
+				"avatar": "https://imgs.aixifan.com/FiZNRSDIzp8QEr1e2-zDdYauwYp-",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 374416,
+					"clubName": "ACER",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750189297,
+			"userInfo": {
+				"userID": 153884,
+				"nickname": "バカンス",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_13/1.6182676401061654E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 153884,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"content": "?"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750188957,
+			"userInfo": {
+				"userID": 301610,
+				"nickname": "乌拉喵AcFun唯一指定老公",
+				"avatar": "https://imgs.aixifan.com/content/2019_12_27/1.5774356319563537E9.png",
+				"medal": {
+					"uperID": 1384329,
+					"userID": 301610,
+					"clubName": "在画了",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 33,
+			"giftName": "情书",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 52,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200703163320LwziGbIr.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812140634XhNFtNAm.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200703163327bwbkulDv.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "是亲手书写的",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 52000,
+		"comboID": "33_33_1618750186327",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750190564,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750194313,
+			"userInfo": {
+				"userID": 2920259,
+				"nickname": "静夜山泉鸣",
+				"avatar": "https://imgs.aixifan.com/Ftn1kR4hR0iLn-YY0tt9VbW2DBEz",
+				"medal": {
+					"uperID": 14493052,
+					"userID": 2920259,
+					"clubName": "发酒疯",
+					"level": 3
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？？？？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750195309,
+			"userInfo": {
+				"userID": 1743657,
+				"nickname": "怪味豆11",
+				"avatar": "https://imgs.aixifan.com/content/2021_1_29/1.6118829604027464E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 1743657,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？？？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750194904,
+		"userInfo": {
+			"userID": 61361,
+			"nickname": "⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾",
+			"avatar": "https://imgs.aixifan.com/content/2020_11_19/1.6057184471147432E9.gif",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750203237,
+		"userInfo": {
+			"userID": 1838779,
+			"nickname": "滴嘟侠",
+			"avatar": "https://imgs.aixifan.com/FkKsRhThv7XoAQ3U_GrLWywdqKoq",
+			"medal": {
+				"uperID": 156843,
+				"userID": 1838779,
+				"clubName": "人传人",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750205286,
+		"userInfo": {
+			"userID": 56743,
+			"nickname": "死鱼眼",
+			"avatar": "https://imgs.aixifan.com/FuEM1cPzazxBs9qENnLHcLDN_U1f",
+			"medal": {
+				"uperID": 17912421,
+				"userID": 56743,
+				"clubName": "魂球球",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750207557,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750211595,
+		"userInfo": {
+			"userID": 12915770,
+			"nickname": "我的头像是透明的",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_26/1.6143445269965498E9.png",
+			"medal": {
+				"uperID": 30352828,
+				"userID": 12915770,
+				"clubName": "三班岛",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750215734,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750217755,
+		"userInfo": {
+			"userID": 947398,
+			"nickname": "泡芙AcFun唯一指定老公",
+			"avatar": "https://imgs.aixifan.com/content/2021_04_14/1618409435736.JPG",
+			"medal": {
+				"uperID": 36782454,
+				"userID": 947398,
+				"clubName": "打油人",
+				"level": 6
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750226062,
+		"userInfo": {
+			"userID": 350745,
+			"nickname": "有我在身后",
+			"avatar": "https://imgs.aixifan.com/content/2021_03_31/1617182668526.JPG",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750228268,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750230669,
+			"userInfo": {
+				"userID": 235096,
+				"nickname": "在妹子海上荡漾的水手",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/E4K24NYXU3gkgMWiZS8RHkFBRlpiB0D1.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 235096,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750234558,
+		"userInfo": {
+			"userID": 1835492,
+			"nickname": "御坂伯爵",
+			"avatar": "https://imgs.aixifan.com/content/2021_1_25/1.6115881005712943E9.png",
+			"medal": {
+				"uperID": 30352828,
+				"userID": 1835492,
+				"clubName": "三班岛",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750236572,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750241631,
+			"userInfo": {
+				"userID": 898511,
+				"nickname": "肥皂厂长的老司机",
+				"avatar": "https://imgs.aixifan.com/FsrUp84EQy7p7gKKaaLzZpsS0sjs",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"content": "mo"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750242872,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750246305,
+			"userInfo": {
+				"userID": 394931,
+				"nickname": "中国植物志",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/JW9Cvjbc8OIhUHBHSu1cIR2oacS4h7Vy.jpg",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750247743",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750249009,
+		"userInfo": {
+			"userID": 61361,
+			"nickname": "⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾⚾",
+			"avatar": "https://imgs.aixifan.com/content/2020_11_19/1.6057184471147432E9.gif",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750249615,
+			"userInfo": {
+				"userID": 394931,
+				"nickname": "中国植物志",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/JW9Cvjbc8OIhUHBHSu1cIR2oacS4h7Vy.jpg",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 3,
+		"value": 5,
+		"comboID": "1_1_1618750247743",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750249612,
+			"userInfo": {
+				"userID": 394931,
+				"nickname": "中国植物志",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/JW9Cvjbc8OIhUHBHSu1cIR2oacS4h7Vy.jpg",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 2,
+		"value": 5,
+		"comboID": "1_1_1618750247743",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750253127,
+		"userInfo": {
+			"userID": 3457495,
+			"nickname": "与你共微醺",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_3/1.6173841445455878E9.png",
+			"medal": {
+				"uperID": 13722552,
+				"userID": 3457495,
+				"clubName": "iPeach",
+				"level": 7
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750254106,
+			"userInfo": {
+				"userID": 527388,
+				"nickname": "点点小珠珠",
+				"avatar": "https://imgs.aixifan.com/content/2021_3_25/1.616618863947729E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 527388,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"content": "(●′ω`●)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750255278,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750256231,
+			"userInfo": {
+				"userID": 748555,
+				"nickname": "嘴硬的男人",
+				"avatar": "https://imgs.aixifan.com/content/2020_7_5/1.5939125626213293E9.png",
+				"medal": {
+					"uperID": 2889712,
+					"userID": 748555,
+					"clubName": "小夜灯",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "桃老板：我打不过"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750258996,
+			"userInfo": {
+				"userID": 4386812,
+				"nickname": "限定单推的炫123",
+				"avatar": "https://imgs.aixifan.com/content/2021_3_31/1.6172010778982751E9.png",
+				"medal": {
+					"uperID": 2869300,
+					"userID": 4386812,
+					"clubName": "小金毛",
+					"level": 13
+				},
+				"managerType": 0
+			}
+		},
+		"content": "桃老板知道脸盆"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750259770,
+			"userInfo": {
+				"userID": 895411,
+				"nickname": "屠龍之技",
+				"avatar": "https://imgs.aixifan.com/Fvw1BJOeax5XISjwswc1fa9lGMUy",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 895411,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750258969",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750260536,
+			"userInfo": {
+				"userID": 10203030,
+				"nickname": "累了比克",
+				"avatar": "https://imgs.aixifan.com/content/2020_05_29/1590758170913.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 10203030,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"content": "新的商机出现了"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750261473,
+			"userInfo": {
+				"userID": 35662,
+				"nickname": "立直一发断幺九",
+				"avatar": "https://imgs.aixifan.com/content/2020_06_30/1593513326689.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 35662,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"content": "( ﾟ∀。)( ﾟ∀。)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750261532,
+			"userInfo": {
+				"userID": 466587,
+				"nickname": "秋哥嘛时候带肥肥进尊爵鸭",
+				"avatar": "https://imgs.aixifan.com/content/2019_12_19/1.5767429615777757E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 466587,
+					"clubName": "ACER",
+					"level": 2
+				},
+				"managerType": 0
+			}
+		},
+		"content": "桃老板想鲨了他"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750261605,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750263563,
+			"userInfo": {
+				"userID": 51146081,
+				"nickname": "死记解说",
+				"avatar": "https://imgs.aixifan.com/content/2021_04_18/1618726950199.JPG",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"content": "皮克挑"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750265957,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750273192,
+			"userInfo": {
+				"userID": 235096,
+				"nickname": "在妹子海上荡漾的水手",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/E4K24NYXU3gkgMWiZS8RHkFBRlpiB0D1.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 235096,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "打不过还行"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750276641,
+			"userInfo": {
+				"userID": 35662,
+				"nickname": "立直一发断幺九",
+				"avatar": "https://imgs.aixifan.com/content/2020_06_30/1593513326689.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 35662,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"content": "( ﾟ∀。)( ﾟ∀。)"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750278255,
+		"userInfo": {
+			"userID": 1838779,
+			"nickname": "滴嘟侠",
+			"avatar": "https://imgs.aixifan.com/FkKsRhThv7XoAQ3U_GrLWywdqKoq",
+			"medal": {
+				"uperID": 156843,
+				"userID": 1838779,
+				"clubName": "人传人",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750279280,
+			"userInfo": {
+				"userID": 4386812,
+				"nickname": "限定单推的炫123",
+				"avatar": "https://imgs.aixifan.com/content/2021_3_31/1.6172010778982751E9.png",
+				"medal": {
+					"uperID": 2869300,
+					"userID": 4386812,
+					"clubName": "小金毛",
+					"level": 13
+				},
+				"managerType": 0
+			}
+		},
+		"content": "||"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750280578,
+			"userInfo": {
+				"userID": 51146081,
+				"nickname": "死记解说",
+				"avatar": "https://imgs.aixifan.com/content/2021_04_18/1618726950199.JPG",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"content": "皮克木北"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750282297,
+		"userInfo": {
+			"userID": 35920638,
+			"nickname": "醉心墙",
+			"avatar": "https://imgs.aixifan.com/content/2020_12_4/1.6070121634909198E9.png",
+			"medal": {
+				"uperID": 13578894,
+				"userID": 35920638,
+				"clubName": "楼家军",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750283373,
+			"userInfo": {
+				"userID": 332036,
+				"nickname": "我永远喜欢甜小喵樱桃还有蛋壳君",
+				"avatar": "https://imgs.aixifan.com/content/2020_5_4/1.5885900434574907E9.png",
+				"medal": {
+					"uperID": 156843,
+					"userID": 332036,
+					"clubName": "人传人",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750283504,
+			"userInfo": {
+				"userID": 270352,
+				"nickname": "我就是来打酱油的",
+				"avatar": "https://imgs.aixifan.com/content/2021_1_26/1.6116643376204433E9.gif",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 270352,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？？？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750286360,
+			"userInfo": {
+				"userID": 13328739,
+				"nickname": "拓海大战老司机",
+				"avatar": "https://imgs.aixifan.com/FrhxdZsUgm4Ujn1Lv3Xettb18y2l",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 13328739,
+					"clubName": "ACER",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？？？？？？？？？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750286557,
+			"userInfo": {
+				"userID": 3260851,
+				"nickname": "短发芝麻凛",
+				"avatar": "https://imgs.aixifan.com/content/2021_1_7/1.6100336442164714E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "1ac5dba0-4337-4bdd-861e-465320b8c3c0",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750288317,
+			"userInfo": {
+				"userID": 748555,
+				"nickname": "嘴硬的男人",
+				"avatar": "https://imgs.aixifan.com/content/2020_7_5/1.5939125626213293E9.png",
+				"medal": {
+					"uperID": 2889712,
+					"userID": 748555,
+					"clubName": "小夜灯",
+					"level": 12
+				},
+				"managerType": 0
+			}
+		},
+		"content": "是真皮，烧得着！"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750288196,
+			"userInfo": {
+				"userID": 21264098,
+				"nickname": "11月的樂",
+				"avatar": "https://imgs.aixifan.com/FlavvsJTIUVLjxN2porekt4lfbaG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 21264098,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"content": "、"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750289834,
+			"userInfo": {
+				"userID": 12910121,
+				"nickname": "_千泷ゝ",
+				"avatar": "https://imgs.aixifan.com/content/2020_3_9/1.5836862591499214E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 12910121,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"content": "？？？"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1000,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750289497,
+			"userInfo": {
+				"userID": 200512,
+				"nickname": "星旋飞转",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/9tdc4neyU9s3w4Z7kMHKtLgH9CZl8UVD.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 200512,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"content": "好家伙"
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750293323,
+			"userInfo": {
+				"userID": 3260851,
+				"nickname": "短发芝麻凛",
+				"avatar": "https://imgs.aixifan.com/content/2021_1_7/1.6100336442164714E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "9e544581-bf69-494b-9c26-d51be876683a",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750296550,
+			"userInfo": {
+				"userID": 3260851,
+				"nickname": "短发芝麻凛",
+				"avatar": "https://imgs.aixifan.com/content/2021_1_7/1.6100336442164714E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 2,
+		"value": 5,
+		"comboID": "9e544581-bf69-494b-9c26-d51be876683a",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750299257,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750307574,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750319923,
+			"userInfo": {
+				"userID": 8196314,
+				"nickname": "阿婵真的很温柔",
+				"avatar": "https://imgs.aixifan.com/content/2021_3_27/1.6168082907673726E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 8196314,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750319424",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750322070,
+		"userInfo": {
+			"userID": 350745,
+			"nickname": "有我在身后",
+			"avatar": "https://imgs.aixifan.com/content/2021_03_31/1617182668526.JPG",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750324253,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750332427,
+		"userInfo": {
+			"userID": 1838779,
+			"nickname": "滴嘟侠",
+			"avatar": "https://imgs.aixifan.com/FkKsRhThv7XoAQ3U_GrLWywdqKoq",
+			"medal": {
+				"uperID": 156843,
+				"userID": 1838779,
+				"clubName": "人传人",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750336564,
+		"userInfo": {
+			"userID": 1835492,
+			"nickname": "御坂伯爵",
+			"avatar": "https://imgs.aixifan.com/content/2021_1_25/1.6115881005712943E9.png",
+			"medal": {
+				"uperID": 30352828,
+				"userID": 1835492,
+				"clubName": "三班岛",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750345077,
+		"userInfo": {
+			"userID": 483242,
+			"nickname": "唯幕爱Lolita",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_1/1.612149781430459E9.png",
+			"medal": {
+				"uperID": 4425861,
+				"userID": 483242,
+				"clubName": "鸽屋咕",
+				"level": 13
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750353259,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750357485,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "aa7b49d9-611b-4289-8901-0ebd1ecff7fe",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750363421,
+		"userInfo": {
+			"userID": 3068077,
+			"nickname": "草长莺飞少年郎",
+			"avatar": "https://imgs.aixifan.com/content/2021_3_24/1.6165565241082408E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 3068077,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750367555,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750369559,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750375774,
+			"userInfo": {
+				"userID": 13100277,
+				"nickname": "沐栀玖_",
+				"avatar": "https://imgs.aixifan.com/FraWRb96i-jJUjuhpAuwDMV94D-a",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 13100277,
+					"clubName": "ACER",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750375978",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750381325,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "68a5a52f-2df6-4ea5-97d2-a3dfefad2349",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750384215,
+		"userInfo": {
+			"userID": 1838779,
+			"nickname": "滴嘟侠",
+			"avatar": "https://imgs.aixifan.com/FkKsRhThv7XoAQ3U_GrLWywdqKoq",
+			"medal": {
+				"uperID": 156843,
+				"userID": 1838779,
+				"clubName": "人传人",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750386270,
+		"userInfo": {
+			"userID": 390437,
+			"nickname": "巴豆君",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_21/1.6138984341725445E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 390437,
+				"clubName": "ACER",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750394377,
+			"userInfo": {
+				"userID": 751191,
+				"nickname": "寻找昨日的足迹",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/dzEO9eXNaGkOTbfua8tIYeVduK4UtCvH.jpg",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 751191,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 62,
+			"giftName": "窜天猴",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 266,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20210208170330MIvTuZDy.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20210208170335Giqikuat.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20210208170339RqaGwyZc.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 23256,
+			"description": "新年限定窜天猴 boom",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 266000,
+		"comboID": "48B7F991-F1A4-4A67-AA05-5AD852F7F702",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750396591,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750398652,
+		"userInfo": {
+			"userID": 902042,
+			"nickname": "肥肥✄╰ひ╯",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6186836883199768E9.png",
+			"medal": {
+				"uperID": 36526321,
+				"userID": 902042,
+				"clubName": "薰宝",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750403651,
+			"userInfo": {
+				"userID": 30119029,
+				"nickname": "言尘钰",
+				"avatar": "https://imgs.aixifan.com/content/2021_2_1/1.6121479808949914E9.png",
+				"medal": {
+					"uperID": 40909488,
+					"userID": 30119029,
+					"clubName": "云养狗",
+					"level": 4
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "be121d58-189f-4fcd-bb0c-1931c7fcc738",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750405088,
+		"userInfo": {
+			"userID": 3457495,
+			"nickname": "与你共微醺",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_3/1.6173841445455878E9.png",
+			"medal": {
+				"uperID": 13722552,
+				"userID": 3457495,
+				"clubName": "iPeach",
+				"level": 7
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750411335,
+		"userInfo": {
+			"userID": 736040,
+			"nickname": "暂别名、",
+			"avatar": "https://imgs.aixifan.com/content/2021_1_1/1.6094832456421192E9.png",
+			"medal": {
+				"uperID": 38068231,
+				"userID": 736040,
+				"clubName": "海王",
+				"level": 8
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750413209,
+			"userInfo": {
+				"userID": 13045305,
+				"nickname": "青山依就",
+				"avatar": "https://imgs.aixifan.com/o_1e07os3tb1bhjgq488tg5o16787.gif",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 13045305,
+					"clubName": "ACER",
+					"level": 5
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750413024",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750417405,
+		"userInfo": {
+			"userID": 3068077,
+			"nickname": "草长莺飞少年郎",
+			"avatar": "https://imgs.aixifan.com/content/2021_3_24/1.6165565241082408E9.png",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 3068077,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750419616,
+		"userInfo": {
+			"userID": 3223964,
+			"nickname": "AC娘本体AcFun唯一指定老公",
+			"avatar": "https://imgs.aixifan.com/content/2021_3_21/1.6163034737529202E9.gif",
+			"medal": {
+				"uperID": 179922,
+				"userID": 3223964,
+				"clubName": "黎明",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750420012,
+			"userInfo": {
+				"userID": 1419228,
+				"nickname": "火箭少女-101",
+				"avatar": "https://imgs.aixifan.com/content/2020_5_4/1.5885534005014815E9.png",
+				"medal": {
+					"uperID": 20680343,
+					"userID": 1419228,
+					"clubName": "酱紫鸭",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "9fb8d9cf-53ea-45c2-af22-c774c3fcdbb4",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750421644,
+		"userInfo": {
+			"userID": 1835492,
+			"nickname": "御坂伯爵",
+			"avatar": "https://imgs.aixifan.com/content/2021_1_25/1.6115881005712943E9.png",
+			"medal": {
+				"uperID": 30352828,
+				"userID": 1835492,
+				"clubName": "三班岛",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750423065,
+			"userInfo": {
+				"userID": 1419228,
+				"nickname": "火箭少女-101",
+				"avatar": "https://imgs.aixifan.com/content/2020_5_4/1.5885534005014815E9.png",
+				"medal": {
+					"uperID": 20680343,
+					"userID": 1419228,
+					"clubName": "酱紫鸭",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 2,
+		"value": 5,
+		"comboID": "9fb8d9cf-53ea-45c2-af22-c774c3fcdbb4",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750428134,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750431805,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "a2d5a794-298f-45ed-b6e0-f89a5fcc06a5",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750440871,
+			"userInfo": {
+				"userID": 20041417,
+				"nickname": "黑色的大风",
+				"avatar": "https://imgs.aixifan.com/content/2020_11_15/1.6054160265312538E9.png",
+				"medal": {
+					"uperID": 13441415,
+					"userID": 20041417,
+					"clubName": "冰工厂",
+					"level": 3
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "03c87bb5-2d6a-460f-beb3-93a8fc5257fa",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750442552,
+		"userInfo": {
+			"userID": 299712,
+			"nickname": "海监51",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187150558878736E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750444625,
+		"userInfo": {
+			"userID": 56743,
+			"nickname": "死鱼眼",
+			"avatar": "https://imgs.aixifan.com/FuEM1cPzazxBs9qENnLHcLDN_U1f",
+			"medal": {
+				"uperID": 17912421,
+				"userID": 56743,
+				"clubName": "魂球球",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750451520,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "861aa904-3c7c-4043-b3be-ae656388d495",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750460447,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "155c5dfb-3f0b-4f2a-9e33-a013eb8b17a7",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750463375,
+		"userInfo": {
+			"userID": 45384,
+			"nickname": "伪宅-R",
+			"avatar": "https://imgs.aixifan.com/Fi_pN-fPiP1RTVBNTLD1bMsVP0Vs",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 45384,
+				"clubName": "ACER",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750475597,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "416c2ffe-397a-41ed-8193-53c039ea70aa",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1001,
+	"data": {
+		"sendTime": 1618750475928,
+		"userInfo": {
+			"userID": 449547,
+			"nickname": "秩宇",
+			"avatar": "https://imgs.aixifan.com/content/2021_1_1/1.6094731601200912E9.png",
+			"medal": {
+				"uperID": 69065,
+				"userID": 449547,
+				"clubName": "萌大奈",
+				"level": 6
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750478805,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 2,
+		"value": 1,
+		"comboID": "416c2ffe-397a-41ed-8193-53c039ea70aa",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750483253,
+			"userInfo": {
+				"userID": 230072,
+				"nickname": "暗舞梦",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/Le1D5TEsR6oULMxEksIOxqyNbq15997m.jpg",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "2057115a-ee5f-418d-9b62-455bd64d6646",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750486416,
+			"userInfo": {
+				"userID": 230072,
+				"nickname": "暗舞梦",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/Le1D5TEsR6oULMxEksIOxqyNbq15997m.jpg",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 2,
+		"value": 5,
+		"comboID": "2057115a-ee5f-418d-9b62-455bd64d6646",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750488554,
+			"userInfo": {
+				"userID": 21150781,
+				"nickname": "我的后宫不止30000000",
+				"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187481146928952E9.png",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "4967d3ae-28aa-4a90-8b0c-5ee8cdf6df32",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750493729,
+			"userInfo": {
+				"userID": 24946817,
+				"nickname": "学习菌",
+				"avatar": "https://imgs.aixifan.com/FqKOMUjyS1CkCTlikY1VeHTOU1Wt",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 24946817,
+					"clubName": "ACER",
+					"level": 10
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 17,
+			"giftName": "快乐水",
+			"arLiveName": "",
+			"payWalletType": 1,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200326112424sejuRxJc.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812140941rMziAHwK.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200319210318GwMNEDGy.png",
+			"allowBatchSendSizeList": [1, 6, 10, 66, 233],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 330,
+			"description": "快乐肥宅喝肥宅快乐水，快乐无比",
+			"redpackPrice": 0
+		},
+		"count": 10,
+		"combo": 1,
+		"value": 10000,
+		"comboID": "17_17_1618750492361",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750579307,
+			"userInfo": {
+				"userID": 12910121,
+				"nickname": "_千泷ゝ",
+				"avatar": "https://imgs.aixifan.com/content/2020_3_9/1.5836862591499214E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 12910121,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750577732",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750580419,
+			"userInfo": {
+				"userID": 19880270,
+				"nickname": "月下的三三",
+				"avatar": "https://imgs.aixifan.com/style/image/201908/gfLojtdxmebZOE1Ru088Axtu9btlSNkQ.jpg",
+				"medal": {
+					"uperID": 36626547,
+					"userID": 19880270,
+					"clubName": "小铃铛",
+					"level": 6
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750581860",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750581779,
+			"userInfo": {
+				"userID": 4044988,
+				"nickname": "好名都被占用了",
+				"avatar": "https://imgs.aixifan.com/content/2020_11_15/1.6054231641344233E9.png",
+				"medal": {
+					"uperID": 20680343,
+					"userID": 4044988,
+					"clubName": "酱紫鸭",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750595956",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750587707,
+			"userInfo": {
+				"userID": 26363425,
+				"nickname": "中华田园鹰",
+				"avatar": "https://imgs.aixifan.com/content/2021_2_1/1.6121915687127357E9.png",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 26363425,
+					"clubName": "ACER",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "49879144-2b4e-4505-a8e0-bf5837c203ec",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750588312,
+			"userInfo": {
+				"userID": 900725,
+				"nickname": "⎛⎝wechen⎠⎞",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/vU5lgvYWesqdBYN18vYC7Psg6207rEWv.jpg",
+				"medal": {
+					"uperID": 156843,
+					"userID": 900725,
+					"clubName": "人传人",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "25471352-F950-466C-A07F-348F6BAF86FA",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750590059,
+			"userInfo": {
+				"userID": 243479,
+				"nickname": "saber⑨",
+				"avatar": "https://imgs.aixifan.com/style/image/201907/u8pGpuqiQghqte2EQ5Y8hlf69AHArFA2.jpg",
+				"medal": {
+					"uperID": 0,
+					"userID": 0,
+					"clubName": "",
+					"level": 0
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "6e90dea5-c428-4863-9afc-2f0554c72c70",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750623449,
+			"userInfo": {
+				"userID": 2109232,
+				"nickname": "我的老婆就是那么可爱",
+				"avatar": "https://imgs.aixifan.com/content/2020_01_21/1579578297650.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 2109232,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "89EE1EF7-2D58-4731-80B4-8941EC4D2B2B",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750644886,
+			"userInfo": {
+				"userID": 902808,
+				"nickname": "问痴愚",
+				"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+				"medal": {
+					"uperID": 934542,
+					"userID": 902808,
+					"clubName": "理智+1",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750582024",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750698627,
+			"userInfo": {
+				"userID": 269833,
+				"nickname": "lifyir",
+				"avatar": "https://imgs.aixifan.com/Fu7XYwBZJtLUFIw4SWR-dMjYXx_p",
+				"medal": {
+					"uperID": 79951,
+					"userID": 269833,
+					"clubName": "雅咩咯",
+					"level": 2
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750698430",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750698941,
+			"userInfo": {
+				"userID": 4669593,
+				"nickname": "妖魔公主小光辉",
+				"avatar": "https://imgs.aixifan.com/content/2021_3_25/1.6166130934249752E9.png",
+				"medal": {
+					"uperID": 3568347,
+					"userID": 4669593,
+					"clubName": "鱼骨喵",
+					"level": 7
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750698759",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750780044,
+			"userInfo": {
+				"userID": 4259125,
+				"nickname": "我朋友的女朋友的朋友的男朋女",
+				"avatar": "https://imgs.aixifan.com/content/2021_03_07/1615051845429.JPG",
+				"medal": {
+					"uperID": 6091146,
+					"userID": 4259125,
+					"clubName": "大少爷",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750780303",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750786195,
+			"userInfo": {
+				"userID": 4259125,
+				"nickname": "我朋友的女朋友的朋友的男朋女",
+				"avatar": "https://imgs.aixifan.com/content/2021_03_07/1615051845429.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 4259125,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 1,
+		"combo": 1,
+		"value": 1,
+		"comboID": "1_1_1618750786475",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750790423,
+			"userInfo": {
+				"userID": 4259125,
+				"nickname": "我朋友的女朋友的朋友的男朋女",
+				"avatar": "https://imgs.aixifan.com/content/2021_03_07/1615051845429.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 4259125,
+					"clubName": "ACER",
+					"level": 9
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750780303",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750801084,
+			"userInfo": {
+				"userID": 668055,
+				"nickname": "RIVRON",
+				"avatar": "https://imgs.aixifan.com/content/2020_7_10/1.5943632436460855E9.gif",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 668055,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "18142827-44cd-4aa4-bb97-d4ba6ae6f692",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750808946,
+			"userInfo": {
+				"userID": 668055,
+				"nickname": "RIVRON",
+				"avatar": "https://imgs.aixifan.com/content/2020_7_10/1.5943632436460855E9.gif",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 668055,
+					"clubName": "ACER",
+					"level": 11
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "b235fb1b-e939-4d0a-a02b-740ad94147a9",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1005,
+	"data": {
+		"danmuInfo": {
+			"sendTime": 1618750818990,
+			"userInfo": {
+				"userID": 363537,
+				"nickname": "天网系统",
+				"avatar": "https://imgs.aixifan.com/content/2021_04_07/1617786228947.JPG",
+				"medal": {
+					"uperID": 23682490,
+					"userID": 363537,
+					"clubName": "ACER",
+					"level": 8
+				},
+				"managerType": 0
+			}
+		},
+		"giftDetail": {
+			"giftID": 1,
+			"giftName": "香蕉",
+			"arLiveName": "",
+			"payWalletType": 2,
+			"price": 1,
+			"webpPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101317UbXssBoH.webp",
+			"pngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200812141711JRxMyUWH.png",
+			"smallPngPic": "https://static.yximgs.com/bs2/giftCenter/giftCenter-20200316101519KncIIcdd.png",
+			"allowBatchSendSizeList": [1, 5],
+			"canCombo": true,
+			"canDraw": false,
+			"magicFaceID": 0,
+			"description": "达成蕉易，投蕉鼓励！",
+			"redpackPrice": 0
+		},
+		"count": 5,
+		"combo": 1,
+		"value": 5,
+		"comboID": "1_1_1618750819555",
+		"slotDisplayDuration": 3000,
+		"ExpireDuration": 300000,
+		"drawGiftInfo": {
+			"screenWidth": 0,
+			"screenHeight": 0,
+			"drawPoint": null
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618752343257,
+		"fansInfo": {
+			"userID": 20785209,
+			"nickname": "假面骑士白给",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618752944796,
+		"fansInfo": {
+			"userID": 820765,
+			"nickname": "围观ac⑨众",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618753513207,
+		"fansInfo": {
+			"userID": 1891315,
+			"nickname": "温柔的豆芽菜",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618753707183,
+		"fansInfo": {
+			"userID": 16061733,
+			"nickname": "为明天献出虔诚的祈祷",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618754392887,
+		"fansInfo": {
+			"userID": 440526,
+			"nickname": "Darren_乱月",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618754428616,
+		"fansInfo": {
+			"userID": 16430481,
+			"nickname": "Sirius-翊宸",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618755872938,
+		"fansInfo": {
+			"userID": 24780553,
+			"nickname": "我不受欢迎怎么想都是Acer的错",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618755881188,
+		"fansInfo": {
+			"userID": 6478943,
+			"nickname": "大豆奶茶",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618756084241,
+		"fansInfo": {
+			"userID": 13241702,
+			"nickname": "“io”",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618756452762,
+		"fansInfo": {
+			"userID": 84300,
+			"nickname": "stnts",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618756525941,
+		"fansInfo": {
+			"userID": 21927051,
+			"nickname": "恰饭用勺",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618757545534,
+		"fansInfo": {
+			"userID": 1499897,
+			"nickname": "蓝白条纹哒",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618752343257,
+		"fansInfo": {
+			"userID": 20785209,
+			"nickname": "假面骑士白给",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618752944796,
+		"fansInfo": {
+			"userID": 820765,
+			"nickname": "围观ac⑨众",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618753513207,
+		"fansInfo": {
+			"userID": 1891315,
+			"nickname": "温柔的豆芽菜",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618753707183,
+		"fansInfo": {
+			"userID": 16061733,
+			"nickname": "为明天献出虔诚的祈祷",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618754392887,
+		"fansInfo": {
+			"userID": 440526,
+			"nickname": "Darren_乱月",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618754428616,
+		"fansInfo": {
+			"userID": 16430481,
+			"nickname": "Sirius-翊宸",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618755872938,
+		"fansInfo": {
+			"userID": 24780553,
+			"nickname": "我不受欢迎怎么想都是Acer的错",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618755881188,
+		"fansInfo": {
+			"userID": 6478943,
+			"nickname": "大豆奶茶",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618756084241,
+		"fansInfo": {
+			"userID": 13241702,
+			"nickname": "“io”",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618756452762,
+		"fansInfo": {
+			"userID": 84300,
+			"nickname": "stnts",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618756525941,
+		"fansInfo": {
+			"userID": 21927051,
+			"nickname": "恰饭用勺",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618757545534,
+		"fansInfo": {
+			"userID": 1499897,
+			"nickname": "蓝白条纹哒",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 23682490,
+	"type": 1007,
+	"data": {
+		"joinTime": 1618759087281,
+		"fansInfo": {
+			"userID": 2347262,
+			"nickname": "Akira_Exia",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		},
+		"uperInfo": {
+			"userID": 23682490,
+			"nickname": "AC娘本体",
+			"avatar": "",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651911491,
+		"userInfo": {
+			"userID": 1324916,
+			"nickname": "阿姆斯特朗高速炮",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/iUB2p71xTNPhC8qP4r9YGQZ3TyC7d7KL.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651911214,
+		"userInfo": {
+			"userID": 954540,
+			"nickname": "🍥佳佳佳佳Ju🍥",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/UH0AWhbaTCt7IH0Os2IQeGGRxuSItP1k.jpg",
+			"medal": {
+				"uperID": 16005,
+				"userID": 954540,
+				"clubName": "坏女人",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651906148,
+		"userInfo": {
+			"userID": 567255,
+			"nickname": "我的一样",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/2u5OX87kwii8i2gwrmwZKdlkPS4qpx8v.jpg",
+			"medal": {
+				"uperID": 378269,
+				"userID": 567255,
+				"clubName": "QQ星",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651906176,
+		"userInfo": {
+			"userID": 252143,
+			"nickname": "执行者No.XV",
+			"avatar": "https://imgs.aixifan.com/content/2020_11_4/1.6044860447010798E9.png",
+			"medal": {
+				"uperID": 1384329,
+				"userID": 252143,
+				"clubName": "在画了",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651901789,
+		"userInfo": {
+			"userID": 284558,
+			"nickname": "小兵路过病毒",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/t4VbupMBf07nANSP74GlqPAu9mhHohzd.jpg",
+			"medal": {
+				"uperID": 23682490,
+				"userID": 284558,
+				"clubName": "ACER",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651900729,
+		"userInfo": {
+			"userID": 13404902,
+			"nickname": "阿婵好可爱，好想给她来一拳",
+			"avatar": "https://imgs.aixifan.com/content/2020_11_3/1.6043985412571294E9.png",
+			"medal": {
+				"uperID": 156843,
+				"userID": 13404902,
+				"clubName": "人传人",
+				"level": 7
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651896404,
+		"userInfo": {
+			"userID": 14324847,
+			"nickname": "ACer_我永远爱着白石同学",
+			"avatar": "https://imgs.aixifan.com/content/2019_7_1/1.5619359200112581E9.png",
+			"medal": {
+				"uperID": 44753354,
+				"userID": 14324847,
+				"clubName": "夜上海",
+				"level": 6
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651896403,
+		"userInfo": {
+			"userID": 32098395,
+			"nickname": "翎音酱",
+			"avatar": "https://imgs.aixifan.com/FvusaJdOrQIW5Q9WqruB4s4dur12",
+			"medal": {
+				"uperID": 1447414,
+				"userID": 32098395,
+				"clubName": "熊孩子",
+				"level": 2
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651890070,
+		"userInfo": {
+			"userID": 19349917,
+			"nickname": "今天你提了吗",
+			"avatar": "https://imgs.aixifan.com/content/2021_2_3/1.6123357712716866E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651890130,
+		"userInfo": {
+			"userID": 879762,
+			"nickname": "唯一。",
+			"avatar": "https://imgs.aixifan.com/content/2021_3_28/1.6169079953050408E9.png",
+			"medal": {
+				"uperID": 716009,
+				"userID": 879762,
+				"clubName": "LSP",
+				"level": 13
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651884851,
+		"userInfo": {
+			"userID": 12906325,
+			"nickname": "大羊驼",
+			"avatar": "https://imgs.aixifan.com/Fh5lPCJn5VGpnvZklOVAAv_F4nOG",
+			"medal": {
+				"uperID": 378269,
+				"userID": 12906325,
+				"clubName": "QQ星",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651873943,
+		"userInfo": {
+			"userID": 13107803,
+			"nickname": "HyperGhost",
+			"avatar": "https://imgs.aixifan.com/FthOMz0yi_4uzZihCb9AwW1MG__s",
+			"medal": {
+				"uperID": 378269,
+				"userID": 13107803,
+				"clubName": "QQ星",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651874131,
+		"userInfo": {
+			"userID": 1057545,
+			"nickname": "雾雨魔梨莎",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/yvQk37iaomVpNBu9yDMfQe5lQjeydyVd.jpg",
+			"medal": {
+				"uperID": 378269,
+				"userID": 1057545,
+				"clubName": "QQ星",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651869210,
+		"userInfo": {
+			"userID": 416752,
+			"nickname": "tsukasalol",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/VjGxEmosNCfu0xjgoNLzFrK1CKMO4ZoN.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651868588,
+		"userInfo": {
+			"userID": 535674,
+			"nickname": "Dashi919",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_18/1.6187474042769537E9.png",
+			"medal": {
+				"uperID": 378269,
+				"userID": 535674,
+				"clubName": "QQ星",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651863264,
+		"userInfo": {
+			"userID": 706820,
+			"nickname": "我还真是个笨蛋呢",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/pt35RJ1eOXYvR6MLaHjWxsbV1ezEnG4c.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651863532,
+		"userInfo": {
+			"userID": 11632035,
+			"nickname": "梅文尔",
+			"avatar": "https://imgs.aixifan.com/content/2019_06_18/1560872657759.JPG",
+			"medal": {
+				"uperID": 36526321,
+				"userID": 11632035,
+				"clubName": "薰宝",
+				"level": 7
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651856910,
+		"userInfo": {
+			"userID": 23434314,
+			"nickname": "绯色之镜",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 156843,
+				"userID": 23434314,
+				"clubName": "人传人",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651857437,
+		"userInfo": {
+			"userID": 410656,
+			"nickname": "请叫我滚去学习=_=",
+			"avatar": "https://imgs.aixifan.com/content/2020_7_18/1.595006468458657E9.png",
+			"medal": {
+				"uperID": 378269,
+				"userID": 410656,
+				"clubName": "QQ星",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651851605,
+		"userInfo": {
+			"userID": 12885092,
+			"nickname": "后面进去更香",
+			"avatar": "https://imgs.aixifan.com/content/2020_5_18/1.5897566451578639E9.png",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651851634,
+		"userInfo": {
+			"userID": 1324916,
+			"nickname": "阿姆斯特朗高速炮",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/iUB2p71xTNPhC8qP4r9YGQZ3TyC7d7KL.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651845841,
+		"userInfo": {
+			"userID": 252143,
+			"nickname": "执行者No.XV",
+			"avatar": "https://imgs.aixifan.com/content/2020_11_4/1.6044860447010798E9.png",
+			"medal": {
+				"uperID": 1384329,
+				"userID": 252143,
+				"clubName": "在画了",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651845459,
+		"userInfo": {
+			"userID": 372736,
+			"nickname": "吓你一跳",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/ffmdkO9Aj7oUX5OtjjBFiFo2jiDNJIPW.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651839895,
+		"userInfo": {
+			"userID": 2428726,
+			"nickname": "魏武帝曹操",
+			"avatar": "https://imgs.aixifan.com/content/2021_3_17/1.6159816847999256E9.png",
+			"medal": {
+				"uperID": 23512715,
+				"userID": 2428726,
+				"clubName": "哥思辣",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651839287,
+		"userInfo": {
+			"userID": 502115,
+			"nickname": "小霸王max",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651836032,
+		"userInfo": {
+			"userID": 347290,
+			"nickname": "郁闷的梦",
+			"avatar": "https://imgs.aixifan.com/content/2020_9_2/1.5990021831298213E9.png",
+			"medal": {
+				"uperID": 38393515,
+				"userID": 347290,
+				"clubName": "中之人",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651836033,
+		"userInfo": {
+			"userID": 8378191,
+			"nickname": "我比阿苇彩一苇",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 156843,
+				"userID": 8378191,
+				"clubName": "人传人",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651833967,
+		"userInfo": {
+			"userID": 1558049,
+			"nickname": "lsyzcd",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651828960,
+		"userInfo": {
+			"userID": 1232378,
+			"nickname": "一谭",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/M2QoSjL8ZnUDT1phMox1xKcJgUrvKcNB.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651828794,
+		"userInfo": {
+			"userID": 328435,
+			"nickname": "chocobo001",
+			"avatar": "https://imgs.aixifan.com/content/2021_1_6/1.6099177216275954E9.png",
+			"medal": {
+				"uperID": 13495525,
+				"userID": 328435,
+				"clubName": "摸凸猪",
+				"level": 5
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651823258,
+		"userInfo": {
+			"userID": 567255,
+			"nickname": "我的一样",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/2u5OX87kwii8i2gwrmwZKdlkPS4qpx8v.jpg",
+			"medal": {
+				"uperID": 378269,
+				"userID": 567255,
+				"clubName": "QQ星",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651823600,
+		"userInfo": {
+			"userID": 36406026,
+			"nickname": "寒冷的冬末",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 378269,
+				"userID": 36406026,
+				"clubName": "QQ星",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651820153,
+		"userInfo": {
+			"userID": 2443185,
+			"nickname": "上天入地无所不能李桑苏",
+			"avatar": "https://imgs.aixifan.com/Fq5YywDagYSgmED9jx0z4DXbhzOy",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651818195,
+		"userInfo": {
+			"userID": 1431657,
+			"nickname": "是acer啊",
+			"avatar": "https://imgs.aixifan.com/content/2020_12_25/1.6088642705857787E9.png",
+			"medal": {
+				"uperID": 378269,
+				"userID": 1431657,
+				"clubName": "QQ星",
+				"level": 9
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651813648,
+		"userInfo": {
+			"userID": 126520,
+			"nickname": "春日野 悠",
+			"avatar": "https://imgs.aixifan.com/content/2021_4_23/1.619133416856731E9.png",
+			"medal": {
+				"uperID": 30352828,
+				"userID": 126520,
+				"clubName": "三班岛",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651812909,
+		"userInfo": {
+			"userID": 410088,
+			"nickname": "阿鲁卡哆",
+			"avatar": "https://imgs.aixifan.com/content/2021_05_06/1620239856907.JPG",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651808623,
+		"userInfo": {
+			"userID": 13438547,
+			"nickname": "VV-ASD",
+			"avatar": "https://imgs.aixifan.com/content/2020_11_9/1.6048529664021883E9.png",
+			"medal": {
+				"uperID": 378269,
+				"userID": 13438547,
+				"clubName": "QQ星",
+				"level": 11
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651807519,
+		"userInfo": {
+			"userID": 2194591,
+			"nickname": "AC驴本驴",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/u24TvJgLTEqOHjtFddFUr9ukg5xwKL6b.jpg",
+			"medal": {
+				"uperID": 14500422,
+				"userID": 2194591,
+				"clubName": "爱卿",
+				"level": 4
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651802319,
+		"userInfo": {
+			"userID": 1275205,
+			"nickname": "我丶何曾离开",
+			"avatar": "https://imgs.aixifan.com/FjYdpKzSk6VQzjad10uHRqFEKPkK",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651802287,
+		"userInfo": {
+			"userID": 41080542,
+			"nickname": "李鲁閗",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651797483,
+		"userInfo": {
+			"userID": 977227,
+			"nickname": "Biglovepanpan",
+			"avatar": "https://imgs.aixifan.com/FlVkg42SoT4S7OeBAtQ3XBgvcN20",
+			"medal": {
+				"uperID": 378269,
+				"userID": 977227,
+				"clubName": "QQ星",
+				"level": 10
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651797154,
+		"userInfo": {
+			"userID": 33815616,
+			"nickname": "ヽ(ˋДˊ)ノ去！卍卍卍",
+			"avatar": "https://imgs.aixifan.com/content/2020_10_24/1.6035358127145908E9.png",
+			"medal": {
+				"uperID": 2869300,
+				"userID": 33815616,
+				"clubName": "小金毛",
+				"level": 7
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651792055,
+		"userInfo": {
+			"userID": 1324916,
+			"nickname": "阿姆斯特朗高速炮",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/iUB2p71xTNPhC8qP4r9YGQZ3TyC7d7KL.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651792387,
+		"userInfo": {
+			"userID": 142946,
+			"nickname": "•π",
+			"avatar": "https://imgs.aixifan.com/FuVlA2TbXhxrHZfZ7Y7OKZ9YRN9B",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651786965,
+		"userInfo": {
+			"userID": 166983,
+			"nickname": "Kana:d",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651787691,
+		"userInfo": {
+			"userID": 1128257,
+			"nickname": "止戈流·真阵",
+			"avatar": "https://imgs.aixifan.com/content/2021_03_23/1616503317205.JPG",
+			"medal": {
+				"uperID": 14455226,
+				"userID": 1128257,
+				"clubName": "冲殿宝",
+				"level": 6
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651781814,
+		"userInfo": {
+			"userID": 201401,
+			"nickname": "明神不知道",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/RLU9IXrJv4p4TxKN1M1Hju4ivHwelUud.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651781640,
+		"userInfo": {
+			"userID": 1682891,
+			"nickname": "丢的三百块钱回来了",
+			"avatar": "https://imgs.aixifan.com/style/image/201907/r4Y5R6IuAjM1C7T8bJdFQSbmN66Anb3v.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651775859,
+		"userInfo": {
+			"userID": 151584,
+			"nickname": "半步尊爵",
+			"avatar": "https://imgs.aixifan.com/content/2020_9_30/1.601398071240336E9.png",
+			"medal": {
+				"uperID": 378269,
+				"userID": 151584,
+				"clubName": "QQ星",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1002,
+	"data": {
+		"sendTime": 1620651775802,
+		"userInfo": {
+			"userID": 1536202,
+			"nickname": "Mikii丶",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "",
+				"level": 0
+			},
+			"managerType": 0
+		}
+	}
+}, {
+	"liverUID": 378269,
+	"type": 1003,
+	"data": {
+		"sendTime": 1620651724461,
+		"userInfo": {
+			"userID": 8128084,
+			"nickname": "尸油画",
+			"avatar": "https://imgs.aixifan.com/style/image/defaultAvatar.jpg",
+			"medal": {
+				"uperID": 0,
+				"userID": 0,
+				"clubName": "Acer",
+				"level": 12
+			},
+			"managerType": 0
+		}
+	}
+}]

@@ -12,13 +12,10 @@
  * <http://www.gnu.org/licenses/>。同時提供伱的電子郵寄地址或傳統的郵件聯繫方式。
  */
 
-import { Store } from "@/store"; // path to store file
-import { SelfMethods } from "@fe/api/selfMethods";
-import { Event } from "@fe/api/eventBus";
+import { Store } from "@front/store"; // path to store file
+
 declare module "@vue/runtime-core" {
 	interface ComponentCustomProperties {
 		$store: Store;
-		$Event: Event;
-		$SM: SelfMethods;
 	}
 }

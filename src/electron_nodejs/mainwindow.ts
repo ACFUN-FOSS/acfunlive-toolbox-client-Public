@@ -14,25 +14,40 @@
 
 "use strict";
 
-import { app, protocol, BrowserWindow, ipcMain } from "electron";
-import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
-import installExtension, { VUEJS_DEVTOOLS } from "electron-devtools-installer";
-import backend from "./backend";
+import {
+	app,
+	protocol,
+	BrowserWindow,
+	shell,
+	globalShortcut,
+	contentTracing
+} from "electron";
+import installExtension from "electron-devtools-installer";
+import {
+	Backend,
+	File,
+	startHttp,
+	MainWin,
+	KsApi,
+	Voice,
+	AppTest
+} from "./utils";
 const isDevelopment = process.env.NODE_ENV !== "production";
-const { spawn } = require("child_process");
+
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
 	{ scheme: "app", privileges: { secure: true, standard: true } }
 ]);
-
 async function createWindow() {
 	// Create the browser window.
 	const win = new BrowserWindow({
 		width: 1048,
 		height: 724,
+		minWidth: 300,
+		minHeight: 200,
 		frame: false,
 		show: false,
-		resizable: true,
+		resizable: false,
 		transparent: true,
 		hasShadow: false,
 		webPreferences: {
@@ -50,43 +65,46 @@ async function createWindow() {
 		win.show();
 		// win.webContents.openDevTools();
 	});
-
+	win.webContents.on("new-window", function(e, url) {
+		e.preventDefault();
+		shell.openExternal(url);
+	});
 	if (process.env.WEBPACK_DEV_SERVER_URL) {
 		// Load the url of the dev server if in development mode
 		await win.loadURL(<string>process.env.WEBPACK_DEV_SERVER_URL);
 		if (!process.env.IS_TEST) win.webContents.openDevTools();
 	} else {
-		createProtocol("app");
 		// Load the index.html when not in development
-		win.loadURL("app://./index.html");
+		startHttp().then((res: any) => {
+			win.loadURL(res);
+		});
 	}
+
+	globalShortcut.register("CommandOrControl+F1", () => {
+		win.webContents.send("switch-ignore-mode");
+	});
+	Backend.registerEvents();
+	File.registerEvents();
+	MainWin.registerEvents(win);
+	KsApi.registerEvents();
+	Voice.registerEvents();
+	AppTest.registerEvents(app);
+	Backend.init();
 }
 
 export default function init_mainwindow() {
-	backend.init();
-	ipcMain.on("backend_init", () => {
-		backend.init();
-	});
-	ipcMain.on("backend_kill", () => {
-		backend.kill();
-	});
-	ipcMain.on("backend_restart", () => {
-		backend.restart();
-	});
 	// Quit when all windows are closed.
 	app.on("window-all-closed", () => {
 		// On macOS it is common for applications and their menu bar
 		// to stay active until the user quits explicitly with Cmd + Q
-		if (process.platform !== "darwin") {
-			app.quit();
-		}
+		app.quit();
 	});
 
-	app.on("activate", () => {
-		// On macOS it's common to re-create a window in the app when the
-		// dock icon is clicked and there are no other windows open.
-		if (BrowserWindow.getAllWindows().length === 0) createWindow();
-	});
+	// app.on("activate", () => {
+	// 	// On macOS it's common to re-create a window in the app when the
+	// 	// dock icon is clicked and there are no other windows open.
+	// 	if (BrowserWindow.getAllWindows().length === 0) createWindow();
+	// });
 
 	// This method will be called when Electron has finished
 	// initialization and is ready to create browser windows.
@@ -103,6 +121,7 @@ export default function init_mainwindow() {
 				console.error("Vue Devtools failed to install:", e.toString());
 			}
 		}
+
 		createWindow();
 	});
 

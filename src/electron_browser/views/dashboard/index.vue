@@ -5,45 +5,32 @@
 			<div class="boardContent">
 				<h1>欢迎</h1>
 				<p>亲爱的 {{$store.state.userProfile.nickname}} :</p>
-				<p>{{generalConfig.welcomeDesc}}</p>
+				<p>{{welcome.message}}</p>
 			</div>
 		</row-frame>
-		<row-frame :content-default-class="true" title="使用说明">
+		<row-frame style="margin-right:32px" v-for="(item,index) in welcome.blocks" :key="index" :content-default-class="true" :title="item.title">
 			<div class="boardContent">
-				当前就一个开播功能，应该很简单吧
-			</div>
-		</row-frame>
-		<row-frame :content-default-class="true" title="更新计划">
-			<div class="boardContent">
-				<ol>
-					<li>弹幕姬（完全重写、高细粒度样式自定义、显示优化）</li>
-					<li>常用功能移植（抽奖等）</li>
-					<li>插件扩展支持</li>
+				<span v-if="item.type == 'string'">{{item.value}}</span>
+				<ol v-else-if="item.type=='list'">
+					<li v-for="(li,ind) of item.value" :key="ind">{{li}}</li>
 				</ol>
+				<div v-else-if="item.type=='html'" v-html="item.value" />
 			</div>
-		</row-frame>
-		<row-frame :content-default-class="true" title="其它相关">
-			<div class="boardContent">AC在 爱也在</div>
 		</row-frame>
 	</content-frame>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { config } from "@fe/mixins/mixin";
+import { welcome } from "@front/texts";
 export default defineComponent({
 	name: "dashboard",
-	mixins: [config],
-	data() {
-		return {};
-	},
-	computed: {},
-	watch: {},
-	methods: {}
+	computed: { welcome }
 });
 </script>
 
 <style scoped lang="scss">
+@import "@front/styles/index.scss";
 #dashboard {
 	&::before {
 		content: "";
@@ -59,7 +46,7 @@ export default defineComponent({
 		padding-bottom: 8px;
 	}
 	:deep .welcome {
-		color: var(--generalStyle_fontColor_First);
+		color: $--color-text-primary;
 		& > h1 {
 			margin-top: 0px;
 		}

@@ -11,20 +11,24 @@
  * 伱應該收到了一份GNU Affero通用公共許可第三版、它伴隨着本程序。若伱沒有收到，請查閱
  * <http://www.gnu.org/licenses/>。同時提供伱的電子郵寄地址或傳統的郵件聯繫方式。
  */
-
-import { createApp } from "vue";
-import App from "@fe/App.vue";
-import router from "@fe/router";
-import store from "@fe/store";
 import ElementPlus from "element-plus";
-import { initSM, initGlobalComp } from "@fe/api/injector";
+import "@front/styles/index.scss";
+import store from "@front/store";
+import router from "@front/router";
+import App from "@front/App.vue";
+import { initGlobalComp } from "@front/components/injector";
+import { registerMethod } from "@front/util_function/globalRegister";
+import { createApp, h } from "vue";
+import { console } from "@front/util_function/base";
+// @ts-ignore
+window.console = console();
 
-const app = createApp(App)
+const app = createApp({
+	render: () => h(App)
+})
 	.use(ElementPlus)
 	.use(router)
 	.use(store);
-
-initSM(app);
 initGlobalComp(app);
-
+registerMethod();
 app.mount("body");

@@ -1,0 +1,101 @@
+@import "@front/styles/index.scss";
+/*右键菜单*/
+body > div > div > .rightClickMenu {
+	&.rightBottom {
+		transform: translateX(0%);
+	}
+
+	&.leftBottom {
+		transform: translateX(-100%);
+	}
+
+	&.rightTop {
+		transform: translateY(-100%);
+	}
+
+	&.leftTop {
+		transform: translateX(-100%) translateY(-100%);
+	}
+}
+
+.rightClickMenu {
+	position: absolute;
+	background-color: white;
+	border: $--border-base;
+	border-radius: 3.5px;
+	color: #606266;
+	white-space: pre;
+	box-shadow: $--box-shadow-base;
+	&.rightBottom {
+		left: 0px;
+		top: 0px;
+		transform: translateX(99%);
+	}
+
+	&.leftBottom {
+		left: 0px;
+		top: 0px;
+		transform: translateX(-99%);
+	}
+
+	&.rightTop {
+		left: 0px;
+		top: 0px;
+		transform: translateX(99%) translateY(calc(-100%));
+	}
+
+	&.leftTop {
+		left: 0px;
+		top: 0px;
+		transform: translateX(-99%) translateY(calc(-100%));
+	}
+}
+
+.rightClickMenuList {
+	min-width: 140px;
+	padding: 7px 10.5px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	font-size: $--font-size-extra-small;
+	color: $--color-text-regular;
+	border-bottom: 1px solid rgba($color: $--border-color-lighter, $alpha: 0.5);
+	&:last-child {
+		border-bottom: none;
+	}
+	&.disabled {
+		color: $--color-text-secondary;
+		pointer-events: none;
+
+		& > div > span.listIcon {
+			color: rgba($color: $--color-primary, $alpha: 0.5);
+		}
+	}
+
+	& > div .listIcon {
+		display: inline-block;
+		width: 21px;
+		color: $--color-primary;
+	}
+}
+
+.rightClickMenuList:hover {
+	background-color: $--color-primary;
+	color: white;
+
+	& > div > span.listIcon {
+		color: white;
+	}
+}
+
+.listAni-enter-active,
+.listAni-leave-active {
+	transition: opacity 0.25s;
+}
+
+.listAni-enter,
+.listAni-leave-to {
+	opacity: 0;
+}

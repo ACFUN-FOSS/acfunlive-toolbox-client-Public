@@ -1,0 +1,28 @@
+@import "~element-plus/packages/theme-chalk/src/common/var.scss";
+.el-dialog__header {
+	display: flex;
+	justify-content: space-between;
+	padding: 8px 16px;
+	.el-dialog__title {
+		font-size: $--font-size-medium;
+		color: $--color-text-primary;
+	}
+	.el-dialog__headerbtn {
+		position: unset;
+	}
+}
+.el-dialog__body {
+	padding: 8px 16px;
+	& > div {
+		width: 100%;
+		white-space: pre-wrap;
+		user-select: none;
+		color: $--color-text-secondary;
+		line-height: 1.6;
+	}
+}
+.el-overlay {
+	margin: 12px;
+	height: calc(100% - 24px) !important;
+	width: calc(100% - 24px) !important;
+}

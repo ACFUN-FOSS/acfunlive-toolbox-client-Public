@@ -1,0 +1,17 @@
+@import "~element-plus/packages/theme-chalk/src/common/var.scss";
+.hint {
+	margin-top: 8px;
+	user-select: none;
+	font-size: $--font-size-small;
+	color: $--color-text-secondary;
+}
+.online {
+	user-select: none;
+	font-size: $--font-size-small;
+	color: $--color-success;
+}
+.offline {
+	user-select: none;
+	font-size: $--font-size-small;
+	color: $--color-danger;
+}

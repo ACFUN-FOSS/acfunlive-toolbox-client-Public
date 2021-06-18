@@ -1,41 +1,44 @@
 import { RootState, state } from "./state";
 import _ from "lodash";
+import { tostring } from "@front/util_function/type";
 export const getters = {
-	streamMonitor(state: RootState) {
-		return state.streamStatus.avaliable && state.streamStatus.underway;
+	isStreaming(state: RootState) {
+		return (
+			state.streamStatus.step === "streaming" ||
+			state.streamStatus.step === "danmakuing"
+		);
 	},
-	streamStatus(state: RootState) {
-		return {};
+	isLogined(state: RootState) {
+		return state.userSession.serviceToken && state.userSession.deviceID;
 	},
-	api(state: RootState) {
-		return state.api;
-	},
-	mainCategorys(state: RootState) {
-		return _.uniqBy(state.roomCategorys, "categoryID");
-	},
-	subCategorys: (state: RootState) => (id: number) => {
-		return state.roomCategorys.filter((item: any) => {
-			return item.categoryID === id;
+	categoryCascade(state: RootState) {
+		const output: any = {};
+		state.roomCategorys.forEach((subCategory: any) => {
+			if (!output[subCategory.categoryID]) {
+				output[subCategory.categoryID] = {
+					label: subCategory.categoryName,
+					value: subCategory.categoryID,
+					children: []
+				};
+			}
+			output[subCategory.categoryID].children.push({
+				label: subCategory.subCategoryName,
+				value: subCategory.subCategoryID
+			});
 		});
+		return Object.values(output);
 	},
 	danmakuList: (state: RootState) => {
-		return state.danmakuSession.rawFlow.filter(item => {
-			switch (item.type) {
-				case 1000:
-					return true;
-				case 1001:
-					return true;
-				case 1002:
-					return true;
-				case 1003:
-					return true;
-				case 1005:
-					return true;
-				case 1007:
-					return true;
-				default:
-					return false;
-			}
-		});
+		return state.danmakuSession.filterFlow;
+	},
+	danmakuProfile: (state: RootState) => (type: any) => {
+		if (type) {
+			// @ts-ignore
+			return state.danmakuProfile[tostring(type)];
+		} else if (state.isElectron) {
+			return state.danmakuProfile.toolBox;
+		} else {
+			return state.danmakuProfile.web;
+		}
 	}
 };

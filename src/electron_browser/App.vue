@@ -13,36 +13,23 @@
 -->
 
 <template>
-	<div id="app" :style="generalStyle" :class="{logined:$store.state.isLogined}">
+	<div id="app" :class="{logined:$store.state.isLogined}">
 		<router-view v-slot="{ Component }">
-			<transition name="fade_transform" mode="out-in">
+			<transition name="fade" mode="out-in">
 				<component :is="Component" />
 			</transition>
 		</router-view>
 	</div>
+
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { logout } from "@fe/utils/login";
+import { logout } from "@front/util_function/login";
 export default defineComponent({
-	name: "app",
-	computed: {
-		generalStyle() {
-			return this.$SM.initCssVar(
-				this.$store.state.generalStyle,
-				"--generalStyle"
-			);
-		}
-	},
-	mounted() {
-		window.onbeforeunload = () => {
-			logout();
-		};
-	}
+	name: "app"
 });
 </script>
 <style lang="scss">
-@import "@fe/assets/scss/base";
 html,
 body {
 	margin: 0px;
@@ -52,26 +39,14 @@ body {
 	background-color: transparent !important;
 	position: absolute;
 	box-sizing: border-box;
+	overflow: hidden;
+}
+body {
+	padding: 12px;
 }
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	width: calc(100% - 24px);
-	height: calc(100% - 24px);
-	font-size: var(--generalStyle_fontSize_B);
-	margin: 12px;
-	box-shadow: var(--generalStyle_shadow_deep);
-	position: absolute;
-	background-color: var(--generalStyle_color_primary);
-	transition: all 0.5s;
-	&.logined {
-		background-color: var(--generalStyle_color_background);
-	}
-	left: 0px;
-	top: 0px;
-	border-radius: var(--generalStyle_radius_small);
-	overflow: hidden;
-	box-sizing: border-box;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 </style>

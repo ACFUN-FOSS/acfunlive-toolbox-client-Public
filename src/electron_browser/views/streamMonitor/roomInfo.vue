@@ -7,18 +7,14 @@
 				<div class="subtitles">
 					<div class="subtitle">{{`${roomProfile.liveType.categoryName} - ${roomProfile.liveType.subCategoryName}`}}
 					</div>
-					<div class="subtitle"> 已播时长：{{$SM.unixTimeFormatter($store.state.roomStatus.liveDuration)}}</div>
-				</div>
-				<div class="btns">
-					<el-button size="mini" class="btn" @click="closeStream">下播</el-button>
+					<div class="subtitle"> 已播时长：{{unixTimeFormatter($store.state.roomStatus.liveDuration)}}</div>
 				</div>
 			</div>
 			<div class="counters">
-				<icon-counter class="counter" title="观众" icon="el-icon-user-solid"
-					:num="checkNumber(roomStatus.watchingCount)" />
-				<icon-counter class="counter" title="点赞" icon="self-like" :num="checkNumber(roomStatus.likeCount)" />
-				<icon-counter class="counter" title="香蕉" icon="self-banana" :num="checkNumber(roomStatus.bananaCount)" />
-				<icon-counter class="counter" title="ac币" icon="self-coin" :num="checkNumber(roomStatus.bananaCount)" />
+				<icon-counter class="counter" title="观众" icon="el-icon-user-solid" :num="roomStatus.watchingCount" />
+				<icon-counter class="counter" title="点赞" icon="self-like" :num="thousandFormatter(roomStatus.statistic.likeCount)" />
+				<icon-counter class="counter" title="香蕉" icon="self-banana" :num="thousandFormatter(roomStatus.statistic.bananaCount)" />
+				<icon-counter class="counter" title="ac币" icon="self-coin" :num="thousandFormatter(roomStatus.statistic.diamondCount/100)" />
 			</div>
 		</div>
 	</div>
@@ -27,29 +23,27 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
-import { closeStream } from "@fe/mixins/methods";
+import {
+	unixTimeFormatter,
+	thousandFormatter
+} from "@front/util_function/formatter";
 export default defineComponent({
 	name: "roomInfo",
-	mixins: [closeStream],
 	data() {
 		return {};
 	},
 	computed: {
-		...mapState(["roomProfile", "roomStatus"])
+		...mapState(["roomProfile", "roomStatus", "userSession"])
 	},
 	watch: {},
 	methods: {
-		checkNumber(num: string): string | number {
-			if (num.indexOf("万")) {
-				return num;
-			}
-			return parseInt(num);
-		}
+		unixTimeFormatter,
+		thousandFormatter
 	}
 });
 </script>
 <style scoped lang='scss'>
-@import "@fe/assets/scss/base.scss";
+@import "@front/styles/index.scss";
 #roomInfo {
 	display: flex;
 	& > div {
@@ -76,16 +70,10 @@ export default defineComponent({
 			display: flex;
 			flex-grow: 1;
 			justify-content: space-between;
+			position: relative;
 			.btns {
 				display: flex;
 				align-items: center;
-				.btn {
-					@include buttonBase(
-						var(--generalStyle_color_primary),
-						var(--generalStyle_color_primary_EL),
-						white
-					);
-				}
 			}
 		}
 		.subtitles {
@@ -96,12 +84,15 @@ export default defineComponent({
 			justify-content: space-evenly;
 		}
 		.title {
-			font-size: var(--generalStyle_fontSize_M);
+			width: 210px;
+			white-space: nowrap;
+			overflow: hidden;
+			font-size: $--font-size-medium;
 		}
 		.subtitle,
 		.counter {
-			color: var(--generalStyle_fontColor_Second);
-			font-size: var(--generalStyle_fontSize_ES);
+			color: $--color-text-secondary;
+			font-size: $--font-size-extra-small;
 		}
 
 		.counters {
@@ -110,7 +101,7 @@ export default defineComponent({
 			justify-content: space-between;
 
 			.counter {
-				font-size: var(--generalStyle_fontSize_B) !important;
+				font-size: $--font-size-base !important;
 			}
 		}
 	}

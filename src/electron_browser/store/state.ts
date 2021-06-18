@@ -1,42 +1,51 @@
-import generalStyle from "@fe/assets/json/style.json";
-import generalConfig from "@fe/assets/json/config.json";
-import { WsApi } from "@fe/api/ws";
-import { user, room, stream, danmaku } from "@fe/api/ws_h";
+import { user, room, stream, danmaku, temp } from "@front/datas";
+import { isElectron } from "@front/util_function/electron";
+import { Filter } from "@front/components/danmakuFlow/utils/common";
 export interface RootState {
-	generalStyle: any; // 自定义样式
-	generalConfig: any; // 自定义配置 如标题文字等
-	api: any; // 接口
 	serverOnline: boolean; // 后端是否启动
-	userSession: user.session; // 用户登陆信息
-	userProfile: user.profile; // 用户资料
-	roomProfile: room.profileDetail; // 房间信息
-	roomStatus: room.status; // 房间实时状态
-	roomCategorys: Array<room.category>; // 全部房间分类
+	userSession: user.Session; // 用户登陆信息
+	userProfile: user.Profile; // 用户资料
+	userData: user.Data; // 用户名密码
+	roomProfile: room.ProfileDetail; // 房间信息
+	roomStatus: room.Status; // 房间实时状态
+	roomCategorys: Array<room.Category>; // 全部房间分类
+	managerList: Array<any>; // 房管列表
+	rank: room.Rank; // 排行榜信息
 	isLogined: boolean; // 是否登陆
-	streamStatus: stream.status;
-	streamEncodec: stream.encodec; // 转码信息
-	streamSession: stream.session; // 推流配置
-	danmakuSession: danmaku.session; // 弹幕实时信息
-	danmakuProfile: danmaku.profile; // 弹幕设置
+	isReconnect: boolean;
+	isElectron: boolean; // 是否浏览器环境
+	streamStatus: stream.Status;
+	streamEncodec: stream.Encodec; // 转码信息
+	streamSession: stream.Session; // 推流配置
+	danmakuSession: danmaku.Session; // 弹幕实时信息
+	danmakuProfile: danmaku.Profile; // 弹幕设置
+	filter: Filter; // 过滤器
+	minify: boolean; // 是否迷你化
+	temp: temp.TempInfo;
 }
 
 export function stateFunc(): RootState {
 	return {
-		generalStyle,
-		generalConfig,
-		api: new WsApi(),
 		serverOnline: false,
 		isLogined: false,
-		userSession: user.getSession(),
-		userProfile: user.getProfile(),
-		roomProfile: room.getProfileDetail(),
-		roomStatus: room.getStatus(),
+		minify: false,
+		isReconnect: false,
+		isElectron: isElectron(),
+		userSession: user.session(),
+		userProfile: user.profile(),
+		userData: user.data(),
+		roomProfile: room.profileDetail(),
+		roomStatus: room.status(),
 		roomCategorys: [],
-		streamStatus: stream.getStatus(),
-		streamEncodec: stream.getEncodec(),
-		streamSession: stream.getSession(),
-		danmakuSession: danmaku.getSession(),
-		danmakuProfile: danmaku.getProfile()
+		managerList: [],
+		rank: room.rank(),
+		streamStatus: stream.status(),
+		streamEncodec: stream.encodec(),
+		streamSession: stream.session(),
+		danmakuSession: danmaku.session(),
+		danmakuProfile: danmaku.profile(),
+		filter: new Filter(),
+		temp: temp.tempInfo()
 	};
 }
 

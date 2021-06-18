@@ -1,12 +1,11 @@
 .DS_Store
 node_modules
 /dist
-
+/BUILD
 /tests/e2e/reports/
 selenium-debug.log
 chromedriver.log
 geckodriver.log
-
 
 # local env files
 .env.local
@@ -29,3 +28,7 @@ pnpm-debug.log*
 
 #Electron-builder output
 /BUILD
+/public/configFiles
+
+TellOrzogcWhatHappened
+TellOrzogcWhatHappened.bak

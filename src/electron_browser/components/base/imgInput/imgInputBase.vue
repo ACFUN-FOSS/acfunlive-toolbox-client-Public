@@ -1,17 +1,12 @@
 <template>
-	<div class="imgInput" @mouseenter.prevent="showTips" @mouseleave.prevent="showTips" @mouseover.prevent="showTips"
-		@drop="loadFile" @dragenter.prevent="showTips" @dragover.prevent="showTips" @click="getFile">
+	<div class="imgInput" @mouseenter.prevent="showTips" @mouseleave.prevent="showTips" @mouseover.prevent="showTips" @drop="loadFile" @dragenter.prevent="showTips" @dragover.prevent="showTips" @click="getFile">
 		<div class="tips" v-if="tips">
 			<div class="icon el-icon-picture-outline" />
 			<div>{{msg}}</div>
 		</div>
 		<input ref="file" type="file" v-show="false" accept=".jpg,.png,.gif" @change="loadFile" />
-		<el-image class="cover" :src="img">
-			<template #error>
-				<div class="image-slot">
-				</div>
-			</template>
-		</el-image>
+		<img class="cover" v-if="img" :src="img" />
+		<div class="cover image-slot" v-else />
 	</div>
 </template>
 
@@ -92,6 +87,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
+@import "@front/styles/index.scss";
 .imgInput {
 	position: relative;
 	min-width: 50px;
@@ -104,14 +100,14 @@ export default defineComponent({
 	left: 0px;
 	top: 0px;
 	cursor: pointer;
-	.image-slot {
-		width: 100%;
-		height: 100%;
-		background-image: url("/imgs/common/noCover.jpg");
-		background-repeat: no-repeat;
-		background-position: center;
-		background-color: white;
-	}
+}
+.image-slot {
+	width: 100%;
+	height: 100%;
+	background-image: url("/imgs/common/noCover.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
 }
 .tips {
 	width: 100%;
@@ -123,8 +119,8 @@ export default defineComponent({
 	z-index: 10;
 	user-select: none;
 	background-color: rgba(0, 0, 0, 0.8);
-	color: var(--generalStyle_color_primary);
-	font-size: var(--generalStyle_fontSize_M);
+	color: $--color-primary;
+	font-size: $--font-size-medium;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

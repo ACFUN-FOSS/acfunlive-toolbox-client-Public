@@ -5,25 +5,25 @@
 				<span class="el-icon-more-outline" />
 			</handler-moving>
 		</div>
-		<div class="button el-icon-minus" @click="sy.minimize()" />
-		<div class="button el-icon-close" @click="sy.close()" />
+		<div class="button el-icon-minus" @click="minimize()" />
+		<div class="button el-icon-close" @click="close()" />
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent, defineAsyncComponent } from "vue";
-import { SysMethods } from "@fe/api/sysMethods";
+import { minimize, close } from "@front/util_function/system";
 const HandlerMoving = defineAsyncComponent(() =>
-	import("@fe/components/system/HandlerMoving.vue")
+	import("@front/components/system/HandlerMoving.vue")
 );
 export default defineComponent({
 	name: "topbarBase",
 	components: {
 		HandlerMoving
 	},
-	data() {
-		const sy = new SysMethods();
-		return { sy };
+	methods: {
+		minimize,
+		close
 	}
 });
 </script>

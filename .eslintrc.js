@@ -56,7 +56,7 @@ module.exports = {
 				}
 			}
 		}],
-		"linebreak-style": ["error", "unix"],
+		"linebreak-style": ["error", "windows"],
 		"@typescript-eslint/ban-ts-comment": "off",
 		"@typescript-eslint/consistent-type-assertions": ["error", {
 			assertionStyle: "angle-bracket",
@@ -64,7 +64,8 @@ module.exports = {
 		}],
 		"@typescript-eslint/no-explicit-any": ["off"],
 		"@typescript-eslint/no-var-requires": "off",
-		"@typescript-eslint/no-namespace": "off"
+		"@typescript-eslint/no-namespace": "off",
+		"@typescript-eslint/no-this-alias": ["off"]
 
 	},
 	overrides: [{

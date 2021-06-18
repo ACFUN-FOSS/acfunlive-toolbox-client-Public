@@ -81,10 +81,11 @@ export default defineComponent({
 });
 </script>
 <style scoped lang='scss'>
+@import "@front/styles/index.scss";
 .title {
 	position: relative;
-	font-size: var(--generalStyle_fontSize_B);
-	color: var(--generalStyle_fontColor_First);
+	font-size: $--font-size-base;
+	color: $--color-text-primary;
 	overflow: hidden;
 	& > div {
 		animation: moveText var(--titleMoveTime) linear 2s infinite

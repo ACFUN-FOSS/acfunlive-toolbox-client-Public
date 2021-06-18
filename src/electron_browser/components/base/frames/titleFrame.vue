@@ -17,15 +17,18 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+@import "@front/styles/index.scss";
 .contentTitle {
 	position: relative;
 	width: fit-content;
-	margin: 25px 50px 22px 50px;
-	font-size: var(--generalStyle_fontSize_M);
-	line-height: calc(var(--generalStyle_fontSize_M) + 10px);
-	color: var(--generalStyle_color_primary);
-	border-bottom: 2px solid var(--generalStyle_color_primary);
+	margin: 17px 50px 22px 50px;
+	padding-bottom: 8px;
+	font-size: $--font-size-medium;
+	line-height: calc(#{$--font-size-medium} + 10px);
+	color: $--color-primary !important;
+	border-bottom: 2px solid $--color-primary;
 	user-select: none;
+	z-index: 1;
 }
 .contentInner {
 	position: relative;

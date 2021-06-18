@@ -6,30 +6,39 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { SysMethods } from "@fe/api/sysMethods";
+import { win } from "@front/util_function/system";
 export default defineComponent({
 	name: "handleMoving",
 	data() {
+		const size: any = null;
 		return {
-			sy: new SysMethods()
+			size
 		};
 	},
 	methods: {
 		addMovingListener(e: MouseEvent): void {
 			const startX = e.screenX;
 			const startY = e.screenY;
-			const winPosition = this.sy.win.getPosition();
+			const winPosition = win.getPosition();
 			const setPosition = (evt: MouseEvent) => {
-				this.sy.win.setPosition(
-					winPosition[0] + (evt.screenX - startX),
-					winPosition[1] + (evt.screenY - startY)
-				);
+				if (!this.size) {
+					this.size = {
+						height: window.innerHeight,
+						width: window.innerWidth
+					};
+				}
+				win.setBounds({
+					...this.size,
+					x: winPosition[0] + (evt.screenX - startX),
+					y: winPosition[1] + (evt.screenY - startY)
+				});
 			};
 			window.addEventListener("mousemove", setPosition);
 			window.addEventListener(
 				"mouseup",
 				() => {
 					window.removeEventListener("mousemove", setPosition);
+					this.size = null;
 				},
 				{
 					once: true

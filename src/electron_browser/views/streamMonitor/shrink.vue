@@ -1,11 +1,13 @@
 <template>
 	<div id="shrink">
 		<transition name="fade">
-			<div class="unstreamable" v-if="!streamStatus.avaliable">
-				{{generalConfig.unstreamable}}
+			<div class="unstreamable" v-if="!streamStatus.step=='unstreamable'">
+				{{common.unstreamable}}<br>
+				<el-button size="mini" type="primary" @click="$store.dispatch('nostreamable')">点击重试</el-button>
 			</div>
-			<div class="unstreamable" v-else-if="!streamStatus.underway">
-				<el-button class="logBtn" size="medium" @click="openStream">{{$route.name==="roomMgmt"?"确认开播":"点我开播"}}
+			<div class="unstreamable" v-else-if="!isStreaming">
+				<el-button type="primary" class="logBtn" size="medium" @click="openStream">
+					{{$route.name==="roomMgmt"?"确认开播":"点我开播"}}
 				</el-button>
 			</div>
 			<div v-else class="shrinkPanel">
@@ -13,13 +15,13 @@
 				<div class="roomProfile">
 					<title-scrolling :label="roomProfile.title" />
 					<div class="roomStatus">
-						<icon-counter title="观众" icon="el-icon-user-solid" :num="checkNumber(roomStatus.watchingCount)" />
-						<icon-counter title="点赞" icon="self-like" :num="checkNumber(roomStatus.likeCount)" />
-						<icon-counter title="香蕉" icon="self-banana" :num="checkNumber(roomStatus.bananaCount)" />
-						<icon-counter title="ac币" icon="self-coin" :num="checkNumber(roomStatus.bananaCount)" />
+						<icon-counter class="counter" title="观众" icon="el-icon-user-solid" :num="roomStatus.watchingCount" />
+						<icon-counter class="counter" title="点赞" icon="self-like" :num="thousandFormatter(roomStatus.statistic.likeCount)" />
+						<icon-counter class="counter" title="香蕉" icon="self-banana" :num="thousandFormatter(roomStatus.statistic.bananaCount)" />
+						<icon-counter class="counter" title="ac币" icon="self-coin" :num="thousandFormatter(roomStatus.statistic.diamondCount/100)" />
 					</div>
 					<div class="type">
-						{{`${roomProfile.liveType.categoryName} - ${roomProfile.liveType.subCategoryName}    已播时长：${$SM.unixTimeFormatter($store.state.roomStatus.liveDuration)}`}}
+						{{`${roomProfile.liveType.categoryName} - ${roomProfile.liveType.subCategoryName}    已播时长：${unixTimeFormatter($store.state.roomStatus.liveDuration)}`}}
 					</div>
 				</div>
 				<div class="flow">
@@ -31,44 +33,43 @@
 </template>
 
 <script lang="ts">
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import { defineComponent } from "vue";
-import flow from "@fe/components/danmakuSelf/flow/index.vue";
+import flow from "@front/components/danmakuFlow/index.vue";
+import { event } from "@front/util_function/eventBus";
+import {
+	unixTimeFormatter,
+	thousandFormatter
+} from "@front/util_function/formatter";
+import { common } from "@front/texts";
 export default defineComponent({
 	name: "shrink",
 	components: {
 		flow
 	},
 	computed: {
-		...mapState([
-			"roomProfile",
-			"generalConfig",
-			"streamStatus",
-			"roomStatus"
-		])
+		...mapState(["roomProfile", "streamStatus", "roomStatus"]),
+		...mapGetters(["isStreaming"]),
+		common
 	},
 	methods: {
+		unixTimeFormatter,
+		thousandFormatter,
 		openStream() {
 			if (this.$route.name !== "roomMgmt") {
 				this.$router.push({
 					path: "/roomMgmt"
 				});
 			} else {
-				this.$Event.emit("openStream");
+				event.emit("openStream");
 			}
-		},
-		checkNumber(num: string): string | number {
-			if (num.indexOf("万")) {
-				return num;
-			}
-			return parseInt(num);
 		}
 	}
 });
 </script>
 
 <style scoped lang='scss'>
-@import "@fe/assets/scss/base";
+@import "@front/styles/index.scss";
 #shrink {
 	position: absolute;
 	top: 0px;
@@ -78,23 +79,17 @@ export default defineComponent({
 		width: 100%;
 		height: 100%;
 		background-color: rgba(255, 255, 255);
-		color: var(--generalStyle_fontColor_Second);
+		color: $--color-text-secondary;
 		user-select: none;
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		white-space: pre;
 		text-align: center;
 		transition: all 0.25s;
 		&:hover {
-			color: var(--generalStyle_fontColor_First);
-		}
-		.logBtn {
-			@include buttonBase(
-				var(--generalStyle_color_primary),
-				var(--generalStyle_color_primary_EL),
-				white
-			);
+			color: $--color-text-primary;
 		}
 	}
 	.shrinkPanel {
@@ -109,10 +104,10 @@ export default defineComponent({
 		.avatar {
 			height: 54px;
 			width: 54px;
-			border-radius: var(--generalStyle_radius_large);
+			border-radius: $--border-radius-base;
 			background-size: auto 100%;
 			background-repeat: no-repeat;
-			box-shadow: var(--generalStyle_shadow_base);
+			box-shadow: $--box-shadow-base;
 			background-position: center;
 		}
 		.roomProfile {
@@ -123,15 +118,15 @@ export default defineComponent({
 			justify-content: space-between;
 			padding-left: 16px;
 			white-space: pre;
-			color: var(--generalStyle_fontColor_Second);
+			color: $--color-text-secondary;
 			user-select: none;
 			.roomStatus {
 				display: flex;
 				align-items: center;
-				font-size: var(--generalStyle_fontSize_ES);
+				font-size: $--font-size-extra-small;
 			}
 			.type {
-				font-size: var(--generalStyle_fontSize_ES);
+				font-size: $--font-size-extra-small;
 			}
 		}
 	}

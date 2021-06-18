@@ -35,6 +35,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
+@import "@front/styles/index.scss";
 .rowFrame {
 	position: relative;
 	flex-shrink: 0;
@@ -47,7 +48,7 @@ export default defineComponent({
 	.title {
 		position: relative;
 		font-weight: 700;
-		color: var(--generalStyle_fontColor_First);
+		color: $--color-text-primary;
 		height: 24px;
 		user-select: none;
 	}
@@ -55,7 +56,7 @@ export default defineComponent({
 		position: relative;
 		background-color: white;
 		width: 100%;
-		box-shadow: var(--generalStyle_shadow_base);
+		box-shadow: $--box-shadow-base;
 	}
 }
 </style>

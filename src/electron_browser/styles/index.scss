@@ -1,0 +1,16 @@
+@import "./variables.scss";
+@import "./button.scss";
+@import "./checkbox.scss";
+@import "./dialog.scss";
+@import "./animation.scss";
+@import "./scrollbar.scss";
+@import "./textBlocks.scss";
+@import "./iconfont.scss";
+@import "./input.scss";
+@import "./dropdown.scss";
+@import "./backgrounds.scss";
+@import "~element-plus/packages/theme-chalk/src/index.scss";
+
+:export {
+	theme: $--color-primary;
+}

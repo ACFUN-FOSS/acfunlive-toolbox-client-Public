@@ -1,0 +1,21 @@
+@import "~element-plus/packages/theme-chalk/src/common/var.scss";
+.buttonIcon {
+	border: none !important;
+	font-size: $--font-size-large !important;
+	color: $--color-text-secondary !important;
+	transition: color 0.25s !important;
+	height: 100% !important;
+	display: flex !important;
+	align-items: center !important;
+	padding: 0px 6px !important;
+	cursor: pointer !important;
+	&.divider {
+		padding: 0px !important;
+	}
+	&:last-child {
+		padding-right: 0px !important;
+	}
+	&:hover {
+		color: $--color-primary !important;
+	}
+}

@@ -1,0 +1,10 @@
+.el-input-number {
+	width: fit-content !important;
+	& > span {
+		width: 14px !important;
+	}
+	input {
+		width: 60px !important;
+		padding: 0px 18px !important;
+	}
+}

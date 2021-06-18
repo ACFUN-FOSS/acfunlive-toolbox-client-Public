@@ -4,10 +4,10 @@
 		<div class="right">
 			<topbar-avatar />
 			<div class="content">
-				<div class="view">
+				<div class="view" v-if="!minify">
 					<title-frame :title="$route.meta.label">
 						<router-view v-slot="{ Component }">
-							<transition name="fade_transform" mode="out-in">
+							<transition name="fade" mode="out-in">
 								<component :is="Component" />
 							</transition>
 						</router-view>
@@ -21,33 +21,46 @@
 
 <script>
 import { defineComponent } from "vue";
-import statusBar from "@fe/components/statusBar/index.vue";
-import topbarAvatar from "@fe/components/system/topbars/withAvatar";
+import statusBar from "@front/components/statusBar/index.vue";
+import topbarAvatar from "@front/components/system/topbars/withAvatar";
+import { mapState } from "vuex";
 export default defineComponent({
 	name: "home",
 	components: {
 		statusBar,
 		topbarAvatar
 	},
-	data() {
-		return {};
-	},
 	mounted() {
 		this.$store.state.isLogined = true;
+	},
+	computed: {
+		...mapState(["minify"])
 	}
 });
 </script>
 
 <style scoped lang="scss">
+@import "@front/styles/index.scss";
 #home {
-	position: absolute;
-	height: 100%;
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	width: 100%;
+	height: 100%;
+	font-size: $--font-size-base;
+	box-shadow: $--box-shadow-dark;
+	position: absolute;
+	background-color: $--background-color-base;
+	transition: all 0.5s;
+	left: 0px;
+	top: 0px;
+	border-radius: $--border-radius-small;
+	box-sizing: border-box;
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
 	.right {
-		// background-color: var(--generalStyle_color_background);
+		// background-color: $--background-color-base;
 		flex-grow: 1;
 		flex-shrink: 0;
 		display: flex;

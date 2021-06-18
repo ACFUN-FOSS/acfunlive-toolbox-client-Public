@@ -1,0 +1,8 @@
+@import "~element-plus/packages/theme-chalk/src/common/var.scss";
+.el-checkbox {
+	&.is-checked {
+		.el-checkbox__inner {
+			background-color: $--color-primary-light-3 !important;
+		}
+	}
+}
