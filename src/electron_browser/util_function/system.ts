@@ -1,5 +1,6 @@
 import { isElectron } from "@front/util_function/electron";
 import { randomId, removePunctuationSpace } from "@front/util_function/base";
+import { ElMessage } from "element-plus";
 export const path = isElectron() ? window.require("path") : {};
 const { remote, ipcRenderer }: any = isElectron()
 	? window.require("electron")
@@ -75,6 +76,12 @@ export const backendInit = () => {
 	}
 };
 
+export const launch = (path: any) => {
+	if (isElectron()) {
+		ipcRenderer?.send("backend_launch", path);
+	}
+};
+
 export const save = (data: any) => {
 	if (isElectron()) {
 		ipcRenderer?.send("backend_save", JSON.stringify(data));
@@ -140,11 +147,120 @@ export const uploadImage = (imageUrl: string) => {
 	});
 };
 
+export const uploadBase64Image = (b64: string) => {
+	return new Promise((resolve, reject) => {
+		try {
+			if (!isElectron()) {
+				throw new Error("no electron!");
+			}
+			ipcRenderer?.send("backend_save_b64", b64);
+			ipcRenderer?.once("save_b64_complete", (e: any, args: any) => {
+				if (args !== "#error") {
+					resolve(args);
+				} else {
+					throw new Error("load file failed!");
+				}
+			});
+		} catch (error) {
+			reject(error);
+		}
+	});
+};
+
 export const saveConfig = (data: any) => {
 	if (!isElectron()) {
 		throw new Error("no electron!");
 	}
 	ipcRenderer?.send("backend_save_config", JSON.stringify(data));
+};
+
+export const loadConfig = () => {
+	return new Promise((resolve, reject) => {
+		try {
+			if (!isElectron()) {
+				throw new Error("no electron!");
+			}
+			ipcRenderer?.send("backend_load_config");
+			ipcRenderer?.once("load_config_complete", (e: any, args: any) => {
+				if (args !== "#error") {
+					resolve(JSON.parse(args));
+				} else {
+					throw new Error("load file failed!");
+				}
+			});
+		} catch (error) {
+			reject(error);
+		}
+	});
+};
+
+export const restoreConfig = (path: string) => {
+	return new Promise((resolve, reject) => {
+		try {
+			if (!isElectron()) {
+				throw new Error("no electron!");
+			}
+			ipcRenderer?.send("load_backup", path);
+			ipcRenderer?.once("load_backup_complete", (e: any, args: any) => {
+				if (args !== "#error") {
+					resolve(JSON.parse(args));
+				} else {
+					throw new Error("读取备份文件失败！");
+				}
+			});
+		} catch (error) {
+			reject(error);
+		}
+	});
+};
+export const backupConfig = () => {
+	return new Promise((resolve, reject) => {
+		try {
+			if (!isElectron()) {
+				throw new Error("no electron!");
+			}
+			ipcRenderer?.send("save_backup");
+			ipcRenderer?.once("save_backup_complete", (e: any, args: any) => {
+				if (args !== "#error") {
+					resolve(args);
+				} else {
+					throw new Error("备份文件失败！");
+				}
+			});
+		} catch (error) {
+			reject(error);
+		}
+	});
+};
+
+export const saveSuperChat = (data: any) => {
+	if (!isElectron()) {
+		throw new Error("no electron!");
+	}
+	ipcRenderer?.send("backend_save_superchat", JSON.stringify(data));
+};
+
+export const loadSuperChat = () => {
+	return new Promise((resolve, reject) => {
+		try {
+			if (!isElectron()) {
+				throw new Error("no electron!");
+			}
+			ipcRenderer?.send("backend_load_superchat");
+			ipcRenderer?.once(
+				"load_superchat_complete",
+				(e: any, args: any) => {
+					if (args !== "#error") {
+						resolve(JSON.parse(args));
+					} else {
+						throw new Error("load file failed!");
+					}
+				}
+			);
+		} catch (error) {
+			reject(error);
+		}
+	});
 };
 
 export const getFontList = () => {
@@ -174,26 +290,6 @@ export const uploadFont = (fontUrl: string) => {
 	});
 };
 
-export const loadConfig = () => {
-	return new Promise((resolve, reject) => {
-		try {
-			if (!isElectron()) {
-				throw new Error("no electron!");
-			}
-			ipcRenderer?.send("backend_load_config");
-			ipcRenderer?.once("load_config_complete", (e: any, args: any) => {
-				if (args !== "#error") {
-					resolve(JSON.parse(args));
-				} else {
-					throw new Error("load file failed!");
-				}
-			});
-		} catch (error) {
-			reject(error);
-		}
-	});
-};
-
 export const sendChat = (data: any) => {
 	return new Promise((resolve, reject) => {
 		try {
@@ -214,7 +310,7 @@ export const sendChat = (data: any) => {
 	});
 };
 
-export const robotRead = ({ speed, text, volume }: any) => {
+export const windowsRead = ({ speed, text, volume }: any) => {
 	return new Promise((resolve, reject) => {
 		try {
 			if (!isElectron()) {
@@ -239,4 +335,40 @@ export const robotRead = ({ speed, text, volume }: any) => {
 			reject(error);
 		}
 	});
+};
+
+export const xfRead = ({ api, voiceName, speed, text, volume }: any) => {
+	return new Promise((resolve, reject) => {
+		try {
+			if (!isElectron()) {
+				throw new Error("no electron!");
+			}
+			ipcRenderer?.send(
+				"send_xfvoice",
+				JSON.stringify({
+					api,
+					volume,
+					speed,
+					text: removePunctuationSpace(text)
+				})
+			);
+			ipcRenderer?.once("xfvoice_complete", (e: any, args: any) => {
+				if (args !== "#error") {
+					const audio = new Audio(`${args}?cb=${Date.now()}`);
+					audio.onerror = reject;
+					audio.onended = resolve;
+					audio.play();
+				} else {
+					throw new Error("send chat failed!");
+				}
+			});
+		} catch (error) {
+			reject(error);
+		}
+	});
+};
+
+export const robots = {
+	default: windowsRead,
+	kdxf: xfRead
 };

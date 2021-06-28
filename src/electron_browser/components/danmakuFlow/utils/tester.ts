@@ -40,6 +40,12 @@ export const isOwner = (danmaku: any, state: RootState) => {
 	return Boolean(state.userSession.userID === getUserInfo(danmaku).userID);
 };
 
+export const isNormalDanmaku = (danmaku: any) => {
+	return [1000, 1001, 1002, 1003, 1004, 1005, 1006, 1007].includes(
+		danmaku.type
+	);
+};
+
 export const sameGift = (danmakuA: any, danmakuB: any) => {
 	return (
 		getGift(danmakuA).giftDetail.giftID ===

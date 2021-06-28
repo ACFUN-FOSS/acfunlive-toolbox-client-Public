@@ -2,8 +2,8 @@ export default () => {
 	return {
 		config: {
 			format: "HH:mm:ss",
-			degree: true,
-			name: true
+			preffix: "",
+			affix: ""
 		},
 		style: {
 			verticalAlign: "middle",

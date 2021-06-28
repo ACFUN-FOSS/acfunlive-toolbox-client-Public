@@ -1,36 +1,52 @@
 <template>
-	<el-input class="room-chat" ref="input" size="mini" @keyup.enter="sendDanmaku" v-model="value" :placeholder="status.tips" :disabled="status.disabled">
-		<template #append v-if="danmakuProfile.common.emotion&&danmakuProfile.common.emojis.length">
-			<el-dropdown @command="addEmotion" type="primary" trigger="hover" max-height="200px" style="line-height:28px" :hide-on-click="false">
-				<el-button type="primary" size="mini" class="btnBase attach">😀</el-button>
-				<template #dropdown>
-					<el-dropdown-menu class="emotion-drop-down">
-						<el-dropdown-item v-for="(emoji,index) in danmakuProfile.common.emojis" :key="index" :command="emoji.pattern">
-							<img style="max-width:64px" :src="emoji.url" />
-						</el-dropdown-item>
-					</el-dropdown-menu>
-				</template>
-			</el-dropdown>
-		</template>
-	</el-input>
+	<div id="room-chat" style="width:100%">
+		<el-input ref="input" size="mini" @keyup.enter="sendDanmaku" v-model="value" :placeholder="status.tips" :disabled="status.disabled">
+			<template #append v-if="danmakuProfile.common.emotion&&danmakuProfile.common.emojis.length">
+				<el-dropdown @command="addEmotion" type="primary" trigger="hover" max-height="200px" style="line-height:28px" :hide-on-click="false">
+					<el-button type="primary" size="mini" class="btnBase attach">😀</el-button>
+					<template #dropdown>
+						<el-dropdown-menu class="emotion-drop-down">
+							<el-dropdown-item v-for="(emoji,index) in danmakuProfile.common.emojis" :key="index" :command="emoji.pattern">
+								<img style="max-width:64px" :src="emoji.url" />
+							</el-dropdown-item>
+						</el-dropdown-menu>
+					</template>
+				</el-dropdown>
+			</template>
+		</el-input>
+	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapGetters, mapState } from "vuex";
 import { ElMessage } from "element-plus";
-import { sendChat } from "@front/util_function/system";
+import { chat } from "@front/api/chat";
+import { event } from "@front/util_function/eventBus";
 export default defineComponent({
 	name: "roomChat",
 	data() {
 		return {
-			value: ""
+			value: "",
+			cooling: false
 		};
+	},
+	mounted() {
+		event.on("message-focus", this.focus);
+	},
+	beforeUnmount() {
+		event.off("message-focus", this.focus);
 	},
 	computed: {
 		...mapGetters(["isStreaming", "isLogined"]),
 		...mapState(["userSession", "roomProfile", "danmakuProfile"]),
 		status(): any {
+			if (this.cooling) {
+				return {
+					disabled: true,
+					tips: "冷却中，等一下啦"
+				};
+			}
 			if (!this.isLogined || !this.isStreaming) {
 				return {
 					disabled: true,
@@ -56,38 +72,39 @@ export default defineComponent({
 		}
 	},
 	methods: {
-		async sendDanmaku() {
+		sendDanmaku() {
 			if (!this.validation()) {
 				return;
 			}
 			const msg = this.value;
-			try {
-				await sendChat({
-					userID: this.userSession.userID,
-					deviceID: this.userSession.deviceID,
-					serviceToken: this.userSession.serviceToken,
-					data: {
-						visitorId: this.userSession.userID,
-						liveId: this.roomProfile.liveID,
-						content: msg
-					}
-				});
-				ElMessage({
-					message: "发送成功",
-					duration: 1500,
-					type: "success",
-					offset: 60
-				});
-				this.value = "";
-			} catch (error) {
-				console.log(error);
-				ElMessage({
-					message: "发送失败",
-					duration: 1500,
-					type: "error",
-					offset: 60
-				});
-			}
+			this.cooling = true;
+			chat({
+				userID: this.userSession.userID,
+				deviceID: this.userSession.deviceID,
+				serviceToken: this.userSession.serviceToken,
+				data: {
+					visitorId: this.userSession.userID,
+					liveId: this.roomProfile.liveID,
+					content: msg
+				}
+			});
+			event.emit("send-message");
+			ElMessage({
+				message: "发送成功",
+				duration: 1500,
+				type: "success",
+				offset: 60
+			});
+			this.value = "";
+			setTimeout(() => {
+				this.cooling = false;
+				// @ts-ignore
+				this.$refs.input.focus();
+			}, 500);
+		},
+		focus() {
+			// @ts-ignore
+			this.$refs.input.focus();
 		},
 		addEmotion(command: string) {
 			this.value += command;
@@ -117,7 +134,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 :deep .el-input-group__append {
 	border: none;
 }

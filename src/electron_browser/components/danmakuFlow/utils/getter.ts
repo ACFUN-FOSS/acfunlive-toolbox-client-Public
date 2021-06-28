@@ -78,6 +78,10 @@ export const getNickName = (danmaku: any) => {
 	return getUserInfo(danmaku).nickname;
 };
 
+export const getUID = (danmaku: any) => {
+	return getUserInfo(danmaku).userID;
+};
+
 export const getContent = (danmaku: any) => {
 	if (danmaku.type !== 1000) {
 		return "";
@@ -95,6 +99,9 @@ export const getGift = (danmaku: any) => {
 		display: true,
 		...danmaku.data
 	};
+};
+export const getDanmakuType = (danmaku: any) => {
+	return danmaku.type;
 };
 
 export const getGiftName = (danmaku: any) => {

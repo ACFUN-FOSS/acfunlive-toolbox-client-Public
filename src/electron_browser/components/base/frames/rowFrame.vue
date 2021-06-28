@@ -34,8 +34,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang='scss'>
-@import "@front/styles/index.scss";
+<style scoped  lang='scss'>
+@import "@front/styles/variables.scss";
 .rowFrame {
 	position: relative;
 	flex-shrink: 0;

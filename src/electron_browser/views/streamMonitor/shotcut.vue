@@ -37,5 +37,4 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
-@import "@front/styles/index.scss";
 </style>

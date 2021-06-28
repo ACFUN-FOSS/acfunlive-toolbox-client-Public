@@ -1,7 +1,7 @@
 <template>
 	<div class="medal" v-show="getMedal(danmaku).clubName" :style="style">
-		<div class="level" :style="degreeStyle" v-show="setting.config.degree">{{level}}</div>
-		<div class="name" :style="nameStyle" v-show="setting.config.name">{{getMedal(danmaku).clubName}}</div>
+		<div class="level" :style="degreeStyle" v-show="setting?.config?.degree">{{level}}</div>
+		<div class="name" :style="nameStyle" v-show="setting?.config?.name">{{getMedal(danmaku).clubName}}</div>
 	</div>
 </template>
 
@@ -47,7 +47,7 @@ export default defineComponent({
 	computed: {
 		level(): any {
 			if (this.configMode) {
-				return this.setting.config.preview;
+				return this.setting?.config?.preview;
 			}
 			return getMedal(this.danmaku).level;
 		},
@@ -57,7 +57,7 @@ export default defineComponent({
 			if (!style) {
 				return {};
 			}
-			const color = degreeColor(this.setting.config.color, this.level);
+			const color = degreeColor(this.setting?.config?.color, this.level);
 
 			return {
 				...padding(style),
@@ -75,7 +75,7 @@ export default defineComponent({
 			if (!style) {
 				return {};
 			}
-			const color = degreeColor(this.setting.config.color, this.level);
+			const color = degreeColor(this.setting?.config?.color, this.level);
 
 			return {
 				...padding(style),
@@ -94,7 +94,7 @@ export default defineComponent({
 			if (!style) {
 				return {};
 			}
-			const color = degreeColor(this.setting.config.color, this.level);
+			const color = degreeColor(this.setting?.config?.color, this.level);
 
 			return {
 				...padding(style),

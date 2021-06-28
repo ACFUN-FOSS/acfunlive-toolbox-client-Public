@@ -106,11 +106,89 @@ export const position = (): any => {
 		}
 	];
 };
+
+export const backgroundType = (): any => {
+	return [
+		{
+			label: "纯色+图片",
+			value: 0
+		},
+		{
+			label: "动态背景+图片",
+			value: 1
+		}
+	];
+};
+
+export const backgroundPosition = (): any => {
+	return [
+		{
+			label: "左上",
+			value: "top left"
+		},
+		{
+			label: "上",
+			value: "top center"
+		},
+		{
+			label: "右上",
+			value: "top right"
+		},
+		{
+			label: "左",
+			value: "center left"
+		},
+		{
+			label: "中",
+			value: "center"
+		},
+		{
+			label: "右",
+			value: "center right"
+		},
+		{
+			label: "左下",
+			value: "bottom left"
+		},
+		{
+			label: "下",
+			value: "bottom center"
+		},
+		{
+			label: "右下",
+			value: "bottom right"
+		}
+	];
+};
+
+export const backgroundSizeType = () => {
+	return [
+		{
+			label: "无",
+			value: 0
+		},
+		{
+			label: "包含",
+			value: "contain"
+		},
+		{
+			label: "适应",
+			value: "cover"
+		},
+		{
+			label: "拉伸",
+			value: "100% 100%"
+		}
+	];
+};
 export default {
 	verticalAlign,
 	fontWeight,
 	fontStyle,
 	textDecoration,
 	overflow,
-	position
+	position,
+	backgroundType,
+	backgroundPosition,
+	backgroundSizeType
 };

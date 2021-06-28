@@ -48,7 +48,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 #topbar {
 	width: calc(100% - 50px);
 	height: 50px;

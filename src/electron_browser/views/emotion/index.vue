@@ -67,7 +67,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { cloneDeep } from "lodash";
+import cloneDeep from "lodash/cloneDeep";
 import zoomFrame from "@front/util_component/frames/zoomFrame.vue";
 import danmakuRow from "@front/components/danmakuFlow/danmakuRow.vue";
 import { getMockByType } from "@front/views/danmakuSetting/mock/index";
@@ -156,7 +156,9 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
+@import "@front/styles/scrollbar.scss";
+@import "@front/styles/backgrounds.scss";
 #emotion {
 	position: relative;
 	height: 100%;

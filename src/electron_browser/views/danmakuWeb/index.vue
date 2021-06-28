@@ -1,8 +1,9 @@
 <template>
 	<div style="width:100%;height:100%;position:relative">
+		<super-chat-list class="super-chat" v-if="enable&&superChatEnable" />
+		<flow v-if="enable" :class="{superChatEnable}" :settings="danmakuProfile.web" :danmakuList="danmakuSession.filterFlow" />
 		<transition name="fade" mode="out-in">
-			<flow v-if="enable" :settings="danmakuProfile.web" :danmakuList="danmakuSession.filterFlow" />
-			<div class="tips" v-else>
+			<div class="tips" v-if="!enable">
 				<div class="positioner" :class="pos" v-for="pos in ['lt','rt','lb','rb']" :key="pos" />
 				<div class="title">弹幕准备中。<span v-for="dot in dotsCount" :key="dot">。</span></div>
 				<div v-for="checker of checkers" :key="checker.label" class="checkers">
@@ -21,11 +22,13 @@ import { event } from "@front/util_function/eventBus";
 import { commonSettings } from "@front/datas/danmaku";
 import { tempInfo } from "@front/datas/temp";
 import flow from "@front/components/danmakuFlow/index.vue";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
+import superChatList from "@front/components/superChat/index.vue";
 export default defineComponent({
 	name: "webDanmaku",
 	components: {
-		flow
+		flow,
+		superChatList
 	},
 	data() {
 		const danmakuList: any = [];
@@ -43,7 +46,7 @@ export default defineComponent({
 					label: "连接在线",
 					method: that.refresh,
 					value: false,
-					wait: 500
+					wait: 2000
 				},
 				registered: {
 					label: "通信注册",
@@ -84,7 +87,7 @@ export default defineComponent({
 					label: "弹幕启动",
 					method: that.startDanmaku,
 					value: false,
-					wait: 20000
+					wait: 30000
 				}
 			}
 		};
@@ -102,6 +105,7 @@ export default defineComponent({
 		this.unRegisterEvents();
 	},
 	computed: {
+		...mapGetters(["superChatEnable"]),
 		...mapState([
 			"userSession",
 			"danmakuProfile",
@@ -172,7 +176,8 @@ export default defineComponent({
 					this.status.danmakuing.value = true;
 					break;
 				case "streamable":
-				// window.location.reload();
+					// window.location.reload();
+					break;
 			}
 		},
 		statusLooper() {
@@ -225,7 +230,9 @@ export default defineComponent({
 				return;
 			}
 			this.settingTimer = true;
-			fetch("/configFiles/config.json")
+			fetch("/configFiles/config.json", {
+				cache: "no-cache"
+			})
 				.then((res: any) => res.json())
 				.then((json: any) => {
 					this.status.hasSetting.value = true;
@@ -272,7 +279,7 @@ export default defineComponent({
 });
 </script>
 <style lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 html,
 body,
 #app {
@@ -288,6 +295,16 @@ body,
 	width: 100%;
 	height: 100%;
 	transition: none;
+}
+.danmaku-flow {
+	padding-bottom: 16px !important;
+}
+.superChatEnable {
+	height: calc(100% - 40px);
+}
+.super-chat {
+	border: none !important;
+	margin-bottom: 5px;
 }
 .tips {
 	position: absolute;

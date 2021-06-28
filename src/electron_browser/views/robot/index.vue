@@ -2,29 +2,13 @@
 	<content-frame align="row" id="robot">
 		<span class="hint">鸡鸡人（机器人）即tts语音，请先点击试听确定系统支持此功能 鸡鸡人的语音等待列表为10条，超出后最早的语音会被略过</span>
 		<span class="hint">鸡鸡人仅会朗读设置了规则并且通过了弹幕流过滤的弹幕，并且不会朗读纯表情评论</span>
-		<span class="hint">好听的鸡鸡人需要收费 么得办法啦~ </span>
-		<row-frame width="100%" title="通用设置" flex>
-			<row-span style="text-align:right" :span="1">
-				开启
-			</row-span>
-			<row-span style="text-align:left" :span="2">
-				<el-switch v-model="robotSetting.enable" />
-			</row-span>
-			<row-span style="text-align:right" v-show="robotSetting.enable" :span="1">
-				速度
-			</row-span>
-			<row-span style="text-align:left" v-show="robotSetting.enable" :span="2">
-				<el-slider style="height:20px;display:flex;align-items:center" type="number" size="mini" v-model="robotSetting.speed" :min="-10" :max="10" />
-			</row-span>
-			<row-span style="text-align:right" v-show="robotSetting.enable" :span="2">
-				音量
-			</row-span>
-			<row-span style="text-align:left" v-show="robotSetting.enable" :span="2">
-				<el-slider style="height:20px;display:flex;align-items:center" type="number" size="mini" v-model="robotSetting.volume" :min="0" :max="100" />
-			</row-span>
-			<row-span style="text-align:right;" :span="2">
+		<span class="hint">讯飞语音需要在<a href="https://passport.xfyun.cn/register" target="_blank">这里</a>注册并获取密匙</span>
+		<row-frame width="100%" title="通用设置">
+			<vue-form :form-footer="{show:false}" v-model="robotSetting" :schema="schema" :ui-schema="uiSchema" />
+			<row-span :span="4">
 				<el-button size="mini" style="margin-top:-8px" type="primary" @click="save">保存</el-button>
 			</row-span>
+
 		</row-frame>
 		<row-frame width="100%" wi v-for="type in typeOptions" v-show="robotSetting.enable" :title="type.label" :key="type.value">
 			<rule-chain :allow="type.value" v-model="robotSetting.rules[type.value]" />
@@ -36,20 +20,25 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
-import { cloneDeep } from "lodash";
+import cloneDeep from "lodash/cloneDeep";
 import { robotSetting } from "@front/datas/danmaku";
 import { typeOptions } from "@front/components/danmakuFlow/utils/data";
 import { read } from "@front/api/robot";
 import { getMockByType } from "@front/views/danmakuSetting/mock/index";
 import ruleChain from "./ruleChain.vue";
+import VueForm from "@lljj/vue3-form-element";
 import { ElMessage } from "element-plus";
+import { uiSchema, schema } from "./rule";
 export default defineComponent({
 	name: "robot",
 	components: {
-		ruleChain
+		ruleChain,
+		VueForm
 	},
 	data() {
 		return {
+			uiSchema: uiSchema(),
+			schema: schema(),
 			robotSetting: robotSetting()
 		};
 	},
@@ -68,11 +57,13 @@ export default defineComponent({
 	methods: {
 		preview(type: number) {
 			const danmaku = getMockByType(type);
-			const { speed, volume } = this.robotSetting;
+			const { speed, volume, rtype, api } = this.robotSetting;
 			read({
 				danmaku,
 				speed,
 				volume,
+				rtype,
+				api,
 				rules: this.robotSetting.rules[type]
 			});
 		},
@@ -91,13 +82,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/scrollbar.scss";
 
 #robot {
 	position: absolute;
 	box-sizing: border-box;
 	height: 100%;
-
 	@include scrollbarDark();
+	overflow-x: hidden;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
 	<div id="shrink">
 		<transition name="fade">
-			<div class="unstreamable" v-if="!streamStatus.step=='unstreamable'">
+			<div class="unstreamable" v-if="streamStatus.step==='nostreamable'">
 				{{common.unstreamable}}<br>
 				<el-button size="mini" type="primary" @click="$store.dispatch('nostreamable')">点击重试</el-button>
 			</div>
 			<div class="unstreamable" v-else-if="!isStreaming">
-				<el-button type="primary" class="logBtn" size="medium" @click="openStream">
+				<el-button type="primary" :disabled="loading" class="logBtn" size="medium" @click="openStream">
 					{{$route.name==="roomMgmt"?"确认开播":"点我开播"}}
 				</el-button>
 			</div>
@@ -47,6 +47,11 @@ export default defineComponent({
 	components: {
 		flow
 	},
+	data() {
+		return {
+			loading: false
+		};
+	},
 	computed: {
 		...mapState(["roomProfile", "streamStatus", "roomStatus"]),
 		...mapGetters(["isStreaming"]),
@@ -62,6 +67,10 @@ export default defineComponent({
 				});
 			} else {
 				event.emit("openStream");
+				this.loading = true;
+				event.once("openStreamEnd", () => {
+					this.loading = false;
+				});
 			}
 		}
 	}
@@ -69,7 +78,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 #shrink {
 	position: absolute;
 	top: 0px;

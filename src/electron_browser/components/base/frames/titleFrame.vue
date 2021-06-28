@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 .contentTitle {
 	position: relative;
 	width: fit-content;

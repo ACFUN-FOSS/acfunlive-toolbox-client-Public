@@ -19,15 +19,16 @@
 						<room-list />
 					</row-span>
 				</row-frame>
-				<row-frame width="100%" title="弹幕流" :flex="true" :content-default-class="true">
+				<row-frame :class="{superChatEnable}" width="100%" title="弹幕流" :flex="true" :content-default-class="false">
 					<row-span :span="12" style="padding:0px">
 						<div class="list-add-btn" style="top:0px">
 							<div class="slider">背景亮度：
 								<el-slider style="width:100px" v-model="brightness" :min="20" :max="100" :step="1" />
 							</div>
 						</div>
+						<super-chat-list v-if="superChatEnable" :class="{'empty':!temp||temp.superChatArray.length===0}" />
 						<div class="danmaku-list-bg" :style="{'--brightness':(100- brightness)/100}">
-							<danmaku-flow style="height:350px;font-size:18px!important" :danmakuList="danmakuList" :settings="settings" />
+							<danmaku-flow style="font-size:18px!important" :danmakuList="danmakuList" :settings="settings" />
 						</div>
 					</row-span>
 				</row-frame>
@@ -48,6 +49,7 @@ import { defineComponent } from "vue";
 import { mapGetters, mapState } from "vuex";
 import roomInfo from "./roomInfo.vue";
 import danmakuFlow from "@front/components/danmakuFlow/index.vue";
+import superChatList from "@front/components/superChat/index.vue";
 import shotcut from "./shotcut.vue";
 import roomList from "@front/components/roomList/roomList.vue";
 import roomChat from "@front/components/roomChat/index.vue";
@@ -60,7 +62,8 @@ export default defineComponent({
 		shotcut,
 		roomList,
 		roomChat,
-		minify
+		minify,
+		superChatList
 	},
 	data() {
 		return {
@@ -68,8 +71,8 @@ export default defineComponent({
 		};
 	},
 	computed: {
-		...mapGetters(["danmakuProfile", "danmakuList"]),
-		...mapState(["minify"]),
+		...mapGetters(["danmakuProfile", "danmakuList", "superChatEnable"]),
+		...mapState(["minify", "temp"]),
 		settings() {
 			// @ts-ignore
 			return this.danmakuProfile("toolBox");
@@ -80,17 +83,38 @@ export default defineComponent({
 });
 </script>
 <style scoped lang='scss'>
+@import "@front/styles/variables.scss";
 #streamMonitor {
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	z-index: 100;
+	.superChatEnable {
+		.danmaku-list-bg > div {
+			height: 315px;
+		}
+	}
+}
+.empty::after {
+	position: absolute;
+	width: 100%;
+	height: 35px;
+	content: "超级聊已开启，当前未有人投喂~";
+	left: 0px;
+	top: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $--color-text-regular;
 }
 .danmaku-list-bg {
 	width: 100%;
 	position: relative;
 
 	overflow: hidden;
+	& > div {
+		height: 350px;
+	}
 	&::before {
 		content: "";
 		position: absolute;

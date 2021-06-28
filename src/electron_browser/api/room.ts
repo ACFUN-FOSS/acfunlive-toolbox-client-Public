@@ -23,6 +23,10 @@ export const getRank = (data: user.Session): Promise<any> => {
 	});
 };
 
+export const getGift = (): Promise<any> => {
+	return wsPromise("getGift", { type: 107 });
+};
+
 export const getDonate = (data: user.Session): Promise<any> => {
 	return wsPromise("getDonate", {
 		type: 103,

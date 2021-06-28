@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
-import { replace } from "lodash";
+import replace from "lodash/replace";
 import { escapeRegExp } from "@front/util_function/base";
 import {
 	size,
@@ -62,12 +62,12 @@ export default defineComponent({
 		}
 	},
 	methods: {
-		getContent(danmaku: any) {
-			let content = this.setting.config.text;
+		getContent() {
+			let content = this.setting?.config?.text;
 			if (!content) {
-				return;
+				return "";
 			}
-			if (!this.danmakuProfile.common.emotion) {
+			if (!this.danmakuProfile.common?.emotion) {
 				return content;
 			}
 			let { emojiTester, emojiMatcher } = this.temp;

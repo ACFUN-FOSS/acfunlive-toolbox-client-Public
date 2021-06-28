@@ -3,7 +3,7 @@ import store from "./index";
 import { event } from "@front/util_function/eventBus";
 import { stream as streamData, temp } from "@front/datas";
 import { room, stream, common, wsevent, statistic, user } from "@front/api";
-import { cloneDeep } from "lodash";
+import cloneDeep from "lodash/cloneDeep";
 import { saveConfig } from "@front/util_function/system";
 export const mutations: any = {
 	reset() {

@@ -1,8 +1,8 @@
 <template>
-	<img ref="img" class="gift-block" :style="picture" v-if="getGift(danmaku).display&&setting.config.type=='picture'" :src="getGift(danmaku).giftDetail.webpPic" @error="reload" />
-	<div class="gift" :style="gname" v-else-if="getGift(danmaku).display&&setting.config.type=='name'">{{getGift(danmaku)?.giftDetail.giftName}}</div>
-	<div class="gift" :style="price" v-else-if="getGift(danmaku).display&&setting.config.type=='price'">{{getGiftValue(danmaku)?`${getGiftValue(danmaku)/1000} AC币`:"免费"}}</div>
-	<div class="gift" :style="number" v-else-if="getGift(danmaku).display&&setting.config.type=='number'"><span class="combo" :key="count||1">{{count||getGift(danmaku)?.count}}</span></div>
+	<img ref="img" class="gift-block" :style="picture" v-if="getGift(danmaku).display&&setting?.config?.type=='picture'" :src="getGift(danmaku).giftDetail.webpPic" @error="reload" />
+	<div class="gift" :style="gname" v-else-if="getGift(danmaku).display&&setting?.config?.type=='name'">{{getGift(danmaku)?.giftDetail.giftName}}</div>
+	<div class="gift" :style="price" v-else-if="getGift(danmaku).display&&setting?.config?.type=='price'">{{getGiftValue(danmaku)?`${getGiftValue(danmaku)/1000} AC币`:"免费"}}</div>
+	<div class="gift" :style="number" v-else-if="getGift(danmaku).display&&setting?.config?.type=='number'"><span class="combo" :key="count||1">{{count||getGift(danmaku)?.count}}</span></div>
 	<div class="gift" v-else />
 </template>
 

@@ -56,7 +56,11 @@
 import { defineComponent } from "vue";
 import Cookies from "@front/util_function/cookies";
 import topbarBase from "@front/components/system/topbars/base.vue";
-import { backendRestart, loadConfig } from "@front/util_function/system";
+import {
+	backendRestart,
+	loadConfig,
+	launch
+} from "@front/util_function/system";
 import { login as loginTexts, common } from "@front/texts";
 export default defineComponent({
 	name: "login",
@@ -111,6 +115,12 @@ export default defineComponent({
 		loadConfig().then((res: any) => {
 			if (res) {
 				Object.assign(this.$store.state.danmakuProfile, res);
+			}
+			if (
+				res?.general?.streamToolEnable &&
+				res?.general?.streamToolPath
+			) {
+				launch(res?.general?.streamToolPath);
 			}
 		});
 		this.$store.dispatch("startServe").then(() => {
@@ -183,7 +193,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 #login {
 	width: 100%;
 	height: 100%;

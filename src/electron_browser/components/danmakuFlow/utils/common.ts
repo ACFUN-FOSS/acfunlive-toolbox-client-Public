@@ -1,12 +1,6 @@
 import { Settings, CommonSettings } from "@front/datas/danmaku";
 import { Rank } from "@front/datas/room";
-import {
-	getContent,
-	getUserInfo,
-	getMedal,
-	getGiftNumber,
-	setGiftNumber
-} from "./getter";
+import { getContent, getUserInfo, getMedal, getUID } from "./getter";
 import {
 	isOwner as ownerTest,
 	isManager as managerTest,
@@ -29,7 +23,7 @@ export class Filter {
 		{ filter, maxNum, clubLevel, settingOfType }: Settings,
 		{ blackList, keywords }: CommonSettings,
 		rank: Rank
-	): Array<any> => {
+	): any => {
 		danmaku = danmaku.filter(i => {
 			return types.indexOf(i.type) > -1;
 		});
@@ -38,6 +32,10 @@ export class Filter {
 		}
 		const keys = Object.keys(settingOfType);
 		let count = 0;
+		let hasCombined = false;
+		let hasBlackList = false;
+		let hasKeywordBlocked = false;
+
 		const output: Array<any> = [];
 		for (let i of danmaku) {
 			let needFreeze = true;
@@ -62,6 +60,7 @@ export class Filter {
 					);
 				})
 			) {
+				hasBlackList = true;
 				continue; // filter out blackList
 			}
 
@@ -83,12 +82,14 @@ export class Filter {
 					return getContent(i).includes(u);
 				})
 			) {
+				hasKeywordBlocked = true;
 				continue; // filter out keyword
 			} else if (i.type === 1001 && filter.combineLike) {
 				this.likeList = this.likeList.slice(0, 5);
 				const like = this.likeList.find((l: any) => samePerson(i, l));
 				if (like) {
 					like.combineCount += 1;
+					hasCombined = true;
 					continue;
 				} else {
 					needFreeze = false;
@@ -103,6 +104,7 @@ export class Filter {
 				const enter = this.enterList.find((l: any) => samePerson(i, l));
 				if (enter) {
 					enter.combineCount += 1;
+					hasCombined = true;
 					continue;
 				} else {
 					needFreeze = false;
@@ -123,6 +125,7 @@ export class Filter {
 				if (gift) {
 					gift.count += i.data.count;
 					gift.expire = now + 5000;
+					hasCombined = true;
 					continue;
 				} else {
 					needFreeze = false;
@@ -138,7 +141,12 @@ export class Filter {
 			count++;
 		}
 
-		return output;
+		return {
+			filtered: output,
+			hasCombined,
+			hasBlackList,
+			hasKeywordBlocked
+		};
 	};
 
 	filterUpdate = (
@@ -148,18 +156,13 @@ export class Filter {
 		commonSettings: CommonSettings,
 		rank: Rank
 	) => {
-		const filtered = this.filter(
-			newDanmaku,
-			settings,
-			commonSettings,
-			rank
-		);
+		const result = this.filter(newDanmaku, settings, commonSettings, rank);
 		return {
 			list: this.filterMaxnium(
-				[...filtered.reverse(), ...OldDanmaku],
+				[...result.filtered.reverse(), ...OldDanmaku],
 				settings
 			),
-			result: filtered
+			...result
 		};
 	};
 
@@ -190,6 +193,15 @@ export const menu = (
 			icon: "el-icon-user-solid",
 			show: true,
 			disabled: true
+		},
+		{
+			name: "个人主页",
+			icon: "el-icon-arrow-right",
+			show: true,
+			disabled: false,
+			event: () => {
+				window.open(`https://www.acfun.cn/u/${getUID(danmaku)}`);
+			}
 		},
 		{
 			name: "取消房管",

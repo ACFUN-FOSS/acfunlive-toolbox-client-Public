@@ -1,6 +1,7 @@
 const path = require("path");
-const webpack = require("webpack");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
+	productionSourceMap: true,
 	pages: {
 		index: {
 			entry: "./src/electron_browser/main.ts"
@@ -15,14 +16,25 @@ module.exports = {
 			builderOptions: {
 				productName: "ACFUN直播工具箱",
 				asar: false,
-				files: [
-					"!configFiles/**",
-				],
+				extraFiles: {
+					from: "./documents",
+					to: "使用说明"
+				},
+				directories: {
+					output: path.join("BUILD", process.env.npm_package_version)
+				},
+				nsis: {
+					oneClick: false,
+					allowToChangeInstallationDirectory: true
+				}
 			}
 
-		}
+		},
 	},
 	configureWebpack: {
+		// optimization: {
+		// 	usedExports: true,
+		// },
 		devServer: {
 			watchOptions: {
 				ignored: /public/
@@ -38,6 +50,9 @@ module.exports = {
 		},
 		entry: {
 			main: "./src/electron_browser/main.ts"
-		}
+		},
+		plugins: [
+			// new BundleAnalyzerPlugin(),
+		],
 	}
 };

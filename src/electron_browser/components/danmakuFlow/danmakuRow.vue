@@ -58,9 +58,7 @@ export default defineComponent({
 			return {};
 		}
 	},
-	methods: {
-		getUserInfo
-	}
+	methods: { getUserInfo }
 });
 </script>
 <style scoped lang='scss'>

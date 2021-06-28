@@ -1,5 +1,5 @@
 import { randomId } from "@front/util_function/base";
-import { markRaw } from "vue";
+import { defineAsyncComponent, markRaw } from "vue";
 const requireComponent = require.context(
 	"@front/components/danmakuFlow/widgets",
 	true,
@@ -17,7 +17,16 @@ requireComponent.keys().forEach(fileName => {
 			label: component.cname,
 			labelEn: matches[0],
 			widgetOptions: component.widgetOptions,
-			component: markRaw(component),
+			component: markRaw(
+				defineAsyncComponent(() =>
+					import(
+						`@front/components/danmakuFlow/widgets/${fileName.replace(
+							"./",
+							""
+						)}`
+					)
+				)
+			),
 			styleForm: component.data()?.settingForm(),
 			styleValue: component.data()?.settingValue()
 		};

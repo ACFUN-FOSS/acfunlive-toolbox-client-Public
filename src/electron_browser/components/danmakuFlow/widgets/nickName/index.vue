@@ -1,5 +1,5 @@
 <template>
-	<div class="nickName" :style="style">{{setting.config.preffix}}{{getNickName(danmaku)}}{{setting.config.affix}} </div>
+	<div class="nickName" :style="style">{{nickName}} </div>
 </template>
 
 <script lang="ts">
@@ -53,11 +53,11 @@ export default defineComponent({
 				...position(style),
 				...transform(style)
 			};
-		}
-	},
-	methods: {
-		getNickName(danmaku: any) {
-			return getNickName(danmaku);
+		},
+		nickName(): any {
+			const preffix = this.setting?.config?.preffix || "";
+			const affix = this.setting?.config?.affix || "";
+			return `${preffix}${getNickName(this.danmaku)}${affix}`;
 		}
 	}
 });

@@ -66,6 +66,41 @@
 		background-color: rgba(255, 255, 255, 0.3);
 	}
 }
+
+@mixin scrollbarBaseSlinderHorizontal() {
+	padding-bottom: 4px;
+	box-sizing: border-box;
+	overflow-x: scroll;
+	&:hover {
+		padding-bottom: 0px;
+	}
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		height: 4px;
+		border-radius: 5px;
+		width: 10px;
+		transition: background-color 1s;
+		display: none;
+	}
+	&:hover {
+		&::-webkit-scrollbar {
+			display: block;
+		}
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 4px;
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+
+	&::-webkit-scrollbar-thumb:window-inactive {
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+}
 @mixin scrollbarDark() {
 	padding-right: 10px;
 	box-sizing: border-box;

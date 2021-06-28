@@ -1,5 +1,3 @@
-import { removePunctuation } from "@front/util_function/base";
-import { head } from "lodash";
 export const size = (style: any): any => {
 	const output = {};
 	const sizes = ["width", "height"];

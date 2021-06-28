@@ -102,7 +102,7 @@ export const selectF = (title: string, options: Array<any>, width = "25%") => {
 			return;
 		}
 		eNumNames.push(i.label);
-		if (i.value) {
+		if (i.value !== undefined) {
 			eNum.push(i.value);
 		} else {
 			eNum.push(i.label);

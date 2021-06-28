@@ -117,7 +117,7 @@ import {
 } from "@front/components/danmakuFlow/utils/data";
 import zoomFrame from "@front/util_component/frames/zoomFrame.vue";
 import baseList from "@front/components/base/list/base.vue";
-import { cloneDeep } from "lodash";
+import cloneDeep from "lodash/cloneDeep";
 import { defineComponent } from "vue";
 import { mapGetters } from "vuex";
 import { randomId } from "@front/util_function/base";
@@ -409,6 +409,9 @@ export default defineComponent({
 		removeStyleForm(style: any) {
 			const newStyle = cloneDeep(style);
 			for (const i in newStyle) {
+				if (!newStyle[i]?.widgets) {
+					continue;
+				}
 				newStyle[i].widgets.forEach((widget: any) => {
 					delete widget.styleForm;
 				});
@@ -420,7 +423,9 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
+@import "@front/styles/scrollbar.scss";
+@import "@front/styles/backgrounds.scss";
 .zoom-frame {
 	width: 100%;
 	height: 60px;

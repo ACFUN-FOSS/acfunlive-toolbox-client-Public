@@ -6,7 +6,7 @@ let currentWs: any = null;
 export const startDanmaku = (
 	session: user.Session,
 	{ startCallback, danmakuCallback, endCallback }: any
-): void => {
+): any => {
 	if (pending) {
 		return;
 	}
@@ -14,7 +14,7 @@ export const startDanmaku = (
 	// @ts-ignore
 	const ws = window.wsl;
 	// 开始弹幕流获取
-	start(session)
+	return start(session)
 		.then(res => {
 			const judge = (e: any) => {
 				const data = JSON.parse(e.data);
@@ -47,12 +47,16 @@ export const startDanmaku = (
 
 export const start = (data: user.Session): Promise<void> => {
 	// 开始弹幕获取
-	return wsPromise("startDanmakuFlow", {
-		type: 100,
-		data: {
-			liverUID: data.userID
-		}
-	});
+	return wsPromise(
+		"startDanmakuFlow",
+		{
+			type: 100,
+			data: {
+				liverUID: data.userID
+			}
+		},
+		30000
+	);
 };
 export const stop = (data: user.Session): Promise<void> => {
 	// 结束弹幕获取

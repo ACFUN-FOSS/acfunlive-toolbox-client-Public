@@ -1,7 +1,12 @@
 import mockData from "./danmaku.json";
-import { sampleSize, cloneDeep, sample } from "lodash";
+import cloneDeep from "lodash/cloneDeep";
+import sampleSize from "lodash/sampleSize";
+import sample from "lodash/sample";
 import { basicComponentTester } from "@front/components/danmakuFlow/utils/tester";
-import { setTime } from "@front/components/danmakuFlow/utils/getter";
+import {
+	setTime,
+	getGiftValue
+} from "@front/components/danmakuFlow/utils/getter";
 let timestamp = new Date().getTime();
 export const initMock = (): Array<any> => {
 	return getMock(10);
@@ -32,6 +37,14 @@ export const getMockByType = (type: number | string): any => {
 				});
 			}
 			return pass;
+		})
+	);
+};
+
+export const getPaidGift = (): any => {
+	return sample(
+		mockData.filter((i: any) => {
+			return i.type === 1005 && getGiftValue(i) > 0;
 		})
 	);
 };

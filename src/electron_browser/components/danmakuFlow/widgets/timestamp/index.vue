@@ -1,5 +1,5 @@
 <template>
-	<div class="timestamp" :style="style">{{setting.config.preffix}}{{getTime(danmaku)}}{{setting.config.affix}}</div>
+	<div class="timestamp" :style="style">{{time}}</div>
 </template>
 
 <script lang="ts">
@@ -59,14 +59,15 @@ export default defineComponent({
 			// @ts-ignore
 			const config = this.setting?.config || defaultValue().config;
 			return config;
-		}
-	},
-	methods: {
-		getTime(danmaku: any) {
-			return format(
-				fromUnixTime(getTime(danmaku) / 1000),
-				this.config.format
+		},
+		time(): any {
+			const time = format(
+				fromUnixTime(getTime(this.danmaku) / 1000),
+				this.config?.format || "HH:mm:ss"
 			);
+			const preffix = this.setting?.config?.preffix || "";
+			const affix = this.setting?.config?.affix || "";
+			return `${preffix}${time}${affix}`;
 		}
 	}
 });

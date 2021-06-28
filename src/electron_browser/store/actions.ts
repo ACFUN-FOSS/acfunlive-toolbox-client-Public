@@ -6,13 +6,15 @@ import {
 } from "@front/api";
 import { event } from "@front/util_function/eventBus";
 import { danmakuHandler } from "./danmaku/danmaku";
-import { danmaku } from "@front/datas";
 import { isElectron } from "../util_function/electron";
 import { backendRestart } from "../util_function/system";
 import { read } from "@front/api/robot";
 import { getUserInfo } from "@front/components/danmakuFlow/utils/getter";
 import { logout } from "@front/util_function/login";
-
+import {
+	isOwner,
+	isNormalDanmaku
+} from "@front/components/danmakuFlow/utils/tester";
 let streamStatusTimer: any = null;
 
 let retry = 0;
@@ -29,7 +31,7 @@ export const actions = {
 						);
 					}, 1000);
 					reject(new Error("connection failed"));
-				}, 5000);
+				}, 10000);
 				server.init({
 					onOpen: () => {
 						clearTimeout(timer);
@@ -65,7 +67,7 @@ export const actions = {
 					store.state.userData = userData;
 					store.state.userSession = {
 						...res.tokenInfo
-						// userID: 17825771
+						// userID: 378269
 					};
 					store.state.streamStatus.step = "nostreamable";
 					event.emit("streamStatusChanged");
@@ -139,35 +141,16 @@ export const actions = {
 				state.danmakuSession.rawFlow = [];
 				state.danmakuSession.filterFlow = [];
 			}
-			const danmakuCallback = (e: any) => {
-				if (e.type < 1010) {
+			const danmakuCallback = (danmaku: any) => {
+				if (isNormalDanmaku(danmaku)) {
 					const settings: any = isElectron()
 						? state.danmakuProfile.toolBox
 						: state.danmakuProfile.web;
 					const commonSettings =
 						state.danmakuProfile.common || danmaku.commonSettings();
 					const rank = state.rank;
-					const filtered = filter.filterUpdate(
-						[e],
-						state.danmakuSession.filterFlow,
-						settings,
-						commonSettings,
-						rank
-					);
-					state.danmakuSession.filterFlow = filtered.list;
-					if (
-						isElectron() &&
-						settings?.robotSetting.enable &&
-						filtered.result[0]
-					) {
-						const { volume, speed, rules } = settings.robotSetting;
-						read({
-							speed,
-							volume,
-							rules: rules[e.type],
-							danmaku: filtered.result[0]
-						});
-					}
+
+					// auto click
 					if (
 						state.danmakuProfile.common.blackList.find(
 							(user: any) =>
@@ -175,11 +158,41 @@ export const actions = {
 						)
 					) {
 						store.commit("kickOut", getUserInfo(danmaku).userID);
+						return;
 					}
+
+					const { filtered, list, hasCombined } = filter.filterUpdate(
+						[danmaku],
+						state.danmakuSession.filterFlow,
+						settings,
+						commonSettings,
+						rank
+					);
+					if (filtered[0]) {
+						// chicken robot
+						if (isElectron() && settings?.robotSetting?.enable) {
+							const {
+								rules,
+								ignoreOwner
+							} = settings.robotSetting;
+							if (!(ignoreOwner && isOwner(danmaku, state))) {
+								read({
+									...settings.robotSetting,
+									rules: rules[danmaku.type],
+									danmaku: filtered[0],
+									filters: [state.temp.emojiTester]
+								});
+							}
+						}
+						danmaku = filtered[0];
+					} else if (!hasCombined) {
+						return;
+					}
+					state.danmakuSession.filterFlow = list;
 				}
-				const handler = danmakuHandler[String(e.type)];
+				const handler = danmakuHandler[String(danmaku.type)];
 				if (handler) {
-					handler(e, store);
+					handler(danmaku, store);
 				}
 			};
 			const startCallback = (res: any) => {
@@ -196,18 +209,18 @@ export const actions = {
 				event.emit("streamStatusChanged");
 				store.dispatch(store.state.streamStatus.step);
 			};
-			try {
-				danmakuApi.startDanmaku(state.userSession, {
+			danmakuApi
+				.startDanmaku(state.userSession, {
 					startCallback,
 					danmakuCallback,
 					endCallback
+				})
+				.catch((error: any) => {
+					streamStatusTimer = setTimeout(() => {
+						store.dispatch(store.state.streamStatus.step);
+					}, 1000);
+					reject(error);
 				});
-			} catch (error) {
-				streamStatusTimer = setTimeout(() => {
-					store.dispatch(store.state.streamStatus.step);
-				}, 1000);
-				reject(error);
-			}
 		});
 	},
 	danmakuing(store: any) {
@@ -233,7 +246,7 @@ export const actions = {
 			if (isElectron()) {
 				store.state.userSession = {
 					...res.tokenInfo
-					// userID: 17825771
+					// userID: 378269
 				};
 			}
 			const preStage = sessionStorage.getItem("preStep");

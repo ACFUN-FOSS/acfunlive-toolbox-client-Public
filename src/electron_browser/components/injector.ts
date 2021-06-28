@@ -1,5 +1,4 @@
 import { App } from "vue";
-
 export const initGlobalComp = (vm: App) => {
 	const requireComponent = require.context(
 		"@front/components/base/",

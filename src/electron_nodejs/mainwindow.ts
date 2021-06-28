@@ -60,7 +60,21 @@ async function createWindow() {
 			enableRemoteModule: true
 		}
 	});
+	const gotTheLock = app.requestSingleInstanceLock();
+	if (!gotTheLock) {
+		app.quit();
+	} else {
+		app.on("second-instance", (event, commandLine, workingDirectory) => {
+			// Someone tried to run a second instance, we should focus our window.
+			if (win) {
+				if (win.isMinimized()) win.restore();
+				win.focus();
+			}
+		});
 
+		// Create myWindow, load the rest of the app, etc...
+		app.on("ready", () => {});
+	}
 	win.once("ready-to-show", () => {
 		win.show();
 		// win.webContents.openDevTools();
@@ -83,6 +97,9 @@ async function createWindow() {
 	globalShortcut.register("CommandOrControl+F1", () => {
 		win.webContents.send("switch-ignore-mode");
 	});
+	globalShortcut.register("CommandOrControl+F2", () => {
+		win.webContents.send("switch-ignore-mode-temp");
+	});
 	Backend.registerEvents();
 	File.registerEvents();
 	MainWin.registerEvents(win);
@@ -100,15 +117,6 @@ export default function init_mainwindow() {
 		app.quit();
 	});
 
-	// app.on("activate", () => {
-	// 	// On macOS it's common to re-create a window in the app when the
-	// 	// dock icon is clicked and there are no other windows open.
-	// 	if (BrowserWindow.getAllWindows().length === 0) createWindow();
-	// });
-
-	// This method will be called when Electron has finished
-	// initialization and is ready to create browser windows.
-	// Some APIs can only be used after this event occurs.
 	app.on("ready", async () => {
 		if (isDevelopment && !process.env.IS_TEST) {
 			// Install Vue Devtools

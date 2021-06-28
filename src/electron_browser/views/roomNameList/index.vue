@@ -172,7 +172,6 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
 #roomNameList {
 	position: absolute;
 	width: 100%;

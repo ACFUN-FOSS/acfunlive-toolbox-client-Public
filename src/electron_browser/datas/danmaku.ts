@@ -70,10 +70,14 @@ export const webSettings = (): Settings => {
 };
 
 export interface RobotSetting {
+	rtype: string;
+	api: any;
 	enable: boolean;
 	speed: number;
 	volume: number;
 	rules: any;
+	ignoreOwner: boolean;
+	comboReading: boolean;
 }
 
 export const robotRule = (): any => {
@@ -91,10 +95,19 @@ export const robotRule = (): any => {
 
 export const robotSetting = (): RobotSetting => {
 	return {
+		rtype: "default",
+		api: {
+			appSecret: "",
+			appID: "",
+			appKey: "",
+			voiceName: ""
+		},
 		enable: false,
 		speed: 2,
 		volume: 50,
-		rules: robotRule()
+		rules: robotRule(),
+		ignoreOwner: false,
+		comboReading: false
 	};
 };
 
@@ -115,12 +128,31 @@ export interface emoji {
 	scale: number;
 }
 
+export interface SuperChat {
+	enable: boolean;
+	webEnable: boolean;
+	showNextLevel: boolean;
+	rules: Array<any>;
+	displayType: number;
+}
+
+export const superChat = () => {
+	return {
+		enable: false,
+		webEnable: false,
+		showNextLevel: false,
+		rules: [],
+		displayType: 0
+	};
+};
+
 export interface CommonSettings {
 	blackList: Array<any>;
 	keywords: Array<any>;
 	emojis: Array<emoji>;
 	emotionMax: number;
 	emotion: boolean;
+	superChat: SuperChat;
 }
 
 export const commonSettings = (): CommonSettings => {
@@ -129,11 +161,23 @@ export const commonSettings = (): CommonSettings => {
 		keywords: [],
 		emotion: true,
 		emotionMax: 3,
-		emojis: []
+		emojis: [],
+		superChat: superChat()
+	};
+};
+
+export interface GeneralSettings {
+	streamToolPath: string;
+}
+
+export const generalSettings = (): GeneralSettings => {
+	return {
+		streamToolPath: ""
 	};
 };
 
 export interface Profile {
+	general: GeneralSettings;
 	common: CommonSettings;
 	toolBox: clientSettings;
 	web: Settings;
@@ -141,6 +185,7 @@ export interface Profile {
 
 export const profile = (): Profile => {
 	return {
+		general: generalSettings(),
 		common: commonSettings(),
 		toolBox: clientSettings(),
 		web: webSettings()

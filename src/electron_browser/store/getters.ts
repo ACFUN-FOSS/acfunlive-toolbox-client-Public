@@ -1,12 +1,21 @@
 import { RootState, state } from "./state";
-import _ from "lodash";
 import { tostring } from "@front/util_function/type";
+import { isElectron } from "@front/util_function/electron";
 export const getters = {
 	isStreaming(state: RootState) {
 		return (
 			state.streamStatus.step === "streaming" ||
 			state.streamStatus.step === "danmakuing"
 		);
+	},
+	superChatEnable(state: RootState) {
+		if (isElectron()) {
+			return state.danmakuProfile?.common?.superChat?.enable;
+		}
+		return state.danmakuProfile?.common?.superChat?.webEnable;
+	},
+	streamable(state: RootState) {
+		return state.streamStatus.step !== "nostreamable";
 	},
 	isLogined(state: RootState) {
 		return state.userSession.serviceToken && state.userSession.deviceID;

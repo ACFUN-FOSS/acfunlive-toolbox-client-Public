@@ -1,1 +1,3217 @@
-{"common":{"blackList":[],"keywords":[],"emotion":true,"emojis":[{"pattern":"#汗","url":"/imgs/emojis/image959255393496.png","scale":76},{"pattern":"😒","url":"/imgs/emojis/image807205115664.png","scale":76},{"pattern":"#卖萌","url":"/imgs/emojis/image645225731038.png","scale":76},{"pattern":"#喷了","url":"/imgs/emojis/image520119299044.png","scale":76},{"pattern":"👍","url":"/imgs/emojis/image938693320839.png","scale":76},{"pattern":"😏","url":"/imgs/emojis/image523277223917.png","scale":76}],"emojiTester":{},"emojiMatcher":{}},"toolBox":{"filter":{"open":true,"visitor":true,"clubOnly":false,"blackList":true,"keyword":true,"combineGift":true,"combineLike":true,"combineEnter":true,"types":[1000,1001,1002,1003,1005,1007,1006]},"maxNum":75,"clubLevel":0,"speed":"slow","hightLight":{"boss":true,"manager":false,"concerned":false},"animation":true,"settingOfType":{"1000":{"name":"评论","code":1000,"type":"text","widgets":[{"id":"795670","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":false,"backgroundColor":"transparent","borderRadius":4,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":-1,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"673980","label":"身份","labelEn":"role","value":{"config":{"preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"ownerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(227,185,124,1)","borderRadius":6,"borderWidth":0,"borderColor":"#000"},"managerStyle":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":4,"paddingTop":1,"paddingBottom":1,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(100,238,238,1)","borderRadius":15,"borderWidth":0,"borderColor":"#000"}}},{"id":"697594","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","affix":"："},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"823705","label":"弹幕文字","labelEn":"content","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"882048","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1001":{"label":"点赞","code":1001,"type":"like","widgets":[{"id":"867269","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":false,"backgroundColor":"transparent","borderRadius":4,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":-1,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"579988","label":"身份","labelEn":"role","value":{"config":{"preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"ownerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(227,185,124,1)","borderRadius":6,"borderWidth":0,"borderColor":"#000"},"managerStyle":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":4,"paddingTop":1,"paddingBottom":1,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(100,238,238,1)","borderRadius":15,"borderWidth":0,"borderColor":"#000"}}},{"id":"968518","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"021999","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"点了一个","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"422802","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"❤","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"bolder","color":"rgba(244, 56, 35, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.7,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"752302","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1002":{"label":"进直播间","code":1002,"type":"enter","widgets":[{"id":"710775","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":false,"backgroundColor":"transparent","borderRadius":4,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":-1,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"291638","label":"身份","labelEn":"role","value":{"config":{"preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"ownerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(227,185,124,1)","borderRadius":6,"borderWidth":0,"borderColor":"#000"},"managerStyle":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":4,"paddingTop":1,"paddingBottom":1,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(100,238,238,1)","borderRadius":15,"borderWidth":0,"borderColor":"#000"}}},{"id":"572814","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"143240","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"进入了直播间","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"170296","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1003":{"label":"关注","code":1003,"type":"subscribe","widgets":[{"id":"587660","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":false,"backgroundColor":"transparent","borderRadius":4,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":-1,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"417481","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"520988","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"关注了主播","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","overflow":"visible"}}},{"id":"207649","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1005":{"label":"礼物","code":1005,"type":"gift","widgets":[{"id":"900793","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":false,"backgroundColor":"transparent","borderRadius":4,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":-1,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/极影毁片圆.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"818321","label":"身份","labelEn":"role","value":{"config":{"preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"ownerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(227,185,124,1)","borderRadius":6,"borderWidth":0,"borderColor":"#000"},"managerStyle":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":4,"paddingTop":1,"paddingBottom":1,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(100,238,238,1)","borderRadius":15,"borderWidth":0,"borderColor":"#000"}}},{"id":"864342","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"487121","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"送出了","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","overflow":"visible"}}},{"id":"967663","label":"礼物","labelEn":"giftBlock","value":{"config":{"type":"picture","degree":true,"name":true},"style":{"width":25,"height":25,"verticalAlign":"middle","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"789581","label":"礼物","labelEn":"giftBlock","value":{"config":{"type":"name","degree":true,"name":true},"style":{"width":25,"height":25,"verticalAlign":"middle","fontSize":16,"fontWeight":"bolder","color":"rgba(243, 247, 85, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"733311","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"x","preffix":"","affix":""},"style":{"verticalAlign":"middle","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"402208","label":"礼物","labelEn":"giftBlock","value":{"config":{"type":"number","degree":true,"name":true},"style":{"verticalAlign":"middle","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"504544","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":5,"paddingRight":5,"paddingTop":4,"paddingBottom":4,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"rgba(240, 252, 15, 0.62)","borderRadius":9,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1006":{"label":"系统消息","code":1006,"type":"richText","widgets":[{"id":"524966","label":"系统消息","labelEn":"richText","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"917838","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1007":{"label":"加入守护团","code":1007,"type":"joinClub","widgets":[{"id":"759928","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","specificBackgroundColor":false}}},{"id":"145261","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"加入了主播的守护团","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/极影毁片圆.ttf","fontSize":16,"fontWeight":"lighter","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.6,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"458380","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]}},"robotSetting":{"enable":false,"speed":3,"volume":100,"rules":{"1000":[{"type":"variable","value":"getNickName"},{"type":"text","value":"说："},{"type":"variable","value":"getContent"}],"1001":[{"type":"text","value":"谢谢"},{"type":"variable","value":"getNickName"},{"type":"text","value":"点的一颗小星星"}],"1002":[{"type":"text","value":"欢迎"},{"type":"variable","value":"getNickName"},{"type":"text","value":"进入直播间"}],"1003":[{"type":"text","value":"感谢"},{"type":"variable","value":"getNickName"},{"type":"text","value":"的关注"}],"1004":[],"1005":[{"type":"text","value":"谢谢"},{"type":"variable","value":"getNickName"},{"type":"text","value":"送的"},{"type":"variable","value":"getGiftNumber"},{"type":"text","value":"个"},{"type":"variable","value":"getGiftName"}],"1006":[{"type":"variable","value":"getRichText"}],"1007":[{"type":"text","value":"欢迎"},{"type":"variable","value":"getNickName"},{"type":"text","value":"加入守护团"}]}}},"web":{"filter":{"open":true,"visitor":true,"clubOnly":false,"blackList":true,"keyword":true,"combineGift":true,"combineLike":true,"combineEnter":true,"types":[1000,1001,1002,1003,1005,1007,1006]},"maxNum":25,"clubLevel":0,"speed":"slow","hightLight":{"boss":true,"manager":false,"concerned":false},"animation":true,"settingOfType":{"1000":{"name":"评论","code":1000,"type":"text","widgets":[{"id":"585881","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"transparent","borderRadius":15,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/站酷快乐体.ttf","fontSize":12,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":2,"paddingBottom":2,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/站酷快乐体.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"171739","label":"身份","labelEn":"role","value":{"config":{"preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"ownerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(227,185,124,1)","borderRadius":6,"borderWidth":0,"borderColor":"#000"},"managerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":1,"paddingBottom":1,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(100,238,238,1)","borderRadius":15,"borderWidth":0,"borderColor":"#000"}}},{"id":"697594","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","affix":"："},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(227, 185, 124, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.3,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"823705","label":"弹幕文字","labelEn":"content","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.3,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":6,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"882048","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1001":{"label":"点赞","code":1001,"type":"like","widgets":[{"id":"623167","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"transparent","borderRadius":15,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/站酷快乐体.ttf","fontSize":12,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":2,"paddingBottom":2,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/站酷快乐体.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"528139","label":"身份","labelEn":"role","value":{"config":{"preview":"owner","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"ownerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(227,185,124,1)","borderRadius":6,"borderWidth":0,"borderColor":"#000"},"managerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":1,"paddingBottom":1,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(100,238,238,1)","borderRadius":15,"borderWidth":0,"borderColor":"#000"}}},{"id":"968518","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(227, 185, 124, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.3,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"021999","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"点赞了","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(222, 200, 167, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":10,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"422802","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"❤","preffix":"","affix":""},"style":{"verticalAlign":"middle","fontSize":20,"fontWeight":"bolder","color":"rgba(244, 56, 35, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":8,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"752302","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1002":{"label":"进直播间","code":1002,"type":"enter","widgets":[{"id":"839557","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"transparent","borderRadius":15,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/站酷快乐体.ttf","fontSize":12,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":2,"paddingBottom":2,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/站酷快乐体.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"856999","label":"身份","labelEn":"role","value":{"config":{"preview":"manager","owner":true,"ownerTitle":"主播","manager":true,"managerTitle":"管"},"ownerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(227,185,124,1)","borderRadius":6,"borderWidth":0,"borderColor":"#000"},"managerStyle":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":15,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":4,"paddingRight":3,"paddingTop":1,"paddingBottom":1,"marginLeft":0,"marginRight":7,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(100,238,238,1)","borderRadius":15,"borderWidth":0,"borderColor":"#000"}}},{"id":"572814","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(227, 185, 124, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.3,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"143240","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"进入了直播间","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":10,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"170296","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1003":{"label":"关注","code":1003,"type":"subscribe","widgets":[{"id":"814539","label":"牌子(等级颜色)","labelEn":"medalDegree","value":{"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]},"style":{"verticalAlign":"middle","position":"relative","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":8,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"transparent","borderRadius":15,"borderWidth":2,"borderColor":"rgba(232, 221, 7, 1)"},"degreeStyle":{"verticalAlign":"top","position":"relative","font":"/fonts/站酷快乐体.ttf","fontSize":12,"fontWeight":"bold","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1,"textShadowColor":"#000","paddingLeft":5,"paddingRight":4,"paddingTop":2,"paddingBottom":2,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"rgba(232, 221, 7, 1)","borderRadius":0,"borderWidth":0,"borderColor":"#000"},"nameStyle":{"verticalAlign":"bottom","position":"不定位","font":"/fonts/站酷快乐体.ttf","fontSize":13,"fontWeight":"normal","specificColor":true,"color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":4,"marginRight":7,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"rgba(255,255,255,0)","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"417481","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(227, 185, 124, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.3,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"520988","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"关注了主播","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":10,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"207649","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1005":{"label":"礼物","code":1005,"type":"gift","widgets":[{"id":"061920","label":"用户头像","labelEn":"avatar","value":{"style":{"width":72,"height":72,"verticalAlign":"middle","position":"absolute","zIndex":1,"borderRadius":43,"borderWidth":4,"borderColor":"rgba(12, 232, 222, 1)","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"specificBackgroundColor":true,"backgroundColor":"transparent"},"config":{"owner":false,"degree":true,"name":true,"preview":1,"color":[{"level":0,"color":"rgba(5, 214, 124, 1)"},{"level":3,"color":"rgba(25, 175, 239, 1)"},{"level":6,"color":"rgba(249, 164, 0, 1)"},{"level":9,"color":"rgba(230, 72, 69, 1)"},{"level":12,"color":"rgba(178, 48, 242, 1)"}]}}},{"id":"359703","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"preffix":"","affix":""},"style":{"width":-100,"height":80,"verticalAlign":"middle","position":"relative","fontSize":16,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":0,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"linear-gradient(127deg, rgba(93,193,196,1) 0%,rgba(129,232,221,1) 100%)","borderRadius":44,"borderWidth":0,"borderColor":"#000"}}},{"id":"891449","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}},{"id":"297188","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","position":"absolute","left":90,"top":9,"font":"/fonts/站酷快乐体.ttf","fontSize":18,"fontWeight":"bold","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.8,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":80,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"308428","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"送出","preffix":"","affix":""},"style":{"verticalAlign":"middle","position":"absolute","zIndex":2,"left":86,"top":51,"font":"/fonts/站酷快乐体.ttf","fontSize":18,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.9,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"276946","label":"礼物","labelEn":"giftBlock","value":{"config":{"type":"picture","degree":true,"name":true},"style":{"width":80,"height":80,"verticalAlign":"middle","position":"absolute","right":0,"paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"389104","label":"礼物","labelEn":"giftBlock","value":{"config":{"type":"name","degree":true,"name":true},"style":{"width":25,"height":25,"verticalAlign":"middle","position":"absolute","zIndex":2,"left":129,"top":50,"font":"/fonts/站酷快乐体.ttf","fontSize":18,"fontWeight":"normal","color":"rgba(255, 250, 250, 1)","textShadowWidth":1.5,"textShadowColor":"#000000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"553886","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"x","preffix":"","affix":""},"style":{"verticalAlign":"middle","position":"absolute","zIndex":4,"left":199,"top":50,"font":"/fonts/站酷快乐体.ttf","fontSize":16,"fontWeight":"normal","color":"#fff","fontStyle":"normal","textDecoration":"none","textShadowWidth":0.9,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"877032","label":"礼物","labelEn":"giftBlock","value":{"config":{"type":"number","degree":true,"name":true},"style":{"width":25,"height":25,"verticalAlign":"middle","position":"absolute","zIndex":9,"left":217,"top":50,"font":"/fonts/站酷快乐体.ttf","fontSize":16,"fontWeight":"bold","color":"rgba(235, 235, 235, 1)","textShadowWidth":1.2,"textShadowColor":"#111111","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}}]},"1006":{"label":"系统消息","code":1006,"type":"richText","widgets":[{"id":"956454","label":"系统消息","labelEn":"richText","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":10,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"945846","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]},"1007":{"label":"加入守护团","code":1007,"type":"joinClub","widgets":[{"id":"759928","label":"用户名","labelEn":"nickName","value":{"config":{"preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(227, 185, 124, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.3,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"145261","label":"自定义模块","labelEn":"normalBlock","value":{"config":{"text":"加入了主播的守护团","preffix":"","affix":""},"style":{"verticalAlign":"middle","font":"/fonts/站酷快乐体.ttf","fontSize":20,"fontWeight":"normal","color":"rgba(255, 255, 255, 1)","fontStyle":"normal","textDecoration":"none","textShadowWidth":1.2,"textShadowColor":"#000","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":10,"marginRight":0,"marginTop":0,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000"}}},{"id":"458380","label":"弹幕背景","labelEn":"mainBlock","value":{"style":{"rotateZ":0,"overflow":"visible","paddingLeft":0,"paddingRight":0,"paddingTop":0,"paddingBottom":0,"marginLeft":0,"marginRight":0,"marginTop":10,"marginBottom":0,"backgroundColor":"transparent","borderRadius":0,"borderWidth":0,"borderColor":"#000","verticalAlign":"middle"},"config":{}}}]}},"robotSetting":{"enable":false,"speed":2,"volume":50,"rules":{"1000":[{"type":"variable","value":"getNickName"},{"type":"text","value":"说："},{"type":"variable","value":"getContent"}],"1001":[],"1002":[],"1003":[],"1004":[],"1005":[],"1006":[],"1007":[]}}}}
+{
+	"common": {
+		"blackList": [],
+		"keywords": [],
+		"emotion": true,
+		"emojis": [{
+			"pattern": "#汗",
+			"url": "/imgs/emojis/image959255393496.png",
+			"scale": 76
+		}, {
+			"pattern": "😒",
+			"url": "/imgs/emojis/image807205115664.png",
+			"scale": 76
+		}, {
+			"pattern": "#卖萌",
+			"url": "/imgs/emojis/image645225731038.png",
+			"scale": 76
+		}, {
+			"pattern": "#喷了",
+			"url": "/imgs/emojis/image520119299044.png",
+			"scale": 76
+		}, {
+			"pattern": "👍",
+			"url": "/imgs/emojis/image938693320839.png",
+			"scale": 76
+		}, {
+			"pattern": "😏",
+			"url": "/imgs/emojis/image523277223917.png",
+			"scale": 76
+		}],
+		"emojiTester": {},
+		"emojiMatcher": {}
+	},
+	"toolBox": {
+		"filter": {
+			"open": true,
+			"visitor": true,
+			"clubOnly": false,
+			"blackList": true,
+			"keyword": true,
+			"combineGift": true,
+			"combineLike": true,
+			"combineEnter": true,
+			"types": [1000, 1001, 1002, 1003, 1005, 1007, 1006]
+		},
+		"maxNum": 75,
+		"clubLevel": 0,
+		"speed": "slow",
+		"hightLight": {
+			"boss": true,
+			"manager": false,
+			"concerned": false
+		},
+		"animation": true,
+		"settingOfType": {
+			"1000": {
+				"name": "评论",
+				"code": 1000,
+				"type": "text",
+				"widgets": [{
+					"id": "795670",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": false,
+							"backgroundColor": "transparent",
+							"borderRadius": 4,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": -1,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "673980",
+					"label": "身份",
+					"labelEn": "role",
+					"value": {
+						"config": {
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"ownerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(227,185,124,1)",
+							"borderRadius": 6,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"managerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 4,
+							"paddingTop": 1,
+							"paddingBottom": 1,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(100,238,238,1)",
+							"borderRadius": 15,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "697594",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": "："
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "823705",
+					"label": "弹幕文字",
+					"labelEn": "content",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "882048",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1001": {
+				"label": "点赞",
+				"code": 1001,
+				"type": "like",
+				"widgets": [{
+					"id": "867269",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": false,
+							"backgroundColor": "transparent",
+							"borderRadius": 4,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": -1,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "579988",
+					"label": "身份",
+					"labelEn": "role",
+					"value": {
+						"config": {
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"ownerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(227,185,124,1)",
+							"borderRadius": 6,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"managerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 4,
+							"paddingTop": 1,
+							"paddingBottom": 1,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(100,238,238,1)",
+							"borderRadius": 15,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "968518",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "021999",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "点了一个",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "422802",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "❤",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "bolder",
+							"color": "rgba(244, 56, 35, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.7,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "752302",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1002": {
+				"label": "进直播间",
+				"code": 1002,
+				"type": "enter",
+				"widgets": [{
+					"id": "710775",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": false,
+							"backgroundColor": "transparent",
+							"borderRadius": 4,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": -1,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "291638",
+					"label": "身份",
+					"labelEn": "role",
+					"value": {
+						"config": {
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"ownerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(227,185,124,1)",
+							"borderRadius": 6,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"managerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 4,
+							"paddingTop": 1,
+							"paddingBottom": 1,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(100,238,238,1)",
+							"borderRadius": 15,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "572814",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "143240",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "进入了直播间",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "170296",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1003": {
+				"label": "关注",
+				"code": 1003,
+				"type": "subscribe",
+				"widgets": [{
+					"id": "587660",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": false,
+							"backgroundColor": "transparent",
+							"borderRadius": 4,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": -1,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "417481",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "520988",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "关注了主播",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"overflow": "visible"
+						}
+					}
+				}, {
+					"id": "207649",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1005": {
+				"label": "礼物",
+				"code": 1005,
+				"type": "gift",
+				"widgets": [{
+					"id": "900793",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": false,
+							"backgroundColor": "transparent",
+							"borderRadius": 4,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": -1,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "818321",
+					"label": "身份",
+					"labelEn": "role",
+					"value": {
+						"config": {
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"ownerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(227,185,124,1)",
+							"borderRadius": 6,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"managerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 4,
+							"paddingTop": 1,
+							"paddingBottom": 1,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(100,238,238,1)",
+							"borderRadius": 15,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "864342",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "487121",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "送出了",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"overflow": "visible"
+						}
+					}
+				}, {
+					"id": "967663",
+					"label": "礼物",
+					"labelEn": "giftBlock",
+					"value": {
+						"config": {
+							"type": "picture",
+							"degree": true,
+							"name": true
+						},
+						"style": {
+							"width": 25,
+							"height": 25,
+							"verticalAlign": "middle",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "789581",
+					"label": "礼物",
+					"labelEn": "giftBlock",
+					"value": {
+						"config": {
+							"type": "name",
+							"degree": true,
+							"name": true
+						},
+						"style": {
+							"width": 25,
+							"height": 25,
+							"verticalAlign": "middle",
+							"fontSize": 16,
+							"fontWeight": "bolder",
+							"color": "rgba(243, 247, 85, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "733311",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "x",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "402208",
+					"label": "礼物",
+					"labelEn": "giftBlock",
+					"value": {
+						"config": {
+							"type": "number",
+							"degree": true,
+							"name": true
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "504544",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 5,
+							"paddingRight": 5,
+							"paddingTop": 4,
+							"paddingBottom": 4,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(240, 252, 15, 0.62)",
+							"borderRadius": 9,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1006": {
+				"label": "系统消息",
+				"code": 1006,
+				"type": "richText",
+				"widgets": [{
+					"id": "524966",
+					"label": "系统消息",
+					"labelEn": "richText",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "917838",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1007": {
+				"label": "加入守护团",
+				"code": 1007,
+				"type": "joinClub",
+				"widgets": [{
+					"id": "759928",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"specificBackgroundColor": false
+						}
+					}
+				}, {
+					"id": "145261",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "加入了主播的守护团",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/极影毁片圆.ttf",
+							"fontSize": 16,
+							"fontWeight": "lighter",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.6,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "458380",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			}
+		},
+		"robotSetting": {
+			"enable": false,
+			"speed": 3,
+			"volume": 100,
+			"rules": {
+				"1000": [{
+					"type": "variable",
+					"value": "getNickName"
+				}, {
+					"type": "text",
+					"value": "说："
+				}, {
+					"type": "variable",
+					"value": "getContent"
+				}],
+				"1001": [{
+					"type": "text",
+					"value": "谢谢"
+				}, {
+					"type": "variable",
+					"value": "getNickName"
+				}, {
+					"type": "text",
+					"value": "点的一颗小星星"
+				}],
+				"1002": [{
+					"type": "text",
+					"value": "欢迎"
+				}, {
+					"type": "variable",
+					"value": "getNickName"
+				}, {
+					"type": "text",
+					"value": "进入直播间"
+				}],
+				"1003": [{
+					"type": "text",
+					"value": "感谢"
+				}, {
+					"type": "variable",
+					"value": "getNickName"
+				}, {
+					"type": "text",
+					"value": "的关注"
+				}],
+				"1004": [],
+				"1005": [{
+					"type": "text",
+					"value": "谢谢"
+				}, {
+					"type": "variable",
+					"value": "getNickName"
+				}, {
+					"type": "text",
+					"value": "送的"
+				}, {
+					"type": "variable",
+					"value": "getGiftNumber"
+				}, {
+					"type": "text",
+					"value": "个"
+				}, {
+					"type": "variable",
+					"value": "getGiftName"
+				}],
+				"1006": [{
+					"type": "variable",
+					"value": "getRichText"
+				}],
+				"1007": [{
+					"type": "text",
+					"value": "欢迎"
+				}, {
+					"type": "variable",
+					"value": "getNickName"
+				}, {
+					"type": "text",
+					"value": "加入守护团"
+				}]
+			}
+		}
+	},
+	"web": {
+		"filter": {
+			"open": true,
+			"visitor": true,
+			"clubOnly": false,
+			"blackList": true,
+			"keyword": true,
+			"combineGift": true,
+			"combineLike": true,
+			"combineEnter": true,
+			"types": [1000, 1001, 1002, 1003, 1005, 1007, 1006]
+		},
+		"maxNum": 25,
+		"clubLevel": 0,
+		"speed": "slow",
+		"hightLight": {
+			"boss": true,
+			"manager": false,
+			"concerned": false
+		},
+		"animation": true,
+		"settingOfType": {
+			"1000": {
+				"name": "评论",
+				"code": 1000,
+				"type": "text",
+				"widgets": [{
+					"id": "585881",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "transparent",
+							"borderRadius": 15,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 12,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": 2,
+							"paddingBottom": 2,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "171739",
+					"label": "身份",
+					"labelEn": "role",
+					"value": {
+						"config": {
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"ownerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(227,185,124,1)",
+							"borderRadius": 6,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"managerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 1,
+							"paddingBottom": 1,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(100,238,238,1)",
+							"borderRadius": 15,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "697594",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": "："
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(227, 185, 124, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.3,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "823705",
+					"label": "弹幕文字",
+					"labelEn": "content",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.3,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 6,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "882048",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1001": {
+				"label": "点赞",
+				"code": 1001,
+				"type": "like",
+				"widgets": [{
+					"id": "623167",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "transparent",
+							"borderRadius": 15,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 12,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": 2,
+							"paddingBottom": 2,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "528139",
+					"label": "身份",
+					"labelEn": "role",
+					"value": {
+						"config": {
+							"preview": "owner",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"ownerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(227,185,124,1)",
+							"borderRadius": 6,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"managerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 1,
+							"paddingBottom": 1,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(100,238,238,1)",
+							"borderRadius": 15,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "968518",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(227, 185, 124, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.3,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "021999",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "点赞了",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(222, 200, 167, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 10,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "422802",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "❤",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"fontSize": 20,
+							"fontWeight": "bolder",
+							"color": "rgba(244, 56, 35, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 8,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "752302",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1002": {
+				"label": "进直播间",
+				"code": 1002,
+				"type": "enter",
+				"widgets": [{
+					"id": "839557",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "transparent",
+							"borderRadius": 15,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 12,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": 2,
+							"paddingBottom": 2,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "856999",
+					"label": "身份",
+					"labelEn": "role",
+					"value": {
+						"config": {
+							"preview": "manager",
+							"owner": true,
+							"ownerTitle": "主播",
+							"manager": true,
+							"managerTitle": "管"
+						},
+						"ownerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(227,185,124,1)",
+							"borderRadius": 6,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"managerStyle": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 15,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 4,
+							"paddingRight": 3,
+							"paddingTop": 1,
+							"paddingBottom": 1,
+							"marginLeft": 0,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(100,238,238,1)",
+							"borderRadius": 15,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "572814",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(227, 185, 124, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.3,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "143240",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "进入了直播间",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 10,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "170296",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1003": {
+				"label": "关注",
+				"code": 1003,
+				"type": "subscribe",
+				"widgets": [{
+					"id": "814539",
+					"label": "牌子(等级颜色)",
+					"labelEn": "medalDegree",
+					"value": {
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "relative",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 8,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "transparent",
+							"borderRadius": 15,
+							"borderWidth": 2,
+							"borderColor": "rgba(232, 221, 7, 1)"
+						},
+						"degreeStyle": {
+							"verticalAlign": "top",
+							"position": "relative",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 12,
+							"fontWeight": "bold",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1,
+							"textShadowColor": "#000",
+							"paddingLeft": 5,
+							"paddingRight": 4,
+							"paddingTop": 2,
+							"paddingBottom": 2,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "rgba(232, 221, 7, 1)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						},
+						"nameStyle": {
+							"verticalAlign": "bottom",
+							"position": "不定位",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 13,
+							"fontWeight": "normal",
+							"specificColor": true,
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 4,
+							"marginRight": 7,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "rgba(255,255,255,0)",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "417481",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(227, 185, 124, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.3,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "520988",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "关注了主播",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 10,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "207649",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1005": {
+				"label": "礼物",
+				"code": 1005,
+				"type": "gift",
+				"widgets": [{
+					"id": "061920",
+					"label": "用户头像",
+					"labelEn": "avatar",
+					"value": {
+						"style": {
+							"width": 72,
+							"height": 72,
+							"verticalAlign": "middle",
+							"position": "absolute",
+							"zIndex": 1,
+							"borderRadius": 43,
+							"borderWidth": 4,
+							"borderColor": "rgba(12, 232, 222, 1)",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"specificBackgroundColor": true,
+							"backgroundColor": "transparent"
+						},
+						"config": {
+							"owner": false,
+							"degree": true,
+							"name": true,
+							"preview": 1,
+							"color": [{
+								"level": 0,
+								"color": "rgba(5, 214, 124, 1)"
+							}, {
+								"level": 3,
+								"color": "rgba(25, 175, 239, 1)"
+							}, {
+								"level": 6,
+								"color": "rgba(249, 164, 0, 1)"
+							}, {
+								"level": 9,
+								"color": "rgba(230, 72, 69, 1)"
+							}, {
+								"level": 12,
+								"color": "rgba(178, 48, 242, 1)"
+							}]
+						}
+					}
+				}, {
+					"id": "359703",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"width": -100,
+							"height": 80,
+							"verticalAlign": "middle",
+							"position": "relative",
+							"fontSize": 16,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "linear-gradient(127deg, rgba(93,193,196,1) 0%,rgba(129,232,221,1) 100%)",
+							"borderRadius": 44,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "891449",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}, {
+					"id": "297188",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "absolute",
+							"left": 90,
+							"top": 9,
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 18,
+							"fontWeight": "bold",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.8,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 80,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "308428",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "送出",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "absolute",
+							"zIndex": 2,
+							"left": 86,
+							"top": 51,
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 18,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.9,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "276946",
+					"label": "礼物",
+					"labelEn": "giftBlock",
+					"value": {
+						"config": {
+							"type": "picture",
+							"degree": true,
+							"name": true
+						},
+						"style": {
+							"width": 80,
+							"height": 80,
+							"verticalAlign": "middle",
+							"position": "absolute",
+							"right": 0,
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "389104",
+					"label": "礼物",
+					"labelEn": "giftBlock",
+					"value": {
+						"config": {
+							"type": "name",
+							"degree": true,
+							"name": true
+						},
+						"style": {
+							"width": 25,
+							"height": 25,
+							"verticalAlign": "middle",
+							"position": "absolute",
+							"zIndex": 2,
+							"left": 129,
+							"top": 50,
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 18,
+							"fontWeight": "normal",
+							"color": "rgba(255, 250, 250, 1)",
+							"textShadowWidth": 1.5,
+							"textShadowColor": "#000000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "553886",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "x",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"position": "absolute",
+							"zIndex": 4,
+							"left": 199,
+							"top": 50,
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 16,
+							"fontWeight": "normal",
+							"color": "#fff",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 0.9,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "877032",
+					"label": "礼物",
+					"labelEn": "giftBlock",
+					"value": {
+						"config": {
+							"type": "number",
+							"degree": true,
+							"name": true
+						},
+						"style": {
+							"width": 25,
+							"height": 25,
+							"verticalAlign": "middle",
+							"position": "absolute",
+							"zIndex": 9,
+							"left": 217,
+							"top": 50,
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 16,
+							"fontWeight": "bold",
+							"color": "rgba(235, 235, 235, 1)",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#111111",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}]
+			},
+			"1006": {
+				"label": "系统消息",
+				"code": 1006,
+				"type": "richText",
+				"widgets": [{
+					"id": "956454",
+					"label": "系统消息",
+					"labelEn": "richText",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 10,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "945846",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			},
+			"1007": {
+				"label": "加入守护团",
+				"code": 1007,
+				"type": "joinClub",
+				"widgets": [{
+					"id": "759928",
+					"label": "用户名",
+					"labelEn": "nickName",
+					"value": {
+						"config": {
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(227, 185, 124, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.3,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "145261",
+					"label": "自定义模块",
+					"labelEn": "normalBlock",
+					"value": {
+						"config": {
+							"text": "加入了主播的守护团",
+							"preffix": "",
+							"affix": ""
+						},
+						"style": {
+							"verticalAlign": "middle",
+							"font": "/fonts/站酷快乐体.ttf",
+							"fontSize": 20,
+							"fontWeight": "normal",
+							"color": "rgba(255, 255, 255, 1)",
+							"fontStyle": "normal",
+							"textDecoration": "none",
+							"textShadowWidth": 1.2,
+							"textShadowColor": "#000",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 10,
+							"marginRight": 0,
+							"marginTop": 0,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000"
+						}
+					}
+				}, {
+					"id": "458380",
+					"label": "弹幕背景",
+					"labelEn": "mainBlock",
+					"value": {
+						"style": {
+							"rotateZ": 0,
+							"overflow": "visible",
+							"paddingLeft": 0,
+							"paddingRight": 0,
+							"paddingTop": 0,
+							"paddingBottom": 0,
+							"marginLeft": 0,
+							"marginRight": 0,
+							"marginTop": 10,
+							"marginBottom": 0,
+							"backgroundColor": "transparent",
+							"borderRadius": 0,
+							"borderWidth": 0,
+							"borderColor": "#000",
+							"verticalAlign": "middle"
+						},
+						"config": {}
+					}
+				}]
+			}
+		},
+		"robotSetting": {
+			"rtype": "default",
+			"api": {
+				"appSecret": "",
+				"appID": "",
+				"appKey": "",
+				"voiceName": ""
+			},
+			"enable": false,
+			"speed": 2,
+			"volume": 50,
+			"rules": {
+				"1000": [{
+					"type": "variable",
+					"value": "getNickName"
+				}, {
+					"type": "text",
+					"value": "说："
+				}, {
+					"type": "variable",
+					"value": "getContent"
+				}],
+				"1001": [],
+				"1002": [],
+				"1003": [],
+				"1004": [],
+				"1005": [],
+				"1006": [],
+				"1007": []
+			}
+		}
+	}
+}

@@ -6,6 +6,9 @@ let ready = 0;
 export const isOnline = (): boolean => {
 	return toANY(window).wsl?.readyState === 1;
 };
+export const isConnecting = (): boolean => {
+	return toANY(window).wsl?.readyState === 0;
+};
 
 export const heartBeat = (): void => {
 	console.log("====心跳=====");
@@ -26,7 +29,10 @@ export const startHeatBeat = (): void => {
 };
 export const init = ({ onOpen, onClose }: any) => {
 	startHeatBeat();
-	if (!status.online) {
+	if (!isOnline() && !isConnecting()) {
+		try {
+			toANY(window).wsl.close();
+		} catch (error) {}
 		toANY(window).wsl = status.ws = new WebSocket(status.url);
 		status.ws.onopen = () => {
 			status.online = true;

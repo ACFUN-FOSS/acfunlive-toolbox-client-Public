@@ -9,7 +9,15 @@ export const startHttp = () => {
 		const port = 1188;
 
 		const server = express();
-
+		server.use((req: any, res: any, next: any) => {
+			res.header(
+				"Cache-Control",
+				"private, no-cache, no-store, must-revalidate"
+			);
+			res.header("Expires", "-1");
+			res.header("Pragma", "no-cache");
+			next();
+		});
 		server.use(express.static(appStatic));
 		server.use(
 			"/configFiles",

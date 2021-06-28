@@ -1,15 +1,56 @@
 import { ipcMain } from "electron";
 import { appStatic, configStatic } from "./paths";
+import { zipTo, zipFrom } from "./zip";
+import { randomId } from "./../../electron_browser/util_function/base";
 const path = require("path");
 const fs = require("fs");
+const ba64 = require("ba64");
+const spawn = require("child_process").spawn;
 class File {
 	static registerEvents() {
+		ipcMain.on("backend_launch", this.launch);
 		ipcMain.on("backend_save", this.savePath);
 		ipcMain.on("backend_load", this.loadPath);
 		ipcMain.on("backend_load_config", this.loadConfig);
 		ipcMain.on("backend_save_config", this.saveConfig);
+		ipcMain.on("backend_load_superchat", this.loadSuperChat);
+		ipcMain.on("backend_save_superchat", this.saveSuperChat);
 		ipcMain.on("backend_copy", this.copyFile);
+		ipcMain.on("backend_save_b64", this.saveB64);
 		ipcMain.on("backend_font_list", this.getFontList);
+		ipcMain.on("save_backup", this.saveBackup);
+		ipcMain.on("load_backup", this.loadBackup);
+	}
+
+	static launch(event: any, p: any) {
+		try {
+			spawn(p, [], {
+				cwd: path.dirname(p),
+				detached: true
+			});
+		} catch (error) {}
+	}
+
+	static async saveBackup(event: any) {
+		const zipDir = path.join(appStatic, "backup.zip");
+		try {
+			await zipTo(configStatic, zipDir);
+			event.reply("save_backup_complete", "/backup.zip");
+		} catch (error) {
+			event.reply("save_backup_complete", "#error");
+		}
+	}
+
+	static async loadBackup(event: any, p: any) {
+		try {
+			await zipFrom(p, configStatic);
+			const config = File.loadFile(
+				path.join(configStatic, "./config.json")
+			);
+			event.reply("load_backup_complete", config);
+		} catch (error) {
+			event.reply("load_backup_complete", "#error");
+		}
 	}
 
 	static loadFile(url: string) {
@@ -41,6 +82,22 @@ class File {
 		});
 	}
 
+	static saveB64(event: any, b64: any) {
+		const imgPath = path.join(configStatic, `/images/`);
+		const imgName = `image${randomId(8)}`;
+		try {
+			fs.accessSync(imgPath);
+		} catch (error) {
+			fs.mkdirSync(imgPath, { recursive: true });
+		}
+		try {
+			ba64.writeImageSync(imgPath + imgName, b64);
+			event.reply("save_b64_complete", imgPath + imgName + ".png");
+		} catch (error) {
+			event.reply("save_b64_complete", "#error");
+		}
+	}
+
 	static loadConfig(event: any) {
 		// @ts-ignore
 		let url = path.join(configStatic, "config.json");
@@ -57,6 +114,25 @@ class File {
 		const data = JSON.parse(res);
 		// @ts-ignore
 		const url = path.join(configStatic, "config.json");
+		File.saveFile(url, data);
+	}
+
+	static loadSuperChat(event: any) {
+		// @ts-ignore
+		let url = path.join(configStatic, "superchat.json");
+		try {
+			fs.accessSync(url);
+			event.reply("load_superchat_complete", File.loadFile(url));
+		} catch (error) {
+			// @ts-ignore
+			event.reply("load_superchat_complete", "#error");
+		}
+	}
+
+	static saveSuperChat(event: any, res: any) {
+		const data = JSON.parse(res);
+		// @ts-ignore
+		const url = path.join(configStatic, "superchat.json");
 		File.saveFile(url, data);
 	}
 

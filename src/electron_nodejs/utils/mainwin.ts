@@ -22,7 +22,9 @@ class MainWin {
 	}
 
 	static setTop(mainWindow: BrowserWindow, { isTop }: any) {
-		mainWindow.setAlwaysOnTop(isTop);
+		mainWindow.setAlwaysOnTop(isTop, "screen-saver", 1);
+		mainWindow.setVisibleOnAllWorkspaces(isTop);
+		mainWindow.setFullScreenable(!isTop);
 	}
 
 	static setResizeable(mainWindow: BrowserWindow, { isResizeable }: any) {
@@ -37,6 +39,9 @@ class MainWin {
 		mainWindow.setIgnoreMouseEvents(ignore, {
 			forward: true
 		});
+		if (!ignore) {
+			mainWindow.focus();
+		}
 	}
 
 	static startMouseDetector(mainWindow: BrowserWindow) {

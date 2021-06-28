@@ -2,16 +2,28 @@ import { Store } from "vuex";
 import { isElectron } from "@front/util_function/electron";
 import { danmaku as danmakuData } from "@front/datas";
 import { ElMessageBox } from "element-plus";
+import {
+	scGiftHandler,
+	scTextHandler
+} from "@front/components/superChat/utils/getter";
 const empty = (data: any): number => {
 	return data;
 };
 
-export const danmakuText = empty;
+export const danmakuText = (e: any, store: Store<any>) => {
+	if (store.getters.superChatEnable) {
+		scTextHandler(e, store);
+	}
+};
 
 export const danmakuLike = empty;
 export const danmakuEnter = empty;
 export const danmakuSubscribe = empty;
-export const danmakuGift = empty;
+export const danmakuGift = (e: any, store: Store<any>) => {
+	if (store.getters.superChatEnable) {
+		scGiftHandler(e, store);
+	}
+};
 export const danmakuRichText = empty;
 export const danmakuJoinClub = empty;
 export const signalBanana = (e: any, store: Store<any>) => {
@@ -33,7 +45,7 @@ export const danmakuHistory = (e: any, store: Store<any>) => {
 	const commonSettings =
 		state.danmakuProfile.common || danmakuData.commonSettings();
 	const rank = state.rank;
-	const filtered = store.state.filter.filterUpdate(
+	const { list } = store.state.filter.filterUpdate(
 		e.data.map((danmaku: any) => {
 			return {
 				type: 1000,
@@ -45,7 +57,7 @@ export const danmakuHistory = (e: any, store: Store<any>) => {
 		commonSettings,
 		rank
 	);
-	store.state.danmakuSession.filterFlow = filtered.list;
+	store.state.danmakuSession.filterFlow = list;
 };
 
 export const warning = (e: any) => {

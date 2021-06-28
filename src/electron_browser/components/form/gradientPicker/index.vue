@@ -94,8 +94,9 @@ export default defineComponent({
 			if (!matchs) {
 				return [];
 			}
+			console.log(matchs);
 			matchs = matchs[0]
-				.split(" ")
+				.split(/(\s|(?<=%),)/)
 				.slice(1)
 				.join(" ")
 				.split(/(?<!(\d,))\s/)
@@ -103,6 +104,7 @@ export default defineComponent({
 			const stops: any = [];
 			let currentStop: any = [];
 			matchs.forEach((match: any) => {
+				// console.log(match);
 				if (match.includes("rgb")) {
 					if (currentStop.length) {
 						stops.push([...currentStop, 0]);
@@ -124,7 +126,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 .gradient-picker {
 	width: 50px;
 	height: 28px;

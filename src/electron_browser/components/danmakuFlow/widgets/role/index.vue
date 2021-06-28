@@ -68,7 +68,8 @@ export default defineComponent({
 				return {
 					style: {
 						display: "none"
-					}
+					},
+					text: ""
 				};
 			}
 			return {

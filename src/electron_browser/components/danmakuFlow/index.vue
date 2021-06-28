@@ -13,7 +13,7 @@ import { styleConfig } from "@front/components/danmakuFlow/utils/data";
 import { getTime } from "@front/components/danmakuFlow/utils/getter";
 import menu from "@front/directives/menu";
 import { menu as menuList } from "@front/components/danmakuFlow/utils/common";
-import { throttle } from "lodash";
+import debounce from "lodash/debounce";
 import { event } from "@front/util_function/eventBus";
 export default defineComponent({
 	name: "flow",
@@ -72,7 +72,7 @@ export default defineComponent({
 		getKey(danmaku: any) {
 			return getTime(danmaku);
 		},
-		scrollToBottom: throttle(function() {
+		scrollToBottom: debounce(function() {
 			// @ts-ignore
 			const that = this;
 
@@ -80,12 +80,12 @@ export default defineComponent({
 				clearTimeout(that.scrollTimer);
 				that.$nextTick(() => {
 					that.$el.scrollTo({
-						top: that.$el.scrollHeight - that.$el.clientHeight,
+						top: that.$el.scrollHeight,
 						behavior: "smooth"
 					});
 				});
 			}
-		}, 500),
+		}, 100),
 		getSetting(danmaku: any) {
 			// @ts-ignore
 			const setting = this.settings?.settingOfType[danmaku.type];
@@ -108,7 +108,8 @@ export default defineComponent({
 });
 </script>
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
+@import "@front/styles/scrollbar.scss";
 .danmaku-flow {
 	box-sizing: border-box;
 	position: relative;
@@ -116,8 +117,9 @@ export default defineComponent({
 	height: calc(100% - 32px);
 	overflow-x: hidden;
 	overflow-y: auto;
-	padding: 16px 6px;
+	padding: 4px 6px;
 	transform: translateZ(1);
+	will-change: contents scroll-position;
 	@include scrollbarBaseSlinder();
 	// & > div {
 	// 	display: flex;

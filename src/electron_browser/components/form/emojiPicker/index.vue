@@ -48,7 +48,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
+@import "@front/styles/scrollbar.scss";
 .emoji-tabs {
 	margin: -12px;
 	width: 470px;

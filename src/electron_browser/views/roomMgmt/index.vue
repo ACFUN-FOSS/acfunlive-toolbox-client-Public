@@ -2,8 +2,8 @@
 	<content-frame id="roomMgmt" v-loading="loading">
 		<row-frame title="封面选择">
 			<row-span>
-				<img-input-base ref="img" class="imgFile" v-model:src="roomProfile.liveCover" />
-				<div class="hint">（仅支持jpg、png格式，推荐比例16:9）</div>
+				<img-input-clip v-model="roomProfile.liveCover" />
+				<div class="hint">（仅支持jpg、png格式，推荐比例16:10）</div>
 			</row-span>
 		</row-frame>
 		<row-frame title="房间标题">
@@ -123,18 +123,19 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapGetters, mapState } from "vuex";
-import _ from "lodash";
+import cloneDeep from "lodash/cloneDeep";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { room } from "@front/datas";
 import { closeStream } from "@front/mixins/methods";
 import { event } from "@front/util_function/eventBus";
+import { sleep } from "@front/util_function/base";
 import { copyText } from "@front/util_function/clipboard";
 import OBS from "@front/util_function/obs";
 export default defineComponent({
 	name: "roomMgmt",
 	mixins: [closeStream],
 	data() {
-		const roomProfile: room.ProfileDetail = _.cloneDeep(
+		const roomProfile: room.ProfileDetail = cloneDeep(
 			this.$store.state.roomProfile
 		);
 		if (roomProfile.liveType.categoryID === 0) {
@@ -190,6 +191,7 @@ export default defineComponent({
 	beforeUnmount() {
 		this.saveCache();
 		event.off("openStream", this.openStream);
+		event.emit("openStreamEnd");
 	},
 	methods: {
 		copy(text: string) {
@@ -203,21 +205,17 @@ export default defineComponent({
 			});
 		},
 		saveCache() {
-			const img: any = this.$refs.img;
 			localStorage.setItem(
 				"imgCache",
 				JSON.stringify({
 					title: this.roomProfile.title,
 					img: this.roomProfile.liveCover,
-					filePath: img.blob.path,
 					category: this.roomProfile.liveType,
 					obsSync: this.obsSync
 				})
 			);
 		},
 		loadCache() {
-			const img: any = this.$refs.img;
-
 			let cache: any = localStorage.getItem("imgCache");
 			if (!cache) {
 				return;
@@ -226,14 +224,12 @@ export default defineComponent({
 			this.roomProfile.title = cache.title;
 			this.roomProfile.liveCover = cache.img;
 			this.roomProfile.liveType = cache.category || room.category();
-			img.blob = { path: cache.filePath };
 			this.obsSync = cache.obsSync;
 		},
 		async setRoomProfile() {
-			const img: any = this.$refs.img;
 			await this.$store.commit("setRoomProfile", {
 				liveID: this.$store.state.roomProfile.liveID,
-				coverFile: img.blob && img.blob.path ? img.blob.path : "",
+				coverFile: `http://${window.location.host}${this.roomProfile.liveCover}`,
 				title: this.roomProfile.title
 			});
 			event.once("roomProfileChanged", () => {
@@ -247,6 +243,9 @@ export default defineComponent({
 		},
 		async openStream() {
 			if (!this.validation()) {
+				setTimeout(() => {
+					event.emit("openStreamEnd");
+				}, 500);
 				return;
 			}
 			if (this.obsSync) {
@@ -255,6 +254,7 @@ export default defineComponent({
 					if (status?.streaming) {
 						await this.OBS.stopStream();
 					}
+					await sleep(2000);
 					await this.OBS.setStreamSettings({
 						server: this.streamSession.rtmpServer,
 						key: this.streamSession.streamKey
@@ -287,11 +287,10 @@ export default defineComponent({
 				return;
 			}
 			this.saveCache();
-			const img: any = this.$refs.img;
 			this.$store
 				.dispatch("openStream", {
 					title: this.roomProfile.title,
-					coverFile: img.blob.path,
+					coverFile: `http://${window.location.host}${this.roomProfile.liveCover}`,
 					streamName: this.streamSession.streamName,
 					portrait: false,
 					panoramic: false,
@@ -299,10 +298,16 @@ export default defineComponent({
 					subCategoryID: this.roomProfile.liveType.subCategoryID
 				})
 				.catch((e: any) => {
-					console.log(e);
+					ElMessage({
+						message: e,
+						duration: 1500,
+						type: "error",
+						offset: 60
+					});
 				})
 				.finally(() => {
 					this.loading = false;
+					event.emit("openStreamEnd");
 				});
 		},
 		validation() {
@@ -310,9 +315,11 @@ export default defineComponent({
 			if (!this.roomProfile.title) {
 				errmsg += "房间标题不为空 ";
 			}
-			const img: any = this.$refs.img;
-			if (!img.blob || !img.blob.path) {
-				errmsg += "房间封面不能为空 ";
+			if (
+				!this.roomProfile.liveCover ||
+				this.roomProfile.liveCover.includes("base64")
+			) {
+				errmsg += "房间封面无效，请重新上传 ";
 			}
 			if (this.obsSync && !OBS.obs) {
 				errmsg += "OBS未能连接，请刷新OBS状态或确认插件是否安装 ";
@@ -333,12 +340,12 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
 #roomMgmt {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	.imgFile {
+	:deep .imgInput {
 		width: 100%;
 		padding-bottom: 40%;
 		box-shadow: $--box-shadow-base;

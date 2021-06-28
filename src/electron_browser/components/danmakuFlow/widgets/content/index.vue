@@ -1,12 +1,12 @@
 <template>
-	<span class="content" :style="style" v-html="setting.config.preffix+getContent(danmaku)+setting.config.affix" />
+	<span class="content" :style="style" v-html="content" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import { getContent } from "../../utils/getter";
-import { replace } from "lodash";
+import replace from "lodash/replace";
 import { isElectron } from "@front/util_function/electron";
 import { escapeRegExp } from "@front/util_function/base";
 import {
@@ -61,12 +61,17 @@ export default defineComponent({
 				...position(style),
 				...transform(style)
 			};
+		},
+		content(): any {
+			const prefix = this.setting?.config?.preffix || "";
+			const affix = this.setting?.config?.affix || "";
+			return `${prefix}${this.getContent(this.danmaku)}${affix}`;
 		}
 	},
 	methods: {
 		getContent(danmaku: any) {
 			let content = getContent(danmaku);
-			if (!this.danmakuProfile.common.emotion || this.configMode) {
+			if (!this.danmakuProfile?.common?.emotion || this.configMode) {
 				return content;
 			}
 			let { emojiTester, emojiMatcher } = this.temp;
@@ -76,7 +81,7 @@ export default defineComponent({
 				emojiMatcher = this.temp.emojiMatcher = matcher;
 			}
 			if (isElectron()) {
-				[...content.matchAll(/ac\d+/g)].forEach(match => {
+				[...content.matchAll(/(ac|AC|aC|Ac)\d+/g)].forEach(match => {
 					content = replace(
 						content,
 						match[0],

@@ -1,57 +1,96 @@
-import { robotRead } from "@front/util_function/system";
+import { robots } from "@front/util_function/system";
 import {
 	robotGetters,
-	getContent
+	getContent,
+	getUID,
+	getDanmakuType
 } from "@front/components/danmakuFlow/utils/getter";
 import { removePunctuation } from "@front/util_function/base";
 const waitList: any = [];
-
+let readObj: any = null;
 let reading = false;
 
-export const read = ({ speed, volume, danmaku, rules }: any) => {
+export const read = ({
+	rtype,
+	api,
+	speed,
+	volume,
+	danmaku,
+	rules,
+	comboReading,
+	filters = []
+}: any) => {
 	let content = "";
 	if (!rules) {
 		return;
 	}
-	if (danmaku.type === 1000 && !removePunctuation(getContent(danmaku))) {
-		return;
-	}
-	rules.forEach((rule: any) => {
-		switch (rule.type) {
-			case "text":
-				content += rule.value;
-				break;
-			case "variable":
-				// @ts-ignore
-				if (robotGetters[rule.value]) {
-					// @ts-ignore
-					content += robotGetters[rule.value](danmaku);
-				}
+	let contentI = "";
+	if (getDanmakuType(danmaku) === 1000) {
+		contentI = getContent(danmaku);
+		filters.forEach((filter: any) => {
+			contentI = contentI.replaceAll(filter, "");
+		});
+		if (!removePunctuation(contentI).replaceAll(" ", "")) {
+			return;
 		}
-	});
+		if (
+			comboReading &&
+			readObj &&
+			getDanmakuType(readObj) === 1000 &&
+			getUID(danmaku) === getUID(readObj)
+		) {
+			content = contentI;
+		}
+	}
+	if (!content) {
+		rules.forEach((rule: any) => {
+			switch (rule.type) {
+				case "text":
+					content += rule.value;
+					break;
+				case "variable":
+					if (rule.value === "getContent" && contentI) {
+						content += contentI;
+					} else {
+						// @ts-ignore
+						if (robotGetters[rule.value]) {
+							// @ts-ignore
+							content += robotGetters[rule.value](danmaku);
+						}
+					}
+			}
+		});
+	}
 	if (!content) {
 		return;
 	}
+	const data = {
+		rtype,
+		api,
+		speed,
+		volume,
+		text: content,
+		origin: danmaku
+	};
 	if (reading) {
 		if (waitList.length >= 10) {
 			waitList.splice(1);
 		}
-		waitList.push({
-			speed,
-			text: content
-		});
+		waitList.push(data);
 	} else {
-		realRead({
-			speed,
-			volume,
-			text: content
-		});
+		realRead(data);
 	}
 };
 
 export const realRead = (data: any) => {
 	reading = true;
-	robotRead(data).then(() => {
+	readObj = data.origin;
+	let reader: any = robots.default;
+	if (data.rtype) {
+		// @ts-ignore
+		reader = robots[data.rtype] || robots.default;
+	}
+	reader(data).then(() => {
 		setTimeout(() => {
 			reading = false;
 			if (waitList[0]) {

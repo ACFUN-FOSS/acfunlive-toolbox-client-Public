@@ -39,19 +39,19 @@ export default [
 				},
 				component: () => import("@front/views/roomMgmt/index.vue")
 			},
-			{
-				path: "callStatusPanel",
-				name: "statusPanel",
-				meta: {
-					label: "监控面板",
-					icon: "el-icon-data-analysis",
-					action: "event",
-					disabled: () => {
-						return !store.getters.isStreaming;
-					}
-				},
-				redirect: "/"
-			},
+			// {
+			// 	path: "callStatusPanel",
+			// 	name: "statusPanel",
+			// 	meta: {
+			// 		label: "监控面板",
+			// 		icon: "el-icon-data-analysis",
+			// 		action: "event",
+			// 		disabled: () => {
+			// 			return !store.getters.isStreaming;
+			// 		}
+			// 	},
+			// 	redirect: "/"
+			// },
 			{
 				path: "/magiScr",
 				name: "magiScr",
@@ -124,26 +124,27 @@ export default [
 			{
 				path: "/config/general",
 				name: "general",
+				component: () => import("@front/views/general/index.vue"),
 				meta: {
 					label: "通用",
 					icon: "el-icon-setting",
-					action: "router",
-					disabled: () => {
-						return true;
-					}
-				},
-				redirect: "/"
+					action: "router"
+					// disabled: () => {
+					// 	return true;
+					// }
+				}
+				// redirect: "/"
 			},
-			// {
-			// 	path: "/config/rapidReply",
-			// 	name: "rapidReply",
-			// 	component: () => import("@front/views/rapidReply/index.vue"),
-			// 	meta: {
-			// 		label: "秒回",
-			// 		icon: "el-icon-",
-			// 		action: "router"
-			// 	}
-			// },
+			{
+				path: "/config/superChat",
+				name: "superChat",
+				component: () => import("@front/views/superChat/index.vue"),
+				meta: {
+					label: "超级聊",
+					icon: "el-icon-upload2",
+					action: "router"
+				}
+			},
 			{
 				path: "/config/emotion",
 				name: "emotion",

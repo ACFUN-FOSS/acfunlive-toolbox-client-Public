@@ -34,7 +34,8 @@ import { defineComponent, markRaw } from "vue";
 import { mapState } from "vuex";
 import { initMock, getMock } from "./../mock";
 import flow from "@front/components/danmakuFlow/index.vue";
-import { random, cloneDeep } from "lodash";
+import cloneDeep from "lodash/cloneDeep";
+import random from "lodash/random";
 import { toANY } from "@front/util_function/type";
 import { rank } from "@front/datas/room";
 import { settings, commonSettings } from "@front/datas/danmaku";
@@ -112,7 +113,7 @@ export default defineComponent({
 				this.settings,
 				this.commonSettings,
 				this.tempRank
-			);
+			).filtered;
 		},
 		getProfile(target: any) {
 			this.settings = cloneDeep(this.danmakuProfile[target]);
@@ -151,7 +152,9 @@ export default defineComponent({
 });
 </script>
 <style scoped lang='scss'>
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
+@import "@front/styles/scrollbar.scss";
+@import "@front/styles/backgrounds.scss";
 .danmaku-setting {
 	position: absolute;
 	height: 100%;

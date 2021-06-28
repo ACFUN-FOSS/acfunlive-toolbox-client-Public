@@ -44,3 +44,20 @@
 .breadcrumb-leave-active {
 	position: absolute;
 }
+
+.list-complete-enter
+/* .list-complete-leave-active for below version 2.1.8 */ {
+	opacity: 0;
+}
+.list-complete-leave-to {
+	opacity: 0;
+	transition: none;
+}
+.list-complete-leave-active,
+.list-complete-leave-to,
+.list-complete-leave {
+	position: absolute !important;
+}
+.list-complete-move {
+	transition: all 1s;
+}

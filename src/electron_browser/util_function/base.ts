@@ -18,6 +18,10 @@ export const escapeRegExp = (string: string) => {
 	return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // $& means the whole matched string
 };
 
+export const basename = (path: string) => {
+	return path.split("/").reverse()[0];
+};
+
 export const console = () => {
 	if (process.env.NODE_ENV !== "production") {
 		return window.console;
@@ -32,4 +36,12 @@ export const console = () => {
 		warn: ept,
 		error: ept
 	};
+};
+
+export const sleep = (time: any) => {
+	return new Promise(resolve => {
+		setTimeout(() => {
+			resolve(1);
+		}, time);
+	});
 };

@@ -13,10 +13,20 @@ export const unixTimeFormatter = (timestamp: number) => {
 		String(minute)
 	)}:${zeroPadding(String(second))}`;
 };
-export const thousandFormatter = (count: number): string => {
+export const thousandFormatter = (count: number, unit = "万"): string => {
 	if (count < 10000) {
 		return String(count);
 	}
 
-	return `${(count / 10000).toFixed(1)}万`;
+	return `${(count / 10000).toFixed(1)}${unit}`;
+};
+
+export const hundrenFormatter = (count: number): string => {
+	if (count > 10000) {
+		return thousandFormatter(count, "W");
+	}
+	if (count > 1000) {
+		return `${(count / 1000).toFixed(1)}k`;
+	}
+	return String(count);
 };

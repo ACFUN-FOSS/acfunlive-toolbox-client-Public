@@ -17,7 +17,7 @@
 		</div>
 	</el-dialog>
 	<el-dialog custom-class="blurConfirm" title="重要提示" v-model="blurConfirm" :show-close="false" :close-on-click-modal="false">
-		背景模式下窗口将会置顶，并且鼠标操作会穿透，ctrl+F1退出。确认进入？
+		背景模式下窗口将会置顶，并且鼠标操作会穿透，ctrl+F1退出,CTRL+F2回消息。确认进入？
 		<template #footer>
 			<span class="dialog-footer">
 				<el-button size="mini" @click="blurConfirm = false">我不</el-button>
@@ -38,7 +38,8 @@ import {
 	ipcRenderer
 } from "@front/util_function/system";
 import { ElMessage } from "element-plus";
-import { throttle } from "lodash";
+import throttle from "lodash/throttle";
+import { event } from "@front/util_function/eventBus";
 export default defineComponent({
 	name: "minify",
 	data() {
@@ -52,6 +53,7 @@ export default defineComponent({
 			},
 			isTop: false,
 			isBlur: false,
+			previousIgnore: false,
 			opacityTimer
 		};
 	},
@@ -63,6 +65,7 @@ export default defineComponent({
 		const setting: any = localStorage.getItem("miniSetting");
 		if (setting) this.settings = JSON.parse(setting);
 		ipcRenderer.on("switch-ignore-mode", this.setIgnore);
+		ipcRenderer.on("switch-ignore-mode-temp", this.setIgnoreTemp);
 		ipcRenderer.on("hover", this.setHover);
 	},
 	beforeUnmount() {
@@ -74,7 +77,9 @@ export default defineComponent({
 		this.toPosition("miniPosition", "normalPosition");
 		localStorage.setItem("miniSetting", JSON.stringify(this.settings));
 		ipcRenderer.off("switch-ignore-mode", this.setIgnore);
+		ipcRenderer.off("switch-ignore-mode-temp", this.setIgnoreTemp);
 		ipcRenderer.off("hover", this.setHover);
+		event.off("send-message", this.renterIgnore);
 	},
 	watch: {
 		settings: {
@@ -87,28 +92,57 @@ export default defineComponent({
 	},
 	methods: {
 		minimize,
-		setTop,
+		setTop(isTop: boolean) {
+			setTop(isTop);
+			if (isTop) {
+				ElMessage({
+					message:
+						"如果要打游戏请将游戏画面调为无边框模式，否则置顶失效",
+					type: "success",
+					duration: 1500
+				});
+			}
+		},
 		setIgnore() {
 			setIgnoreMouseEvent((this.isBlur = !this.isBlur));
 			if (this.isBlur) {
 				setTop((this.isTop = true));
 				this.setting = false;
+				document.body.classList.add("ignore");
 				ElMessage({
-					message: "切换背景模式成功，如要退出请点击CTRL+F1",
+					message:
+						"切换背景模式成功，如要退出请点击CTRL+F1，回消息请点击CTRL+F2",
 					type: "success",
-					duration: 1500,
-					onClose: () => {
-						document.body.classList.add("ignore");
-					}
+					duration: 1500
 				});
 			} else {
 				document.body.classList.remove("ignore");
+				document.getElementById("room-chat")?.classList.remove("hover");
+				event.off("send-message", this.renterIgnore);
 				ElMessage({
 					message: "退出背景模式成功！",
 					type: "success",
 					duration: 1500
 				});
 			}
+		},
+		setIgnoreTemp() {
+			this.previousIgnore = this.isBlur;
+			setIgnoreMouseEvent((this.isBlur = false));
+			document.body.classList.remove("ignore");
+			document.getElementById("room-chat")?.classList.add("hover");
+			event.emit("message-focus");
+			event.on("send-message", this.renterIgnore);
+		},
+		renterIgnore() {
+			if (this.previousIgnore) {
+				setIgnoreMouseEvent((this.isBlur = true));
+				setTop((this.isTop = true));
+				this.setting = false;
+				document.body.classList.add("ignore");
+			}
+			document.getElementById("room-chat")?.classList.remove("hover");
+			event.off("send-message", this.renterIgnore);
 		},
 		setHover(_: any, msg: any) {
 			if (msg) {
@@ -176,20 +210,24 @@ export default defineComponent({
 }
 </style>
 <style lang="scss">
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
+@import "@front/styles/scrollbar.scss";
 body.minify {
 	padding: 0px;
 	background-color: var(--bgColor) !important;
 	border-radius: 4px !important;
 
 	&.ignore {
-		.room-chat,
+		#room-chat,
 		.roomList {
 			display: none !important;
 		}
 		.danmakuPanel .danmaku-flow {
+			top: 35px !important;
+			height: calc(100vh - 49px) !important;
+		}
+		.super-chat-list {
 			top: 0px !important;
-			height: calc(100vh - 24px) !important;
 		}
 	}
 	&.hover.ignore {
@@ -366,6 +404,27 @@ body.minify {
 	.shotcut {
 		display: none;
 	}
+	.superChatEnable {
+		.super-chat-list {
+			position: fixed;
+			right: 0px;
+			top: 40px;
+			width: 100%;
+			z-index: 100;
+			border: none;
+			.super-chat-list-block .content,
+			.super-chat-list-panel-content {
+				zoom: var(--zoom);
+			}
+			&::after {
+				color: rgba(255, 255, 255, 0.5);
+			}
+		}
+		.danmaku-flow {
+			height: calc(100vh - 100px) !important;
+			top: 75px !important;
+		}
+	}
 	.danmakuPanel {
 		.slider {
 			display: none !important;
@@ -410,8 +469,9 @@ body.minify {
 		}
 		.danmaku-flow {
 			box-sizing: border-box;
-			height: calc(100vh - 65px) !important;
+			height: calc(100vh - 65px);
 			padding-bottom: 35px !important;
+			padding-top: 8px;
 			width: 100vw;
 			position: fixed;
 			left: 0px;
@@ -420,10 +480,11 @@ body.minify {
 				zoom: var(--zoom);
 			}
 		}
+
 		.danmaku-list-bg::before {
 			background-color: transparent !important;
 		}
-		.room-chat {
+		#room-chat {
 			position: fixed;
 			width: 100%;
 			left: 0px;
@@ -433,10 +494,14 @@ body.minify {
 
 			transition: transform 0.25s;
 			transition-delay: 0.5s;
+			&.hover {
+				transition-delay: 0s !important;
+				transform: translateY(0px) !important;
+			}
 		}
 	}
 	&.hover {
-		.room-chat {
+		#room-chat {
 			transition-delay: 0s !important;
 			transform: translateY(0px) !important;
 		}

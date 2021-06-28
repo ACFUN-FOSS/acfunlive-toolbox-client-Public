@@ -48,7 +48,9 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import "@front/styles/index.scss";
+@import "@front/styles/variables.scss";
+
+@import "@front/styles/scrollbar.scss";
 @font-face {
 	font-family: "包图小白体";
 	src: url(/fonts/包图小白体.ttf) format("truetype");
