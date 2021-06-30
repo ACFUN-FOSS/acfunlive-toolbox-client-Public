@@ -90,7 +90,7 @@ export const realRead = (data: any) => {
 		// @ts-ignore
 		reader = robots[data.rtype] || robots.default;
 	}
-	reader(data).then(() => {
+	reader(data).finally(() => {
 		setTimeout(() => {
 			reading = false;
 			if (waitList[0]) {

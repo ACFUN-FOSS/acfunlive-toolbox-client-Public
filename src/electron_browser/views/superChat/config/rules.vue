@@ -17,6 +17,7 @@
 				<row-span :span="3.5">
 					<p>选择主题</p>
 					<el-select placeholder="请选择主题面板" size="mini" v-model="rule.themeID" @change="applyTheme(rule,$event)">
+						<el-option label="默认" value="0" />
 						<el-option v-for="theme in themes" :key="theme.id" :label="theme.label" :value="theme.id" />
 					</el-select>
 				</row-span>
@@ -89,6 +90,11 @@ export default defineComponent({
 				});
 		},
 		applyTheme(rule: any, themeID: any) {
+			if (themeID === "0") {
+				rule.theme = defaultTheme();
+				return;
+			}
+
 			const theme: any = this.themes.find(
 				(theme: any) => theme.id === themeID
 			);

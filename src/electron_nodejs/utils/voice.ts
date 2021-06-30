@@ -11,22 +11,29 @@ class Voice {
 
 	static sendVoice(event: any, data: string) {
 		const { speed, text, volume } = JSON.parse(data);
-		exec(
-			`powershell.exe Add-Type -AssemblyName System.speech; $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer; $speak.SetOutputToDefaultAudioDevice();  $speak.Rate = ${speed}; $speak.Volume = ${volume};  $speak.Speak('${text}'); exit`,
-			(e: any) => {
-				if (e) {
-					event.reply("voice_complete", "#error");
-					return;
+		try {
+			exec(
+				`powershell.exe Add-Type -AssemblyName System.speech; $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer; $speak.SetOutputToDefaultAudioDevice();  $speak.Rate = ${speed}; $speak.Volume = ${volume};  $speak.Speak('${text}'); exit`,
+				(e: any) => {
+					if (e) {
+						event.reply("voice_complete", "#error");
+						return;
+					}
+					event.reply("voice_complete");
 				}
-				event.reply("voice_complete");
-			}
-		);
+			);
+		} catch (error) {
+			event.reply("voice_complete");
+		}
 	}
 
 	static sendXFVoice(event: any, data: string) {
 		try {
 			const { api, speed, text, volume }: any = JSON.parse(data);
 			const { apiSecret, appID, apiKey, voiceName }: any = api;
+			if (!apiSecret || !appID || !apiKey || !voiceName) {
+				throw new Error();
+			}
 			const WebSocket = require("ws");
 			const CryptoJS = require("crypto-js");
 			const btoa = require("btoa");
@@ -97,7 +104,7 @@ class Voice {
 				}
 			};
 			client.onerror = (e: Error) => {
-				throw e;
+				event.reply("xfvoice_complete", `#error`);
 			};
 		} catch (error) {
 			console.log(error);

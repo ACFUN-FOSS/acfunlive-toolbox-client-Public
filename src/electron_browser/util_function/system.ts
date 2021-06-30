@@ -359,7 +359,7 @@ export const xfRead = ({ api, voiceName, speed, text, volume }: any) => {
 					audio.onended = resolve;
 					audio.play();
 				} else {
-					throw new Error("send chat failed!");
+					reject(new Error("send chat failed!"));
 				}
 			});
 		} catch (error) {

@@ -40,7 +40,7 @@ export const schema = () => {
 			api: {
 				type: "object",
 				"ui:hidden":
-					"{{!parentFormData.rtype||parentFormData.rtype==='default'}}",
+					"{{!parentFormData.enable||!parentFormData.rtype||parentFormData.rtype==='default'}}",
 				properties: {
 					apiSecret: stringF("api-secret", "25%"),
 					appID: stringF("app-ID", "25%"),

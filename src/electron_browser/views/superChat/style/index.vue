@@ -5,7 +5,6 @@
 				<row-frame width="100%" title="胶囊预览">
 					<zoom-frame :allow-zoom="true" class="zoom-frame" style="height:50px">
 						<list-block v-if="theme" :scBlock="block" />
-
 					</zoom-frame>
 				</row-frame>
 			</row-span>
@@ -204,6 +203,7 @@ export default defineComponent({
 				message: "另存为成功！"
 			});
 			this.themeID = id;
+			this.theme = cloneDeep(this.theme);
 			this.saveAsDialog = false;
 		},
 		getTheme() {

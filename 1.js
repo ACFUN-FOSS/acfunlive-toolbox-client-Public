@@ -53,7 +53,11 @@ if (process.argv[2] === "after") {
 		console.log(error)
 	}
 	const output = fs.createWriteStream(path.join(p, `${version}.zip`));
-	const archive = archiver('zip');
+	const archive = archiver('zip', {
+		zlib: {
+			level: 9
+		}
+	});
 	archive.pipe(output);
 	archive.directory(path.join(p, "win-unpacked"), false);
 	archive.finalize();
