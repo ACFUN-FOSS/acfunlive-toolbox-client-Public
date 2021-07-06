@@ -266,6 +266,31 @@ export default defineComponent({
 		},
 		startDanmaku() {
 			this.$store.dispatch("streaming");
+			if (!this.danmakuSession.filterFlow.length) {
+				this.danmakuSession.filterFlow.push({
+					liverUID: 23682490,
+					type: 1000,
+					data: {
+						danmuInfo: {
+							sendTime: 1618750176864,
+							userInfo: {
+								userID: 1,
+								nickname: "ACFUN前后端开源⑨课",
+								avatar:
+									"https://tx-free-imgs.acfun.cn/FllI0yyjNgQ61QdJJdbIh9cRQIYY?imageMogr2/auto-orient/format/webp/quality/75!/ignore-error/1",
+								medal: {
+									uperID: 23682490,
+									userID: 1,
+									clubName: "ACER",
+									level: 999
+								},
+								managerType: 0
+							}
+						},
+						content: "弹幕流启动成功！直播开始啦开始啦！"
+					}
+				});
+			}
 		},
 		reWait() {
 			["hasSession", "isStreaming", "hasRank", "danmakuing"].forEach(
@@ -322,6 +347,7 @@ body,
 		font-size: 32px;
 		margin-bottom: 15px;
 		margin-left: 50px;
+		white-space: nowrap;
 	}
 	.checkers {
 		display: flex;

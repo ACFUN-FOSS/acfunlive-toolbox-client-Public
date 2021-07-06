@@ -11,6 +11,7 @@ import { backendRestart } from "../util_function/system";
 import { read } from "@front/api/robot";
 import { getUserInfo } from "@front/components/danmakuFlow/utils/getter";
 import { logout } from "@front/util_function/login";
+import { isOnline } from "@front/api/server";
 import {
 	isOwner,
 	isNormalDanmaku
@@ -22,7 +23,7 @@ export const actions = {
 	startServe(store: any) {
 		clearTimeout(streamStatusTimer);
 		return new Promise((resolve, reject) => {
-			if (store.state.streamStatus.step !== "online") {
+			if (!isOnline() || store.state.streamStatus.step !== "online") {
 				const timer = setTimeout(() => {
 					streamStatusTimer = setTimeout(() => {
 						const step = store.state.streamStatus.step;
@@ -226,10 +227,13 @@ export const actions = {
 	danmakuing(store: any) {
 		clearTimeout(streamStatusTimer);
 		store.commit("getRank");
-		if (isElectron()) store.commit("getRoomProfile");
+		if (isElectron()) {
+			store.commit("getRoomProfile");
+			store.commit("checkLikeStreaming");
+		}
 		streamStatusTimer = setTimeout(() => {
 			store.dispatch(store.state.streamStatus.step);
-		}, 5000);
+		}, 10000);
 	},
 	streamEnded(store: any) {
 		clearTimeout(streamStatusTimer);

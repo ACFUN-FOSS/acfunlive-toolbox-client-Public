@@ -12,7 +12,7 @@
 			<div class="boardContent">
 				<span v-if="item.type == 'string'">{{item.value}}</span>
 				<ol v-else-if="item.type=='list'">
-					<li v-for="(li,ind) of item.value" :key="ind">{{li}}</li>
+					<li v-for="(li,ind) of item.value" :key="ind" v-html="li" />
 				</ol>
 				<div v-else-if="item.type=='html'" v-html="item.value" />
 			</div>

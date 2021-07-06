@@ -41,14 +41,27 @@ if (process.argv[2] === "pre") {
 
 
 if (process.argv[2] === "after") {
-	const p = path.join("./BUILD", version);
+	const p = path.join(__dirname, "./BUILD", version);
+	const mapFilePath = path.join("./mapFiles", version);
+	fs.mkdirSync(mapFilePath, {
+		recursive: true
+	});
+	const mapFilesPath = path.join(p, "win-unpacked\\resources\\app\\js");
+	const mapFiles = fs.readdirSync(mapFilesPath);
+	mapFiles.forEach(file => {
+		if (path.extname(file) === ".map") {
+			fs.rename(path.join(mapFilesPath, file), path.join(mapFilePath, path.basename(file)), (e) => {
+				if (e) console.log(e);
+			});
+		}
+	})
+	// try {
+	// 	fs.unlinkSync(path.join(p, `${version}.rar`))
+	// } catch (error) {
+	// 	console.log(error)
+	// }
 	try {
-		deleteFolderRecursive(path.join(p, `${version}.rar`))
-	} catch (error) {
-		console.log(error)
-	}
-	try {
-		deleteFolderRecursive(path.join(p, `${version}.zip`))
+		fs.unlinkSync(path.join(p, `${version}.zip`))
 	} catch (error) {
 		console.log(error)
 	}

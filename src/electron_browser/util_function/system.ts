@@ -1,6 +1,5 @@
 import { isElectron } from "@front/util_function/electron";
 import { randomId, removePunctuationSpace } from "@front/util_function/base";
-import { ElMessage } from "element-plus";
 export const path = isElectron() ? window.require("path") : {};
 const { remote, ipcRenderer }: any = isElectron()
 	? window.require("electron")
@@ -16,6 +15,11 @@ export const minimize = () => {
 export const close = () => {
 	if (isElectron()) {
 		win?.close();
+	}
+};
+export const log = (msg: any) => {
+	if (isElectron()) {
+		ipcRenderer?.send("log", String(msg));
 	}
 };
 

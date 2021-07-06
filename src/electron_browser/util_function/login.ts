@@ -2,7 +2,7 @@ import store from "@front/store";
 import router from "@front/router";
 import { backendRestart } from "@front/util_function/system";
 export const logout = (): void => {
-	backendRestart();
+	// backendRestart();
 	sessionStorage.setItem("logined", "false");
 	router.replace({
 		path: "/login"

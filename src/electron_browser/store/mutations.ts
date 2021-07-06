@@ -5,6 +5,7 @@ import { stream as streamData, temp } from "@front/datas";
 import { room, stream, common, wsevent, statistic, user } from "@front/api";
 import cloneDeep from "lodash/cloneDeep";
 import { saveConfig } from "@front/util_function/system";
+import { ElMessage } from "element-plus";
 export const mutations: any = {
 	reset() {
 		store.replaceState(stateFunc());
@@ -178,7 +179,71 @@ export const mutations: any = {
 		);
 		store.commit("updateSettings", {});
 	},
-
+	addLikeList(state: RootState, userProfile: any) {
+		const common = state.danmakuProfile.common;
+		if (!common.likeList) common.likeList = [];
+		if (common.likeList.find(i => i.userID === userProfile.userID)) {
+			return;
+		}
+		common.likeList = [userProfile, ...common.likeList];
+		store.commit("updateSettings", {});
+	},
+	removeLikeList(state: RootState, userProfile: any) {
+		const common = state.danmakuProfile.common;
+		if (!common.likeList) return;
+		common.likeList = common.likeList.filter(
+			i => i.userID !== userProfile.userID
+		);
+		store.commit("updateSettings", {});
+	},
+	checkLikeStreaming(state: RootState) {
+		const tempLike = state.temp.likeList;
+		const likeList = state.danmakuProfile.common.likeList;
+		if (!likeList || !likeList.length) {
+			return;
+		}
+		const requestList: any = [];
+		likeList.forEach((like: any) => {
+			requestList.push(
+				user.streamInfo({
+					userID: like.userID
+				})
+			);
+		});
+		Promise.allSettled(requestList).then((res: any) => {
+			res.forEach((info: any) => {
+				info = info.value;
+				try {
+					const id = info.profile.userID;
+					const nickname = info.profile.nickname;
+					const isLiving = Boolean(info.liveID);
+					let needMention = false;
+					if (tempLike[id]) {
+						needMention = tempLike[id].isLive !== isLiving;
+						tempLike[id].isLive = isLiving;
+					} else {
+						needMention = isLiving;
+						tempLike[id] = {
+							...temp.likeTemp(),
+							isLive: isLiving
+						};
+					}
+					console.log(needMention, "aaa");
+					if (needMention) {
+						ElMessage({
+							message: isLiving
+								? `恁关注的${nickname} 开播啦，<a href="https://live.acfun.cn/live/${id}" target='_blank'>点此查看</a>`
+								: `${nickname} 下播啦！`,
+							dangerouslyUseHTMLString: true,
+							duration: 5000,
+							offset: 160,
+							type: "success"
+						});
+					}
+				} catch (error) {}
+			});
+		});
+	},
 	addKeyword(state: RootState, keyword: string) {
 		if (!(keyword = keyword.trim())) {
 			return;

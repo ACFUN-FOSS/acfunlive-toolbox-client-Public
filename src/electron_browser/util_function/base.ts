@@ -1,3 +1,4 @@
+import merge from "lodash/merge";
 export const randomId = (length = 6) => {
 	let Num = "";
 	for (let i = 0; i < length; i++) {
@@ -22,26 +23,14 @@ export const basename = (path: string) => {
 	return path.split("/").reverse()[0];
 };
 
-export const console = () => {
-	if (process.env.NODE_ENV !== "production") {
-		return window.console;
-	}
-
-	const ept = () => {
-		return 1;
-	};
-	return {
-		log: ept,
-		info: ept,
-		warn: ept,
-		error: ept
-	};
-};
-
 export const sleep = (time: any) => {
 	return new Promise(resolve => {
 		setTimeout(() => {
 			resolve(1);
 		}, time);
 	});
+};
+
+export const assign = (dist: any, src: any) => {
+	return merge(dist, src);
 };

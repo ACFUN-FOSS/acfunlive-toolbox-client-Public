@@ -147,6 +147,7 @@ export const superChat = () => {
 };
 
 export interface CommonSettings {
+	likeList: Array<any>;
 	blackList: Array<any>;
 	keywords: Array<any>;
 	emojis: Array<emoji>;
@@ -157,6 +158,7 @@ export interface CommonSettings {
 
 export const commonSettings = (): CommonSettings => {
 	return {
+		likeList: [],
 		blackList: [],
 		keywords: [],
 		emotion: true,

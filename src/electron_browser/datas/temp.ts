@@ -4,6 +4,7 @@ export interface TempInfo {
 	superChatArray: Array<any>;
 	superChatID: any;
 	superChatBlock: any;
+	likeList: any;
 }
 
 export const tempInfo = () => {
@@ -12,6 +13,21 @@ export const tempInfo = () => {
 		emojiMatcher: {},
 		superChatArray: [],
 		superChatID: false,
-		superChatBlock: null
+		superChatBlock: null,
+		likeList: {}
+	};
+};
+
+export interface LikeTemp {
+	enterTime: number;
+	userID: number;
+	isLive: boolean;
+}
+
+export const likeTemp = () => {
+	return {
+		enterTime: 0,
+		userID: 0,
+		isLive: false
 	};
 };

@@ -18,10 +18,12 @@
 				<base-list style="width:100%;height:180px" :list="managerL1st" :action="managerAction()" />
 			</row-span>
 		</row-frame>
-		<row-frame title="特别关心（未完成）">
+		<row-frame title="特别关心">
 			<row-span>
-				<base-list style="width:100%;height:180px" :list="[]" />
+				<el-input style="margin-bottom:5px" size="mini" v-model="likeListToAdd" placeholder="点击输入UID,回车添加" @keypress.enter="addLikeList" />
+				<base-list style="width:100%;height:160px" :list="likeList" :action="likeListAction()" />
 			</row-span>
+			<span class="hint">特别关心：设置以后该用户开播\首次进入直播间将会提醒</span>
 		</row-frame>
 	</content-frame>
 </template>
@@ -39,7 +41,8 @@ export default defineComponent({
 		return {
 			keywordToAdd: "",
 			blackListToAdd: "",
-			managerToAdd: ""
+			managerToAdd: "",
+			likeListToAdd: ""
 		};
 	},
 	mounted() {
@@ -54,6 +57,18 @@ export default defineComponent({
 					...i
 				};
 			});
+		},
+		likeList(): Array<any> {
+			try {
+				return this.danmakuProfile.common.likeList.map((i: any) => {
+					return {
+						label: i.nickname,
+						...i
+					};
+				});
+			} catch (error) {
+				return [];
+			}
 		},
 		keywordList(): Array<any> {
 			return this.danmakuProfile.common.keywords.map((i: any) => {
@@ -78,6 +93,16 @@ export default defineComponent({
 					icon: "el-icon-delete",
 					action: (e: any) => {
 						this.$store.commit("removeBlackList", e);
+					}
+				}
+			];
+		},
+		likeListAction() {
+			return [
+				{
+					icon: "el-icon-delete",
+					action: (e: any) => {
+						this.$store.commit("removeLikeList", e);
 					}
 				}
 			];
@@ -118,6 +143,16 @@ export default defineComponent({
 					if (userInfo) {
 						this.$store.commit("addBlackList", userInfo);
 						this.blackListToAdd = "";
+					}
+				}
+			);
+		},
+		addLikeList() {
+			this.getUserInfo(this.likeListToAdd, this.likeList).then(
+				userInfo => {
+					if (userInfo) {
+						this.$store.commit("addLikeList", userInfo);
+						this.likeListToAdd = "";
 					}
 				}
 			);

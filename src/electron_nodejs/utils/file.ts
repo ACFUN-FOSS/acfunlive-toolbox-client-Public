@@ -1,11 +1,15 @@
 import { ipcMain } from "electron";
 import { appStatic, configStatic } from "./paths";
 import { zipTo, zipFrom } from "./zip";
-import { randomId } from "./../../electron_browser/util_function/base";
+import { randomId } from "./base";
+const log = require("electron-log");
+
 const path = require("path");
 const fs = require("fs");
 const ba64 = require("ba64");
 const spawn = require("child_process").spawn;
+log.transports.file.resolvePath = () =>
+	path.join(appStatic, "./../../TellFQZWhatHappened.log");
 class File {
 	static registerEvents() {
 		ipcMain.on("backend_launch", this.launch);
@@ -20,6 +24,11 @@ class File {
 		ipcMain.on("backend_font_list", this.getFontList);
 		ipcMain.on("save_backup", this.saveBackup);
 		ipcMain.on("load_backup", this.loadBackup);
+		ipcMain.on("log", this.log);
+	}
+
+	static log(event: any, p: any) {
+		log.error(p);
 	}
 
 	static launch(event: any, p: any) {

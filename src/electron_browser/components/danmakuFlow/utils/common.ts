@@ -187,6 +187,10 @@ export const menu = (
 	const isBlackList = store.state.danmakuProfile.common.blackList.find(
 		(i: any) => i.userID === userProfile.userID
 	);
+	const likeList = store.state.danmakuProfile.common.likeList || [];
+	const isLikeList = likeList.find(
+		(i: any) => i.userID === userProfile.userID
+	);
 	return [
 		{
 			name: `当前选择:${getUserInfo(danmaku).nickname}`,
@@ -228,6 +232,40 @@ export const menu = (
 					duration: 1500,
 					type: "success",
 					message: `已将${userProfile.nickname}设为房管`
+				});
+			}
+		},
+		{
+			name: "加入特别关心",
+			icon: "el-icon-arrow-right",
+			show: !isOwner && !isLikeList,
+			disabled: false,
+			event: () => {
+				store.commit("addLikeList", {
+					userID: userProfile.userID,
+					nickname: userProfile.nickname
+				});
+				ElMessage({
+					duration: 1500,
+					type: "success",
+					message: `已将${userProfile.nickname}加入特别关心`
+				});
+			}
+		},
+		{
+			name: "取消特别关心",
+			icon: "el-icon-arrow-right",
+			show: !isOwner && isLikeList,
+			disabled: false,
+			event: () => {
+				store.commit("removeLikeList", {
+					userID: userProfile.userID,
+					nickname: userProfile.nickname
+				});
+				ElMessage({
+					duration: 1500,
+					type: "success",
+					message: `已将${userProfile.nickname}移出特别关心`
 				});
 			}
 		},

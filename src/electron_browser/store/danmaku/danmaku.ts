@@ -1,11 +1,16 @@
 import { Store } from "vuex";
 import { isElectron } from "@front/util_function/electron";
 import { danmaku as danmakuData } from "@front/datas";
-import { ElMessageBox } from "element-plus";
+import { likeTemp } from "@front/datas/temp";
+import { ElMessageBox, ElMessage } from "element-plus";
 import {
 	scGiftHandler,
 	scTextHandler
 } from "@front/components/superChat/utils/getter";
+import {
+	getUID,
+	getNickName
+} from "@front/components/danmakuFlow/utils/getter";
 const empty = (data: any): number => {
 	return data;
 };
@@ -17,7 +22,38 @@ export const danmakuText = (e: any, store: Store<any>) => {
 };
 
 export const danmakuLike = empty;
-export const danmakuEnter = empty;
+export const danmakuEnter = (e: any, store: Store<any>) => {
+	if (isElectron()) {
+		const likeList = store.state.danmakuProfile.common.likeList || [];
+		const tempLike = store.state.temp.likeList;
+		const id = getUID(e);
+		let needMetion = false;
+		if (likeList.find((i: any) => i.userID === id)) {
+			const current = Date.now();
+			if (tempLike[id]) {
+				if (current - tempLike[id].enterTime > 600000) {
+					needMetion = true;
+				}
+				tempLike[id].enterTime = current;
+			} else {
+				needMetion = true;
+				tempLike[id] = {
+					...likeTemp(),
+					userID: id,
+					enterTime: current
+				};
+			}
+		}
+		if (needMetion) {
+			ElMessage({
+				message: `${getNickName(e)}来直播间看你拉！`,
+				duration: 5000,
+				offset: 160,
+				type: "success"
+			});
+		}
+	}
+};
 export const danmakuSubscribe = empty;
 export const danmakuGift = (e: any, store: Store<any>) => {
 	if (store.getters.superChatEnable) {
@@ -65,7 +101,7 @@ export const warning = (e: any) => {
 		return;
 	}
 	ElMessageBox({
-		message: "恁被C类警告了！",
+		message: `恁被C类警告了!${e.data.violationContent}`,
 		type: "warning"
 	});
 };

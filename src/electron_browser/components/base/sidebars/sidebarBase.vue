@@ -70,13 +70,17 @@ export default defineComponent({
 	color: white;
 	user-select: none;
 	.mainTitle {
-		padding-left: 15px;
-		padding-right: 25px;
-		font-size: 25px;
+		padding-left: 65px;
+		padding-right: 15px;
+		font-size: 22px;
 		line-height: 25px;
 		flex-shrink: 0;
 		font-family: 包图小白体;
 		font-weight: 700px;
+		background-image: url("/imgs/common/logo.gif");
+		background-size: auto 110%;
+		background-repeat: no-repeat;
+		background-position-x: 0px;
 	}
 	.subTitle {
 		padding: 8px 25px 8px 15px;

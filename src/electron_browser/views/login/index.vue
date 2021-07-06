@@ -61,6 +61,8 @@ import {
 	loadConfig,
 	launch
 } from "@front/util_function/system";
+import { assign } from "@front/util_function/base";
+import { isOnline } from "@front/api/server";
 import { login as loginTexts, common } from "@front/texts";
 export default defineComponent({
 	name: "login",
@@ -112,9 +114,12 @@ export default defineComponent({
 	},
 	mounted() {
 		this.getCookie();
+		this.$store.dispatch("startServe").then(() => {
+			this.autoLogin();
+		});
 		loadConfig().then((res: any) => {
 			if (res) {
-				Object.assign(this.$store.state.danmakuProfile, res);
+				assign(this.$store.state.danmakuProfile, res);
 			}
 			if (
 				res?.general?.streamToolEnable &&
@@ -122,9 +127,6 @@ export default defineComponent({
 			) {
 				launch(res?.general?.streamToolPath);
 			}
-		});
-		this.$store.dispatch("startServe").then(() => {
-			this.autoLogin();
 		});
 	},
 	methods: {
@@ -138,6 +140,17 @@ export default defineComponent({
 			}
 		},
 		login() {
+			if (!isOnline()) {
+				this.$store
+					.dispatch("startServe")
+					.then(() => {
+						this.login();
+					})
+					.catch(() => {
+						backendRestart();
+					});
+				return;
+			}
 			this.logining = true;
 			if (!this.validation()) {
 				return;

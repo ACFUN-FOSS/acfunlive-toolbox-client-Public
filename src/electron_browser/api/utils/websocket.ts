@@ -1,3 +1,4 @@
+import { randomId } from "@front/util_function/base";
 const baseUrl =
 	process.env.NODE_ENV === "production"
 		? window.location.hostname
@@ -20,13 +21,14 @@ export const wsPromise = (
 			reject(new Error("serve not started!"));
 			return;
 		}
+		const requestID = String(randomId(10));
 		const timeout = setTimeout(() => {
 			wsStatus.ws.removeEventListener("message", judge);
 			reject(new Error(`${method} timeout!`));
 		}, timeoutD);
 		const judge = (e: any) => {
 			const data = JSON.parse(e.data);
-			if (data.requestID === method) {
+			if (data.requestID === requestID) {
 				if (data.result === 13) {
 					reject(new Error(data.error));
 					return;
@@ -49,7 +51,7 @@ export const wsPromise = (
 		wsStatus.ws.send(
 			JSON.stringify({
 				...data,
-				requestID: method
+				requestID
 			})
 		);
 	});

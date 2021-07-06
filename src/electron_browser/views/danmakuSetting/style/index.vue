@@ -408,14 +408,20 @@ export default defineComponent({
 		},
 		removeStyleForm(style: any) {
 			const newStyle = cloneDeep(style);
-			for (const i in newStyle) {
-				if (!newStyle[i]?.widgets) {
-					continue;
-				}
-				newStyle[i].widgets.forEach((widget: any) => {
-					delete widget.styleForm;
+			try {
+				Object.keys(newStyle).forEach((key: any) => {
+					try {
+						if (!newStyle[key].widgets) {
+							return;
+						}
+						newStyle[key].widgets.forEach((widget: any) => {
+							try {
+								delete widget.styleForm;
+							} catch (error) {}
+						});
+					} catch (error) {}
 				});
-			}
+			} catch (error) {}
 			return newStyle;
 		}
 	}

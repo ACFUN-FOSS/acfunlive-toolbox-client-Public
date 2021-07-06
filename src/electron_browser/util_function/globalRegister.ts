@@ -1,6 +1,7 @@
 import { listenDpi } from "./listeners";
 import { dpiOptions } from "@front/datas/common";
-
+import { log } from "@front/util_function/system";
+import { common } from "@front/texts";
 const dpiOption: any = dpiOptions();
 
 export const dpiHandler = () => {
@@ -13,8 +14,20 @@ export const dpiHandler = () => {
 	}
 	document.body.style.zoom = "100%";
 };
-
-export const globalMethods = [dpiHandler];
+export const logger = () => {
+	const ept = () => 1;
+	if (process.env.NODE_ENV === "production") {
+		// const newConsole: any = {};
+		// Object.keys(console).forEach(key => {
+		// 	newConsole[key] = ept;
+		// });
+		// Object.assign(console, newConsole);
+		window.addEventListener("error", e => {
+			log(String(e.error.stack) + `@${common().version}`);
+		});
+	}
+};
+export const globalMethods = [dpiHandler, logger];
 
 export const registerMethod = () => {
 	globalMethods.forEach((handler: any) => {

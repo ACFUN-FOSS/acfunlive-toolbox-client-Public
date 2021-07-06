@@ -42,6 +42,8 @@ import {
 } from "@front/util_function/system";
 import cloneDeep from "lodash/cloneDeep";
 import { ElMessage } from "element-plus";
+import { danmaku } from "@front/datas";
+import { assign } from "@front/util_function/base";
 export default defineComponent({
 	name: "general",
 	data() {
@@ -84,9 +86,11 @@ export default defineComponent({
 		async restore() {
 			const file: any = await load(".zip");
 			const config = await restoreConfig(file.path);
-			console.log(config);
 			if (config) {
-				Object.assign(this.danmakuProfile, config);
+				this.$store.state.danmakuProfile = assign(
+					danmaku.profile(),
+					config
+				);
 				this.loadConfig();
 				this.$store.commit("updateSettings", {});
 				ElMessage({

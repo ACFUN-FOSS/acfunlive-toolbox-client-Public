@@ -51,8 +51,6 @@ async function createWindow() {
 		transparent: true,
 		hasShadow: false,
 		webPreferences: {
-			// Use pluginOptions.nodeIntegration, leave this alone
-			// See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
 			nodeIntegration: true,
 			webSecurity: false,
 			allowRunningInsecureContent: true,
