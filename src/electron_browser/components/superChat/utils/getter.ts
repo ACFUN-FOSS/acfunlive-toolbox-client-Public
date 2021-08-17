@@ -13,12 +13,18 @@ import {
 } from "./data";
 import { event } from "@front/util_function/eventBus";
 export const getRule = (value: number, rules: Array<SCBS>) => {
+	rules.sort((a: any, b: any) => {
+		return b.triggerValue - a.triggerValue;
+	});
 	const ruleIndex = rules.findIndex(
 		rule => value / 1000 >= rule.triggerValue
 	);
 	let nextLevel = 0;
 	if (ruleIndex) {
-		nextLevel = rules[ruleIndex - 1].triggerValue * 1000 - value;
+		const nextRule = rules[ruleIndex - 1];
+		if (nextRule) {
+			nextLevel = nextRule.triggerValue * 1000 - value;
+		}
 	}
 	return {
 		rule: rules[ruleIndex],

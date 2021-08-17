@@ -10,9 +10,10 @@
 			</row-span>
 
 		</row-frame>
-		<row-frame width="100%" wi v-for="type in typeOptions" v-show="robotSetting.enable" :title="type.label" :key="type.value">
-			<rule-chain :allow="type.value" v-model="robotSetting.rules[type.value]" />
-			<el-button size="mini" :disabled="!robotSetting.rules[type.value].length" @click="preview(type.value)" style="margin-top:8px">点击试听</el-button>
+		<row-frame width="100%" wi v-for="type in typeOptions" :title="type.label" :key="type.value">
+			<rule-chain v-if="robotSetting.enable.includes(type.value)" :allow="type.value" v-model="robotSetting.rules[type.value]" />
+			<el-button v-if="robotSetting.enable.includes(type.value)" size="mini" :disabled="!robotSetting.rules[type.value].length" @click="preview(type.value)" style="margin-top:8px">点击试听</el-button>
+			<el-checkbox style="margin-left:8px" :model-value="robotSetting.enable.includes(type.value)" @update:model-value="switchType($event,type.value)">开启</el-checkbox>
 		</row-frame>
 	</content-frame>
 </template>
@@ -42,12 +43,15 @@ export default defineComponent({
 			robotSetting: robotSetting()
 		};
 	},
-	mounted() {
+	beforeMount() {
 		if (this.danmakuProfile.toolBox.robotSetting) {
 			this.robotSetting = Object.assign(
 				this.robotSetting,
 				cloneDeep(this.danmakuProfile.toolBox.robotSetting)
 			);
+			if (!Array.isArray(this.robotSetting.enable)) {
+				this.robotSetting.enable = [];
+			}
 		}
 	},
 	computed: {
@@ -55,6 +59,14 @@ export default defineComponent({
 		...mapState(["danmakuProfile"])
 	},
 	methods: {
+		switchType(on: boolean, type: any) {
+			this.robotSetting.enable = this.robotSetting.enable.filter(
+				ty => ty !== type
+			);
+			if (on) {
+				this.robotSetting.enable.push(type);
+			}
+		},
 		preview(type: number) {
 			const danmaku = getMockByType(type);
 			const { speed, volume, rtype, api } = this.robotSetting;

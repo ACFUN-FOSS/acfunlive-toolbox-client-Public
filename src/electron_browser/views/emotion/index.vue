@@ -121,6 +121,7 @@ export default defineComponent({
 					"1000"
 				];
 			} catch (error) {
+				console.error(error);
 				return false;
 			}
 		}

@@ -1,5 +1,6 @@
 import store from "@front/store";
 import testRouters from "@front/test";
+import { restart } from "@front/util_function/login";
 const main = () => import("@front/layouts/main/index.vue");
 export default [
 	{
@@ -39,19 +40,25 @@ export default [
 				},
 				component: () => import("@front/views/roomMgmt/index.vue")
 			},
-			// {
-			// 	path: "callStatusPanel",
-			// 	name: "statusPanel",
-			// 	meta: {
-			// 		label: "监控面板",
-			// 		icon: "el-icon-data-analysis",
-			// 		action: "event",
-			// 		disabled: () => {
-			// 			return !store.getters.isStreaming;
-			// 		}
-			// 	},
-			// 	redirect: "/"
-			// },
+			{
+				path: "/appletsList",
+				name: "appletsList",
+				meta: {
+					label: "小程序",
+					icon: "el-icon-menu",
+					action: "router"
+				},
+				component: () => import("@front/views/applets/index.vue")
+			},
+			{
+				path: "/restart",
+				name: "restart",
+				meta: {
+					label: "快速重启！",
+					icon: "el-icon-refresh-right",
+					action: restart
+				}
+			},
 			{
 				path: "/magiScr",
 				name: "magiScr",

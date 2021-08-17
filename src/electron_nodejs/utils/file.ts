@@ -3,13 +3,14 @@ import { appStatic, configStatic } from "./paths";
 import { zipTo, zipFrom } from "./zip";
 import { randomId } from "./base";
 const log = require("electron-log");
-
+log.transports.file.maxSize = 100 * 1024 * 1024;
 const path = require("path");
 const fs = require("fs");
 const ba64 = require("ba64");
 const spawn = require("child_process").spawn;
 log.transports.file.resolvePath = () =>
 	path.join(appStatic, "./../../TellFQZWhatHappened.log");
+export { log };
 class File {
 	static registerEvents() {
 		ipcMain.on("backend_launch", this.launch);

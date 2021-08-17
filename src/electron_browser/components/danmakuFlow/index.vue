@@ -119,7 +119,7 @@ export default defineComponent({
 	overflow-y: auto;
 	padding: 4px 6px;
 	transform: translateZ(1);
-	will-change: contents scroll-position;
+	// will-change: contents scroll-position;
 	@include scrollbarBaseSlinder();
 	// & > div {
 	// 	display: flex;

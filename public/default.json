@@ -1606,7 +1606,7 @@
 			}
 		},
 		"robotSetting": {
-			"enable": false,
+			"enable": [],
 			"speed": 3,
 			"volume": 100,
 			"rules": {

@@ -1,5 +1,6 @@
 import { ipcMain } from "electron";
 import { configStatic } from "./paths";
+import { log } from "./file";
 const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
@@ -11,6 +12,7 @@ class Voice {
 
 	static sendVoice(event: any, data: string) {
 		const { speed, text, volume } = JSON.parse(data);
+		log.error(data);
 		try {
 			exec(
 				`powershell.exe Add-Type -AssemblyName System.speech; $speak = New-Object System.Speech.Synthesis.SpeechSynthesizer; $speak.SetOutputToDefaultAudioDevice();  $speak.Rate = ${speed}; $speak.Volume = ${volume};  $speak.Speak('${text}'); exit`,
@@ -28,6 +30,7 @@ class Voice {
 	}
 
 	static sendXFVoice(event: any, data: string) {
+		log.info("voiceRequest");
 		try {
 			const { api, speed, text, volume }: any = JSON.parse(data);
 			const { apiSecret, appID, apiKey, voiceName }: any = api;
@@ -86,7 +89,6 @@ class Voice {
 				);
 			};
 			client.onmessage = (e: any) => {
-				console.log(e);
 				const data = JSON.parse(e.data);
 				if (data.data && data.data.audio) {
 					b64buffer.push(Buffer.from(data.data.audio, "base64"));
@@ -104,10 +106,11 @@ class Voice {
 				}
 			};
 			client.onerror = (e: Error) => {
+				log.error(e);
 				event.reply("xfvoice_complete", `#error`);
 			};
 		} catch (error) {
-			console.log(error);
+			log.error(error);
 			event.reply("xfvoice_complete", `#error`);
 		}
 	}

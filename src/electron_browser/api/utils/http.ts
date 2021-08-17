@@ -13,7 +13,7 @@ axios.interceptors.request.use(
 		return config;
 	},
 	function(error) {
-		return Promise.error(error);
+		return Promise.reject(error);
 	}
 );
 
@@ -31,7 +31,7 @@ axios.interceptors.response.use(
 	}
 );
 
-function get(url, params) {
+function get(url: any, params: any) {
 	return new Promise((resolve, reject) => {
 		axios
 			.get(url, {
@@ -46,7 +46,7 @@ function get(url, params) {
 	});
 }
 
-function post(url, params) {
+function post(url: any, params: any) {
 	return new Promise(function(resolve, reject) {
 		axios({
 			method: "POST",
@@ -62,7 +62,4 @@ function post(url, params) {
 	});
 }
 
-export {
-	get,
-	post
-};
+export { get, post };

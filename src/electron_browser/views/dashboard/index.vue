@@ -37,7 +37,7 @@ export default defineComponent({
 		position: absolute;
 		width: 100%;
 		height: calc(100% - 32px);
-		background-image: url(/imgs/gif/acniang1.gif);
+		background-image: url("/imgs/gif/acniang1.gif");
 		background-repeat: no-repeat;
 		background-position: left bottom;
 		background-size: 50%;

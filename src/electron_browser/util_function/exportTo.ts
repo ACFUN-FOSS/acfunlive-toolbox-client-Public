@@ -6,5 +6,8 @@ export const toJSON = (name: string, data: any) => {
 	);
 };
 export const toTXT = (name: string, content: string) => {
-	FileSaver.saveAs(content, `${name}.txt`);
+	FileSaver.saveAs(
+		new Blob([content], { type: "text/plain" }),
+		`${name}.txt`
+	);
 };

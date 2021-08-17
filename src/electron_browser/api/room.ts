@@ -27,6 +27,15 @@ export const getGift = (): Promise<any> => {
 	return wsPromise("getGift", { type: 107 });
 };
 
+export const getGiftList = ({ liveID }: any): Promise<any> => {
+	return wsPromise("getGiftList", {
+		type: 114,
+		data: {
+			liveID
+		}
+	});
+};
+
 export const getDonate = (data: user.Session): Promise<any> => {
 	return wsPromise("getDonate", {
 		type: 103,

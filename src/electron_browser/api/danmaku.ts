@@ -5,7 +5,7 @@ let pending = false;
 let currentWs: any = null;
 export const startDanmaku = (
 	session: user.Session,
-	{ startCallback, danmakuCallback, endCallback }: any
+	{ startCallback, danmakuCallback, endCallback, errorCallback }: any
 ): any => {
 	if (pending) {
 		return;
@@ -18,18 +18,24 @@ export const startDanmaku = (
 		.then(res => {
 			const judge = (e: any) => {
 				const data = JSON.parse(e.data);
-				if (data.type === 101 || data.type === 2000) {
-					console.log("danmaku flow end!");
-					ws.removeEventListener("message", judge);
+				if ([2999, 101, 2000].includes(data.type)) {
+					ws?.removeEventListener("message", judge);
 					currentWs = null;
-					if (endCallback) endCallback();
+					if ([2999].includes(data.type)) {
+						console.error("danmaku flow error!");
+						if (errorCallback) errorCallback();
+					}
+					if ([2000, 101].includes(data.type)) {
+						console.log("danmaku flow end!");
+						if (endCallback) endCallback();
+					}
 					return;
 				}
 				if (data.type >= 1000) {
 					if (danmakuCallback) danmakuCallback(data);
 				}
 			};
-			if (ws !== currentWs) {
+			if (ws !== currentWs && res) {
 				ws.addEventListener("message", judge);
 				currentWs = ws;
 			}
@@ -37,7 +43,9 @@ export const startDanmaku = (
 			if (startCallback) startCallback(res);
 		})
 		.catch(err => {
+			console.error(err);
 			pending = false;
+			if (errorCallback) errorCallback();
 			throw new Error(err);
 		})
 		.finally(() => {
@@ -55,7 +63,7 @@ export const start = (data: user.Session): Promise<void> => {
 				liverUID: data.userID
 			}
 		},
-		30000
+		12000
 	);
 };
 export const stop = (data: user.Session): Promise<void> => {

@@ -58,9 +58,12 @@ export default defineComponent({
 		},
 		next() {
 			const nextOne = this.temp.superChatArray.find(
-				(block: any) => !block.showed
+				(block: any) => !block?.showed
 			);
-			if (!nextOne) {
+			if (
+				!nextOne &&
+				this.currentTime > this.temp.superChatBlock.listEndTime
+			) {
 				this.temp.superChatID = 0;
 				this.temp.superChatBlock = false;
 			} else {

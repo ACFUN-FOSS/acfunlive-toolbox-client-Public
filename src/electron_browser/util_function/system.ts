@@ -12,6 +12,16 @@ export const minimize = () => {
 	}
 };
 
+export const startApplet = (appletConfig: any) => {
+	const { name, cname, configurations } = appletConfig;
+	if (isElectron()) {
+		ipcRenderer?.send(
+			"startApplet",
+			JSON.stringify({ name, cname, configurations })
+		);
+	}
+};
+
 export const close = () => {
 	if (isElectron()) {
 		win?.close();
@@ -69,9 +79,23 @@ export const backendKill = () => {
 };
 
 export const backendRestart = () => {
-	if (isElectron()) {
-		ipcRenderer?.send("backend_restart");
-	}
+	return new Promise((resolve, reject) => {
+		try {
+			if (!isElectron()) {
+				throw new Error("no electron!");
+			}
+			ipcRenderer?.send("backend_restart");
+			ipcRenderer?.once("restart_complete", (e: any, args: any) => {
+				if (args !== "#error") {
+					resolve(args);
+				} else {
+					throw new Error("restart failed!");
+				}
+			});
+		} catch (error) {
+			reject(error);
+		}
+	});
 };
 
 export const backendInit = () => {
@@ -341,7 +365,7 @@ export const windowsRead = ({ speed, text, volume }: any) => {
 	});
 };
 
-export const xfRead = ({ api, voiceName, speed, text, volume }: any) => {
+export const xfRead = ({ api, speed, text, volume }: any) => {
 	return new Promise((resolve, reject) => {
 		try {
 			if (!isElectron()) {
@@ -356,11 +380,16 @@ export const xfRead = ({ api, voiceName, speed, text, volume }: any) => {
 					text: removePunctuationSpace(text)
 				})
 			);
+			const timeout = setTimeout(() => {
+				reject(new Error("send chat failed!"));
+			}, 5000);
 			ipcRenderer?.once("xfvoice_complete", (e: any, args: any) => {
+				clearTimeout(timeout);
 				if (args !== "#error") {
-					const audio = new Audio(`${args}?cb=${Date.now()}`);
+					const audio = new Audio();
 					audio.onerror = reject;
 					audio.onended = resolve;
+					audio.src = `${args}?cb=${Date.now()}`;
 					audio.play();
 				} else {
 					reject(new Error("send chat failed!"));

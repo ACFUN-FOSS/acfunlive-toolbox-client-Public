@@ -24,6 +24,7 @@ import { tempInfo } from "@front/datas/temp";
 import flow from "@front/components/danmakuFlow/index.vue";
 import { mapState, mapGetters } from "vuex";
 import superChatList from "@front/components/superChat/index.vue";
+import { registerRole } from "@front/util_function/base";
 export default defineComponent({
 	name: "webDanmaku",
 	components: {
@@ -58,7 +59,7 @@ export default defineComponent({
 					label: "登陆",
 					method: that.login,
 					value: false,
-					wait: 500
+					wait: 1500
 				},
 				hasSession: {
 					label: "主播信息",
@@ -100,6 +101,7 @@ export default defineComponent({
 		this.$store.dispatch("startServe").then(() => {
 			this.registerWS();
 		});
+		registerRole("网页端");
 	},
 	beforeUnmount() {
 		this.unRegisterEvents();
@@ -175,8 +177,8 @@ export default defineComponent({
 				case "danmakuing":
 					this.status.danmakuing.value = true;
 					break;
-				case "streamable":
-					// window.location.reload();
+				case "streamEnded":
+					window.location.reload();
 					break;
 			}
 		},
@@ -184,17 +186,26 @@ export default defineComponent({
 			clearTimeout(this.statusTimer);
 			this.dotsCount = (this.dotsCount + 1) % 4;
 			let wait = 500;
+			const next = () => {
+				this.statusTimer = setTimeout(() => {
+					this.statusLooper();
+				}, wait);
+			};
 			for (const checker of this.checkers) {
 				if (!checker.value) {
 					// @ts-ignore
-					if (checker.method) checker.method();
-					wait = checker.wait;
-					break;
+					if (checker.method) {
+						const res = checker.method();
+						if (res instanceof Promise) {
+							res.then(next);
+						} else {
+							wait = checker.wait;
+							next();
+						}
+					}
+					return;
 				}
 			}
-			this.statusTimer = setTimeout(() => {
-				this.statusLooper();
-			}, wait);
 		},
 		registerWS() {
 			wsevent.register("client");
@@ -216,11 +227,13 @@ export default defineComponent({
 					if (!res) {
 						throw new Error("no streamInfo");
 					}
-					Object.assign(state.userProfile, res.profile);
-					delete res.profile;
-					Object.assign(state.roomProfile, res);
-					if (res.liveID) {
-						this.status.isStreaming.value = true;
+					if (res.profile) {
+						Object.assign(state.userProfile, res.profile);
+						delete res.profile;
+						Object.assign(state.roomProfile, res);
+						if (res.liveID) {
+							this.status.isStreaming.value = true;
+						}
 					}
 				});
 			}
@@ -268,6 +281,7 @@ export default defineComponent({
 			this.$store.dispatch("streaming");
 			if (!this.danmakuSession.filterFlow.length) {
 				this.danmakuSession.filterFlow.push({
+					mock: true,
 					liverUID: 23682490,
 					type: 1000,
 					data: {

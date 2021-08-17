@@ -8,18 +8,21 @@ export const startHttp = () => {
 	const dirname = process.resourcesPath;
 	const port = 1188;
 	const staticServe = (req: any, res: any) => {
-		fs.readFile(path.join(dirname, "/app/index.html"), (err, data) => {
-			if (err) {
-				res.writeHead(404, "Not Found");
-				res.write("404: File Not Found!");
+		fs.readFile(
+			path.join(dirname, "/app/index.html"),
+			(err: any, data: any) => {
+				if (err) {
+					res.writeHead(404, "Not Found");
+					res.write("404: File Not Found!");
+					return res.end();
+				}
+
+				res.statusCode = 200;
+
+				res.write(data);
 				return res.end();
 			}
-
-			res.statusCode = 200;
-
-			res.write(data);
-			return res.end();
-		});
+		);
 	};
 	return new Promise(resolve => {
 		const httpServer = http.createServer(staticServe);

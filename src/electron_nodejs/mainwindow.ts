@@ -30,34 +30,20 @@ import {
 	MainWin,
 	KsApi,
 	Voice,
-	AppTest
+	AppTest,
+	Applets
 } from "./utils";
 const isDevelopment = process.env.NODE_ENV !== "production";
-
+app.commandLine.appendSwitch("disable-renderer-backgrounding");
+app.commandLine.appendSwitch("disable-backgrounding-occluded-windows");
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
 	{ scheme: "app", privileges: { secure: true, standard: true } }
 ]);
 async function createWindow() {
 	// Create the browser window.
-	const win = new BrowserWindow({
-		width: 1048,
-		height: 724,
-		minWidth: 300,
-		minHeight: 200,
-		frame: false,
-		show: false,
-		resizable: false,
-		transparent: true,
-		hasShadow: false,
-		webPreferences: {
-			nodeIntegration: true,
-			webSecurity: false,
-			allowRunningInsecureContent: true,
-			enableBlinkFeatures: "CSSVariables",
-			enableRemoteModule: true
-		}
-	});
+	const win = MainWin.newWindow();
+	win.setMenu(null);
 	const gotTheLock = app.requestSingleInstanceLock();
 	if (!gotTheLock) {
 		app.quit();
@@ -76,6 +62,9 @@ async function createWindow() {
 	win.once("ready-to-show", () => {
 		win.show();
 		// win.webContents.openDevTools();
+	});
+	win.on("close", () => {
+		MainWin.closeAll();
 	});
 	win.webContents.on("new-window", function(e, url) {
 		e.preventDefault();
@@ -105,6 +94,7 @@ async function createWindow() {
 	Voice.registerEvents();
 	AppTest.registerEvents(app);
 	Backend.init();
+	Applets.registerEvents();
 }
 
 export default function init_mainwindow() {

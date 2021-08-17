@@ -42,20 +42,25 @@ export default defineComponent({
 			);
 		},
 		style(): any {
-			// @ts-ignore
-			const style = this.setting.widgets.find(
-				(widget: any) => widget.labelEn === "mainBlock"
-			)?.value.style;
-			if (style) {
-				return {
-					...padding(style),
-					...margin(style),
-					...border(style),
-					...outerBox(style),
-					...transform(style)
-				};
+			try {
+				// @ts-ignore
+				const style = this.setting.widgets.find(
+					(widget: any) => widget.labelEn === "mainBlock"
+				)?.value.style;
+				if (style) {
+					return {
+						...padding(style),
+						...margin(style),
+						...border(style),
+						...outerBox(style),
+						...transform(style)
+					};
+				}
+				return {};
+			} catch (error) {
+				console.error(error);
+				return {};
 			}
-			return {};
 		}
 	},
 	methods: { getUserInfo }

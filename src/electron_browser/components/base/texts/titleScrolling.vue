@@ -20,7 +20,8 @@ export default defineComponent({
 		return {
 			titleMove: 0,
 			observer,
-			observerTimer
+			observerTimer,
+			mounted: false
 		};
 	},
 	computed: {
@@ -34,12 +35,15 @@ export default defineComponent({
 	watch: {
 		label: {
 			handler(n, o) {
-				if (n) {
+				if (this.mounted && n) {
 					this.addObserver();
 				}
 			},
 			immediate: true
 		}
+	},
+	mounted() {
+		this.addObserver();
 	},
 	beforeUnmount() {
 		if (this.observer) {
@@ -49,7 +53,7 @@ export default defineComponent({
 	methods: {
 		addObserver() {
 			try {
-				const parent: any = this.$refs.title;
+				const parent: any = this.$el;
 				if (!parent) {
 					throw new Error();
 				}
@@ -71,11 +75,7 @@ export default defineComponent({
 				this.observer.observe(parent);
 				this.observer.observe(child);
 				getMove();
-			} catch (error) {
-				this.observerTimer = setTimeout(() => {
-					this.addObserver();
-				}, 1000);
-			}
+			} catch (error) {}
 		}
 	}
 });
@@ -88,8 +88,7 @@ export default defineComponent({
 	color: $--color-text-primary;
 	overflow: hidden;
 	& > div {
-		animation: moveText var(--titleMoveTime) linear 2s infinite
-			alternate-reverse;
+		animation: moveText var(--titleMoveTime) linear 1s infinite alternate;
 		width: fit-content;
 		&:hover {
 			animation-play-state: paused;

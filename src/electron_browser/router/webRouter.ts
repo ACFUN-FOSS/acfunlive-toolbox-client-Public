@@ -1,4 +1,4 @@
-// import testRouters from "@front/test";
+import { obsApplets } from "@front/applets";
 export default [
 	{
 		path: "/obs/danmaku",
@@ -12,6 +12,17 @@ export default [
 		component: () => import("@/electron_browser/views/danmakuWeb/index.vue")
 	},
 	// ...testRouters,
+	...obsApplets.map(({ name, component, cname }: any) => {
+		return {
+			name,
+			component,
+			meta: {
+				cname,
+				noElectron: true
+			},
+			path: `/obs/${name}`
+		};
+	}),
 	{
 		path: "/404",
 		name: "404",

@@ -1,3 +1,4 @@
+import { toANY } from "@/electron_browser/util_function/type";
 import { randomId } from "@front/util_function/base";
 const baseUrl =
 	process.env.NODE_ENV === "production"
@@ -14,7 +15,7 @@ export const wsStatus: any = {
 export const wsPromise = (
 	method: string,
 	data: any = {},
-	timeoutD = 5000
+	timeoutD = 12000
 ): Promise<any> => {
 	return new Promise((resolve, reject) => {
 		if (!wsStatus.ws || wsStatus.ws.readyState !== 1) {
@@ -23,8 +24,12 @@ export const wsPromise = (
 		}
 		const requestID = String(randomId(10));
 		const timeout = setTimeout(() => {
-			wsStatus.ws.removeEventListener("message", judge);
-			reject(new Error(`${method} timeout!`));
+			wsStatus.ws?.removeEventListener("message", judge);
+			if (data.type !== 2) {
+				reject(
+					new Error(`${method} timeout!,data:${JSON.stringify(data)}`)
+				);
+			}
 		}, timeoutD);
 		const judge = (e: any) => {
 			const data = JSON.parse(e.data);
@@ -42,17 +47,13 @@ export const wsPromise = (
 				}
 				clearTimeout(timeout);
 				resolve(data.data);
-				wsStatus.ws.removeEventListener("message", judge);
+				wsStatus.ws?.removeEventListener("message", judge);
 			}
 		};
 		wsStatus.ws.addEventListener("message", judge);
 		console.log(`======send===${method}=====`);
 		console.log(data);
-		wsStatus.ws.send(
-			JSON.stringify({
-				...data,
-				requestID
-			})
-		);
+		const role = toANY(window).role || "无";
+		wsStatus.ws.send(JSON.stringify({ role, ...data, requestID }));
 	});
 };

@@ -8,9 +8,8 @@
 					</row-span>
 				</row-frame>
 				<shotcut />
-				<row-frame title="更多功能 敬请期待">
-					<row-span>
-					</row-span>
+				<row-frame title="小程序">
+					<applet-list style="width:330px;height:265px" />
 				</row-frame>
 			</row-frame>
 			<row-frame class="danmakuPanel" style="height:100%">
@@ -54,6 +53,7 @@ import shotcut from "./shotcut.vue";
 import roomList from "@front/components/roomList/roomList.vue";
 import roomChat from "@front/components/roomChat/index.vue";
 import minify from "@front/components/minify/index.vue";
+import appletList from "@front/views/streamMonitor/appletList.vue";
 export default defineComponent({
 	name: "streamMonitor",
 	components: {
@@ -63,7 +63,8 @@ export default defineComponent({
 		roomList,
 		roomChat,
 		minify,
-		superChatList
+		superChatList,
+		appletList
 	},
 	data() {
 		return {

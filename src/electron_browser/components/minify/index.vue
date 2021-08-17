@@ -216,7 +216,9 @@ body.minify {
 	padding: 0px;
 	background-color: var(--bgColor) !important;
 	border-radius: 4px !important;
-
+	.appletList {
+		display: none;
+	}
 	&.ignore {
 		#room-chat,
 		.roomList {

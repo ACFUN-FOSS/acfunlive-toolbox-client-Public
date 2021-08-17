@@ -26,6 +26,7 @@ export const closeStream: ComponentOptionsMixin = {
 			this.$store
 				.dispatch("closeStream", this.$store.state.roomProfile.liveID)
 				.then(async () => {
+					// this.$store.commit("stopDanmaku");
 					let obsclosed = "";
 					try {
 						await OBS.connect();
@@ -34,7 +35,9 @@ export const closeStream: ComponentOptionsMixin = {
 					}
 					try {
 						await OBS.stopStream();
-					} catch (error) {}
+					} catch (error) {
+						console.error(error);
+					}
 					ElMessageBox({
 						title: "下播提醒",
 						message: `主播辛苦啦！本次直播时长为 ${result.duration ||

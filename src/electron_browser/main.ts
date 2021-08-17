@@ -13,7 +13,6 @@
  */
 import "@front/styles/index.scss";
 import ElementPlus from "element-plus";
-
 import store from "@front/store";
 import router from "@front/router";
 import App from "@front/App.vue";

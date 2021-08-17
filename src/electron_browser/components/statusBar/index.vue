@@ -11,8 +11,10 @@
 import { defineAsyncComponent, defineComponent } from "vue";
 import { mapState } from "vuex";
 import { event } from "@front/util_function/eventBus";
+import { registerRole } from "@front/util_function/base";
 import { wsevent } from "@front/api";
 import { ElMessage } from "element-plus";
+import { registerHost, closeWorker } from "@front/util_function/storeWorker";
 const mainPanel = defineAsyncComponent(() =>
 	import("@front/views/streamMonitor/index.vue")
 );
@@ -39,6 +41,8 @@ export default defineComponent({
 		wsevent.on("get-session", this.sendSession);
 		wsevent.on("get-settings", this.sendSettings);
 		this.registerWS();
+		registerHost(this.$store);
+		registerRole("工具箱");
 		this.unfold({
 			name: "statusPanel"
 		});
@@ -48,13 +52,13 @@ export default defineComponent({
 		event.off("streamStatusChanged", this.handleStatusChange);
 		wsevent.off("get-session", this.sendSession);
 		wsevent.off("get-settings", this.sendSettings);
+		closeWorker();
 	},
 	computed: {
 		...mapState([
 			"roomProfile",
 			"streamStatus",
 			"danmakuProfile",
-			"danmakuSession",
 			"userSession"
 		]),
 		currentComp(): any {

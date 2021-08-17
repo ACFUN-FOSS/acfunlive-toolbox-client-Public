@@ -67,6 +67,7 @@ export default defineComponent({
 					};
 				});
 			} catch (error) {
+				console.error(error);
 				return [];
 			}
 		},
@@ -185,6 +186,7 @@ export default defineComponent({
 						throw new Error();
 					}
 				} catch (error) {
+					console.error(error);
 					errorMsg = "错误：找不到该用户";
 				}
 			}

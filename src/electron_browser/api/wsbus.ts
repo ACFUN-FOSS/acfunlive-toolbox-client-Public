@@ -6,12 +6,7 @@ class WsEvent extends Event {
 	id = "";
 	constructor() {
 		super();
-		sysEvent.on("serve-state-change", (e: boolean) => {
-			if (!e) {
-				this.registered = false;
-				this.emit("unregistered");
-			}
-		});
+		this.id = "";
 	}
 
 	register(id: string) {
@@ -35,7 +30,7 @@ class WsEvent extends Event {
 								this.emit(realData.event, realData.data);
 							}
 						} catch (error) {
-							console.log(error);
+							console.error(error);
 						}
 					}
 				});
@@ -80,10 +75,11 @@ class WsEvent extends Event {
 		};
 		if (this.checkRegister()) {
 			return promise();
-		} else {
-			this.once("registered", promise);
-			return true;
 		}
+		//  else {
+		// 	this.once("registered", promise);
+		// 	return true;
+		// }
 	}
 }
 

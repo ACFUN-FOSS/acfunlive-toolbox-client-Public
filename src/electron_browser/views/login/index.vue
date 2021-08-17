@@ -6,7 +6,7 @@
 				<hero-base class="hero" />
 				<div class="form">
 					<div class="row">
-						<el-input v-model="userData.account" :disabled="logining" @keypress.enter="login" placeholder="A站邮箱/手机号" />
+						<el-input v-model="userData.account" :disabled="logining" @keypress.enter="login" placeholder="A站账号手机号/邮箱" />
 					</div>
 					<div class="row">
 						<el-input type="password" v-model="userData.password" :disabled="logining" @keypress.enter="login" placeholder="A站密码" />
@@ -109,7 +109,7 @@ export default defineComponent({
 			if (this.$store.state.streamStatus.step !== "offline") {
 				return "服务端已连接";
 			}
-			return "服务端离线";
+			return "服务端离线,请尝试关闭工具箱并右键以管理员权限打开";
 		}
 	},
 	mounted() {
@@ -146,13 +146,15 @@ export default defineComponent({
 					.then(() => {
 						this.login();
 					})
-					.catch(() => {
+					.catch((error: any) => {
+						console.error(error);
 						backendRestart();
 					});
 				return;
 			}
 			this.logining = true;
 			if (!this.validation()) {
+				this.logining = false;
 				return;
 			}
 			this.$store
@@ -172,11 +174,12 @@ export default defineComponent({
 						this.logining = false;
 					}, 4000);
 				})
-				.catch(() => {
+				.catch((err: any) => {
+					console.error(err);
 					this.logining = false;
 					this.welcome = false;
-					this.loginFailedText = "登陆超时，请等待3秒重试";
-					backendRestart();
+					this.loginFailedText = err;
+					// backendRestart();
 				});
 		},
 		getCookie() {

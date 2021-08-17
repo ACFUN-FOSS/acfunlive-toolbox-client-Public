@@ -8,39 +8,36 @@ export const schema = () => {
 	return {
 		type: "object",
 		properties: {
-			enable: booleanF("开启", "100%"),
-			rtype: disableHidden(
-				selectF(
-					"音源",
-					[
-						{
-							label: "windows自带",
-							value: "default"
-						},
-						{
-							label: "科大讯飞",
-							value: "kdxf"
-						}
-					],
-					"20%"
-				)
+			rtype: selectF(
+				"音源",
+				[
+					{
+						label: "windows自带",
+						value: "default"
+					},
+					{
+						label: "科大讯飞",
+						value: "kdxf"
+					}
+				],
+				"20%"
 			),
-			volume: disableHidden({
+			volume: {
 				...integerF("音量", "20%"),
 				minimum: 0,
 				maximum: 100
-			}),
-			speed: disableHidden({
+			},
+			speed: {
 				...integerF("语速", "20%"),
 				minimum: 0,
 				maximum: 10
-			}),
-			ignoreOwner: disableHidden(booleanF("忽略主播", "20%")),
-			comboReading: disableHidden(booleanF("评论连读", "20%")),
+			},
+			ignoreOwner: booleanF("忽略主播", "20%"),
+			comboReading: booleanF("评论连读", "20%"),
 			api: {
 				type: "object",
 				"ui:hidden":
-					"{{!parentFormData.enable||!parentFormData.rtype||parentFormData.rtype==='default'}}",
+					"{{!parentFormData.rtype||parentFormData.rtype==='default'}}",
 				properties: {
 					apiSecret: stringF("api-secret", "25%"),
 					appID: stringF("app-ID", "25%"),
@@ -64,12 +61,5 @@ export const uiSchema = () => {
 		speed: {
 			"ui:widget": "el-slider"
 		}
-	};
-};
-
-const disableHidden = (obj: any) => {
-	return {
-		"ui:hidden": "{{!parentFormData.enable}}",
-		...obj
 	};
 };

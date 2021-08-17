@@ -42,6 +42,9 @@ export default defineComponent({
 			if (row.meta.action === "router") {
 				this.$router.push({ name: row.name });
 			}
+			if (typeof row.meta.action === "function") {
+				row.meta.action();
+			}
 		}
 	}
 });
@@ -53,7 +56,7 @@ export default defineComponent({
 @import "@front/styles/scrollbar.scss";
 @font-face {
 	font-family: "包图小白体";
-	src: url(/fonts/包图小白体.ttf) format("truetype");
+	src: url("/fonts/包图小白体.ttf") format("truetype");
 }
 
 #sidebar {

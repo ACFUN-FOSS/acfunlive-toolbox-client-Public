@@ -90,12 +90,16 @@ export const realRead = (data: any) => {
 		// @ts-ignore
 		reader = robots[data.rtype] || robots.default;
 	}
-	reader(data).finally(() => {
-		setTimeout(() => {
-			reading = false;
-			if (waitList[0]) {
-				realRead(waitList.splice(0, 1)[0]);
-			}
-		}, 500);
-	});
+	reader(data)
+		.catch((e: any) => {
+			console.error(e);
+		})
+		.finally(() => {
+			setTimeout(() => {
+				reading = false;
+				if (waitList[0]) {
+					realRead(waitList.splice(0, 1)[0]);
+				}
+			}, 500);
+		});
 };

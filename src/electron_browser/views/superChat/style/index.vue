@@ -212,6 +212,7 @@ export default defineComponent({
 					this.themes = res.list;
 				})
 				.catch(e => {
+					console.error(e);
 					this.themes = [];
 				});
 		}

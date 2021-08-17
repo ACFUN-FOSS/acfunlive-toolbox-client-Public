@@ -64,7 +64,7 @@
 				</div>
 				<el-checkbox v-model="zoomPreview">缩放</el-checkbox>
 			</div>
-			<zoom-frame :allow-zoom="zoomPreview" class="zoom-frame">
+			<zoom-frame :allow-zoom="zoomPreview" class="zoom-frame" :styles="{width: '100%',height: '60px'}">
 				<div v-if="!enable">么得内容，请先在上方导入样式</div>
 				<div v-else-if="!currentStyle">请先在上选择要编辑的弹幕类型</div>
 				<div v-else-if="!currentWidgets.length">请在左下添加组件</div>
@@ -433,8 +433,6 @@ export default defineComponent({
 @import "@front/styles/scrollbar.scss";
 @import "@front/styles/backgrounds.scss";
 .zoom-frame {
-	width: 100%;
-	height: 60px;
 	position: relative;
 	z-index: 2;
 	background-color: black;

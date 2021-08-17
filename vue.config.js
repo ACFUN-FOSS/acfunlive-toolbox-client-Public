@@ -7,6 +7,7 @@ module.exports = {
 			entry: "./src/electron_browser/main.ts"
 		}
 	},
+	parallel: false,
 	pluginOptions: {
 		electronBuilder: {
 			customFileProtocol: "/",
@@ -31,6 +32,9 @@ module.exports = {
 
 		},
 	},
+	chainWebpack: (config) => {
+		config.module.rule('js').exclude.add(/\.worker\.js$/)
+	},
 	configureWebpack: {
 		// optimization: {
 		// 	usedExports: true,
@@ -48,11 +52,27 @@ module.exports = {
 				"@root": __dirname
 			}
 		},
+		module: {
+			rules: [{
+				test: /shared\.worke/g,
+				use: [{
+					loader: "babel-loader",
+					options: {
+						presets: ["@babel/preset-env"],
+					},
+				},
+				{
+					loader: "worker-loader",
+					options: {
+						worker: "SharedWorker",
+					},
+				}
+				]
+
+			}]
+		},
 		entry: {
 			main: "./src/electron_browser/main.ts"
 		},
-		plugins: [
-			// new BundleAnalyzerPlugin(),
-		],
 	}
 };

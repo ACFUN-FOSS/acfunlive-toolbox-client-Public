@@ -8,6 +8,7 @@ import {
 	getGift
 } from "./getter";
 import { RootState } from "@front/store/state";
+import { danmaku } from "@/electron_browser/datas";
 export const hasTime = (danmaku: any) => {
 	return Boolean(getTime(danmaku));
 };
@@ -26,6 +27,10 @@ export const hasNickName = (danmaku: any) => {
 
 export const hasContent = (danmaku: any) => {
 	return Boolean(getContent(danmaku));
+};
+
+export const hasGift = (danmaku: any) => {
+	return danmaku.type === 1005;
 };
 
 export const isManager = (danmaku: any, state: RootState) => {

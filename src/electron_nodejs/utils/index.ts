@@ -5,4 +5,5 @@ import MainWin from "./mainwin";
 import KsApi from "./ksApi";
 import Voice from "./voice";
 import AppTest from "./app";
-export { Backend, File, startHttp, MainWin, KsApi, Voice, AppTest };
+import Applets from "./applet";
+export { Backend, File, startHttp, MainWin, KsApi, Voice, AppTest, Applets };

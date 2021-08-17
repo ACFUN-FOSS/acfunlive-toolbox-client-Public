@@ -22,6 +22,25 @@ export const logger = () => {
 		// 	newConsole[key] = ept;
 		// });
 		// Object.assign(console, newConsole);
+		const error = console.error;
+		const lg = console.log;
+		console.error = (e: any) => {
+			error(e);
+			if (e instanceof Error) {
+				log(String(e.stack) + `@${common().version}`);
+			} else {
+				log(JSON.stringify(e));
+			}
+		};
+		console.log = (...e: any) => {
+			lg(...e);
+			log(JSON.stringify(e));
+		};
+		window.addEventListener("unhandledrejection", e => {
+			if (e.reason instanceof Error) {
+				log(String(e.reason.stack) + `@${common().version}`);
+			}
+		});
 		window.addEventListener("error", e => {
 			log(String(e.error.stack) + `@${common().version}`);
 		});

@@ -128,8 +128,8 @@ import { ElMessage, ElMessageBox } from "element-plus";
 import { room } from "@front/datas";
 import { closeStream } from "@front/mixins/methods";
 import { event } from "@front/util_function/eventBus";
-import { sleep } from "@front/util_function/base";
-import { copyText } from "@front/util_function/clipboard";
+import { sleep, isUrl } from "@front/util_function/base";
+import { copy } from "@front/util_function/clipboard";
 import OBS from "@front/util_function/obs";
 export default defineComponent({
 	name: "roomMgmt",
@@ -194,16 +194,7 @@ export default defineComponent({
 		event.emit("openStreamEnd");
 	},
 	methods: {
-		copy(text: string) {
-			copyText(text).then(() => {
-				ElMessage({
-					message: "复制成功",
-					duration: 1500,
-					type: "success",
-					offset: 60
-				});
-			});
-		},
+		copy,
 		saveCache() {
 			localStorage.setItem(
 				"imgCache",
@@ -229,7 +220,7 @@ export default defineComponent({
 		async setRoomProfile() {
 			await this.$store.commit("setRoomProfile", {
 				liveID: this.$store.state.roomProfile.liveID,
-				coverFile: `http://${window.location.host}${this.roomProfile.liveCover}`,
+				coverFile: this.generateUrl(this.roomProfile.liveCover),
 				title: this.roomProfile.title
 			});
 			event.once("roomProfileChanged", () => {
@@ -262,6 +253,7 @@ export default defineComponent({
 					await this.OBS.startStream();
 					this.readyToStream();
 				} catch (error) {
+					console.error(error);
 					ElMessageBox({
 						title: "OBS启播失败",
 						confirmButtonText: "淦哦"
@@ -277,9 +269,15 @@ export default defineComponent({
 				offset: 60
 			});
 		},
+		generateUrl(str: string) {
+			if (isUrl(str)) {
+				return str;
+			}
+			return `http://${window.location.host}${str}`;
+		},
 		async readyToStream() {
 			this.loading = true;
-			if (!this.streamEncodec.resolution) {
+			if (!this?.streamEncodec?.resolution) {
 				this.$store.commit("getStreamEncodec");
 				setTimeout(() => {
 					this.readyToStream();
@@ -290,7 +288,7 @@ export default defineComponent({
 			this.$store
 				.dispatch("openStream", {
 					title: this.roomProfile.title,
-					coverFile: `http://${window.location.host}${this.roomProfile.liveCover}`,
+					coverFile: this.generateUrl(this.roomProfile.liveCover),
 					streamName: this.streamSession.streamName,
 					portrait: false,
 					panoramic: false,
@@ -298,6 +296,7 @@ export default defineComponent({
 					subCategoryID: this.roomProfile.liveType.subCategoryID
 				})
 				.catch((e: any) => {
+					console.error(e);
 					ElMessage({
 						message: e,
 						duration: 1500,

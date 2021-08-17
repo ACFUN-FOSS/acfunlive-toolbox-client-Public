@@ -72,7 +72,7 @@ export const webSettings = (): Settings => {
 export interface RobotSetting {
 	rtype: string;
 	api: any;
-	enable: boolean;
+	enable: Array<any>;
 	speed: number;
 	volume: number;
 	rules: any;
@@ -97,12 +97,12 @@ export const robotSetting = (): RobotSetting => {
 	return {
 		rtype: "default",
 		api: {
-			appSecret: "",
+			apiSecret: "",
 			appID: "",
-			appKey: "",
+			apiKey: "",
 			voiceName: ""
 		},
-		enable: false,
+		enable: [],
 		speed: 2,
 		volume: 50,
 		rules: robotRule(),

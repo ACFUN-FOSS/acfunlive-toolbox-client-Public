@@ -1,68 +1,131 @@
 import { ipcMain, BrowserWindow, screen } from "electron";
-let mouseMoveTimer: any = null;
+let wins: any = [];
+let registered = false;
 class MainWin {
 	static registerEvents(mainWindow: BrowserWindow) {
-		ipcMain.on("mainwin_reload", () => {
-			MainWin.reload(mainWindow);
+		const win = {
+			id: mainWindow.webContents.id,
+			win: mainWindow,
+			timer: null
+		};
+		wins.push(win);
+		if (!registered) {
+			const methods = [
+				["mainwin_reload", MainWin.reload],
+				["mainwin_setTop", MainWin.setTop],
+				["mainwin_setResizeable", MainWin.setResizeable],
+				["mainwin_setIgnoreMouseEvent", MainWin.setIgnoreMouseEvent]
+			];
+			methods.forEach((method: Array<any>) => {
+				ipcMain.on(method[0], method[1]);
+			});
+			registered = true;
+		}
+		MainWin.startMouseDetector(win);
+		mainWindow.on("close", () => {
+			const timer: any = win.timer;
+			clearTimeout(timer);
+			wins = wins.filter((wn: any) => wn.id !== win.id);
 		});
-		ipcMain.on("mainwin_setTop", (event: any, data: any) => {
-			MainWin.setTop(mainWindow, JSON.parse(data));
-		});
-		ipcMain.on("mainwin_setResizeable", (event: any, data: any) => {
-			MainWin.setResizeable(mainWindow, JSON.parse(data));
-		});
-		ipcMain.on("mainwin_setIgnoreMouseEvent", (event: any, data: any) => {
-			MainWin.setIgnoreMouseEvent(mainWindow, JSON.parse(data));
-		});
-		MainWin.startMouseDetector(mainWindow);
 	}
 
-	static reload(mainWindow: BrowserWindow) {
-		mainWindow.reload();
+	static selectWindow(event: any) {
+		return wins.find((win: any) => win.id === event.sender.id);
 	}
 
-	static setTop(mainWindow: BrowserWindow, { isTop }: any) {
-		mainWindow.setAlwaysOnTop(isTop, "screen-saver", 1);
-		mainWindow.setVisibleOnAllWorkspaces(isTop);
-		mainWindow.setFullScreenable(!isTop);
+	static reload(event: any) {
+		const win = MainWin.selectWindow(event).win;
+		if (!win) return;
+		win.reload();
 	}
 
-	static setResizeable(mainWindow: BrowserWindow, { isResizeable }: any) {
-		mainWindow.setResizable(isResizeable);
+	static setTop(event: any, data: any) {
+		const win = MainWin.selectWindow(event).win;
+		if (!win) return;
+		const { isTop } = JSON.parse(data);
+		win.setAlwaysOnTop(isTop, "screen-saver", 1);
+		win.setVisibleOnAllWorkspaces(isTop);
+		win.setFullScreenable(!isTop);
 	}
 
-	static setFocusable(mainWindow: BrowserWindow, { isFocusable }: any) {
-		mainWindow.setFocusable(isFocusable);
+	static setResizeable(event: any, data: any) {
+		const win = MainWin.selectWindow(event).win;
+		if (!win) return;
+		const { isResizeable }: any = JSON.parse(data);
+		win.setResizable(isResizeable);
 	}
 
-	static setIgnoreMouseEvent(mainWindow: BrowserWindow, { ignore }: any) {
-		mainWindow.setIgnoreMouseEvents(ignore, {
+	static setFocusable(event: any, data: any) {
+		const win = MainWin.selectWindow(event).win;
+		if (!win) return;
+		const { isFocusable }: any = JSON.parse(data);
+		win.setFocusable(isFocusable);
+	}
+
+	static setIgnoreMouseEvent(event: any, data: any) {
+		const win = MainWin.selectWindow(event).win;
+		if (!win) return;
+		const { ignore }: any = JSON.parse(data);
+		win.setIgnoreMouseEvents(ignore, {
 			forward: true
 		});
 		if (!ignore) {
-			mainWindow.focus();
+			win.focus();
 		}
 	}
 
-	static startMouseDetector(mainWindow: BrowserWindow) {
-		clearTimeout(mouseMoveTimer);
+	static startMouseDetector(wi: any) {
+		const { timer, win, id }: any = wi;
+		clearTimeout(timer);
 		try {
 			const { x, y } = screen.getCursorScreenPoint();
-			const winPos = mainWindow.getContentBounds();
+			const winPos = win.getContentBounds();
 			if (
 				x > winPos.x &&
 				y > winPos.y &&
 				x - winPos.width < winPos.x &&
 				y - winPos.height < winPos.y
 			) {
-				mainWindow.webContents.send("hover", true);
+				win.webContents.send("hover", true);
 			} else {
-				mainWindow.webContents.send("hover", false);
+				win.webContents.send("hover", false);
 			}
 		} catch (error) {}
-		mouseMoveTimer = setTimeout(() => {
-			MainWin.startMouseDetector(mainWindow);
-		}, 100);
+		wi.timer = setTimeout(() => {
+			MainWin.startMouseDetector(wi);
+		}, 1000);
+	}
+
+	static newWindow(options: any = {}) {
+		return new BrowserWindow({
+			width: 1048,
+			height: 724,
+			minWidth: 300,
+			minHeight: 200,
+			frame: false,
+			show: false,
+			resizable: false,
+			transparent: true,
+			hasShadow: false,
+			webPreferences: {
+				// offscreen: true,
+				nodeIntegration: true,
+				webSecurity: false,
+				allowRunningInsecureContent: true,
+				enableBlinkFeatures: "CSSVariables",
+				enableRemoteModule: true,
+				webviewTag: true
+			},
+			...options
+		});
+	}
+
+	static closeAll() {
+		wins.forEach((win: any) => {
+			try {
+				win.win.close();
+			} catch (error) {}
+		});
 	}
 }
 export default MainWin;

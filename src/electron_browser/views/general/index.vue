@@ -114,7 +114,7 @@ export default defineComponent({
 					window.open(url);
 				})
 				.catch(err => {
-					console.log(err);
+					console.error(err);
 				});
 		}
 	}

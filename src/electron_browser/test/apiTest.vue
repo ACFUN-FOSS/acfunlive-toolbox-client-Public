@@ -1,11 +1,12 @@
 <template>
 	<div class="danmaku">
-		<el-input type="number" v-model="uid" />
-		<el-button @click="test">发送数据</el-button>
+		<!-- <el-input type="number" v-model="uid" /> -->
+		<el-button @click="test()">发送数据</el-button>
 	</div>
 </template>
 
 <script>
+/* eslint-disable */
 import { defineComponent } from "vue";
 import { streamInfo } from "@front/api/user";
 export default defineComponent({
@@ -20,11 +21,21 @@ export default defineComponent({
 	watch: {},
 	methods: {
 		test() {
-			streamInfo({
-				userID: 214844
-			}).then(res => {
-				console.log(res);
-			});
+			const xhr = new XMLHttpRequest();
+
+			xhr.open(
+				"GET",
+				"http://music.163.com/api/playlist/detail?id=2557908184"
+			);
+			// xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+			// xhr.setRequestHeader(
+			// 	"Content-Type",
+			// 	"application/x-www-form-urlencoded; charset=UTF-8"
+			// );
+			xhr.onloadend = () => {
+				console.log(JSON.parse(xhr.responseText));
+			};
+			xhr.send(null);
 		}
 	}
 });

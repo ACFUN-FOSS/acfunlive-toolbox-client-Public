@@ -19,7 +19,7 @@ export default defineComponent({
 
 @font-face {
 	font-family: "包图小白体";
-	src: url(/fonts/包图小白体.ttf) format("truetype");
+	src: url("/fonts/包图小白体.ttf") format("truetype");
 }
 
 .hero {

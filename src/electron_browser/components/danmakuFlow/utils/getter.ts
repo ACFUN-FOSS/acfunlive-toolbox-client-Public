@@ -1,7 +1,7 @@
 import { danmaku } from "@/electron_browser/datas";
 
 export const getDanmuInfo = (danmaku: any) => {
-	const type = danmaku.type;
+	const type = danmaku?.type;
 	switch (type) {
 		case 1000:
 			return danmaku.data.danmuInfo;
@@ -25,7 +25,7 @@ export const getDanmuInfo = (danmaku: any) => {
 };
 
 export const getUserInfo = (danmaku: any) => {
-	const type = danmaku.type;
+	const type = danmaku?.type;
 	switch (type) {
 		case 1007:
 			return getDanmuInfo(danmaku).fansInfo;
@@ -37,17 +37,17 @@ export const getUserInfo = (danmaku: any) => {
 };
 
 export const getTime = (danmaku: any) => {
-	const type = danmaku.type;
+	const type = danmaku?.type;
 	switch (type) {
 		case 1007:
-			return danmaku.data.joinTime;
+			return danmaku?.data?.joinTime;
 		default:
-			return getDanmuInfo(danmaku).sendTime;
+			return getDanmuInfo(danmaku)?.sendTime;
 	}
 };
 
 export const setTime = (danmaku: any, time: any) => {
-	const type = danmaku.type;
+	const type = danmaku?.type;
 	switch (type) {
 		case 1007:
 			danmaku.data.joinTime = time;
@@ -106,6 +106,10 @@ export const getDanmakuType = (danmaku: any) => {
 
 export const getGiftName = (danmaku: any) => {
 	return getGift(danmaku)?.giftDetail.giftName;
+};
+
+export const getGiftCombo = (danmaku: any) => {
+	return getGift(danmaku)?.combo;
 };
 
 export const getGiftNumber = (danmaku: any) => {

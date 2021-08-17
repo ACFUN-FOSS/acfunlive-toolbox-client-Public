@@ -1,11 +1,9 @@
-import { setTime } from "@/electron_browser/components/danmakuFlow/utils/getter";
 import { ipcMain } from "electron";
-import { setTimeout } from "timers";
 const { spawn } = require("child_process");
 const path = require("path");
 const find = require("find-process");
 const process = require("process");
-
+let restarting = false;
 class Backend {
 	static registerEvents() {
 		ipcMain.on("backend_init", Backend.init);
@@ -19,23 +17,41 @@ class Backend {
 			__static,
 			"acbackend.exe"
 		);
-		spawn(exepath, ["-logfile", "./TellOrzogcWhatHappened"]);
+		spawn(exepath, [
+			"-logfile",
+			"./TellOrzogcWhatHappened",
+			"-logversions",
+			"100"
+		]);
 	}
 
 	static kill() {
-		find("name", "acbackend").then((list: any) => {
+		return find("name", "acbackend").then((list: any) => {
 			list.forEach((procs: any) => {
-				process.kill(procs.pid);
+				try {
+					process.kill(procs.pid);
+				} catch (error) {}
 			});
 		});
 	}
-	static restart() {
-		find("name", "acbackend").then((list: any) => {
-			list.forEach((procs: any) => {
-				process.kill(procs.pid);
+	static async restart(event: any) {
+		if (restarting) {
+			event.reply("restart_complete", "#error");
+			return;
+		}
+		restarting = true;
+		Backend.kill()
+			.then((list: any) => {
+				Backend.init();
+				event.reply("restart_complete");
+			})
+			.catch((e: any) => {
+				event.reply("restart_complete", "#error");
+				console.log(e);
+			})
+			.finally(() => {
+				restarting = false;
 			});
-			Backend.init();
-		});
 	}
 }
 

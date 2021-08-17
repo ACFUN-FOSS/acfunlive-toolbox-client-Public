@@ -10,12 +10,12 @@ import { isElectron } from "../util_function/electron";
 import { backendRestart } from "../util_function/system";
 import { read } from "@front/api/robot";
 import { getUserInfo } from "@front/components/danmakuFlow/utils/getter";
-import { logout } from "@front/util_function/login";
 import { isOnline } from "@front/api/server";
 import {
 	isOwner,
 	isNormalDanmaku
 } from "@front/components/danmakuFlow/utils/tester";
+import { addChangedDanmaku } from "@front/util_function/storeWorker/index";
 let streamStatusTimer: any = null;
 
 let retry = 0;
@@ -36,15 +36,28 @@ export const actions = {
 				server.init({
 					onOpen: () => {
 						clearTimeout(timer);
-						store.state.streamStatus.step = "online";
+						if (store.state.streamStatus.step !== "reconnect") {
+							store.state.streamStatus.step = "online";
+						}
 						event.emit("streamStatusChanged");
 						resolve(true);
 					},
 					onClose: () => {
-						sessionStorage.setItem(
-							"preStep",
-							store.state.streamStatus.step
-						);
+						if (store.state.streamStatus.step !== "reconnect") {
+							sessionStorage.setItem(
+								"preStep",
+								store.state.streamStatus.step
+							);
+							if (store.state.roomProfile.liveID) {
+								sessionStorage.setItem(
+									"liveID",
+									store.state.roomProfile.liveID
+								);
+							}
+						}
+						store.commit("stopLiveDurationTimer");
+						store.commit("stopGiftTimer");
+
 						store.state.streamStatus.step = "reconnect";
 						event.emit("streamStatusChanged");
 						store.dispatch(store.state.streamStatus.step);
@@ -70,12 +83,13 @@ export const actions = {
 						...res.tokenInfo
 						// userID: 378269
 					};
-					store.state.streamStatus.step = "nostreamable";
+					store.state.streamStatus.step = "streamable";
 					event.emit("streamStatusChanged");
 					store.dispatch(store.state.streamStatus.step);
 					resolve(res);
 				})
 				.catch(err => {
+					console.error(err);
 					reject(err);
 				});
 		});
@@ -97,7 +111,8 @@ export const actions = {
 					}
 					resolve(res.liveAuth);
 				})
-				.catch(() => {
+				.catch(error => {
+					console.error(error);
 					streamStatusTimer = setTimeout(() => {
 						store.dispatch(store.state.streamStatus.step);
 					}, 1000);
@@ -108,24 +123,26 @@ export const actions = {
 		clearTimeout(streamStatusTimer);
 		const state = store.state;
 		return new Promise((resolve, reject) => {
-			user.streamInfo(state.userSession)
-				.then(res => {
-					if (!res) {
-						throw new Error("no streamInfo");
-					}
-					Object.assign(state.userProfile, res.profile);
-					delete res.profile;
-					Object.assign(state.roomProfile, res);
-					if (res.liveID) {
+			user.checkIsStreaming(state.userSession)
+				.then(({ isStreaming, data }) => {
+					const liveID = state.roomProfile.liveID;
+					Object.assign(state.userProfile, data.profile);
+					delete data.profile;
+					Object.assign(state.roomProfile, data);
+					if (isStreaming) {
 						state.streamStatus.step = "streaming";
 						event.emit("streamStatusChanged");
 						store.dispatch(store.state.streamStatus.step);
-						resolve(res);
+						resolve(data);
+					} else if (liveID) {
+						state.streamStatus.step = "streamEnded";
+						event.emit("streamStatusChanged");
 					} else {
 						throw new Error("no streaming");
 					}
 				})
 				.catch(err => {
+					// console.error(err);
 					streamStatusTimer = setTimeout(() => {
 						store.dispatch(store.state.streamStatus.step);
 					}, 1000);
@@ -138,7 +155,10 @@ export const actions = {
 		const state = store.state;
 		const filter = state.filter;
 		return new Promise((resolve, reject) => {
-			if (sessionStorage.getItem("preStep") !== "danmakuing") {
+			if (
+				sessionStorage.getItem("liveID") !==
+				String(store.state.roomProfile.liveID)
+			) {
 				state.danmakuSession.rawFlow = [];
 				state.danmakuSession.filterFlow = [];
 			}
@@ -171,7 +191,20 @@ export const actions = {
 					);
 					if (filtered[0]) {
 						// chicken robot
-						if (isElectron() && settings?.robotSetting?.enable) {
+						do {
+							if (!isElectron()) break;
+							const enable = settings?.robotSetting?.enable;
+							let shouldRead = false;
+							if (!enable) break;
+							if (enable === true) {
+								shouldRead = true;
+							} else if (
+								Array.isArray(enable) &&
+								enable.includes(danmaku.type)
+							) {
+								shouldRead = true;
+							}
+							if (!shouldRead) break;
 							const {
 								rules,
 								ignoreOwner
@@ -184,20 +217,30 @@ export const actions = {
 									filters: [state.temp.emojiTester]
 								});
 							}
-						}
+						} while (false);
 						danmaku = filtered[0];
 					} else if (!hasCombined) {
 						return;
 					}
 					state.danmakuSession.filterFlow = list;
+					addChangedDanmaku(danmaku);
 				}
+
 				const handler = danmakuHandler[String(danmaku.type)];
 				if (handler) {
 					handler(danmaku, store);
 				}
 			};
 			const startCallback = (res: any) => {
-				Object.assign(state.roomProfile, res.StreamInfo);
+				if (store.state.roomProfile.liveID) {
+					sessionStorage.setItem(
+						"liveID",
+						store.state.roomProfile.liveID
+					);
+				}
+				if (res) {
+					Object.assign(state.roomProfile, res.StreamInfo);
+				}
 				store.commit("startLiveDurationTimer");
 				store.commit("startGiftTimer");
 				state.streamStatus.step = "danmakuing";
@@ -205,23 +248,37 @@ export const actions = {
 				store.dispatch(store.state.streamStatus.step);
 				resolve(true);
 			};
+
 			const endCallback = () => {
-				state.streamStatus.step = "streamEnded";
-				event.emit("streamStatusChanged");
-				store.dispatch(store.state.streamStatus.step);
-			};
-			danmakuApi
-				.startDanmaku(state.userSession, {
-					startCallback,
-					danmakuCallback,
-					endCallback
-				})
-				.catch((error: any) => {
-					streamStatusTimer = setTimeout(() => {
+				user.checkIsStreaming(store.state.userSession)
+					.then(res => {
+						if (res.isStreaming) {
+							store.commit("stopLiveDurationTimer");
+							store.commit("stopGiftTimer");
+							streamStatusTimer = setTimeout(() => {
+								state.streamStatus.step = "streaming";
+								store.dispatch(store.state.streamStatus.step);
+							}, 1000);
+							return;
+						}
+						state.streamStatus.step = "streamEnded";
+						event.emit("streamStatusChanged");
 						store.dispatch(store.state.streamStatus.step);
-					}, 1000);
-					reject(error);
-				});
+					})
+					.catch(e => {
+						streamStatusTimer = setTimeout(() => {
+							state.streamStatus.step = "streamable";
+							store.dispatch(store.state.streamStatus.step);
+						}, 1000);
+					});
+			};
+			const errorCallback = endCallback;
+			danmakuApi.startDanmaku(state.userSession, {
+				startCallback,
+				danmakuCallback,
+				endCallback,
+				errorCallback
+			});
 		});
 	},
 	danmakuing(store: any) {
@@ -239,6 +296,7 @@ export const actions = {
 		clearTimeout(streamStatusTimer);
 		store.commit("resetStreamStatus");
 		store.state.streamStatus.step = "streamable";
+		store.state.minify = false;
 		event.emit("streamStatusChanged");
 		store.dispatch(store.state.streamStatus.step);
 	},
@@ -246,33 +304,38 @@ export const actions = {
 		clearTimeout(streamStatusTimer);
 		try {
 			await store.dispatch("startServe");
-			const res = await user.login(store.state.userData);
-			if (isElectron()) {
-				store.state.userSession = {
-					...res.tokenInfo
-					// userID: 378269
-				};
-			}
 			const preStage = sessionStorage.getItem("preStep");
+			if (preStage !== "online") {
+				const res = await user.login(store.state.userData);
+				if (isElectron()) {
+					store.state.userSession = {
+						...res.tokenInfo
+						// userID: 378269
+					};
+				}
+			}
 			if (preStage === "danmakuing" || preStage === "streaming") {
 				store.state.streamStatus.step = "streamable";
-			} else if (!preStage) {
-				logout();
 			} else {
 				store.state.streamStatus.step = preStage;
 			}
 			event.emit("streamStatusChanged");
 			store.dispatch(store.state.streamStatus.step);
+			retry = 0;
 		} catch (error) {
 			retry += 1;
-			if (isElectron() && retry >= 3) {
+			if (isElectron() && retry >= 5) {
+				console.log("restarted!");
+
 				retry = 0;
-				backendRestart();
-			} else {
-				streamStatusTimer = setTimeout(() => {
-					store.dispatch("reconnect");
-				}, 1000);
+				try {
+					await backendRestart();
+				} catch (error) {}
 			}
+
+			streamStatusTimer = setTimeout(() => {
+				store.dispatch("reconnect");
+			}, 1000);
 		}
 	},
 	openStream(store: any, streamStartInfo: any) {

@@ -70,8 +70,8 @@ export const signalAudience = (e: any, store: Store<any>) => {
 	// store.state.roomStatus.likeCount = e.data.likeCount;
 };
 export const danmakuHistory = (e: any, store: Store<any>) => {
-	if (sessionStorage.getItem("preStep") === "danmakuing") {
-		sessionStorage.setItem("preStep", "");
+	const filteredFlow = store.state.danmakuSession.filterFlow;
+	if (filteredFlow.length && !filteredFlow[0].mock) {
 		return;
 	}
 	const state = store.state;
@@ -101,7 +101,7 @@ export const warning = (e: any) => {
 		return;
 	}
 	ElMessageBox({
-		message: `恁被C类警告了!${e.data.violationContent}`,
+		message: `恁被C类警告累~${e.data.violationContent}`,
 		type: "warning"
 	});
 };

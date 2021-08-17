@@ -1,14 +1,24 @@
 import { RootState, stateFunc } from "./state";
 import store from "./index";
 import { event } from "@front/util_function/eventBus";
-import { stream as streamData, temp } from "@front/datas";
-import { room, stream, common, wsevent, statistic, user } from "@front/api";
+import { stream as streamData, temp, room as roomData } from "@front/datas";
+import {
+	room,
+	stream,
+	common,
+	wsevent,
+	statistic,
+	user,
+	danmaku
+} from "@front/api";
 import cloneDeep from "lodash/cloneDeep";
 import { saveConfig } from "@front/util_function/system";
 import { ElMessage } from "element-plus";
+import { isElectron } from "../util_function/electron";
 export const mutations: any = {
 	reset() {
 		store.replaceState(stateFunc());
+		store.state.streamStatus.step = "online";
 		sessionStorage.setItem("preStep", "online");
 	},
 	getRoomProfile(state: RootState) {
@@ -16,9 +26,13 @@ export const mutations: any = {
 			if (!res) {
 				throw new Error("no streamInfo");
 			}
-			Object.assign(state.userProfile, res.profile);
-			delete res.profile;
-			Object.assign(state.roomProfile, res);
+			if (res.profile) {
+				Object.assign(state.userProfile, res.profile);
+				delete res.profile;
+				if (res.liveID) {
+					Object.assign(state.roomProfile, res);
+				}
+			}
 		});
 	},
 	setRoomProfile(state: RootState, roomSetInfo: any) {
@@ -84,11 +98,14 @@ export const mutations: any = {
 		state.streamStatus = streamData.status();
 		state.streamEncodec = streamData.encodec();
 		state.streamSession = streamData.session();
+		state.roomProfile = roomData.profileDetail();
 		store.commit("stopLiveDurationTimer");
 		store.commit("stopGiftTimer");
 		wsevent.wsEmit("stop-danmaku", {}, "client");
 		sessionStorage.setItem("preStep", "");
-		store.commit("getStreamSession");
+		if (isElectron()) {
+			store.commit("getStreamSession");
+		}
 	},
 	startLiveDurationTimer(state: RootState) {
 		store.commit("stopLiveDurationTimer");
@@ -205,7 +222,7 @@ export const mutations: any = {
 		const requestList: any = [];
 		likeList.forEach((like: any) => {
 			requestList.push(
-				user.streamInfo({
+				user.isStreaming({
 					userID: like.userID
 				})
 			);
@@ -213,9 +230,12 @@ export const mutations: any = {
 		Promise.allSettled(requestList).then((res: any) => {
 			res.forEach((info: any) => {
 				info = info.value;
+				if (!info.userID) {
+					return;
+				}
 				try {
-					const id = info.profile.userID;
-					const nickname = info.profile.nickname;
+					const id = info.userID;
+					const nickname = info.nickname;
 					const isLiving = Boolean(info.liveID);
 					let needMention = false;
 					if (tempLike[id]) {
@@ -228,7 +248,6 @@ export const mutations: any = {
 							isLive: isLiving
 						};
 					}
-					console.log(needMention, "aaa");
 					if (needMention) {
 						ElMessage({
 							message: isLiving
@@ -262,6 +281,9 @@ export const mutations: any = {
 		const common = state.danmakuProfile.common;
 		common.keywords = common.keywords.filter(i => i !== keyword);
 		store.commit("updateSettings", {});
+	},
+	stopDanmaku(state: RootState) {
+		danmaku.stop(state.userSession);
 	},
 	minify(state: RootState) {
 		event.emit("routeChange", {
