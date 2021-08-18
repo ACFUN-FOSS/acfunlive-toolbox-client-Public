@@ -137,8 +137,9 @@ export const actions = {
 					} else if (liveID) {
 						state.streamStatus.step = "streamEnded";
 						event.emit("streamStatusChanged");
+						resolve(data);
 					} else {
-						throw new Error("no streaming");
+						reject(new Error("no streaming"));
 					}
 				})
 				.catch(err => {

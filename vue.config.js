@@ -8,6 +8,7 @@ module.exports = {
 		}
 	},
 	parallel: false,
+
 	pluginOptions: {
 		electronBuilder: {
 			customFileProtocol: "/",
@@ -20,6 +21,9 @@ module.exports = {
 				extraFiles: {
 					from: "./documents",
 					to: "使用说明"
+				},
+				win: {
+					requestedExecutionLevel: "requireAdministrator"
 				},
 				directories: {
 					output: path.join("BUILD", process.env.npm_package_version)

@@ -21,7 +21,7 @@ class Backend {
 			"-logfile",
 			"./TellOrzogcWhatHappened",
 			"-logversions",
-			"100"
+			"10"
 		]);
 	}
 

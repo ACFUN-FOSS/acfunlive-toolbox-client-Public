@@ -51,8 +51,10 @@ export const wsPromise = (
 			}
 		};
 		wsStatus.ws.addEventListener("message", judge);
-		console.log(`======send===${method}=====`);
-		console.log(data);
+		if (data.type !== 2) {
+			console.log(`======send===${method}=====`);
+			console.log(data);
+		}
 		const role = toANY(window).role || "无";
 		wsStatus.ws.send(JSON.stringify({ role, ...data, requestID }));
 	});

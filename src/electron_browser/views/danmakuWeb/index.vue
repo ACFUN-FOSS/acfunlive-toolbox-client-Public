@@ -25,6 +25,7 @@ import flow from "@front/components/danmakuFlow/index.vue";
 import { mapState, mapGetters } from "vuex";
 import superChatList from "@front/components/superChat/index.vue";
 import { registerRole } from "@front/util_function/base";
+import { actions } from "@front/store/actions";
 export default defineComponent({
 	name: "webDanmaku",
 	components: {
@@ -73,22 +74,16 @@ export default defineComponent({
 					value: false,
 					wait: 1500
 				},
-				isStreaming: {
-					label: "直播状态",
-					method: that.requestStreaming,
-					value: false,
-					wait: 500
-				},
 				hasRank: {
 					label: "牌子信息",
 					value: false,
 					wait: 500
 				},
-				danmakuing: {
-					label: "弹幕启动",
-					method: that.startDanmaku,
+				isStreaming: {
+					label: "直播启动",
+					method: that.requestStreaming,
 					value: false,
-					wait: 30000
+					wait: 500
 				}
 			}
 		};
@@ -175,7 +170,7 @@ export default defineComponent({
 					this.statusLooper();
 					break;
 				case "danmakuing":
-					this.status.danmakuing.value = true;
+					this.startDanmaku();
 					break;
 				case "streamEnded":
 					window.location.reload();
@@ -185,11 +180,10 @@ export default defineComponent({
 		statusLooper() {
 			clearTimeout(this.statusTimer);
 			this.dotsCount = (this.dotsCount + 1) % 4;
-			let wait = 500;
-			const next = () => {
+			const next = (time = 500) => {
 				this.statusTimer = setTimeout(() => {
 					this.statusLooper();
-				}, wait);
+				}, time);
 			};
 			for (const checker of this.checkers) {
 				if (!checker.value) {
@@ -197,11 +191,14 @@ export default defineComponent({
 					if (checker.method) {
 						const res = checker.method();
 						if (res instanceof Promise) {
-							res.then(next);
+							res.finally(() => {
+								next();
+							});
 						} else {
-							wait = checker.wait;
-							next();
+							next(checker.wait);
 						}
+					} else {
+						next();
 					}
 					return;
 				}
@@ -221,22 +218,9 @@ export default defineComponent({
 			wsevent.wsEmit("get-settings", {}, "server");
 		},
 		requestStreaming() {
-			if (!this.status.isStreaming.value) {
-				const state = this.$store.state;
-				user.streamInfo(state.userSession).then(res => {
-					if (!res) {
-						throw new Error("no streamInfo");
-					}
-					if (res.profile) {
-						Object.assign(state.userProfile, res.profile);
-						delete res.profile;
-						Object.assign(state.roomProfile, res);
-						if (res.liveID) {
-							this.status.isStreaming.value = true;
-						}
-					}
-				});
-			}
+			return this.$store.dispatch("streamable").then((res: any) => {
+				this.status.isStreaming.value = Boolean(res.liveID);
+			});
 		},
 		updateSettings() {
 			if (this.settingTimer) {
@@ -278,7 +262,6 @@ export default defineComponent({
 			this.$store.state.managerList = res.list;
 		},
 		startDanmaku() {
-			this.$store.dispatch("streaming");
 			if (!this.danmakuSession.filterFlow.length) {
 				this.danmakuSession.filterFlow.push({
 					mock: true,
