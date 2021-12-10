@@ -6,15 +6,24 @@
 				<div class="hint">（仅支持jpg、png格式，推荐比例16:10）</div>
 			</row-span>
 		</row-frame>
-		<row-frame title="房间标题">
-			<row-span>
-				<el-input size="mini" placeholder="请输入房间名称" v-model="roomProfile.title" />
+		<row-frame :flex="true">
+			<row-span :span="6">
+				<row-frame title="房间标题" style="width:100%;margin-bottom:0px">
+					<el-input size="mini" placeholder="请输入房间名称" v-model="roomProfile.title" />
+				</row-frame>
+			</row-span>
+			<row-span :span="6">
+				<row-frame title="允许观众剪辑" style="width:100%;margin-bottom:0px">
+					<el-switch v-model="canCut" @click="setCanCut" />
+				</row-frame>
 			</row-span>
 		</row-frame>
+
 		<row-frame :flex="true">
 			<row-span :span="8">
 				<row-frame title="直播分区" :flex="true" style="width:100%;margin-bottom:0px">
-					<el-cascader size="mini" style="width:100%" placeholder="请选择分区" v-model="categoryValue" :options="categoryCascade" />
+					<el-cascader size="mini" style="width:100%" placeholder="请选择分区" v-model="categoryValue"
+						:options="categoryCascade" />
 				</row-frame>
 			</row-span>
 			<!-- <row-span :span="4">
@@ -23,7 +32,8 @@
 			</row-span> -->
 			<row-span :span="4" v-if="isStreaming">
 				<row-frame title=" " style="width:100%;margin-bottom:0px;text-align:right">
-					<el-button type="primary" size="mini" class="btnBase" @click="setRoomProfile" :disabled="changed">修改标题封面
+					<el-button type="primary" size="mini" class="btnBase" @click="setRoomProfile" :disabled="changed">
+						修改标题封面
 					</el-button>
 				</row-frame>
 			</row-span>
@@ -47,7 +57,8 @@
 			<row-span :span="12">
 				<el-input size="mini" :model-value="danmakuStream">
 					<template #append>
-						<el-button type="primary" size="mini" class="btnBase attach" @click="copy(danmakuStream)">复制</el-button>
+						<el-button type="primary" size="mini" class="btnBase attach" @click="copy(danmakuStream)">复制
+						</el-button>
 					</template>
 				</el-input>
 				<div class="hint">（将上访链接黏贴到推流软件内置浏览器中）</div>
@@ -83,7 +94,8 @@
 			<row-span :span="12">
 				<el-input size="mini" :model-value="streamSession.rtmpServer">
 					<template #append>
-						<el-button type="primary" size="mini" class="btnBase attach" @click="copy(streamSession.rtmpServer)">复制
+						<el-button type="primary" size="mini" class="btnBase attach"
+							@click="copy(streamSession.rtmpServer)">复制
 						</el-button>
 					</template>
 				</el-input>
@@ -93,7 +105,8 @@
 			<row-span :span="9.5">
 				<el-input size="mini" :model-value="streamSession.streamKey">
 					<template #append>
-						<el-button type="primary" size="mini" class="btnBase attach" @click="copy(streamSession.streamKey)">复制
+						<el-button type="primary" size="mini" class="btnBase attach"
+							@click="copy(streamSession.streamKey)">复制
 						</el-button>
 					</template>
 				</el-input>
@@ -131,6 +144,7 @@ import { event } from "@front/util_function/eventBus";
 import { sleep, isUrl } from "@front/util_function/base";
 import { copy } from "@front/util_function/clipboard";
 import OBS from "@front/util_function/obs";
+import { getCutStatus, setCutStatus } from "@front/api/room";
 export default defineComponent({
 	name: "roomMgmt",
 	mixins: [closeStream],
@@ -146,6 +160,7 @@ export default defineComponent({
 			OBS,
 			obsSync: false,
 			loading: false,
+			canCut: false,
 			roomProfile,
 			danmakuStream: `http://${window.location.host}/obs/danmaku/`,
 			magicScreen: `http://${window.location.host}/obs/screen`
@@ -186,6 +201,7 @@ export default defineComponent({
 		this.$store.commit("getCategory");
 		this.$store.commit("getStreamSession"); // get rtmp key when no streaming
 		this.loadCache();
+		this.getCutStatus();
 		event.on("openStream", this.openStream);
 	},
 	beforeUnmount() {
@@ -194,6 +210,22 @@ export default defineComponent({
 		event.emit("openStreamEnd");
 	},
 	methods: {
+		getCutStatus() {
+			getCutStatus().then(({ canCut }) => {
+				this.canCut = canCut;
+			});
+		},
+		setCanCut() {
+			setCutStatus(this.canCut)
+				.catch((message: any) => {
+					ElMessage({
+						type: "error",
+						message,
+						duration: 1500
+					});
+				})
+				.finally(this.getCutStatus);
+		},
 		copy,
 		saveCache() {
 			localStorage.setItem(

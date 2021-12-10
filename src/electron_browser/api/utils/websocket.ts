@@ -1,10 +1,16 @@
 import { toANY } from "@/electron_browser/util_function/type";
 import { randomId } from "@front/util_function/base";
-const baseUrl =
+let baseUrl =
 	process.env.NODE_ENV === "production"
 		? window.location.hostname
 		: "localhost";
-
+fetch("/settings/server.json")
+	.then(res => res.json())
+	.then(({ ip }) => {
+		console.log(ip);
+		console.log("+===============");
+		if (ip) baseUrl = ip;
+	});
 export const wsStatus: any = {
 	url: `ws://${baseUrl}:15368`,
 	ws: null,

@@ -1,10 +1,11 @@
-[2021-07-02 22:04:13.288] [error] Error: !23123
-    at http://192.168.31.35:1188/js/chunk-common.3fff42ec.js:1:24561@1.1.8
-[2021-07-02 22:04:14.288] [error] Error: !23123
-    at http://192.168.31.35:1188/js/chunk-common.3fff42ec.js:1:24561@1.1.8
-[2021-07-02 22:04:15.288] [error] Error: !23123
-    at http://192.168.31.35:1188/js/chunk-common.3fff42ec.js:1:24561@1.1.8
-[2021-07-02 22:04:16.299] [error] Error: !23123
-    at http://192.168.31.35:1188/js/chunk-common.3fff42ec.js:1:24561@1.1.8
-[2021-07-02 22:04:17.302] [error] Error: !23123
-    at http://192.168.31.35:1188/js/chunk-common.3fff42ec.js:1:24561@1.1.8
+[2021-08-17 20:41:11.369] [error] TypeError: Cannot set property 'showed' of undefined
+    at Proxy.select (http://192.168.0.105:1188/js/chunk-f1990c7e.335b525f.js:1:2937)
+    at Proxy.next (http://192.168.0.105:1188/js/chunk-f1990c7e.335b525f.js:1:2902)
+    at e.temp.superChatBlock.Object.onNext.t.<computed>.t.<computed> (http://192.168.0.105:1188/js/chunk-f1990c7e.335b525f.js:1:1825)
+    at en (http://192.168.0.105:1188/js/chunk-vendors.d93d58bf.js:63:102670)
+    at tn (http://192.168.0.105:1188/js/chunk-vendors.d93d58bf.js:63:102749)
+    at Tn (http://192.168.0.105:1188/js/chunk-vendors.d93d58bf.js:63:104635)
+    at Proxy.currentTime (http://192.168.0.105:1188/js/chunk-0dbbaf56.c61db878.js:1:20949)
+    at en (http://192.168.0.105:1188/js/chunk-vendors.d93d58bf.js:63:102670)
+    at tn (http://192.168.0.105:1188/js/chunk-vendors.d93d58bf.js:63:102749)
+    at Array.p (http://192.168.0.105:1188/js/chunk-vendors.d93d58bf.js:63:113939)@1.4.7

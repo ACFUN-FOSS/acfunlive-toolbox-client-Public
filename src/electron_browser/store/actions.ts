@@ -273,12 +273,11 @@ export const actions = {
 						}, 1000);
 					});
 			};
-			const errorCallback = endCallback;
 			danmakuApi.startDanmaku(state.userSession, {
 				startCallback,
 				danmakuCallback,
 				endCallback,
-				errorCallback
+				errorCallback: endCallback
 			});
 		});
 	},

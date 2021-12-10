@@ -18,20 +18,28 @@ module.exports = {
 			builderOptions: {
 				productName: "ACFUN直播工具箱",
 				asar: false,
-				extraFiles: {
-					from: "./documents",
-					to: "使用说明"
-				},
-				win: {
-					requestedExecutionLevel: "requireAdministrator"
-				},
+				extraFiles: [
+					{
+						from: "./documents",
+						to: "使用说明"
+					},
+					"LICENSE"
+				],
+				// win: {
+				// 	requestedExecutionLevel: "requireAdministrator"
+				// },
 				directories: {
 					output: path.join("BUILD", process.env.npm_package_version)
 				},
 				nsis: {
 					oneClick: false,
 					allowToChangeInstallationDirectory: true
-				}
+				},
+				files: [
+					"**/*",
+					"!**/acbackend-*",
+					"**/acbackend-${os}-${arch}*"
+				]
 			}
 
 		},

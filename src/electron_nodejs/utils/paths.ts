@@ -3,13 +3,14 @@ const fs = require("fs");
 export const homedir = require("os").homedir();
 
 export const getUserHome = () => {
-	return process.env[process.platform == "win32" ? "USERPROFILE" : "HOME"];
+	return process.env[process.platform === "win32" ? "USERPROFILE" : "HOME"];
 };
 
 export const dirname = process.resourcesPath;
 
 export const appStatic = path.join(dirname, "/app");
-let configStat1c = path.join(getUserHome(), "/acfun-live-toolbox");
+const configDir = process.platform === "win32" ? "/acfun-live-toolbox" : ".acfunlive-toolbox";
+let configStat1c = path.join(getUserHome(), configDir);
 if (process.env.NODE_ENV !== "production") {
 	// @ts-ignore
 	configStat1c = path.join(__static, "configFiles");

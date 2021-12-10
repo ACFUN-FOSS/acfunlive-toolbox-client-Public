@@ -24,7 +24,7 @@ export default defineComponent({
 	name: "medalDegree",
 	cname: "牌子(等级颜色)",
 	widgetOptions: {
-		avaliable: [1000, 1001, 1002, 1003, 1005],
+		avaliable: [1000, 1001, 1002, 1003, 1005, 1008],
 		limit: -1
 	},
 	props: {

@@ -1,7 +1,8 @@
 <template>
 	<div class="outer">
 		<row-frame class="rowframe" title="播放器" contentClass="list">
-			<title-scrolling style="width:100%;white-space:nowrap" :label="`正在播放：${songInfo.title||'暂无播放歌曲'} ${songInfo.author?` - ${songInfo.author}`:''}`" />
+			<title-scrolling style="width:100%;white-space:nowrap"
+				:label="`正在播放：${songInfo.title||'暂无播放歌曲'} ${songInfo.author?` - ${songInfo.author}`:''}`" />
 			<div class="player">
 				<audio :autoplay="settings.autoplay" controls :src="playingSingle.url" />
 			</div>
@@ -10,7 +11,8 @@
 			<div class="lyric" id="lyricList">
 				<div class="lyricBlock">
 					<div class="lyric-row" v-if="!lyricReverse.length">纯音乐，暂无歌词</div>
-					<div class="lyric-row" v-for="(lyric,index) in lyricReverse" :key="index" :class="{'active':lyric.active}">{{lyric.text}}</div>
+					<div class="lyric-row" v-for="(lyric,index) in lyricReverse" :key="index"
+						:class="{'active':lyric.active}">{{lyric.text}}</div>
 				</div>
 			</div>
 		</row-frame>
@@ -40,7 +42,8 @@
 				<el-option label="编号" value="id" />
 				<el-option label="歌名" value="name" />
 			</el-select>
-			<el-input size="mini" v-model="search" placeholder="输入歌名/编号，enter添加" @keydown.enter="addSongSearch" :disabled="loading" />
+			<el-input size="mini" v-model="search" placeholder="输入歌名/编号，enter添加" @keydown.enter="addSongSearch"
+				:disabled="loading" />
 		</div>
 		<el-dialog v-model="settingShow">
 			<div class="row">
@@ -88,7 +91,8 @@
 			</div>
 			<div class="row" v-if="settings.needGift||settings.allowSwitch">
 				<span class="shadow">点歌券价值(AC币)</span>
-				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" v-model="settings.giftValue" :min="0" />
+				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" v-model="settings.giftValue"
+					:min="0" />
 			</div>
 			<div class="row" v-if="settings.needGift||settings.allowSwitch">
 				<span class="hint">礼物价值大于该值后即可点歌,送出礼物后输入"点歌@歌曲名"进行点歌,"编号点歌@歌曲id"进行编号点歌</span>
@@ -97,8 +101,10 @@
 				<span class="shadow">不让下面列表中的UID点歌</span>
 			</div>
 			<div class="row">
-				<el-select style="width:100%" size="mini" @change="upgradeSettings" v-model="settings.peopleBlackList" multiple filterable allow-create collapse-tags placeholder="输入按回车添加">
-					<el-option v-for="(item,index) in settings.peopleBlackList" :key="index" :label="item" :value="item" />
+				<el-select style="width:100%" size="mini" @change="upgradeSettings" v-model="settings.peopleBlackList"
+					multiple filterable allow-create collapse-tags placeholder="输入按回车添加">
+					<el-option v-for="(item,index) in settings.peopleBlackList" :key="index" :label="item"
+						:value="item" />
 				</el-select>
 			</div>
 			<div class="row">
@@ -106,8 +112,10 @@
 
 			</div>
 			<div class="row">
-				<el-select style="width:100%" size="mini" @change="upgradeSettings" v-model="settings.keywordBlackList" multiple filterable allow-create collapse-tags placeholder="输入按回车添加">
-					<el-option v-for="(item,index) in settings.keywordBlackList" :key="index" :label="item" :value="item" />
+				<el-select style="width:100%" size="mini" @change="upgradeSettings" v-model="settings.keywordBlackList"
+					multiple filterable allow-create collapse-tags placeholder="输入按回车添加">
+					<el-option v-for="(item,index) in settings.keywordBlackList" :key="index" :label="item"
+						:value="item" />
 				</el-select>
 			</div>
 			<div class="row">
@@ -118,7 +126,8 @@
 				<span class="shadow">网易云歌单导入</span>
 				<el-input size="mini" v-model="songListID" placeholder="歌单id">
 					<template #append>
-						<el-button type="primary" size="mini" class="btnBase attach" @click="getSongList()">获取</el-button>
+						<el-button type="primary" size="mini" class="btnBase attach" @click="getSongList()">获取
+						</el-button>
 					</template>
 				</el-input>
 			</div>
@@ -135,7 +144,8 @@
 			</div>
 			<div class="row">
 				<span class="shadow">歌名大小</span>
-				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" v-model="settings.titleSize" :min="1" />
+				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" v-model="settings.titleSize"
+					:min="1" />
 			</div>
 			<div class="row">
 				<span class="shadow">歌名颜色</span>
@@ -147,11 +157,13 @@
 			</div>
 			<div class="row">
 				<span class="shadow">歌名轮廓大小</span>
-				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" :step="0.1" v-model="settings.titleOutline" :min="0.1" />
+				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" :step="0.1"
+					v-model="settings.titleOutline" :min="0.1" />
 			</div>
 			<div class="row">
 				<span class="shadow">歌词大小</span>
-				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" v-model="settings.lyricSize" :min="1" />
+				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" v-model="settings.lyricSize"
+					:min="1" />
 			</div>
 			<div class="row">
 				<span class="shadow">歌词颜色</span>
@@ -163,7 +175,8 @@
 			</div>
 			<div class="row">
 				<span class="shadow">歌词轮廓大小</span>
-				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" :step="0.1" v-model="settings.lyricOutline" :min="0.1" />
+				<el-input-number @change="wsUpdate();upgradeSettings()" size="mini" :step="0.1"
+					v-model="settings.lyricOutline" :min="0.1" />
 			</div>
 			<div class="row">
 				<el-input size="mini" :model-value="url">
@@ -213,6 +226,7 @@ export default defineComponent({
 	name: "danmakuSongPicker",
 	cname: "弹幕点歌台",
 	icon: "self-netease",
+	hidden: true,
 	description:
 		'###用的人一多容易炸接口（表现为不停切歌，找不到歌曲###点歌命令会与歌回助手冲突，不建议同时启动###会链接第三方服务器获取歌曲数据！###    支持网易云，观众输入"点歌@歌曲名"进行点歌,"点歌@歌曲名#歌曲编号"进行歌手点歌,"编号点歌@歌曲id"进行编号点歌，"查歌手@歌名"查询歌手，会合并同名请求，右上角设置提供obs端显示歌曲名和歌词、冷却时间',
 	configurations: {
@@ -533,24 +547,14 @@ export default defineComponent({
 			}
 			return str;
 		},
-		getSong(songName, type = "name") {
+		songApi(params = {}) {
 			return new Promise((resolve, reject) => {
 				const formData = new FormData();
-				if (
-					this.settings?.source === "kugou" &&
-					type === "name" &&
-					!songName.includes("伴奏")
-				) {
-					songName += "(伴奏)";
-				}
-				formData.append("input", songName);
-				formData.append("filter", type);
-				formData.append("type", this.settings?.source || "netease");
-				formData.append("page", "1");
-				// formData.append("page", "1");
+				Object.entries(params).forEach(([key, value]) => {
+					formData.append(key, value);
+				});
 				const xhr = new XMLHttpRequest();
-
-				xhr.open("POST", "http://music.laomao.me/");
+				xhr.open("POST", "http://y.xincmm.com/api.php");
 				// xhr.setRequestHeader("Host", "music.yunmss.cn");
 				xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 				xhr.setRequestHeader(
@@ -558,10 +562,33 @@ export default defineComponent({
 					"application/x-www-form-urlencoded; charset=UTF-8"
 				);
 				xhr.onloadend = () => {
-					resolve(JSON.parse(xhr.responseText).data);
+					resolve(JSON.parse(xhr.responseText));
 				};
 				xhr.send(new URLSearchParams(formData).toString());
 			});
+		},
+		async getSong(name) {
+			const res = await this.songApi({
+				types: "search",
+				count: 1,
+				source: "netease",
+				pages: 1,
+				name
+			});
+			let i = 0;
+			while (res[i]) {
+				const current = res[i];
+				current.title = current.name;
+				console.log(1);
+				const urls = await this.songApi({
+					types: "url",
+					id: current.id,
+					source: "netease"
+				});
+				current.url = urls.url;
+				i++;
+			}
+			return res;
 		},
 		addSongSearch() {
 			if (this.loading) {
@@ -758,11 +785,7 @@ export default defineComponent({
 					}
 				}
 				index = parseInt(index);
-				let type = "name";
-				if (content.includes("编号")) {
-					type = "id";
-				}
-				this.getSong(songName, type)
+				this.getSong(songName)
 					.then(songList => {
 						if (!isNaN(index) && index > 0) {
 							songList = songList.slice(index - 1);

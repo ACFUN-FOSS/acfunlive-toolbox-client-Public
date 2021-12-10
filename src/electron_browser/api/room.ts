@@ -74,6 +74,27 @@ export const removeManager = (userID: number): Promise<any> => {
 		}
 	});
 };
+
+export const getCutStatus = (): Promise<any> => {
+	return wsPromise("getRecPermission", {
+		type: 908
+	});
+};
+
+export const setCutStatus = (canCut = true): Promise<any> => {
+	return wsPromise("setCutStatus", {
+		type: 909,
+		data: { canCut }
+	});
+};
+
+export const toCut = (liverUID: number, liveID: string): Promise<any> => {
+	return wsPromise("toCut", {
+		type: 116,
+		data: { liverUID, liveID }
+	});
+};
+
 export const kickOutPerson = ({ userID, liveID }: any): Promise<any> => {
 	return wsPromise("kickOutPerson", {
 		type: 205,

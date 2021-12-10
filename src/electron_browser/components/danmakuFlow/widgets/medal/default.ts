@@ -6,7 +6,7 @@ export default () => {
 		},
 		style: {
 			verticalAlign: "middle",
-			position: "relative",
+			position: "",
 			paddingLeft: 4,
 			paddingRight: 6,
 			paddingTop: 2,

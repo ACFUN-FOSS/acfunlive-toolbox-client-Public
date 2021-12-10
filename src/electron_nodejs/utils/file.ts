@@ -9,7 +9,7 @@ const fs = require("fs");
 const ba64 = require("ba64");
 const spawn = require("child_process").spawn;
 log.transports.file.resolvePath = () =>
-	path.join(appStatic, "./../../TellFQZWhatHappened.log");
+	process.platform === "win32" ? path.join(appStatic, "./../../TellFQZWhatHappened.log") : path.join(configStatic, "./TellFQZWhatHappened.log");
 export { log };
 class File {
 	static registerEvents() {

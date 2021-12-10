@@ -20,6 +20,9 @@ founded.forEach(fileName => {
 	const hasObs = founded.includes(obsAppPath);
 	if (!hasClient) return;
 	const clientConfig = requireComponent(clientAppPath);
+	if (clientConfig.default.hidden) {
+		return;
+	}
 	clientApplets.push({
 		cname: clientConfig.default.cname || clientConfig.default.name,
 		name: clientConfig.default.name,

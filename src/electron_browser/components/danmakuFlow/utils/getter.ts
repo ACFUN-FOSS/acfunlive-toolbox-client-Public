@@ -4,6 +4,7 @@ export const getDanmuInfo = (danmaku: any) => {
 	const type = danmaku?.type;
 	switch (type) {
 		case 1000:
+		case 1008:
 			return danmaku.data.danmuInfo;
 		case 1001:
 			return danmaku.data;
@@ -40,6 +41,9 @@ export const getTime = (danmaku: any) => {
 	const type = danmaku?.type;
 	switch (type) {
 		case 1007:
+			if (!getDanmuInfo(danmaku)?.joinTime) {
+				danmaku.data.joinTime = Date.now();
+			}
 			return danmaku?.data?.joinTime;
 		default:
 			return getDanmuInfo(danmaku)?.sendTime;

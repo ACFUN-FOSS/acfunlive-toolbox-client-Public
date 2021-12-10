@@ -20,7 +20,7 @@ export default defineComponent({
 	name: "nickName",
 	cname: "用户名",
 	widgetOptions: {
-		avaliable: [1000, 1001, 1002, 1003, 1005, 1007],
+		avaliable: [1000, 1001, 1002, 1003, 1005, 1007, 1008],
 		limit: -1
 	},
 	props: {

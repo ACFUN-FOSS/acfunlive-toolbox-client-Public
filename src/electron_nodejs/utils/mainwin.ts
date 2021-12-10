@@ -1,4 +1,5 @@
 import { ipcMain, BrowserWindow, screen } from "electron";
+import process from "process";
 let wins: any = [];
 let registered = false;
 class MainWin {
@@ -53,6 +54,10 @@ class MainWin {
 		if (!win) return;
 		const { isResizeable }: any = JSON.parse(data);
 		win.setResizable(isResizeable);
+		if (isResizeable && process.platform === "linux") {
+			win.setMinimumSize(300, 200);
+			win.setMaximumSize(0, 0);
+		}
 	}
 
 	static setFocusable(event: any, data: any) {
@@ -110,6 +115,7 @@ class MainWin {
 			webPreferences: {
 				// offscreen: true,
 				nodeIntegration: true,
+				contextIsolation: false,
 				webSecurity: false,
 				allowRunningInsecureContent: true,
 				enableBlinkFeatures: "CSSVariables",

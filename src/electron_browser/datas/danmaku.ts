@@ -32,7 +32,7 @@ export const filter = (): Filter => {
 		combineGift: false, // 礼物合并
 		combineLike: false, // 点赞合并
 		combineEnter: false, // 重复进入直播间合并
-		types: [1000, 1001, 1002, 1003, 1005, 1007]
+		types: [1000, 1001, 1002, 1003, 1005, 1007, 1008]
 	};
 };
 
@@ -89,7 +89,8 @@ export const robotRule = (): any => {
 		1004: [],
 		1005: [],
 		1006: [],
-		1007: []
+		1007: [],
+		1008: []
 	};
 };
 

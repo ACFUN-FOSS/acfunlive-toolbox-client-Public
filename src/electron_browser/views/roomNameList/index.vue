@@ -209,9 +209,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
+@import "@front/styles/scrollbar.scss";
 #roomNameList {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	flex-wrap: nowrap;
+	overflow: auto;
+	@include scrollbarDark();
 }
 </style>

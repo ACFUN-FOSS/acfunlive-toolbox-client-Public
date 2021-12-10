@@ -27,6 +27,12 @@
 			</row-span>
 			<row-span :span="12"><span class="hint">一般情况下不需要备份配置，除非重装系统</span></row-span>
 		</row-frame>
+		<row-frame style="width:100%" title="清理缓存" flex>
+			<row-span :span="2">
+				<el-button size="mini" type="primary" @click="clearStorage">点击清理</el-button>
+			</row-span>
+			<row-span :span="12"><span class="hint">房间管理里的设置无法保存或出现混乱时试试清理缓存</span></row-span>
+		</row-frame>
 	</content-frame>
 </template>
 
@@ -81,6 +87,15 @@ export default defineComponent({
 				message: "保存成功",
 				offset: 60,
 				type: "success"
+			});
+		},
+		clearStorage() {
+			localStorage.clear();
+			ElMessage({
+				type: "success",
+				message: "清理缓存成功！",
+				duration: 1500,
+				offset: 60
 			});
 		},
 		async restore() {

@@ -163,6 +163,7 @@ export default defineComponent({
 #emotion {
 	position: relative;
 	height: 100%;
+	flex-wrap: nowrap;
 	.list-add-btn {
 		position: absolute;
 		right: 0px;

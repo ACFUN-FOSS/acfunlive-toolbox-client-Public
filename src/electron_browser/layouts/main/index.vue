@@ -61,7 +61,7 @@ export default defineComponent({
 	flex-direction: row;
 	.right {
 		// background-color: $--background-color-base;
-		flex-grow: 1;
+		width: calc(100% - 210px);
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;

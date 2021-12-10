@@ -14,6 +14,10 @@
 				</el-select>
 			</div>
 			<div class="row">
+				<span class="shadow">是否在粉丝团中抽奖（必须带上粉丝牌）</span>
+				<el-switch v-model="shouldHaveMedal" />
+			</div>
+			<div class="row">
 				<span class="shadow">显示中奖概率</span>
 				<el-switch v-model="showChance" />
 			</div>
@@ -56,15 +60,19 @@
 		<div class="votePanel" v-show="['Resulting','Resulted'].indexOf(status)>-1">
 			<div class="row" style="height:calc(100% - 54px);position:relative">
 				<div style="height:100%;width:100%;overflow-y:auto;">
-					<div style="display:flex;justify-content:space-between;width:100%;margin-bottom:8px" v-for="user in luckyPool" :key="user.userID">
+					<div style="display:flex;justify-content:space-between;width:100%;margin-bottom:8px"
+						v-for="user in luckyPool" :key="user.userID">
 						<span class="shadow">{{user.nickName}}</span>
-						<el-button size="mini" type="primary" v-show="!user.pending" @click="open(user.userID)">个人主页</el-button>
+						<el-button size="mini" type="primary" v-show="!user.pending" @click="open(user.userID)">个人主页
+						</el-button>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<el-button size="mini" type="primary" @click="reset" :disabled="status=='Resulting'" style="width:100%">{{status=="Resulting"?"开奖中":"重新抽"}}</el-button>
-				<el-button size="mini" type="primary" @click="save" :disabled="status=='Resulting'" style="width:100%">保存结果</el-button>
+				<el-button size="mini" type="primary" @click="reset" :disabled="status=='Resulting'" style="width:100%">
+					{{status=="Resulting"?"开奖中":"重新抽"}}</el-button>
+				<el-button size="mini" type="primary" @click="save" :disabled="status=='Resulting'" style="width:100%">
+					保存结果</el-button>
 			</div>
 		</div>
 		<el-dialog v-model="settingShow">
@@ -90,6 +98,7 @@ import {
 } from "@front/components/danmakuFlow/utils/tester";
 import {
 	getTime,
+	getMedal,
 	getGiftName,
 	getContent,
 	getNickName,
@@ -98,7 +107,7 @@ import {
 import { user, room } from "@front/api";
 import { init } from "@front/api/server";
 import random from "lodash/random";
-import { toTXT } from "@front/util_function/exportTo";
+import { toCSV } from "@front/util_function/exportTo";
 export default defineComponent({
 	name: "lottery",
 	cname: "限时抽奖",
@@ -117,12 +126,13 @@ export default defineComponent({
 			loading: false,
 			settingShow: false,
 			voterShow: false,
+			shouldHaveMedal: false,
 			status: "setting",
 			title: "",
 			giftName: "",
 			keyword: "",
 			lotteryType: "keyword",
-			lotteryNum: 5,
+			lotteryNum: 1,
 			showChance: true,
 			lotteryPool: [],
 			luckyPool: [],
@@ -174,13 +184,15 @@ export default defineComponent({
 	},
 	methods: {
 		save() {
-			let str = "";
-			this.luckyPool.forEach(lucker => {
-				str += `${
-					lucker.nickName
-				}, ${`https://www.acfun.cn/u/${lucker.userID}`} \n`;
-			});
-			toTXT(`${new Date().toTimeString()} 抽奖结果`, str);
+			const header = ["uid", "用户名", "中奖弹幕"];
+			const output = [
+				header,
+				...this.luckyPool.map(i => Object.values(i))
+			];
+			toCSV(
+				`${new Date().toTimeString()} 抽奖结果 (奖品:${this.title})`,
+				output
+			);
 		},
 		open(uid) {
 			window.open(`https://www.acfun.cn/u/${uid}`);
@@ -280,12 +292,22 @@ export default defineComponent({
 							getContent(danmaku)?.match(this.keyword.trim())
 						);
 				}
+
+				if (
+					this.shouldHaveMedal &&
+					getMedal(danmaku)?.uperID !==
+						this.$store.state.userProfile?.userID
+				) {
+					shouldadd = false;
+				}
+
 				if (shouldadd) {
 					this.lotteryPool = [
 						...this.lotteryPool,
 						{
 							userID: uid,
-							nickName: getNickName(danmaku)
+							nickName: getNickName(danmaku),
+							danmaku: getContent(danmaku)
 						}
 					];
 				}

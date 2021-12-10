@@ -23,7 +23,7 @@ export default defineComponent({
 	name: "medal",
 	cname: "牌子",
 	widgetOptions: {
-		avaliable: [1000, 1001, 1002, 1003, 1005],
+		avaliable: [1000, 1001, 1002, 1003, 1005, 1008],
 		limit: -1
 	},
 	props: {

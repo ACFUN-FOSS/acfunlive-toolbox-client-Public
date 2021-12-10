@@ -14,6 +14,7 @@ import { event } from "@front/util_function/eventBus";
 import { registerRole } from "@front/util_function/base";
 import { wsevent } from "@front/api";
 import { ElMessage } from "element-plus";
+import { chat } from "@front/api/chat";
 import { registerHost, closeWorker } from "@front/util_function/storeWorker";
 const mainPanel = defineAsyncComponent(() =>
 	import("@front/views/streamMonitor/index.vue")
@@ -40,6 +41,7 @@ export default defineComponent({
 		event.on("streamStatusChanged", this.handleStatusChange);
 		wsevent.on("get-session", this.sendSession);
 		wsevent.on("get-settings", this.sendSettings);
+		wsevent.on("send-chat", this.sendChat);
 		this.registerWS();
 		registerHost(this.$store);
 		registerRole("工具箱");
@@ -52,6 +54,7 @@ export default defineComponent({
 		event.off("streamStatusChanged", this.handleStatusChange);
 		wsevent.off("get-session", this.sendSession);
 		wsevent.off("get-settings", this.sendSettings);
+		wsevent.off("send-chat", this.sendChat);
 		closeWorker();
 	},
 	computed: {
@@ -103,6 +106,18 @@ export default defineComponent({
 		sendSession() {
 			const { userID } = this.userSession;
 			wsevent.wsEmit("update-session", { userID }, "client");
+		},
+		sendChat({ message }: any) {
+			chat({
+				userID: this.userSession.userID,
+				deviceID: this.userSession.deviceID,
+				serviceToken: this.userSession.serviceToken,
+				data: {
+					visitorId: this.userSession.userID,
+					liveId: this.roomProfile.liveID,
+					content: message
+				}
+			});
 		},
 		unfold(e: any) {
 			if (this.streamStatus.step !== "danmakuing") {

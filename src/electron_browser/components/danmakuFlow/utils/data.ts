@@ -50,6 +50,11 @@ export const typeOptions = (): any => {
 			label: "加入守护团",
 			type: "joinClub",
 			value: 1007
+		},
+		{
+			label: "分享直播间",
+			type: "joinClub",
+			value: 1008
 		}
 	];
 };
