@@ -2,6 +2,7 @@ import {
 	integerF,
 	selectF,
 	stringF,
+	numberF,
 	booleanF
 } from "@front/components/danmakuFlow/utils/form";
 export const schema = () => {
@@ -22,6 +23,7 @@ export const schema = () => {
 				],
 				"20%"
 			),
+
 			volume: {
 				...integerF("音量", "20%"),
 				minimum: 0,
@@ -34,6 +36,10 @@ export const schema = () => {
 			},
 			ignoreOwner: booleanF("忽略主播", "20%"),
 			comboReading: booleanF("评论连读", "20%"),
+			giftLevel: integerF(
+				"礼物语音阈值（单位是AC币，一次性送出相应价值礼物才会触发语音）",
+				"100%"
+			),
 			api: {
 				type: "object",
 				"ui:hidden":

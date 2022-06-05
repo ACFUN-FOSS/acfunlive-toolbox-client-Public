@@ -25,7 +25,7 @@ export const closeStream: ComponentOptionsMixin = {
 			result.duration = unixTimeFormatter(statistic.duration);
 			this.$store
 				.dispatch("closeStream", this.$store.state.roomProfile.liveID)
-				.then(async () => {
+				.finally(async () => {
 					// this.$store.commit("stopDanmaku");
 					let obsclosed = "";
 					try {

@@ -21,13 +21,15 @@
 		"lib": ["esnext", "dom", "dom.iterable", "scripthost"],
 		"resolveJsonModule": true
 	},
+
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue",
 		"tests/**/*.ts",
 		"tests/**/*.tsx",
-		"src/electron_nodejs/utils/http.js"
+		"src/electron_nodejs/utils/http.js",
+		"src/electron_browser/layouts/applets/httpVue.js"
 	],
 	"exclude": ["node_modules"]
 }

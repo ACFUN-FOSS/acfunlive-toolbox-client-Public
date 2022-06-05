@@ -1,31 +1,21 @@
 <template>
 	<div style="width:100%;height:100%;position:relative">
-		<super-chat-list class="super-chat" v-if="enable&&superChatEnable" />
-		<flow v-if="enable" :class="{superChatEnable}" :settings="danmakuProfile.web" :danmakuList="danmakuSession.filterFlow" />
-		<transition name="fade" mode="out-in">
-			<div class="tips" v-if="!enable">
-				<div class="positioner" :class="pos" v-for="pos in ['lt','rt','lb','rb']" :key="pos" />
-				<div class="title">弹幕准备中。<span v-for="dot in dotsCount" :key="dot">。</span></div>
-				<div v-for="checker of checkers" :key="checker.label" class="checkers">
-					<div class="label">{{checker.label}}</div>
-					<div class="status" :class="checker.value?'el-icon-circle-check success':'el-icon-circle-close failed'" />
-				</div>
-			</div>
-		</transition>
+		<super-chat-list class="super-chat" v-if="superChatEnable" />
+		<flow :class="{superChatEnable}" :settings="danmakuProfile.web" :danmakuList="flow" />
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { wsevent, user, server } from "@front/api";
-import { event } from "@front/util_function/eventBus";
+import { wsevent } from "@front/api";
 import { commonSettings } from "@front/datas/danmaku";
 import { tempInfo } from "@front/datas/temp";
 import flow from "@front/components/danmakuFlow/index.vue";
 import { mapState, mapGetters } from "vuex";
 import superChatList from "@front/components/superChat/index.vue";
 import { registerRole } from "@front/util_function/base";
-import { actions } from "@front/store/actions";
+import { getMockByType } from "@front/views/danmakuSetting/mock/index";
+import { loginSession } from "@front/api/user";
 export default defineComponent({
 	name: "webDanmaku",
 	components: {
@@ -33,69 +23,23 @@ export default defineComponent({
 		superChatList
 	},
 	data() {
-		const danmakuList: any = [];
 		const statusTimer: any = null;
-		// @ts-ignore
-		const that: any = this;
+		const mock: any = [];
 		return {
-			danmakuList,
 			statusTimer,
 			settingTimer: false,
-			dotsCount: 0,
 			reconnect: false,
-			status: {
-				isOnline: {
-					label: "连接在线",
-					method: that.refresh,
-					value: false,
-					wait: 2000
-				},
-				registered: {
-					label: "通信注册",
-					method: that.registerWS,
-					value: false,
-					wait: 500
-				},
-				logined: {
-					label: "登陆",
-					method: that.login,
-					value: false,
-					wait: 1500
-				},
-				hasSession: {
-					label: "主播信息",
-					method: that.requestSession,
-					value: false,
-					wait: 500
-				},
-				hasSetting: {
-					label: "弹幕设置",
-					method: that.updateSettings,
-					value: false,
-					wait: 1500
-				},
-				hasRank: {
-					label: "牌子信息",
-					value: false,
-					wait: 500
-				},
-				isStreaming: {
-					label: "直播启动",
-					method: that.requestStreaming,
-					value: false,
-					wait: 500
-				}
-			}
+			appID: "danmakuWeb",
+			mock
 		};
 	},
 	created() {
 		this.$store.state.isLogined = true;
 		this.registerEvents();
+		this.updateSettings();
 	},
 	mounted() {
-		this.$store.dispatch("startServe").then(() => {
-			this.registerWS();
-		});
+		this.statusLooper();
 		registerRole("网页端");
 	},
 	beforeUnmount() {
@@ -106,121 +50,101 @@ export default defineComponent({
 		...mapState([
 			"userSession",
 			"danmakuProfile",
-			"rank",
-			"streamStatus",
-			"danmakuSession"
+			"danmakuSession",
+			"roomProfile",
+			"streamStatus"
 		]),
-		checkers(): Array<any> {
-			return Object.values(this.status);
-		},
-		enable(): boolean {
-			for (const item of Object.values(this.status)) {
-				if (!item.value) return false;
+		flow() {
+			const { filterFlow }: any = this.danmakuSession;
+			const mock: Array<any> = this.mock;
+			if (!filterFlow.length) {
+				return [
+					...mock,
+					{
+						mock: true,
+						liverUID: 23682490,
+						type: 1000,
+						data: {
+							danmuInfo: {
+								sendTime: 1618750176864,
+								userInfo: {
+									userID: 1,
+									nickname: "ACFUN前后端开源⑨课",
+									avatar:
+										"https://tx-free-imgs.acfun.cn/FllI0yyjNgQ61QdJJdbIh9cRQIYY?imageMogr2/auto-orient/format/webp/quality/75!/ignore-error/1",
+									medal: {
+										uperID: 23682490,
+										userID: 1,
+										clubName: "ACER",
+										level: 999
+									},
+									managerType: 0
+								}
+							},
+							content: "弹幕流启动成功！尚未发现弹幕"
+						}
+					}
+				];
 			}
-			return true;
+			return filterFlow;
 		}
 	},
 	methods: {
-		refresh() {
-			clearTimeout(this.statusTimer);
-			this.checkers.forEach((checker: any) => {
-				checker.value = false;
-			});
-			if (server.isOnline()) {
-				// @ts-ignore
-				window.wsl.close();
-			}
-		},
 		registerEvents() {
 			wsevent.on("update-style", this.updateSettings);
-			wsevent.on("update-settings", this.updateSettings);
-			wsevent.on("update-session", this.updateSession); // rank 由服务器定期发送
-			wsevent.on("update-rank", this.updateRank);
-			wsevent.on("update-manager", this.updateManager);
-			wsevent.on("registered", () => {
-				this.status.registered.value = true;
-			});
-			event.on("streamStatusChanged", this.checkServerState);
+			wsevent.on("sendMockDanmaku", this.setMock);
+			wsevent.on("server-response", this.handleResponse);
+			wsevent.on("requireRegister", this.subscribeData);
+			wsevent.on("restartDanmaku", this.restartDanmaku);
 		},
 		unRegisterEvents() {
 			wsevent.off("update-style", this.updateSettings);
-			wsevent.off("update-settings", this.updateSettings);
-			wsevent.off("update-session", this.updateSession); // rank 由服务器定期发送
-			wsevent.off("update-rank", this.updateRank);
-			wsevent.off("update-manager", this.updateManager);
-			event.off("streamStatusChanged", this.checkServerState);
+			wsevent.off("sendMockDanmaku", this.setMock);
+			wsevent.off("server-response", this.handleResponse);
+			wsevent.off("requireRegister", this.subscribeData);
+			wsevent.off("restartDanmaku", this.restartDanmaku);
 		},
-		login() {
-			return new Promise(resolve => {
-				user.login({
-					account: "",
-					password: ""
-				}).then(() => {
-					this.status.logined.value = true;
-					this.registerWS();
-					resolve(true);
-				});
+		restartDanmaku() {
+			this.$store.dispatch("restartDanmaku");
+			(this as any).$message.success({
+				message: "重启弹幕中"
 			});
 		},
-		checkServerState() {
-			switch (this.streamStatus.step) {
-				case "online":
-					this.status.isOnline.value = true;
-					this.registerWS();
-					this.statusLooper();
-					break;
-				case "danmakuing":
-					this.startDanmaku();
-					break;
-				case "streamEnded":
-					window.location.reload();
-					break;
+		handleResponse(e: any) {
+			for (const key in e) this.$store.state[key] = e[key];
+			loginSession(e.userSession || {});
+		},
+		async chechEveryThing() {
+			try {
+				await wsevent.register(this.appID);
+				this.subscribeData();
+			} catch (error) {
+				console.log(error);
 			}
+			console.log(this.streamStatus.step);
+			if (
+				this.roomProfile.liveID &&
+				!["danmakuing", "streaming"].includes(this.streamStatus.step)
+			) {
+				this.streamStatus.step = "streaming";
+				this.$store.dispatch("streaming");
+			}
+		},
+		subscribeData() {
+			wsevent.wsEmit(
+				"register-client",
+				{
+					sourceID: this.appID,
+					states: ["userSession", "roomProfile"]
+				},
+				"server"
+			);
 		},
 		statusLooper() {
-			clearTimeout(this.statusTimer);
-			this.dotsCount = (this.dotsCount + 1) % 4;
-			const next = (time = 500) => {
-				this.statusTimer = setTimeout(() => {
-					this.statusLooper();
-				}, time);
-			};
-			for (const checker of this.checkers) {
-				if (!checker.value) {
-					// @ts-ignore
-					if (checker.method) {
-						const res = checker.method();
-						if (res instanceof Promise) {
-							res.finally(() => {
-								next();
-							});
-						} else {
-							next(checker.wait);
-						}
-					} else {
-						next();
-					}
-					return;
-				}
-			}
-		},
-		registerWS() {
-			wsevent.register("client");
-		},
-		requestSession() {
-			if (!this.userSession.userID) {
-				wsevent.wsEmit("get-session", {}, "server");
-			} else {
-				this.status.hasSetting.value = true;
-			}
-		},
-		requestSettings() {
-			wsevent.wsEmit("get-settings", {}, "server");
-		},
-		requestStreaming() {
-			return this.$store.dispatch("streamable").then((res: any) => {
-				this.status.isStreaming.value = Boolean(res.liveID);
-			});
+			clearInterval(this.statusTimer);
+			this.statusTimer = setInterval(() => {
+				this.chechEveryThing();
+			}, 10000);
 		},
 		updateSettings() {
 			if (this.settingTimer) {
@@ -232,7 +156,7 @@ export default defineComponent({
 			})
 				.then((res: any) => res.json())
 				.then((json: any) => {
-					this.status.hasSetting.value = true;
+					json.web.filter = json.toolBox.filter;
 					this.$store.state.danmakuProfile.web = json.web;
 					this.$store.state.danmakuProfile.common =
 						json.common || commonSettings();
@@ -242,60 +166,9 @@ export default defineComponent({
 					this.settingTimer = false;
 				});
 		},
-		updateSession(session: any) {
-			if (
-				this.status.hasSession.value &&
-				this.userSession.userID !== session.userID
-			) {
-				this.refresh();
-			}
-			if ((this.status.hasSession.value = Boolean(session))) {
-				this.$store.state.userSession = session;
-			}
-		},
-		updateRank(rank: any) {
-			if ((this.status.hasRank.value = Boolean(rank))) {
-				this.$store.state.rank = rank;
-			}
-		},
-		updateManager(res: any) {
-			this.$store.state.managerList = res.list;
-		},
-		startDanmaku() {
-			if (!this.danmakuSession.filterFlow.length) {
-				this.danmakuSession.filterFlow.push({
-					mock: true,
-					liverUID: 23682490,
-					type: 1000,
-					data: {
-						danmuInfo: {
-							sendTime: 1618750176864,
-							userInfo: {
-								userID: 1,
-								nickname: "ACFUN前后端开源⑨课",
-								avatar:
-									"https://tx-free-imgs.acfun.cn/FllI0yyjNgQ61QdJJdbIh9cRQIYY?imageMogr2/auto-orient/format/webp/quality/75!/ignore-error/1",
-								medal: {
-									uperID: 23682490,
-									userID: 1,
-									clubName: "ACER",
-									level: 999
-								},
-								managerType: 0
-							}
-						},
-						content: "弹幕流启动成功！直播开始啦开始啦！"
-					}
-				});
-			}
-		},
-		reWait() {
-			["hasSession", "isStreaming", "hasRank", "danmakuing"].forEach(
-				(i: any) => {
-					// @ts-ignore
-					this.status[i].value = false;
-				}
-			);
+		setMock(value: any) {
+			const mockDanmaku: any = getMockByType(value);
+			this.mock.unshift(mockDanmaku);
 		}
 	}
 });

@@ -2,25 +2,29 @@
 	<content-frame id="roomNameList" v-loading="loading">
 		<row-frame title="怪人（黑名单）">
 			<row-span>
-				<el-input style="margin-bottom:5px" size="mini" v-model="blackListToAdd" placeholder="点击输入UID,回车添加" @keypress.enter="addBlackList" />
+				<el-input style="margin-bottom:5px" size="mini" v-model="blackListToAdd" placeholder="点击输入UID,回车添加"
+					@keypress.enter="addBlackList" />
 				<base-list style="width:100%;height:180px" :list="blackList" :action="blackListAction()" />
 			</row-span>
 		</row-frame>
 		<row-frame title="屏蔽关键词">
 			<row-span>
-				<el-input style="margin-bottom:5px" size="mini" v-model="keywordToAdd" placeholder="点击输入关键词,回车添加" @keypress.enter="$store.commit('addKeyword',keywordToAdd);keywordToAdd=''" />
+				<el-input style="margin-bottom:5px" size="mini" v-model="keywordToAdd" placeholder="点击输入关键词,回车添加"
+					@keypress.enter="$store.commit('addKeyword',keywordToAdd);keywordToAdd=''" />
 				<base-list style="width:100%;height:146px" :list="keywordList" :action="keywordAction()" />
 			</row-span>
 		</row-frame>
 		<row-frame title="房管">
 			<row-span>
-				<el-input style="margin-bottom:5px" size="mini" v-model="managerToAdd" placeholder="点击输入UID,回车添加" @keypress.enter="addManager" />
+				<el-input style="margin-bottom:5px" size="mini" v-model="managerToAdd" placeholder="点击输入UID,回车添加"
+					@keypress.enter="addManager" />
 				<base-list style="width:100%;height:180px" :list="managerL1st" :action="managerAction()" />
 			</row-span>
 		</row-frame>
 		<row-frame title="特别关心">
 			<row-span>
-				<el-input style="margin-bottom:5px" size="mini" v-model="likeListToAdd" placeholder="点击输入UID,回车添加" @keypress.enter="addLikeList" />
+				<el-input style="margin-bottom:5px" size="mini" v-model="likeListToAdd" placeholder="点击输入UID,回车添加"
+					@keypress.enter="addLikeList" />
 				<base-list style="width:100%;height:160px" :list="likeList" :action="likeListAction()" />
 			</row-span>
 			<span class="hint">特别关心：设置以后该用户开播\首次进入直播间将会提醒</span>
@@ -209,9 +213,13 @@ export default defineComponent({
 </script>
 
 <style scoped lang='scss'>
+@import "@front/styles/scrollbar.scss";
 #roomNameList {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	flex-wrap: wrap;
+	overflow: auto;
+	@include scrollbarDark();
 }
 </style>

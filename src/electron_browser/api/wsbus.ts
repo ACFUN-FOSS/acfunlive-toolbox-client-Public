@@ -1,8 +1,9 @@
-import { wsPromise, wsStatus } from "@front/api/utils/websocket";
-import { Event, event as sysEvent } from "@front/util_function/eventBus";
-
+import { Event } from "@front/util_function/eventBus";
+import { io, Socket } from "socket.io-client";
+import debounce from "lodash/debounce";
 class WsEvent extends Event {
 	registered = false;
+	io: Socket | undefined;
 	id = "";
 	constructor() {
 		super();
@@ -10,76 +11,57 @@ class WsEvent extends Event {
 	}
 
 	register(id: string) {
+		this.id = id;
 		if (!this.checkRegister()) {
-			return wsPromise("register", {
-				type: 3,
-				data: {
-					clientID: id
+			this.io = io(`http://${window.location.hostname}:4396`, {
+				transports: ["websocket", "polling"],
+				query: {
+					id
 				}
-			}).then(() => {
-				wsStatus.ws.addEventListener("message", (e: any) => {
-					const data = JSON.parse(e.data);
-					if (data.type === 5) {
-						try {
-							if (data.error) {
-								throw new Error(data.error);
-							}
+			});
 
-							const realData = JSON.parse(data.data.message);
-							if (realData.sourceID !== this.id) {
-								this.emit(realData.event, realData.data);
-							}
-						} catch (error) {
-							console.error(error);
-						}
-					}
-				});
-				wsStatus.ws.addEventListener("close", (e: any) => {
-					this.registered = false;
-				});
+			this.io.on("connect", () => {
 				this.registered = true;
 				this.id = id;
 				this.emit("registered");
 			});
+			this.io.on("transmit", (data: any) => {
+				const realData = JSON.parse(data);
+				this.emit(realData.event, realData.data);
+			});
+			const close = () => {
+				this.registered = false;
+				this.io = undefined;
+			};
+			this.io.on("reconnect_failed", close);
+			this.io.on("reconnect_error", close);
+			this.io.on("reconnect_attempt", num => {
+				if (num > 10) {
+					this.io?.close();
+					close();
+					this.register(this.id);
+				}
+			});
 		}
-		return false;
-	}
-
-	reRegister() {
-		if (this.id) {
-			return this.register(this.id);
-		} else {
-			console.log("not registered yet!");
-			return false;
-		}
+		return Promise.resolve();
 	}
 
 	checkRegister() {
-		if (!this.registered) console.log("unregistered yet!");
-		return this.registered;
+		if (!this.io) return false;
+		return !this.io.disconnected;
 	}
 
-	wsEmit(eventName: any, data: any = {}, targetID = "") {
-		const promise = () => {
-			return wsPromise("message-broadcast", {
-				type: 4,
-				data: {
-					clientID: targetID,
-					message: JSON.stringify({
-						sourceID: this.id,
-						event: eventName,
-						data
-					})
-				}
-			});
-		};
-		if (this.checkRegister()) {
-			return promise();
-		}
-		//  else {
-		// 	this.once("registered", promise);
-		// 	return true;
-		// }
+	wsEmit(event: any, data: any = {}, to = "") {
+		if (!this.io) return;
+		this.io.emit(
+			"transmit",
+			JSON.stringify({
+				event,
+				from: this.id,
+				to,
+				data
+			})
+		);
 	}
 }
 

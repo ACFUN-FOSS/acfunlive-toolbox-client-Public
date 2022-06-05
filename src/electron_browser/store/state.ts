@@ -22,6 +22,7 @@ export interface RootState {
 	filter: Filter; // 过滤器
 	minify: boolean; // 是否迷你化
 	temp: temp.TempInfo;
+	changedDanmaku: Array<any>; //新增弹幕列表
 }
 
 export function stateFunc(): RootState {
@@ -45,7 +46,8 @@ export function stateFunc(): RootState {
 		danmakuSession: danmaku.session(),
 		danmakuProfile: danmaku.profile(),
 		filter: new Filter(),
-		temp: temp.tempInfo()
+		temp: temp.tempInfo(),
+		changedDanmaku: []
 	};
 }
 

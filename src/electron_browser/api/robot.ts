@@ -20,48 +20,51 @@ export const read = ({
 	comboReading,
 	filters = []
 }: any) => {
-	let content = "";
+	let contentArray = [];
 	if (!rules) {
 		return;
 	}
-	let contentI = "";
-	if (getDanmakuType(danmaku) === 1000) {
-		contentI = getContent(danmaku);
+	let content = getContent(danmaku);
+	if (content) {
 		filters.forEach((filter: any) => {
-			contentI = contentI.replaceAll(filter, "");
+			content = content.replaceAll(filter, "");
 		});
-		if (!removePunctuation(contentI).replaceAll(" ", "")) {
+		if (!removePunctuation(content).replaceAll(" ", "")) {
 			return;
 		}
-		if (
-			comboReading &&
-			readObj &&
-			getDanmakuType(readObj) === 1000 &&
-			getUID(danmaku) === getUID(readObj)
-		) {
-			content = contentI;
-		}
+		danmaku.data.content = content;
 	}
-	if (!content) {
+	if (
+		content &&
+		comboReading &&
+		readObj &&
+		getDanmakuType(readObj) === 1000 &&
+		getUID(danmaku) === getUID(readObj)
+	) {
+		contentArray.push(content);
+	} else {
+		let temp = "";
 		rules.forEach((rule: any) => {
 			switch (rule.type) {
 				case "text":
-					content += rule.value;
+					temp += rule.value;
 					break;
 				case "variable":
-					if (rule.value === "getContent" && contentI) {
-						content += contentI;
-					} else {
+					// @ts-ignore
+					if (robotGetters[rule.value]) {
 						// @ts-ignore
-						if (robotGetters[rule.value]) {
-							// @ts-ignore
-							content += robotGetters[rule.value](danmaku);
-						}
+						temp += robotGetters[rule.value](danmaku);
 					}
+					break;
+				case "voice":
+					contentArray.push(...[temp, rule.value]);
+					temp = "";
 			}
 		});
+		if (temp) contentArray.push(temp);
 	}
-	if (!content) {
+	contentArray = contentArray.filter(i => i);
+	if (!contentArray[0]) {
 		return;
 	}
 	const data = {
@@ -69,7 +72,8 @@ export const read = ({
 		api,
 		speed,
 		volume,
-		text: content,
+		text: "",
+		queue: contentArray,
 		origin: danmaku
 	};
 	if (reading) {
@@ -82,7 +86,7 @@ export const read = ({
 	}
 };
 
-export const realRead = (data: any) => {
+export const realRead = async (data: any) => {
 	reading = true;
 	readObj = data.origin;
 	let reader: any = robots.default;
@@ -90,16 +94,42 @@ export const realRead = (data: any) => {
 		// @ts-ignore
 		reader = robots[data.rtype] || robots.default;
 	}
-	reader(data)
-		.catch((e: any) => {
-			console.error(e);
-		})
-		.finally(() => {
-			setTimeout(() => {
-				reading = false;
-				if (waitList[0]) {
-					realRead(waitList.splice(0, 1)[0]);
-				}
-			}, 500);
-		});
+	if (data.rtype === "kdxf") {
+		for (const index in data.queue) {
+			const text = data.queue[index];
+			if (!text.includes(".mp3")) {
+				try {
+					console.log(text);
+					const url = await robots.kdxf({
+						...data,
+						text
+					});
+					console.log(index, url);
+					data.queue[index] = url;
+				} catch (error) {}
+			}
+		}
+	}
+
+	for (const item of data.queue) {
+		try {
+			if (item.includes(".mp3")) {
+				await robots.urlRead({ url: item, ...data });
+			} else {
+				const param = {
+					...data,
+					text: item
+				};
+				await reader(param);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}
+	setTimeout(() => {
+		reading = false;
+		if (waitList[0]) {
+			realRead(waitList.splice(0, 1)[0]);
+		}
+	}, 500);
 };

@@ -50,6 +50,11 @@ export const typeOptions = (): any => {
 			label: "加入守护团",
 			type: "joinClub",
 			value: 1007
+		},
+		{
+			label: "分享直播间",
+			type: "joinClub",
+			value: 1008
 		}
 	];
 };
@@ -84,6 +89,9 @@ export const styleConfig = (code: any) => {
 		label: danmakuType.label,
 		code,
 		type: danmakuType.type,
-		widgets: [] // 具体组件样式
+		widgets: [], // 具体组件样式
+		advHtml: "",
+		advCss: "",
+		advId: ""
 	};
 };

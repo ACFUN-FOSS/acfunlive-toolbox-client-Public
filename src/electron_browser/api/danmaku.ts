@@ -1,77 +1,71 @@
-import { wsPromise, wsStatus } from "@front/api/utils/websocket";
+import { session, requestT } from "@front/api/user";
+import { setHeartBeat } from "@front/api/utils/websocket";
 import { user } from "@front/datas";
-import { event } from "@front/util_function/eventBus";
-let pending = false;
-let currentWs: any = null;
-export const startDanmaku = (
-	session: user.Session,
-	{ startCallback, danmakuCallback, endCallback, errorCallback }: any
-): any => {
-	if (pending) {
-		return;
+import { throttle } from "lodash";
+let starting = false;
+export const startDanmaku = ({ onOpen, onDanmaku, onClose }: any): any => {
+	if (starting) {
+		return Promise.reject(new Error("processing!"));
 	}
-	pending = true;
-	// @ts-ignore
-	const ws = window.wsl;
+	starting = true;
+	//@ts-ignore
+	const ws: any = window?.danmakuWS;
+	if (ws) {
+		ws.onclose = null;
+		ws.close();
+	}
 	// 开始弹幕流获取
 	return start(session)
 		.then(res => {
+			const heartBeat = throttle(setHeartBeat, 1000);
+			let timer: any = null;
+			const { ws }: any = res;
+			(window as any).danmakuWS = ws;
+			heartBeat(ws);
 			const judge = (e: any) => {
 				const data = JSON.parse(e.data);
+				if (data.type !== 1) {
+					heartBeat(ws);
+					clearTimeout(timer);
+					timer = setTimeout(onClose, 10000);
+				}
+				ws.onclose = onClose;
 				if ([2999, 101, 2000].includes(data.type)) {
-					ws?.removeEventListener("message", judge);
-					currentWs = null;
-					if ([2999].includes(data.type)) {
-						console.error("danmaku flow error!");
-						if (errorCallback) errorCallback();
-					}
-					if ([2000, 101].includes(data.type)) {
-						console.log("danmaku flow end!");
-						if (endCallback) endCallback();
-					}
+					console.log("danmaku flow end!");
+					ws.close();
 					return;
 				}
 				if (data.type >= 1000) {
-					if (danmakuCallback) danmakuCallback(data);
+					if (onDanmaku) onDanmaku(data);
 				}
 			};
-			if (ws !== currentWs && res) {
-				ws.addEventListener("message", judge);
-				currentWs = ws;
-			}
-
-			if (startCallback) startCallback(res);
+			ws.addEventListener("message", judge);
+			if (onOpen) onOpen(res);
 		})
 		.catch(err => {
 			console.error(err);
-			pending = false;
-			if (errorCallback) errorCallback();
+			if (onClose) onClose();
 			throw new Error(err);
 		})
 		.finally(() => {
-			pending = false;
+			starting = false;
 		});
 };
 
-export const start = (data: user.Session): Promise<void> => {
+export const start = (data: user.Session): Promise<any> => {
 	// 开始弹幕获取
-	return wsPromise(
-		"startDanmakuFlow",
-		{
+	return requestT({
+		method: "startDanmakuFlow",
+		data: {
 			type: 100,
 			data: {
 				liverUID: data.userID
 			}
 		},
-		12000
-	);
-};
-export const stop = (data: user.Session): Promise<void> => {
-	// 结束弹幕获取
-	return wsPromise("stopDanmakuFlow", {
-		type: 101,
-		data: {
-			liverUID: data.userID
-		}
+		timeout: 20000,
+		once: false,
+		ip: "localhost"
+	}).catch(() => {
+		return Promise.reject(new Error("startDanmakuFlow Failed!"));
 	});
 };

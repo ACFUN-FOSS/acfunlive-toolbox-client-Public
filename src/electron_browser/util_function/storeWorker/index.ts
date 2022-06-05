@@ -1,13 +1,7 @@
-import { throttle } from "lodash";
 import { Store } from "vuex";
 // @ts-ignore
 import SharedWorker from "./shared.worker.js";
 let _worker: any = null;
-let changedDanmaku: any = [];
-
-export const addChangedDanmaku = (danmaku: any) => {
-	changedDanmaku.unshift(danmaku);
-};
 
 export const openWorker = () => {
 	if (_worker) {
@@ -21,22 +15,18 @@ export const openWorker = () => {
 	});
 	return _worker;
 };
-export const registerHost = (store: Store<any>) => {
+export const registerHost = (store: Store<any>, dataCallback: any = null) => {
 	const worker = openWorker();
 	worker.port.postMessage(["registerHost"]);
 
 	worker.port.onmessage = (e: any) => {
 		const [msg, ...attrs] = e.data;
-		console.log(e.data);
+
 		if (msg === "requestData") {
 			const [id, ...states] = attrs;
 			const output: any = {};
 			states.forEach((state: string) => {
-				if (state === "changedDanmaku") {
-					output[state] = changedDanmaku;
-				} else {
-					output[state] = store.state[state];
-				}
+				output[state] = store.state[state];
 			});
 			worker.port.postMessage([
 				"responseData",
@@ -45,7 +35,7 @@ export const registerHost = (store: Store<any>) => {
 			]);
 		}
 		if (msg === "sendUp") {
-			changedDanmaku = [];
+			if (dataCallback instanceof Function) dataCallback(msg, attrs);
 		}
 	};
 };
@@ -55,7 +45,6 @@ export const registerClient = (requireArray: Array<any>, callback: any) => {
 	worker.port.postMessage(["registerClient", ...requireArray]);
 	worker.port.onmessage = (e: any) => {
 		const [msg, data] = e.data;
-		console.log(e.data);
 		if (msg === "response") {
 			callback(JSON.parse(data));
 		}

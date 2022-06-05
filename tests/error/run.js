@@ -22,7 +22,7 @@ const createFinder = (path) => {
 
 
 const log = async () => {
-	const logFileArray = fs.readFileSync(path.join(__dirname, "./TellFQZWhatHappened.log"), "utf8").split("\r\n");
+	const logFileArray = [fs.readFileSync(path.join(__dirname, "./TellFQZWhatHappened.log"), "utf8")];
 	const output = [];
 	const sources = {};
 	// let p = await inquirer.prompt({
@@ -36,25 +36,34 @@ const log = async () => {
 	// }
 	for (line of logFileArray) {
 		line = line.trim();
+		console.log(line, "aaaaaa");
 		if (!line) {
 			continue
 		}
-		const lines = line.split("\n");
-		output.push(lines[0]);
-		const [file, version] = lines[1].split("@");
+		const [, version] = line.split("@");
 		const p = path.join(__dirname, `../../mapFiles/${version}`)
-		try {
-			const column = file.match(/\d+$/g)[0];
-			const fileName = file.match(/[^\/]+\.js/g)[0] + ".map";
-			if (!sources[fileName]) {
-				sources[fileName] = await createFinder(path.join(p, fileName));
+		const lines = line.split("\n");
+		output.push(lines.shift());
+		while (lines.length) {
+			const l = lines.shift();
+			try {
+				const column = l.match(/\d+/g).pop();
+
+				const fileName = l.match(/[^\/]+\.js/g)[0] + ".map";
+				if (!sources[fileName]) {
+					sources[fileName] = await createFinder(path.join(p, fileName));
+				}
+				const result = sources[fileName].originalPositionFor({
+					line: 1,
+					column
+				});
+				// console.log(result)
+				output.push(`at ${path.join(__dirname, result.source.replace("webpack:///", "../../"))}, line:${result.line}, column:${result.column}`);
+			} catch (error) {
+
 			}
-			const result = sources[fileName].originalPositionFor({
-				line: 1,
-				column
-			});
-			output.push(`at ${path.join(__dirname,result.source.replace("webpack:///","../../"))}, line:${result.line}, column:${result.column}`);
-		} catch (error) {}
+		}
+
 	}
 	console.log(output.join("\r\n"));
 }

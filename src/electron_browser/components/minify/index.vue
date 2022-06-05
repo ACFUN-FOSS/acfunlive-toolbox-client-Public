@@ -1,22 +1,24 @@
 <template>
 	<div class="minify-bar">
 		<div class="button el-icon-setting" @click="setting=true" title="设置" />
-		<div class="button el-icon-coordinate " :class="{active:isTop}" @click="isTop = !isTop;setTop(isTop)" title="置顶" />
+		<div class="button el-icon-coordinate " :class="{active:isTop}" @click="isTop = !isTop;setTop(isTop)"
+			title="置顶" />
 		<div class="button el-icon-paperclip " :class="{active:isBlur}" title="背景模式" @click="blurConfirm=true" />
 		<div class="button el-icon-minus" @click="minimize()" />
 		<div class="button el-icon-full-screen" @click="$store.commit('minify')" title="完整化" />
 	</div>
 	<el-dialog custom-class="setting" v-model="setting" :close-on-click-modal="false">
 		<div class="block">
-			<span class="label">背景不透明度</span>
-			<el-slider :min="10" :max="100" v-model="settings.opacity" />
+			<span class="label">背景颜色</span>
+			<el-color-picker show-alpha v-model="settings.color" />
 		</div>
 		<div class="block">
 			<span class="label">弹幕大小</span>
 			<el-slider :min="10" :max="200" v-model="settings.zoom" />
 		</div>
 	</el-dialog>
-	<el-dialog custom-class="blurConfirm" title="重要提示" v-model="blurConfirm" :show-close="false" :close-on-click-modal="false">
+	<el-dialog custom-class="blurConfirm" title="重要提示" v-model="blurConfirm" :show-close="false"
+		:close-on-click-modal="false">
 		背景模式下窗口将会置顶，并且鼠标操作会穿透，ctrl+F1退出,CTRL+F2回消息。确认进入？
 		<template #footer>
 			<span class="dialog-footer">
@@ -48,7 +50,7 @@ export default defineComponent({
 			setting: false,
 			blurConfirm: false,
 			settings: {
-				opacity: 50,
+				color: "rgba(0,0,0,0.5)",
 				zoom: 100
 			},
 			isTop: false,
@@ -168,10 +170,7 @@ export default defineComponent({
 			if (position) win.setBounds(JSON.parse(position));
 		},
 		applySetting: throttle(function(setting: any) {
-			document.body.style.setProperty(
-				"--bgColor",
-				`rgba(0,0,0,${setting.opacity / 100})`
-			);
+			document.body.style.setProperty("--bgColor", setting.color);
 			document.body.style.setProperty("--zoom", `${setting.zoom}%`);
 		}, 100)
 	}
@@ -216,6 +215,12 @@ body.minify {
 	padding: 0px;
 	background-color: var(--bgColor) !important;
 	border-radius: 4px !important;
+	#home {
+		width: 100% !important;
+		.right {
+			width: 100% !important;
+		}
+	}
 	.appletList {
 		display: none;
 	}

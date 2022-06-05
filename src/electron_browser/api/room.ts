@@ -1,85 +1,148 @@
-import { wsPromise } from "@front/api/utils/websocket";
+import { requestT } from "@front/api/user";
 import { room, user } from "@front/datas";
 export const setProfile = (data: any): Promise<any> => {
 	// 修改房间图片信息
-	return wsPromise("setRoomProfile", {
-		type: 907,
-		data
+	return requestT({
+		method: "setRoomProfile",
+		data: {
+			type: 907,
+			data
+		}
 	});
 };
 
 export const getProfile = (): Promise<any> => {
-	return wsPromise("getRoomProfile", {
-		type: 903
+	return requestT({
+		method: "getRoomProfile",
+		data: {
+			type: 903
+		}
 	});
 };
 
 export const getRank = (data: user.Session): Promise<any> => {
-	return wsPromise("getBoss", {
-		type: 302,
+	return requestT({
+		method: "getBoss",
 		data: {
-			liverUID: data.userID
+			type: 302,
+			data: {
+				liverUID: data.userID
+			}
 		}
 	});
 };
 
 export const getGift = (): Promise<any> => {
-	return wsPromise("getGift", { type: 107 });
+	return requestT({
+		method: "getGift",
+		data: { type: 107 }
+	});
 };
 
 export const getGiftList = ({ liveID }: any): Promise<any> => {
-	return wsPromise("getGiftList", {
-		type: 114,
+	return requestT({
+		method: "getGiftList",
 		data: {
-			liveID
+			type: 114,
+			data: {
+				liveID
+			}
 		}
 	});
 };
 
 export const getDonate = (data: user.Session): Promise<any> => {
-	return wsPromise("getDonate", {
-		type: 103,
+	return requestT({
+		method: "getDonate",
 		data: {
-			liverUID: data.userID
+			type: 103,
+			data: {
+				liverUID: data.userID
+			}
 		}
 	});
 };
 
 export const getAudience = (data: room.Profile): Promise<any> => {
-	return wsPromise("getAudience", {
-		type: 102,
-		data
+	return requestT({
+		method: "getAudience",
+		data: {
+			type: 102,
+			data
+		}
 	});
 };
 
 export const getManagerList = (): Promise<any> => {
-	return wsPromise("getManagerList", {
-		type: 200
+	return requestT({
+		method: "getManagerList",
+		data: {
+			type: 200
+		}
 	});
 };
 
 export const addManager = (userID: number): Promise<any> => {
-	return wsPromise("addManager", {
-		type: 201,
+	return requestT({
+		method: "addManager",
 		data: {
-			managerUID: userID
+			type: 201,
+			data: {
+				managerUID: userID
+			}
 		}
 	});
 };
 export const removeManager = (userID: number): Promise<any> => {
-	return wsPromise("removeManager", {
-		type: 202,
+	return requestT({
+		method: "removeManager",
 		data: {
-			managerUID: userID
+			type: 202,
+			data: {
+				managerUID: userID
+			}
 		}
 	});
 };
-export const kickOutPerson = ({ userID, liveID }: any): Promise<any> => {
-	return wsPromise("kickOutPerson", {
-		type: 205,
+
+export const getCutStatus = (): Promise<any> => {
+	return requestT({
+		method: "getRecPermission",
 		data: {
-			kickedUID: userID,
-			liveID
+			type: 908
+		}
+	});
+};
+
+export const setCutStatus = (canCut = true): Promise<any> => {
+	return requestT({
+		method: "setCutStatus",
+		data: {
+			type: 909,
+			data: { canCut }
+		}
+	});
+};
+
+export const toCut = (liverUID: number, liveID: string): Promise<any> => {
+	return requestT({
+		method: "toCut",
+		data: {
+			type: 116,
+			data: { liverUID, liveID }
+		}
+	});
+};
+
+export const kickOutPerson = ({ userID, liveID }: any): Promise<any> => {
+	return requestT({
+		method: "kickOutPerson",
+		data: {
+			type: 205,
+			data: {
+				kickedUID: userID,
+				liveID
+			}
 		}
 	});
 };

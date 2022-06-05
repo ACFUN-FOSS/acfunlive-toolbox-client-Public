@@ -13,5 +13,5 @@
  */
 
 "use strict";
-import init_mainwindow from "./mainwindow";
-init_mainwindow();
+import initMainWindow from "./mainwindow";
+initMainWindow();

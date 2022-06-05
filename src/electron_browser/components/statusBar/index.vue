@@ -1,6 +1,7 @@
 <template>
 	<div id="statusBar" :class="{unfold:isUnfold}" element-loading-background="rgba(0, 0, 0, 0)">
-		<div class="switch" @click="unfold" v-if="streamStatus.step=='danmakuing'"><span class="el-icon-arrow-up" />{{isUnfold?'折叠':'展开'}}</div>
+		<div class="switch" @click="unfold" v-if="streamStatus.step=='danmakuing'"><span
+				class="el-icon-arrow-up" />{{isUnfold?'折叠':'展开'}}</div>
 		<transition name="fade">
 			<component :is="currentComp" />
 		</transition>
@@ -12,16 +13,18 @@ import { defineAsyncComponent, defineComponent } from "vue";
 import { mapState } from "vuex";
 import { event } from "@front/util_function/eventBus";
 import { registerRole } from "@front/util_function/base";
-import { wsevent } from "@front/api";
+import { wsevent, allApi } from "@front/api";
 import { ElMessage } from "element-plus";
+import { chat } from "@front/api/chat";
 import { registerHost, closeWorker } from "@front/util_function/storeWorker";
+import { load, save } from "@front/util_function/system";
+import format from "date-fns/format";
 const mainPanel = defineAsyncComponent(() =>
 	import("@front/views/streamMonitor/index.vue")
 );
 const shrink = defineAsyncComponent(() =>
 	import("@front/views/streamMonitor/shrink.vue")
 );
-
 export default defineComponent({
 	name: "statusBar",
 	components: {
@@ -29,30 +32,19 @@ export default defineComponent({
 		shrink
 	},
 	data() {
-		const checkTimeout: any = -1;
 		return {
 			isUnfold: false,
-			checkTimeout
+			clients: {}
 		};
 	},
 	mounted() {
-		event.on("routeChange", this.unfold);
-		event.on("streamStatusChanged", this.handleStatusChange);
-		wsevent.on("get-session", this.sendSession);
-		wsevent.on("get-settings", this.sendSettings);
-		this.registerWS();
-		registerHost(this.$store);
-		registerRole("工具箱");
+		this.registerEvents();
 		this.unfold({
 			name: "statusPanel"
 		});
 	},
 	beforeUnmount() {
-		event.off("routeChange", this.unfold);
-		event.off("streamStatusChanged", this.handleStatusChange);
-		wsevent.off("get-session", this.sendSession);
-		wsevent.off("get-settings", this.sendSettings);
-		closeWorker();
+		this.unregisterEvents();
 	},
 	computed: {
 		...mapState([
@@ -66,17 +58,52 @@ export default defineComponent({
 		}
 	},
 	methods: {
+		registerEvents() {
+			event.on("routeChange", this.unfold);
+			event.on("streamStatusChanged", this.handleStatusChange);
+			wsevent.on("send-chat", this.sendChat);
+			wsevent.on("register-client", this.setWSClient);
+			wsevent.on("acfun-api-get", this.sendApi);
+			registerHost(this.$store, this.dispatchWSClient);
+			registerRole("工具箱");
+		},
+		unregisterEvents() {
+			event.off("routeChange", this.unfold);
+			event.off("streamStatusChanged", this.handleStatusChange);
+			wsevent.off("send-chat", this.sendChat);
+			wsevent.off("register-client", this.setWSClient);
+			wsevent.off("acfun-api-get", this.sendApi);
+			closeWorker();
+		},
+		setWSClient({ sourceID, states }: any) {
+			const { clients }: any = this;
+			clients[sourceID] = states;
+		},
+		dispatchWSClient() {
+			if (!wsevent.registered) {
+				this.registerWS();
+				return;
+			}
+			const clients: any = this.clients;
+			for (const client in clients) {
+				const output: any = {};
+				const states = clients[client];
+				states.forEach((state: any) => {
+					if (["userData"].includes(state)) return;
+					output[state] = this.$store.state[state];
+				});
+				wsevent.wsEmit("server-response", output, client);
+			}
+			this.$store.commit("cleanChangedDanmaku");
+		},
 		handleStatusChange() {
 			const step = this.streamStatus.step;
 			let msg = "";
 			switch (step) {
-				case "online":
-					this.registerWS();
-					break;
 				case "danmakuing":
-					this.registerWS();
 					msg = "直播已开启";
 					this.isUnfold = true;
+					this.updateRecordList();
 					break;
 				case "streamEnded":
 					msg = "直播已结束";
@@ -94,15 +121,50 @@ export default defineComponent({
 				});
 			}
 		},
+		async updateRecordList() {
+			let recordList = [];
+			try {
+				const res: any = await load({ url: "./recordList.json" });
+				recordList = JSON.parse(res);
+				if (!Array.isArray(recordList)) recordList = [];
+			} catch (error) {}
+			const liveID = this.$store.state.roomProfile.liveID;
+			if (!liveID) return;
+			console.log(recordList);
+			if (!recordList.find((i: any) => i.liveID === liveID)) {
+				recordList.unshift({
+					liveID,
+					time: format(new Date(), "yyyy年MM月dd日 HH:mm:ss")
+				});
+			}
+			save({
+				url: "./recordList.json",
+				data: recordList
+			});
+		},
 		registerWS() {
 			wsevent.register("server");
 		},
-		sendSettings() {
-			wsevent.wsEmit("update-settings", {}, "client");
+		sendApi({ sourceID, method }: any) {
+			const apis: any = allApi;
+			if (!sourceID || !method || !apis[method]) {
+				return;
+			}
+			apis[method]().then((res: any) => {
+				wsevent.wsEmit("acfun-api-res", res, sourceID);
+			});
 		},
-		sendSession() {
-			const { userID } = this.userSession;
-			wsevent.wsEmit("update-session", { userID }, "client");
+		sendChat({ message }: any) {
+			chat({
+				userID: this.userSession.userID,
+				deviceID: this.userSession.deviceID,
+				serviceToken: this.userSession.serviceToken,
+				data: {
+					visitorId: this.userSession.userID,
+					liveId: this.roomProfile.liveID,
+					content: message
+				}
+			});
 		},
 		unfold(e: any) {
 			if (this.streamStatus.step !== "danmakuing") {

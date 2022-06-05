@@ -15,7 +15,8 @@ import {
 	outerBox,
 	font,
 	position,
-	transform
+	transform,
+	aspectRatio
 } from "../../utils/styleGetter";
 import defaultValue from "./default";
 import form from "./form";
@@ -57,7 +58,8 @@ export default defineComponent({
 				...border(style),
 				...outerBox(style),
 				...position(style),
-				...transform(style)
+				...transform(style),
+				...aspectRatio(style)
 			};
 		}
 	},

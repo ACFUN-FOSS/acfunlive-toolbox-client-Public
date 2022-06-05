@@ -1,0 +1,13 @@
+{
+	"name": "官方弹幕姬",
+	"icon": "self-danmu",
+	"description": "简单的官方弹幕姬 遇到工具箱疑难杂症问题可以暂时用这个",
+	"configurations": {
+		"width": 400,
+		"height": 800,
+		"resizable": true,
+		"liveOnly": false,
+		"multiple": true
+	},
+	"tags": ["可多开", "版本:1.0.0"]
+}

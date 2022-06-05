@@ -12,14 +12,20 @@
 
 <script>
 import { defineComponent } from "vue";
+import { walk } from "@front/util_function/object";
+import path from "path";
 export default defineComponent({
 	cname: "排版测试",
 	name: "alignTest",
 	data() {
 		return {};
 	},
-	computed: {},
-	watch: {},
+	mounted() {
+		const result = walk(this.$store.state.danmakuProfile);
+		console.log(
+			result.filter(i => typeof i === "string" && path.extname(i))
+		);
+	},
 	methods: {}
 });
 </script>

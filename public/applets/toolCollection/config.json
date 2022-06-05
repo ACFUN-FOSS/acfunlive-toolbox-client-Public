@@ -1,0 +1,13 @@
+{
+	"name": "工具合集",
+	"icon": "el-icon-s-data",
+	"description": "计算器,计时,倒计时,随机数生成",
+	"configurations": {
+		"width": 444,
+		"height": 800,
+		"resizable": false,
+		"multiple": false,
+		"liveOnly": false
+	},
+	"tags": ["不可多开", "版本:1.0.0", "直播时可用"]
+}

@@ -1,0 +1,13 @@
+{
+	"name": "限时抽奖",
+	"icon": "el-icon-s-ticket",
+	"description": "新增大逃杀模式（收集够奖池以后每按一次人数减半）。指定入奖票规则（关键词/礼物），在一定时间内收集奖池人数（去重），手动开奖",
+	"configurations": {
+		"width": 400,
+		"height": 600,
+		"resizable": true,
+		"liveOnly": true,
+		"multiple": false
+	},
+	"tags": ["不可多开", "版本:1.0.3", "开播后可用"]
+}

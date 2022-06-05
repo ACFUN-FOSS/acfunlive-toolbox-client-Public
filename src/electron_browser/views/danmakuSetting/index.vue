@@ -2,7 +2,9 @@
 	<div>
 		<el-tabs class="tabs" v-model="activeTo">
 			<el-tab-pane label="功能" name="first" />
-			<el-tab-pane label="样式编辑器" name="second" />
+			<el-tab-pane label="样式编辑" name="second" />
+			<el-tab-pane label="代码级样式编辑" name="third" />
+			<el-tab-pane label="外挂弹幕姬" name="forth" />
 		</el-tabs>
 		<div style="height:504px">
 			<component :is="components[activeTo]" />
@@ -13,6 +15,8 @@
 <script lang="ts">
 import { defineComponent, markRaw } from "vue";
 import styleConfig from "./style/index.vue";
+import styleAdvance from "./styleAdvance/index.vue";
+import styleSelf from "./styleSelf/index.vue";
 import danmakuConfig from "./config/index.vue";
 export default defineComponent({
 	name: "danmakuConfig",
@@ -20,7 +24,9 @@ export default defineComponent({
 		return {
 			components: {
 				first: markRaw(danmakuConfig),
-				second: markRaw(styleConfig)
+				second: markRaw(styleConfig),
+				third: markRaw(styleAdvance),
+				forth: markRaw(styleSelf)
 			},
 			activeTo: "first"
 		};

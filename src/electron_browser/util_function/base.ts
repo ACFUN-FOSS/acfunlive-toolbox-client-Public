@@ -48,3 +48,5 @@ export const registerRole = (name: string) => {
 	const win: any = window;
 	win.role = name;
 };
+
+export const isDev = () => process.env.NODE_ENV === "development";

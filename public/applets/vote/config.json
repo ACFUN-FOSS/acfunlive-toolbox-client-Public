@@ -1,0 +1,13 @@
+{
+	"name": "弹幕投票",
+	"icon": "el-icon-s-data",
+	"description": "输入关键词后，观众打出“投票@关键词”进行投票",
+	"configurations": {
+		"width": 400,
+		"height": 300,
+		"resizable": true,
+		"multiple": false,
+		"liveOnly": true
+	},
+	"tags": ["不可多开", "版本:1.0.1", "直播时可用"]
+}

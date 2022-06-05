@@ -1,0 +1,63 @@
+@import url(https//at.alicdn.com/t/font_3419123_e5rb1mtbd64.css);
+
+@font-face {
+  font-family: "iconfont"; /* Project id 3419123 */
+  src: url('/applets/toolCollection/css/iconfont.ttf?t=1653184318893') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calc:before {
+  content: "\e7d2";
+}
+
+.icon-countdown:before {
+  content: "\e683";
+}
+
+.icon-randomnum:before {
+  content: "\e750";
+}
+
+.icon-clock:before {
+  content: "\e7d1";
+}
+
+
+
+.switch-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  z-index: 1;
+  .icon {
+    cursor: pointer;
+    font-family: "iconfont";
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+    transition: all .3s;
+    &:hover,&.active {
+      color: #000;
+      background-color: #fff;
+    }
+  }
+}
+
+.slide {
+  display:none;
+
+  &.show {
+    display: block;
+  }
+}

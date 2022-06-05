@@ -6,7 +6,7 @@
 
 <script>
 import { defineComponent } from "vue";
-import appletList from "@front/views/streamMonitor/appletList.vue";
+import appletList from "@/electron_browser/views/applets/widget.vue";
 export default defineComponent({
 	cname: "小程序测试",
 	name: "appletTest",

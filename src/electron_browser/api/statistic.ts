@@ -1,11 +1,14 @@
-import { wsPromise } from "@front/api/utils/websocket";
+import { requestT } from "@front/api/user";
 
 export const getCurrentStastic = ({ liveID }: any): Promise<any> => {
 	// 获取直播分区
-	return wsPromise("getCurrentStastic", {
-		type: 104,
+	return requestT({
+		method: "getCurrentStastic",
 		data: {
-			liveID
+			type: 104,
+			data: {
+				liveID
+			}
 		}
 	});
 };

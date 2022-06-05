@@ -1,10 +1,10 @@
 @font-face {
 	font-family: "iconfont"; /* Project id 2358776 */
-	src: url("//at.alicdn.com/t/font_2358776_kxnax2osf1.woff2?t=1627761406096")
+	src: url("//at.alicdn.com/t/font_2358776_ixsj1e5jqec.woff2?t=1646575327676")
 			format("woff2"),
-		url("//at.alicdn.com/t/font_2358776_kxnax2osf1.woff?t=1627761406096")
+		url("//at.alicdn.com/t/font_2358776_ixsj1e5jqec.woff?t=1646575327676")
 			format("woff"),
-		url("//at.alicdn.com/t/font_2358776_kxnax2osf1.ttf?t=1627761406096")
+		url("//at.alicdn.com/t/font_2358776_ixsj1e5jqec.ttf?t=1646575327676")
 			format("truetype");
 }
 
@@ -16,11 +16,15 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.self-danmu:before {
+	content: "\e612";
+}
+
 .self-jiqiren:before {
 	content: "\e713";
 }
 
-.self-question:before {
+.self-90:before {
 	content: "\e678";
 }
 
@@ -30,7 +34,6 @@
 
 .self-netease:before {
 	content: "\e600";
-	color: rgb(232, 34, 2) !important;
 }
 
 .self-like:before {

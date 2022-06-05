@@ -1,8 +1,11 @@
-import { wsPromise } from "@front/api/utils/websocket";
+import { requestT } from "@front/api/user";
 
 export const catrgory = (): Promise<any> => {
 	// 获取直播分区
-	return wsPromise("getCategory", {
-		type: 901
+	return requestT({
+		method: "getCategory",
+		data: {
+			type: 901
+		}
 	});
 };

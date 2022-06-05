@@ -1,0 +1,13 @@
+{
+	"name": "公告机器人",
+	"icon": "self-jiqiren",
+	"description": "简单的公告机器人，定期发出公告弹幕",
+	"configurations": {
+		"width": 400,
+		"height": 200,
+		"resizable": true,
+		"liveOnly": true,
+		"multiple": false
+	},
+	"tags": ["不可多开", "版本:1.0.0", "开播后可用"]
+}

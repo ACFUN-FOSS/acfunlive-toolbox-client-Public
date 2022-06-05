@@ -2,9 +2,15 @@
 	<span>
 		<span class="rule" v-for="(rule,index) in value" :key="index">
 			<span class="el-icon-error remove" @click="value = value.filter(i=>i!=rule)" />
-			<el-input style="width:150px;margin-right:8px;margin-top:8px" v-model="rule.value" size="mini" v-if="rule.type=='text'" />
+			<el-input style="width:150px;margin-right:8px;margin-top:8px" v-model="rule.value" size="mini"
+				v-if="rule.type=='text'" />
+			<el-select style="width:150px;margin-right:8px;margin-top:8px" v-model="rule.value" size="mini"
+				v-else-if="rule.type=='variable'">
+				<el-option v-for="getterOption in getterOptions" v-show="getterOption.avaliable.includes(allow)"
+					:label="getterOption.label" :key="getterOption.value" :value="getterOption.value" />
+			</el-select>
 			<el-select style="width:150px;margin-right:8px;margin-top:8px" v-model="rule.value" size="mini" v-else>
-				<el-option v-for="getterOption in getterOptions" v-show="getterOption.avaliable.includes(allow)" :label="getterOption.label" :key="getterOption.value" :value="getterOption.value" />
+				<el-option v-for="(voice,index) in voiceList" :label="voice.label" :key="index" :value="voice.value" />
 			</el-select>
 		</span>
 		<el-dropdown @command="addCommand" type="primary" trigger="click" style="line-height:28px">
@@ -12,6 +18,7 @@
 			<template #dropdown>
 				<el-dropdown-menu>
 					<el-dropdown-item command="text">文本</el-dropdown-item>
+					<el-dropdown-item command="voice">音频</el-dropdown-item>
 					<el-dropdown-item command="variable">变量</el-dropdown-item>
 				</el-dropdown-menu>
 			</template>
@@ -31,12 +38,14 @@ export default defineComponent({
 				return [];
 			}
 		},
+		voiceList: {
+			default: () => {
+				return [];
+			}
+		},
 		allow: {
 			default: 1000
 		}
-	},
-	data() {
-		return {};
 	},
 	computed: {
 		getterOptions,
@@ -51,14 +60,9 @@ export default defineComponent({
 	},
 	methods: {
 		addCommand(command: any) {
-			switch (command) {
-				case "text":
-				case "variable":
-					this.value.push({
-						type: command
-					});
-					break;
-			}
+			this.value.push({
+				type: command
+			});
 		}
 	}
 });

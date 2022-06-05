@@ -2,19 +2,22 @@ import { RootState, stateFunc } from "./state";
 import store from "./index";
 import { event } from "@front/util_function/eventBus";
 import { stream as streamData, temp, room as roomData } from "@front/datas";
-import {
-	room,
-	stream,
-	common,
-	wsevent,
-	statistic,
-	user,
-	danmaku
-} from "@front/api";
+import { room, stream, common, wsevent, statistic, user } from "@front/api";
 import cloneDeep from "lodash/cloneDeep";
 import { saveConfig } from "@front/util_function/system";
 import { ElMessage } from "element-plus";
 import { isElectron } from "../util_function/electron";
+import { danmakuHandler } from "./danmaku/danmaku";
+import { read } from "@front/api/robot";
+import {
+	getUserInfo,
+	getGiftValue
+} from "@front/components/danmakuFlow/utils/getter";
+import {
+	isOwner,
+	isNormalDanmaku,
+	hasGift
+} from "@front/components/danmakuFlow/utils/tester";
 export const mutations: any = {
 	reset() {
 		store.replaceState(stateFunc());
@@ -45,7 +48,6 @@ export const mutations: any = {
 		room.getRank(state.userSession).then(res => {
 			Object.assign(state.rank, res);
 			event.emit("rank-updated");
-			wsevent.wsEmit("update-rank", res, "client");
 			wsevent.wsEmit(
 				"update-manager",
 				{ list: state.managerList },
@@ -101,7 +103,6 @@ export const mutations: any = {
 		state.roomProfile = roomData.profileDetail();
 		store.commit("stopLiveDurationTimer");
 		store.commit("stopGiftTimer");
-		wsevent.wsEmit("stop-danmaku", {}, "client");
 		sessionStorage.setItem("preStep", "");
 		if (isElectron()) {
 			store.commit("getStreamSession");
@@ -143,7 +144,7 @@ export const mutations: any = {
 		}
 		saveConfig(state.danmakuProfile);
 		setTimeout(() => {
-			wsevent.wsEmit("update-style", {}, "client");
+			wsevent.wsEmit("update-style", {}, "");
 		}, 500);
 	},
 	updateSettings(state: RootState, { settingType, setting }: any) {
@@ -153,18 +154,10 @@ export const mutations: any = {
 		}
 		state.temp = temp.tempInfo();
 		saveConfig(state.danmakuProfile);
-		setTimeout(() => {
-			wsevent.wsEmit("update-settings", {}, "client");
-		}, 1000);
 	},
 	getManagerList(state: RootState) {
 		room.getManagerList().then((res: any) => {
 			if (res) state.managerList = res;
-			wsevent.wsEmit(
-				"update-manager",
-				{ list: state.managerList },
-				"client"
-			);
 		});
 	},
 	addManager(state: RootState, uid: number) {
@@ -282,14 +275,86 @@ export const mutations: any = {
 		common.keywords = common.keywords.filter(i => i !== keyword);
 		store.commit("updateSettings", {});
 	},
-	stopDanmaku(state: RootState) {
-		danmaku.stop(state.userSession);
-	},
 	minify(state: RootState) {
 		event.emit("routeChange", {
 			name: "statusPanel"
 		});
 		state.minify = state.minify ? false : store.getters.isStreaming;
 		event.emit("minify", state.minify);
+	},
+	addChangedDanmaku(state: RootState, danmaku: any) {
+		state.changedDanmaku.unshift(danmaku);
+	},
+	cleanChangedDanmaku(state: RootState) {
+		state.changedDanmaku = [];
+	},
+	addNewDanmaku(state: RootState, danmaku: any) {
+		const filter = state.filter;
+		if (isNormalDanmaku(danmaku)) {
+			const settings: any = isElectron()
+				? state.danmakuProfile.toolBox
+				: state.danmakuProfile.web;
+			const commonSettings =
+				state.danmakuProfile.common || danmaku.commonSettings();
+			const rank = state.rank;
+			// auto click
+			if (
+				state.danmakuProfile.common.blackList.find(
+					(user: any) => user.userID === getUserInfo(danmaku).userID
+				)
+			) {
+				store.commit("kickOut", getUserInfo(danmaku).userID);
+				return;
+			}
+
+			const { filtered, list, hasCombined } = filter.filterUpdate(
+				[danmaku],
+				state.danmakuSession.filterFlow,
+				settings,
+				commonSettings,
+				rank
+			);
+			if (filtered[0]) {
+				// chicken robot
+				do {
+					if (!isElectron()) break;
+					const enable = settings?.robotSetting?.enable;
+					let shouldRead = false;
+					if (!enable) break;
+					if (enable === true) {
+						shouldRead = true;
+					} else if (
+						Array.isArray(enable) &&
+						enable.includes(danmaku.type)
+					) {
+						if (hasGift(filtered[0])) {
+							shouldRead =
+								getGiftValue(filtered[0]) / 100 >=
+								(settings?.robotSetting?.giftLevel || 0);
+							console.log(shouldRead);
+						}
+					}
+					if (!shouldRead) break;
+					const { rules, ignoreOwner } = settings.robotSetting;
+					if (!(ignoreOwner && isOwner(danmaku, state))) {
+						read({
+							...settings.robotSetting,
+							rules: rules[danmaku.type],
+							danmaku: filtered[0],
+							filters: [state.temp.emojiTester]
+						});
+					}
+				} while (false);
+				danmaku = filtered[0];
+			} else if (!hasCombined) {
+				return;
+			}
+			state.danmakuSession.filterFlow = list;
+		}
+
+		const handler = danmakuHandler[String(danmaku.type)];
+		if (handler) {
+			handler(danmaku, store);
+		}
 	}
 };

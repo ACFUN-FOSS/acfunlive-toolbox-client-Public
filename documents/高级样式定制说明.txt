@@ -1,0 +1,54 @@
+#############本功能适合有前端基础的主播进行代码层面的样式定制
+
+数据格式：
+弹幕数据集合“danmaku”对象中，各类弹幕数据格式参照 
+https://github.com/ACFUN-FOSS/acfunlive-backend/blob/main/doc/%E5%90%8E%E7%AB%AFWebSocket%E6%8E%A5%E5%8F%A3.md#%E5%BC%B9%E5%B9%95%E5%92%8C%E4%BF%A1%E5%8F%B7%E7%B1%BB%E5%9E%8B
+
+html输入框:
+采用vue模板语法，具体参照 https://cn.vuejs.org/v2/guide/#%E5%A3%B0%E6%98%8E%E5%BC%8F%E6%B8%B2%E6%9F%93
+不用加最外面的template标签
+例：  <div>{{danmaku.timestamp}}123123</div>
+
+css输入框
+注意同名class会相互污染
+不用加最外面的style标签
+
+素材放置位置:
+c:/用户名/acfun-live-toolbox/selfDanmaku文件夹下
+引用举例： background-image: url("/configFiles/selfDanmaku/demo.jpg")
+
+集成函数：
+###弹幕判断类 （传入参数为danmaku）：
+hasTime
+hasMedal
+hasAvatar
+hasNickName
+hasContent
+hasGift
+isManager
+isOwner
+###数据获取类（传入参数为danmaku）：
+getDanmuInfo
+getUserInfo
+getTime
+setTime
+getMedal
+getMedalLevel
+getMedalName
+getAvatar
+getNickName
+getUID
+getContent
+getGift
+getDanmakuType
+getGiftName
+getGiftCombo
+getGiftNumber
+getGiftValue
+getRichText
+getContentWithEmoji
+###日期格式化类
+dateFormat
+参照 https://date-fns.org/v2.28.0/docs/format
+###其余为lodash工具函数
+参照https://www.lodashjs.com/

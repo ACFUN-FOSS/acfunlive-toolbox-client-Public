@@ -2,6 +2,10 @@ export const size = (style: any): any => {
 	const output = {};
 	const sizes = ["width", "height"];
 	sizes.forEach((size: string) => {
+		if (style[size] === undefined) {
+			return;
+		}
+
 		if (style[size] > 0) {
 			// @ts-ignore
 			output[size] = `${style[size]}px`;
@@ -13,6 +17,15 @@ export const size = (style: any): any => {
 	});
 	return output;
 };
+export const aspectRatio = (style: any): any => {
+	const { aspectRatio }: any = style;
+	if (aspectRatio) {
+		return {
+			aspectRatio
+		};
+	}
+	return {};
+};
 export const padding = (style: any): any => {
 	const result: any = {};
 	const attrs = [
@@ -22,7 +35,7 @@ export const padding = (style: any): any => {
 		"paddingLeft"
 	];
 	attrs.forEach((attr: any) => {
-		if (style[attr]) {
+		if (style[attr] !== undefined) {
 			result[attr] =
 				style[attr] > 0 ? `${style[attr]}px` : `${-style[attr]}%`;
 		}
@@ -33,7 +46,7 @@ export const margin = (style: any): any => {
 	const result: any = {};
 	const attrs = ["marginTop", "marginRight", "marginBottom", "marginLeft"];
 	attrs.forEach((attr: any) => {
-		if (style[attr]) {
+		if (style[attr] !== undefined) {
 			result[attr] = `${style[attr]}px`;
 		}
 	});
@@ -72,15 +85,22 @@ export const degreeColor = (colors: any, degree: number): any => {
 	}
 };
 export const position = (style: any): any => {
-	const output = {
+	const output: any = {
 		position: style.position,
-		zIndex: style.zIndex
+		zIndex: style.zIndex,
+		display: ""
 	};
+	if (output.position === "relativeBlock") {
+		output.position = "relative";
+		output.display = "block";
+	}
 	const positions = ["left", "top", "right", "bottom"];
 	positions.forEach((position: string) => {
-		if (style[position] >= 0) {
-			// @ts-ignore
-			output[position] = `${style[position]}px`;
+		if (style[position] !== undefined) {
+			output[position] =
+				style[position] > 0
+					? `${style[position]}px`
+					: `${-style[position]}%`;
 		}
 	});
 	return output;

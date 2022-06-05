@@ -1,0 +1,61 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "iconfont";
+  /* Project id 3419123 */
+  src: url("/applets/toolCollection/css/iconfont.ttf?t=1653184318893") format("truetype");
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calc:before {
+  content: "";
+}
+
+.icon-countdown:before {
+  content: "";
+}
+
+.icon-randomnum:before {
+  content: "";
+}
+
+.icon-clock:before {
+  content: "";
+}
+
+.switch-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  z-index: 1;
+}
+.switch-menu .icon {
+  cursor: pointer;
+  font-family: "iconfont";
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  transition: all 0.3s;
+}
+.switch-menu .icon:hover, .switch-menu .icon.active {
+  color: #000;
+  background-color: #fff;
+}
+
+.slide {
+  display: none;
+}
+.slide.show {
+  display: block;
+}
+
+/*# sourceMappingURL=menu.css.map */

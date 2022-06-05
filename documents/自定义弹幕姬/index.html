@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: blue;
+				color: white;
+			}
+		</style>
+	</head>
+	<script>
+		window.addEventListener(
+			"message",
+			({ data }) => {
+				try {
+					const danmaku = JSON.parse(data); // 判断是不是合法的弹幕数据 是才进行下一步
+					// 弹幕数据格式 见  https://github.com/ACFUN-FOSS/acfunlive-backend/blob/main/doc/%E5%90%8E%E7%AB%AFWebSocket%E6%8E%A5%E5%8F%A3.md#%E5%BC%B9%E5%B9%95%E5%92%8C%E4%BF%A1%E5%8F%B7%E7%B1%BB%E5%9E%8B
+
+					//逻辑写在这里面
+					console.log(danmaku);
+					document.body.innerText = data;
+				} catch (error) {}
+			},
+			false
+		);
+	</script>
+	<body>
+		空空如也
+	</body>
+</html>

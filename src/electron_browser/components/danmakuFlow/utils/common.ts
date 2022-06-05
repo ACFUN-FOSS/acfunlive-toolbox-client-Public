@@ -150,13 +150,18 @@ export class Filter {
 	};
 
 	filterUpdate = (
-		newDanmaku: Array<any>,
+		changedDanmaku: Array<any>,
 		OldDanmaku: Array<any>,
 		settings: Settings,
 		commonSettings: CommonSettings,
 		rank: Rank
 	) => {
-		const result = this.filter(newDanmaku, settings, commonSettings, rank);
+		const result = this.filter(
+			changedDanmaku,
+			settings,
+			commonSettings,
+			rank
+		);
 		return {
 			list: this.filterMaxnium(
 				[...result.filtered.reverse(), ...OldDanmaku],

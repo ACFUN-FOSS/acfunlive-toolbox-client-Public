@@ -2,6 +2,7 @@ import { listenDpi } from "./listeners";
 import { dpiOptions } from "@front/datas/common";
 import { log } from "@front/util_function/system";
 import { common } from "@front/texts";
+import { stringify } from "flatted";
 const dpiOption: any = dpiOptions();
 
 export const dpiHandler = () => {
@@ -22,19 +23,19 @@ export const logger = () => {
 		// 	newConsole[key] = ept;
 		// });
 		// Object.assign(console, newConsole);
-		const error = console.error;
+		const er = console.error;
 		const lg = console.log;
 		console.error = (e: any) => {
-			error(e);
+			er(e);
 			if (e instanceof Error) {
 				log(String(e.stack) + `@${common().version}`);
 			} else {
-				log(JSON.stringify(e));
+				log(stringify(e));
 			}
 		};
 		console.log = (...e: any) => {
 			lg(...e);
-			log(JSON.stringify(e));
+			log(stringify(e));
 		};
 		window.addEventListener("unhandledrejection", e => {
 			if (e.reason instanceof Error) {

@@ -1,0 +1,13 @@
+{
+	"name": "弹幕礼物投票",
+	"icon": "el-icon-price-tag",
+	"description": "输入关键词后，根据弹幕关键词进行投票，只有送出指定礼物的观众才能投票",
+	"configurations": {
+		"width": 400,
+		"height": 300,
+		"resizable": true,
+		"multiple": false,
+		"liveOnly": true
+	},
+	"tags": ["不可多开", "版本:1.0.1", "开播后可用"]
+}

@@ -24,7 +24,6 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { logout } from "@front/util_function/login";
 export default defineComponent({
 	name: "app"
 });

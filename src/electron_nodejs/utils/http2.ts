@@ -6,7 +6,7 @@ const ip = require("ip");
 
 export const startHttp = () => {
 	const dirname = process.resourcesPath;
-	const port = 1188;
+	const port = 1299;
 	const staticServe = (req: any, res: any) => {
 		fs.readFile(
 			path.join(dirname, "/app/index.html"),
@@ -26,6 +26,6 @@ export const startHttp = () => {
 	};
 	return new Promise(resolve => {
 		const httpServer = http.createServer(staticServe);
-		resolve(httpServer.listen(1188));
+		resolve(httpServer.listen(1299));
 	});
 };

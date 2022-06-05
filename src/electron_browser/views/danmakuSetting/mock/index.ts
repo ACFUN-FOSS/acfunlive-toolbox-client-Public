@@ -28,16 +28,21 @@ export const getMockByType = (type: number | string): any => {
 
 	// @ts-ignore
 	const testers = basicComponentTester[type];
-	return sample(
-		mockData.filter((i: any) => {
-			let pass = String(i.type) === String(type);
-			if (pass && testers && testers.length) {
-				testers.forEach((tester: any) => {
-					if (!tester(i)) pass = false;
-				});
-			}
-			return pass;
-		})
+	return setTime(
+		{
+			...sample(
+				mockData.filter((i: any) => {
+					let pass = String(i.type) === String(type);
+					if (pass && testers && testers.length) {
+						testers.forEach((tester: any) => {
+							if (!tester(i)) pass = false;
+						});
+					}
+					return pass;
+				})
+			)
+		},
+		Date.now()
 	);
 };
 

@@ -19,12 +19,14 @@
 		</row-frame>
 		<row-frame width="100%" title="表情预览" v-show="emoOn">
 			<div class="list-add-btn">
-				<el-button type="text" style="padding:0px!important;min-height:0px!important" @click="danmaku =  getMockByType(1000);currentEmoji = {...currentEmoji}">换条弹幕</el-button>
+				<el-button type="text" style="padding:0px!important;min-height:0px!important"
+					@click="danmaku =  getMockByType(1000);currentEmoji = {...currentEmoji}">换条弹幕</el-button>
 			</div>
 			<zoom-frame :allow-zoom="true" class="zoom-frame">
 				<div v-if="!setting">请先去“弹幕流”中进行弹幕样式配置</div>
 				<div v-else-if="!currentEmoji">添加并选择表情来预览</div>
-				<danmaku-row v-else style="white-space:nowrap" :setting="setting" :configMode="true" :danmaku="danmakuWithEmoji" />
+				<danmaku-row v-else style="white-space:nowrap" :setting="setting" :configMode="true"
+					:danmaku="danmakuWithEmoji" />
 			</zoom-frame>
 			<div class="hint">表情可使用emoji或关键词替换，关键词替换在发送时需加“#"的前缀，例如要发“举高高”，则需发送“#举高高”</div>
 			<div class="hint">为提升用户体验，请尽量使用emoji替换表情(关键词旁的😀)</div>
@@ -37,15 +39,18 @@
 					<el-card shadow="always" class="card add" @click="add">添加+</el-card>
 				</div>
 				<div class="card-box" v-for="(emoji,index) in emos" :key="index">
-					<el-card class="card" shadow="hover" :body-style="{ padding: '0px'}" @mouseenter="currentEmoji=emoji">
+					<el-card class="card" shadow="hover" :body-style="{ padding: '0px'}"
+						@mouseenter="currentEmoji=emoji">
 						<span class="el-icon-error  remove" @click="emos = emos.filter(i=>i!==emoji)" />
 						<img-input-static fit="contain" style="height:120px;width: 100%" v-model="emoji.url" />
 						<div style="display:flex;padding:0px 14px;justify-content:space-between">
 							<div style="width:35%">
 								大小<br>
 								<el-button-group>
-									<el-button class="btn" type="primary" icon="el-icon-plus" size="mini" @click="emoji.scale<200?emoji.scale+=2:false" />
-									<el-button class="btn" type="primary" icon="el-icon-minus" size="mini" @click="emoji.scale>0?emoji.scale-=2:false" />
+									<el-button class="btn" type="primary" icon="el-icon-plus" size="mini"
+										@click="emoji.scale<200?emoji.scale+=2:false" />
+									<el-button class="btn" type="primary" icon="el-icon-minus" size="mini"
+										@click="emoji.scale>0?emoji.scale-=2:false" />
 								</el-button-group>
 							</div>
 							<div style="width:60%">
@@ -53,7 +58,9 @@
 								<emoji-picker :showSelected="false" v-model="emoji.pattern">
 									<div class="emoji-picker">😀</div>
 								</emoji-picker>
-								<el-input placeholder="关键词/emoji" size="mini" :modelValue="emoji.pattern.replaceAll('#','')" @update:modelValue="emoji.pattern = '#' +$event.replaceAll('#','')" />
+								<el-input placeholder="关键词/emoji" size="mini"
+									:modelValue="emoji.pattern.replaceAll('#','')"
+									@update:modelValue="emoji.pattern = '#' +$event.replaceAll('#','')" />
 							</div>
 						</div>
 					</el-card>
@@ -69,7 +76,7 @@
 import { defineComponent } from "vue";
 import cloneDeep from "lodash/cloneDeep";
 import zoomFrame from "@front/util_component/frames/zoomFrame.vue";
-import danmakuRow from "@front/components/danmakuFlow/danmakuRow.vue";
+import danmakuRow from "@/electron_browser/components/danmakuFlow/danmakuRow/index.vue";
 import { getMockByType } from "@front/views/danmakuSetting/mock/index";
 import emojiPicker from "@front/components/form/emojiPicker/index.vue";
 import { ElMessage } from "element-plus";
@@ -163,6 +170,7 @@ export default defineComponent({
 #emotion {
 	position: relative;
 	height: 100%;
+	flex-wrap: nowrap;
 	.list-add-btn {
 		position: absolute;
 		right: 0px;

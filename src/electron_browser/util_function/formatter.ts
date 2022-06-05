@@ -30,3 +30,12 @@ export const hundrenFormatter = (count: number): string => {
 	}
 	return String(count);
 };
+
+export const byteFormatter = (byte: number): string => {
+	const unit = ["Byte", "KB", "MB", "GB", "T"];
+	while (byte > 1024 && unit.length > 1) {
+		byte /= 1024;
+		unit.shift();
+	}
+	return `${byte.toFixed(2)} ${unit[0]}`;
+};

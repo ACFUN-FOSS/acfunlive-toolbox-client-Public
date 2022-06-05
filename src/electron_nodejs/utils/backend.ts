@@ -1,10 +1,18 @@
 import { ipcMain } from "electron";
+import { appStatic, configStatic } from "./paths";
 const { spawn } = require("child_process");
 const path = require("path");
 const find = require("find-process");
 const process = require("process");
+const fs = require("fs");
 let restarting = false;
 class Backend {
+	static file(): string {
+		const platform = process.platform === "linux" ? "linux" : process.platform === "darwin" ? "mac" : "win";
+		const filename = ["acbackend", platform, process.arch].join("-");
+		return process.platform === "win32" ? filename + ".exe" : filename;
+	}
+
 	static registerEvents() {
 		ipcMain.on("backend_init", Backend.init);
 		ipcMain.on("backend_kill", Backend.kill);
@@ -15,14 +23,21 @@ class Backend {
 		const exepath = path.join(
 			// @ts-ignore
 			__static,
-			"acbackend.exe"
+			Backend.file()
 		);
-		spawn(exepath, [
+		if (process.platform !== "win32") {
+			fs.chmodSync(exepath, 0o755);
+		}
+		const logfile = process.platform === "win32" ? path.join(appStatic, "./../../TellOrzogcWhatHappened") : path.join(configStatic, "./TellOrzogcWhatHappened");
+		const backend = spawn(exepath, [
 			"-logfile",
-			"./TellOrzogcWhatHappened",
+			logfile,
 			"-logversions",
 			"10"
 		]);
+		process.on("exit", () => {
+			backend.kill();
+		});
 	}
 
 	static kill() {

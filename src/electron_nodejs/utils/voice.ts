@@ -4,6 +4,7 @@ import { log } from "./file";
 const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+let count = 0;
 class Voice {
 	static registerEvents() {
 		ipcMain.on("send_voice", this.sendVoice);
@@ -93,14 +94,15 @@ class Voice {
 				if (data.data && data.data.audio) {
 					b64buffer.push(Buffer.from(data.data.audio, "base64"));
 					if (data.data.status === 2) {
+						count = (count + 1) % 10;
 						fs.writeFileSync(
-							path.join(configStatic, "voice.mp3"),
+							path.join(configStatic, `voice${count}.mp3`),
 							Buffer.concat(b64buffer)
 						);
 						client.close();
 						event.reply(
 							"xfvoice_complete",
-							`/configFiles/voice.mp3`
+							`/configFiles/voice${count}.mp3`
 						);
 					}
 				}

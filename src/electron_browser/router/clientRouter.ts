@@ -1,8 +1,15 @@
 import store from "@front/store";
 import testRouters from "@front/test";
+import appletLayout from "@front/layouts/applets/index.vue";
 import { restart } from "@front/util_function/login";
 const main = () => import("@front/layouts/main/index.vue");
 export default [
+	{
+		name: "applets",
+		path: "/applets",
+		component: appletLayout,
+		hidden: true
+	},
 	{
 		path: "/login",
 		name: "Login",
@@ -90,10 +97,10 @@ export default [
 					icon: "el-icon-video-camera",
 					action: "router",
 					disabled: () => {
-						return true;
+						return false;
 					}
 				},
-				redirect: "/"
+				component: () => import("@front/views/records/index.vue")
 			}
 		]
 	},
@@ -111,9 +118,14 @@ export default [
 				meta: {
 					label: "完播复盘",
 					icon: "el-icon-pie-chart",
-					action: "router",
+					action: () => {
+						window.open(
+							`https://www.sizzwoo.cc/u/${store.state.userProfile.userID}`,
+							"_blank"
+						);
+					},
 					disabled: () => {
-						return true;
+						return false;
 					}
 				},
 				redirect: "/"

@@ -8,7 +8,8 @@
 			</div>
 			<row-span>
 				<div class="danmaku-list-bg">
-					<flow class="danmaku-list" :configMode="true" :danmakuList="mockData" :max="100" :settings="settings" />
+					<flow class="danmaku-list" :configMode="true" :danmakuList="mockData" :max="100"
+						:settings="settings" />
 				</div>
 			</row-span>
 		</row-frame>
@@ -21,7 +22,8 @@
 			</row-span>
 		</row-frame>
 		<div class="right-content">
-			<component v-model:settings="settings" v-model:mockData="mockData" v-for="(item,index) in settingBlocks" :key="index" :is="item" />
+			<component v-model:settings="settings" v-model:mockData="mockData" v-for="(item,index) in settingBlocks"
+				:key="index" :is="item" :setting-target="settingTarget" />
 			<el-button @click="save" size="mini" type="primary">保存（{{{'toolBox':'主播端','web':'观众端'}[settingTarget]}}设置）</el-button>
 			<el-button v-show="settingTarget==='toolBox'" @click="saveSync" size="mini" type="primary">保存并同步到观众端</el-button>
 		</div>

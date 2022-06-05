@@ -6,24 +6,54 @@
 				<hero-base class="hero" />
 				<div class="form">
 					<div class="row">
-						<el-input v-model="userData.account" :disabled="logining" @keypress.enter="login" placeholder="A站账号手机号/邮箱" />
+						<el-input
+							v-model="userData.account"
+							:disabled="logining"
+							@keypress.enter="login()"
+							placeholder="A站账号手机号/邮箱"
+						/>
 					</div>
 					<div class="row">
-						<el-input type="password" v-model="userData.password" :disabled="logining" @keypress.enter="login" placeholder="A站密码" />
+						<el-input
+							type="password"
+							v-model="userData.password"
+							:disabled="logining"
+							@keypress.enter="login()"
+							placeholder="A站密码"
+						/>
 					</div>
 					<div class="row sep">
 						<div>
-							<el-checkbox class="logCheck" v-model="userData.disclaimerCheck" :disabled="logining" />
-							同意 ><el-button type="text" class="buttonText" @click="disclaimerDialog = true" :disabled="logining">免责声明
+							<el-checkbox
+								class="logCheck"
+								v-model="userData.disclaimerCheck"
+								:disabled="logining"
+							/>
+							同意 ><el-button
+								type="text"
+								class="buttonText"
+								@click="disclaimerDialog = true"
+								:disabled="logining"
+								>免责声明
 							</el-button>
 						</div>
 						<div>
-							<el-checkbox class="logCheck" v-model="userData.keepLogined" :disabled="logining" />
+							<el-checkbox
+								class="logCheck"
+								v-model="userData.keepLogined"
+								:disabled="logining"
+							/>
 							保持登录
 						</div>
 					</div>
 					<div class="row">
-						<el-button type="primary" :disabled="loginDisabled" class="logBtn" @click="login">登陆</el-button>
+						<el-button
+							type="primary"
+							:disabled="loginDisabled"
+							class="logBtn"
+							@click="login(true)"
+							>登陆
+						</el-button>
 					</div>
 					<div class="row logText">
 						<transition name="fade" mode="out-in">
@@ -33,22 +63,34 @@
 				</div>
 			</div>
 			<div class="welcome" v-else>
-				<img class="welcomeLogo" :src="`${loginTexts.welcomeLogo}?a=${welcomeLogoKey}`" />
+				<img
+					class="welcomeLogo"
+					:src="`${loginTexts.welcomeLogo}?a=${welcomeLogoKey}`"
+				/>
 				<div class="welcomeText">{{ loginTexts.welcomeText }}</div>
 			</div>
 		</transition>
 		<footer-base class="foter right" />
-		<el-dialog custom-class="dialogBase" title="免责声明" v-model="disclaimerDialog">
+		<el-dialog
+			custom-class="dialogBase"
+			title="免责声明"
+			v-model="disclaimerDialog"
+		>
 			<div>{{ loginTexts.disclaimer }}</div>
 			<template #footer>
-				<el-button type="primary" size="mini" @click="
+				<el-button
+					type="primary"
+					size="mini"
+					@click="
 						userData.disclaimerCheck = true;
 						disclaimerDialog = false;
-					">我同意</el-button>
+					"
+					>我同意</el-button
+				>
 			</template>
 		</el-dialog>
 		<img class="acgirl" src="/imgs/common/welcome.png" />
-		<div class="foter left">软件版本号：{{common.version}}</div>
+		<div class="foter left">软件版本号：{{ common.version }}</div>
 	</div>
 </template>
 
@@ -56,20 +98,20 @@
 import { defineComponent } from "vue";
 import Cookies from "@front/util_function/cookies";
 import topbarBase from "@front/components/system/topbars/base.vue";
-import {
-	backendRestart,
-	loadConfig,
-	launch
-} from "@front/util_function/system";
+import { loadConfig, launch } from "@front/util_function/system";
 import { assign } from "@front/util_function/base";
-import { isOnline } from "@front/api/server";
+import { login, loginSession } from "@front/api/user";
+import { getManagerList } from "@front/api/room";
+import { isOnline } from "@front/api/utils/websocket";
 import { login as loginTexts, common } from "@front/texts";
+
 export default defineComponent({
 	name: "login",
 	components: {
 		topbarBase
 	},
 	data() {
+		const checkTimer: any = null;
 		return {
 			userData: {
 				account: "",
@@ -80,6 +122,8 @@ export default defineComponent({
 			common: common(),
 			disclaimerDialog: false,
 			logining: false,
+			serveOnline: false,
+			checkTimer,
 			loginFailedText: "",
 			welcome: false,
 			welcomeLogoKey: "111"
@@ -87,16 +131,12 @@ export default defineComponent({
 	},
 	computed: {
 		loginTexts,
-		api(): any {
-			return this.$store.state.api;
-		},
 		loginDisabled(): boolean {
 			return (
 				!this.userData.account ||
 				!this.userData.password ||
 				!this.userData.disclaimerCheck ||
-				this.logining ||
-				this.$store.state.streamStatus.step === "offline"
+				this.logining
 			);
 		},
 		loginText(): string {
@@ -106,7 +146,7 @@ export default defineComponent({
 			if (this.loginFailedText) {
 				return `登陆失败： ${this.loginFailedText}`;
 			}
-			if (this.$store.state.streamStatus.step !== "offline") {
+			if (this.serveOnline) {
 				return "服务端已连接";
 			}
 			return "服务端离线,请尝试关闭工具箱并右键以管理员权限打开";
@@ -114,22 +154,25 @@ export default defineComponent({
 	},
 	mounted() {
 		this.getCookie();
-		this.$store.dispatch("startServe").then(() => {
-			this.autoLogin();
-		});
+		this.autoLogin();
 		loadConfig().then((res: any) => {
 			if (res) {
 				assign(this.$store.state.danmakuProfile, res);
 			}
-			if (
-				res?.general?.streamToolEnable &&
-				res?.general?.streamToolPath
-			) {
+			if (res?.general?.streamToolEnable) {
 				launch(res?.general?.streamToolPath);
 			}
 		});
+		this.checkOnline();
+	},
+	beforeUnmount() {
+		clearInterval(this.checkTimer);
 	},
 	methods: {
+		checkOnline() {
+			isOnline().then(res => (this.serveOnline = res));
+			this.checkTimer = setTimeout(this.checkOnline, 5000);
+		},
 		autoLogin(): void {
 			if (
 				this.getCookie() &&
@@ -139,59 +182,54 @@ export default defineComponent({
 				this.login();
 			}
 		},
-		login() {
-			if (!isOnline()) {
-				this.$store
-					.dispatch("startServe")
-					.then(() => {
-						this.login();
-					})
-					.catch((error: any) => {
-						console.error(error);
-						backendRestart();
-					});
-				return;
-			}
+		async login() {
 			this.logining = true;
 			if (!this.validation()) {
 				this.logining = false;
 				return;
 			}
-			this.$store
-				.dispatch("login", this.userData)
-				.then(() => {
-					this.$store.state.userData = this.userData;
-					sessionStorage.setItem("logined", "true");
-					sessionStorage.setItem("firstTime", "false");
-					if (this.userData.keepLogined) {
-						this.setCookie();
-					}
-					this.welcomeLogoKey = String(Math.random());
-					this.welcome = true;
-					setTimeout(() => {
-						this.$router.replace("dashboard");
-						this.welcome = false;
-						this.logining = false;
-					}, 4000);
-				})
-				.catch((err: any) => {
-					console.error(err);
+			let tokenInfo: any = this.$store.state.userSession;
+			loginSession(tokenInfo);
+			try {
+				await getManagerList();
+			} catch (error) {
+				try {
+					tokenInfo = await login(this.userData);
+				} catch (error) {
 					this.logining = false;
 					this.welcome = false;
-					this.loginFailedText = err;
-					// backendRestart();
-				});
+					console.log(error);
+					this.loginFailedText = error;
+					return;
+				}
+			}
+			this.$store.state.userData = this.userData;
+			this.$store.state.userSession = tokenInfo;
+			sessionStorage.setItem("logined", "true");
+			sessionStorage.setItem("firstTime", "false");
+			if (this.userData.keepLogined) {
+				this.setCookie(tokenInfo);
+			}
+			this.$store.dispatch("login");
+			this.$router.replace("dashboard");
 		},
 		getCookie() {
 			const userData = Cookies.get("userData");
-			if (!userData) {
+			const tokenInfo = Cookies.get("tokenInfo");
+			if (userData) {
+				this.userData = userData;
+			}
+			if (!tokenInfo?.serviceToken) {
 				return false;
 			}
-			this.userData = JSON.parse(userData);
+			this.$store.state.userSession = tokenInfo;
 			return true;
 		},
-		setCookie() {
-			Cookies.set("userData", JSON.stringify(this.userData));
+		setCookie(tokenInfo: any) {
+			const expiry = 2 * 60 * 60 * 24 * 1000;
+			const expiry2 = 60 * 60 * 60 * 24 * 1000;
+			Cookies.set("userData", this.userData, expiry2);
+			Cookies.set("tokenInfo", tokenInfo, expiry);
 		},
 		validation() {
 			if (

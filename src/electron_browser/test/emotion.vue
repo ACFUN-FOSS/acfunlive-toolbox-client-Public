@@ -1,13 +1,14 @@
 <template>
 	<div class="danmaku">
-		<danmaku-row v-if="setting&&danmakuWithEmoji" style="white-space:nowrap" :setting="setting" :configMode="true" :danmaku="danmakuWithEmoji" />
+		<danmaku-row v-if="setting&&danmakuWithEmoji" style="white-space:nowrap" :setting="setting" :configMode="true"
+			:danmaku="danmakuWithEmoji" />
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getMockByType } from "@front/views/danmakuSetting/mock/index";
-import danmakuRow from "@front/components/danmakuFlow/danmakuRow.vue";
+import danmakuRow from "@/electron_browser/components/danmakuFlow/danmakuRow/index.vue";
 export default defineComponent({
 	cname: "表情测试",
 	name: "emition",

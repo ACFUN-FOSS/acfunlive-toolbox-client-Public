@@ -101,6 +101,10 @@ export const position = (): any => {
 			value: "relative"
 		},
 		{
+			label: "相对定位（块级）",
+			value: "relativeBlock"
+		},
+		{
 			label: "绝对定位",
 			value: "absolute"
 		}

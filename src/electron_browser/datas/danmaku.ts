@@ -32,7 +32,7 @@ export const filter = (): Filter => {
 		combineGift: false, // 礼物合并
 		combineLike: false, // 点赞合并
 		combineEnter: false, // 重复进入直播间合并
-		types: [1000, 1001, 1002, 1003, 1005, 1007]
+		types: [1000, 1001, 1002, 1003, 1005, 1007, 1008]
 	};
 };
 
@@ -43,6 +43,7 @@ export interface Settings {
 	speed: string;
 	hightLight: any;
 	animation: boolean;
+	direction: string;
 	settingOfType: any;
 }
 
@@ -58,6 +59,7 @@ export const settings = (): Settings => {
 			concerned: false // 未完成
 		}, // 尚未实现
 		animation: true, // 尚未实现
+		direction: "addToBottom",
 		settingOfType: {}
 	};
 };
@@ -75,6 +77,7 @@ export interface RobotSetting {
 	enable: Array<any>;
 	speed: number;
 	volume: number;
+	giftLevel: number;
 	rules: any;
 	ignoreOwner: boolean;
 	comboReading: boolean;
@@ -89,7 +92,8 @@ export const robotRule = (): any => {
 		1004: [],
 		1005: [],
 		1006: [],
-		1007: []
+		1007: [],
+		1008: []
 	};
 };
 
@@ -105,6 +109,7 @@ export const robotSetting = (): RobotSetting => {
 		enable: [],
 		speed: 2,
 		volume: 50,
+		giftLevel: 0,
 		rules: robotRule(),
 		ignoreOwner: false,
 		comboReading: false

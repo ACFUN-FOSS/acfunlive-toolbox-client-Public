@@ -18,16 +18,19 @@
 						<room-list />
 					</row-span>
 				</row-frame>
-				<row-frame :class="{superChatEnable}" width="100%" title="弹幕流" :flex="true" :content-default-class="false">
+				<row-frame :class="{superChatEnable}" width="100%" title="弹幕流" :flex="true"
+					:content-default-class="false">
 					<row-span :span="12" style="padding:0px">
 						<div class="list-add-btn" style="top:0px">
 							<div class="slider">背景亮度：
 								<el-slider style="width:100px" v-model="brightness" :min="20" :max="100" :step="1" />
 							</div>
 						</div>
-						<super-chat-list v-if="superChatEnable" :class="{'empty':!temp||temp.superChatArray.length===0}" />
+						<super-chat-list v-if="superChatEnable"
+							:class="{'empty':!temp||temp.superChatArray.length===0}" />
 						<div class="danmaku-list-bg" :style="{'--brightness':(100- brightness)/100}">
-							<danmaku-flow style="font-size:18px!important" :danmakuList="danmakuList" :settings="settings" />
+							<danmaku-flow style="font-size:18px!important" :danmakuList="danmakuList"
+								:settings="settings" />
 						</div>
 					</row-span>
 				</row-frame>
@@ -53,7 +56,7 @@ import shotcut from "./shotcut.vue";
 import roomList from "@front/components/roomList/roomList.vue";
 import roomChat from "@front/components/roomChat/index.vue";
 import minify from "@front/components/minify/index.vue";
-import appletList from "@front/views/streamMonitor/appletList.vue";
+import appletList from "@front/views/applets/widget.vue";
 export default defineComponent({
 	name: "streamMonitor",
 	components: {

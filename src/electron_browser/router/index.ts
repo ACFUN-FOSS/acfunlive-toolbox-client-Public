@@ -1,12 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import { isElectron } from "@front/util_function/electron";
 import client from "./clientRouter";
-import appletRouter from "./appletRouter";
 import web from "./webRouter";
-const routes: Array<RouteRecordRaw> = isElectron()
-	? [...client, appletRouter]
-	: web;
-
+const routes: Array<RouteRecordRaw> = isElectron() ? client : web;
+console.log(routes);
 const router = createRouter({
 	history: createWebHistory(process.env.BASE_URL),
 	routes

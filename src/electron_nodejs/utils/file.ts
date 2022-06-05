@@ -2,14 +2,19 @@ import { ipcMain } from "electron";
 import { appStatic, configStatic } from "./paths";
 import { zipTo, zipFrom } from "./zip";
 import { randomId } from "./base";
+import uniq from "lodash/uniq";
+const { readdir, stat } = require("fs/promises");
 const log = require("electron-log");
 log.transports.file.maxSize = 100 * 1024 * 1024;
 const path = require("path");
 const fs = require("fs");
 const ba64 = require("ba64");
 const spawn = require("child_process").spawn;
+const crypto = require("crypto");
 log.transports.file.resolvePath = () =>
-	path.join(appStatic, "./../../TellFQZWhatHappened.log");
+	process.platform === "win32"
+		? path.join(appStatic, "./../../TellFQZWhatHappened.log")
+		: path.join(configStatic, "./TellFQZWhatHappened.log");
 export { log };
 class File {
 	static registerEvents() {
@@ -23,9 +28,17 @@ class File {
 		ipcMain.on("backend_copy", this.copyFile);
 		ipcMain.on("backend_save_b64", this.saveB64);
 		ipcMain.on("backend_font_list", this.getFontList);
+
+		ipcMain.on("backend_voice_list", this.getVoiceList);
 		ipcMain.on("save_backup", this.saveBackup);
 		ipcMain.on("load_backup", this.loadBackup);
-		ipcMain.on("log", this.log);
+		ipcMain.on("backend_save_with_md5", this.saveWithMd5);
+		ipcMain.on("size_cache", this.sizeCache);
+		ipcMain.on("remove_cache", this.removeCache);
+		ipcMain.on("open_folder", this.openFolder);
+		ipcMain.on("open_cache", this.openCache);
+		ipcMain.on("load_applet", this.loadApplet);
+		ipcMain.on("save_applet", this.saveApplet);
 	}
 
 	static log(event: any, p: any) {
@@ -66,9 +79,51 @@ class File {
 	static loadFile(url: string) {
 		try {
 			const data = fs.readFileSync(url, "utf8");
+			console.log(data);
 			return data;
 		} catch (error) {
+			console.log(error);
+			return "{}";
+		}
+	}
+
+	static getMd5(filePath: string) {
+		try {
+			const file = fs.readFileSync(filePath);
+			const md5 = crypto.createHash("md5");
+			const hash = md5.update(file).digest("hex");
+			return hash;
+		} catch (e) {
 			return "#error";
+		}
+	}
+
+	static saveWithMd5(event: any, res: any) {
+		// eslint-disable-next-line init-declarations
+		let result;
+		try {
+			let { srcUrl, distUrl } = JSON.parse(res);
+			if (!path.isAbsolute(srcUrl))
+				srcUrl = path.join(configStatic, srcUrl);
+			const md5 = File.getMd5(srcUrl);
+			if (!path.isAbsolute(distUrl)) {
+				distUrl = path.join(configStatic, distUrl);
+			}
+
+			const finalFilePath = path.join(
+				distUrl,
+				`${md5}${path.extname(srcUrl)}`
+			);
+
+			if (!fs.existsSync(finalFilePath)) {
+				fs.mkdirSync(path.dirname(finalFilePath), { recursive: true });
+				fs.copyFileSync(srcUrl, finalFilePath);
+			}
+			result = finalFilePath;
+		} catch (e) {
+			result = "#error";
+		} finally {
+			event.reply("save_with_md5_complete", result);
 		}
 	}
 
@@ -93,7 +148,7 @@ class File {
 	}
 
 	static saveB64(event: any, b64: any) {
-		const imgPath = path.join(configStatic, `/images/`);
+		const imgPath = path.join(configStatic, "/images/");
 		const imgName = `image${randomId(8)}`;
 		try {
 			fs.accessSync(imgPath);
@@ -110,7 +165,7 @@ class File {
 
 	static loadConfig(event: any) {
 		// @ts-ignore
-		let url = path.join(configStatic, "config.json");
+		const url = path.join(configStatic, "config.json");
 		try {
 			fs.accessSync(url);
 		} catch (error) {
@@ -129,7 +184,7 @@ class File {
 
 	static loadSuperChat(event: any) {
 		// @ts-ignore
-		let url = path.join(configStatic, "superchat.json");
+		const url = path.join(configStatic, "superchat.json");
 		try {
 			fs.accessSync(url);
 			event.reply("load_superchat_complete", File.loadFile(url));
@@ -161,34 +216,157 @@ class File {
 		}
 		File.saveFile(url, data);
 	}
-	static getFontList(event: any) {
-		// @ts-ignore
-		const defaultPath = path.join(__static, "/fonts");
-		const userDataPath = path.join(configStatic, "/fonts");
-		try {
-			fs.accessSync(userDataPath);
-		} catch (error) {
-			fs.mkdirSync(userDataPath, { recursive: true });
+
+	static loadApplet(event: any, res: any) {
+		const { name } = JSON.parse(res);
+		event.reply(
+			"load_applet_complete",
+			File.loadFile(path.join(configStatic, `${name}.json`))
+		);
+	}
+
+	static saveApplet(event: any, res: any) {
+		const { name, data } = JSON.parse(res);
+		File.savePath(
+			{},
+			JSON.stringify({
+				url: path.join(configStatic, `${name}.json`),
+				data
+			})
+		);
+	}
+
+	static getFileList(event: any, res: any) {
+		let { url } = JSON.parse(res);
+		if (!path.isAbsolute(url)) {
+			url = path.join(configStatic, url);
 		}
-		const result: any = [];
-		fs.readdirSync(defaultPath).forEach((file: any) => {
-			result.push({
-				label: path.parse(file).name,
-				value: `/fonts/${path.basename(file)}`
-			});
-		});
-		fs.readdirSync(userDataPath).forEach((file: any) => {
-			result.push({
-				label: path.parse(file).name,
-				value: `/configFiles/fonts/${path.basename(file)}`
-			});
-		});
+		if (!url || !fs.existsSync(url)) {
+			if (event.reply) {
+				event.reply("get_file_list_complete", JSON.stringify([]));
+			}
+
+			return [];
+		}
+		const files = fs.readdirSync(url);
+		if (event.reply) {
+			event.reply("get_file_list_complete", JSON.stringify(files));
+		}
+		return files;
+	}
+
+	static getVoiceList(event: any) {
+		const result: any = [
+			...File.getFileList(
+				{},
+				JSON.stringify({
+					url: path.join(configStatic, "/voices")
+				})
+			).map((file: any) => {
+				return {
+					label: path.parse(file).name,
+					value: `/configFiles/voices/${path.basename(file)}`
+				};
+			})
+		];
+		event.reply(
+			"voice_list_complete",
+			JSON.stringify({
+				list: result
+			})
+		);
+	}
+
+	static getFontList(event: any) {
+		const result: any = [
+			// @ts-ignore
+			...File.getFileList(
+				{},
+				JSON.stringify({
+					url: path.join(__static, "/fonts")
+				})
+			).map((file: any) => {
+				return {
+					label: path.parse(file).name,
+					value: `/fonts/${path.basename(file)}`
+				};
+			}),
+			...File.getFileList(
+				{},
+				JSON.stringify({
+					url: path.join(configStatic, "/fonts")
+				})
+			).map((file: any) => {
+				return {
+					label: path.parse(file).name,
+					value: `/configFiles/fonts/${path.basename(file)}`
+				};
+			})
+		];
 		event.reply(
 			"font_list_complete",
 			JSON.stringify({
 				list: result
 			})
 		);
+	}
+
+	static sizeCache(event: any) {
+		const fileList = File.walkDir(configStatic);
+		let size = 0;
+		fileList.forEach((file: any) => {
+			size += fs.lstatSync(file).size;
+		});
+		event.reply("size_cache_complete", String(size));
+	}
+	static walkDir(filePath: string): Array<any> {
+		const output: Array<any> = [];
+		const fileList = fs.readdirSync(filePath);
+		fileList.forEach((filename: string) => {
+			const nFilePath = path.join(filePath, filename);
+			if (fs.lstatSync(nFilePath).isFile()) {
+				output.push(nFilePath);
+			} else {
+				output.push(...File.walkDir(nFilePath));
+			}
+		});
+		return output;
+	}
+	static removeCache(event: any, args: any) {
+		const folder = ["fonts", "images"];
+		const allFiles: any = [];
+		folder.forEach(folder => {
+			allFiles.push(...File.walkDir(path.join(configStatic, folder)));
+		});
+		const whiteList = ["config.json", "superchat.json", "applets.json"];
+		const neededFiles: any = uniq(
+			JSON.parse(args).map((p: string) => {
+				return path.basename(p);
+			})
+		);
+		whiteList.push(...neededFiles);
+		allFiles.forEach(filePath => {
+			const basename = path.basename(filePath);
+			if (whiteList.includes(basename)) return;
+			fs.unlinkSync(filePath);
+		});
+		event.reply("remove_cache_complete");
+	}
+	static openFolder(event: any, res: any) {
+		let { url, create } = JSON.parse(res);
+		if (!path.isAbsolute(url)) {
+			url = path.join(configStatic, url);
+		}
+		if (create) {
+			fs.mkdirSync(url, { recursive: true });
+		}
+		if (!url || !fs.existsSync(url)) {
+			return;
+		}
+		require("child_process").exec(`start "" "${url}"`);
+	}
+	static openCache() {
+		File.openFolder({}, JSON.stringify({ url: "./" }));
 	}
 }
 export default File;

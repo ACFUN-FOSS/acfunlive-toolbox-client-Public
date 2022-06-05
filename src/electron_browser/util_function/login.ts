@@ -2,6 +2,7 @@ import { ElMessageBox } from "element-plus";
 export const logout = (): void => {
 	// backendRestart();
 	sessionStorage.setItem("logined", "false");
+	localStorage.setItem("tokenInfo", "");
 	// router.push("/login");
 	window.location.replace(`http://${window.location.host}/login`);
 };

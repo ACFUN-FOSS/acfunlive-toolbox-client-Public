@@ -6,9 +6,12 @@ const ip = require("ip");
 export const startHttp = () => {
 	return new Promise(resolve => {
 		const dirname = process.resourcesPath;
-		const port = 1188;
+		const port = 1299;
 
 		const server = express();
+
+		const { startSocket } = require("./socket.js");
+		startSocket(server);
 		server.use((req: any, res: any, next: any) => {
 			res.header(
 				"Cache-Control",

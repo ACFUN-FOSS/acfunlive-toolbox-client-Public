@@ -1,14 +1,26 @@
 <template>
-	<div class="danmaku-flow" @mousemove="leaveScroll" @mousewheel="scrollable=true;" @mouseleave="scrollable=false">
+	<div
+		class="danmaku-flow"
+		@mousemove="leaveScroll"
+		@mousewheel="scrollable = true"
+		@mouseleave="scrollable = false"
+	>
 		<transition-group name="fade">
-			<danmaku-row v-menu="list" @contextmenu="currentRow = danmaku" v-for="danmaku in [...danmakuLists].reverse()" :key="getKey(danmaku)" :danmaku="danmaku" :setting="getSetting(danmaku)" />
+			<danmaku-row
+				v-menu="list"
+				@contextmenu="currentRow = danmaku"
+				v-for="danmaku in [...danmakuLists]"
+				:key="getKey(danmaku)"
+				:danmaku="danmaku"
+				:setting="getSetting(danmaku)"
+			/>
 		</transition-group>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import danmakuRow from "./danmakuRow.vue";
+import danmakuRow from "./danmakuRow/index.vue";
 import { styleConfig } from "@front/components/danmakuFlow/utils/data";
 import { getTime } from "@front/components/danmakuFlow/utils/getter";
 import menu from "@front/directives/menu";
@@ -46,7 +58,13 @@ export default defineComponent({
 	},
 	computed: {
 		danmakuLists(): Array<any> {
-			return this.danmakuList;
+			//@ts-ignore
+			switch (this.settings?.direction) {
+				case "addToTop":
+					return [...this.danmakuList];
+				default:
+					return [...this.danmakuList].reverse();
+			}
 		},
 		list(): Array<any> {
 			if (this.configMode) {
@@ -75,12 +93,15 @@ export default defineComponent({
 		scrollToBottom: debounce(function() {
 			// @ts-ignore
 			const that = this;
-
+			const top =
+				that.settings?.direction === "addToTop"
+					? 0
+					: that.$el.scrollHeight;
 			if (!that.scrollable) {
 				clearTimeout(that.scrollTimer);
 				that.$nextTick(() => {
 					that.$el.scrollTo({
-						top: that.$el.scrollHeight,
+						top,
 						behavior: "smooth"
 					});
 				});
@@ -107,7 +128,7 @@ export default defineComponent({
 	}
 });
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import "@front/styles/variables.scss";
 @import "@front/styles/scrollbar.scss";
 .danmaku-flow {

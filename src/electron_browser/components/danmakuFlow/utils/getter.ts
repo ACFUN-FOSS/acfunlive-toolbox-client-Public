@@ -1,9 +1,16 @@
 import { danmaku } from "@/electron_browser/datas";
+import replace from "lodash/replace";
+import { isElectron } from "@front/util_function/electron";
+import { escapeRegExp } from "@front/util_function/base";
+import store from "@front/store/index";
+export const getDanmuInfo = function(danmaku: any) {
+	//@ts-ignore
 
-export const getDanmuInfo = (danmaku: any) => {
+	if (!danmaku) danmaku = this;
 	const type = danmaku?.type;
 	switch (type) {
 		case 1000:
+		case 1008:
 			return danmaku.data.danmuInfo;
 		case 1001:
 			return danmaku.data;
@@ -24,7 +31,10 @@ export const getDanmuInfo = (danmaku: any) => {
 	}
 };
 
-export const getUserInfo = (danmaku: any) => {
+export const getUserInfo = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	const type = danmaku?.type;
 	switch (type) {
 		case 1007:
@@ -36,10 +46,16 @@ export const getUserInfo = (danmaku: any) => {
 	}
 };
 
-export const getTime = (danmaku: any) => {
+export const getTime = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	const type = danmaku?.type;
 	switch (type) {
 		case 1007:
+			if (!getDanmuInfo(danmaku)?.joinTime) {
+				danmaku.data.joinTime = Date.now();
+			}
 			return danmaku?.data?.joinTime;
 		default:
 			return getDanmuInfo(danmaku)?.sendTime;
@@ -58,38 +74,62 @@ export const setTime = (danmaku: any, time: any) => {
 	return danmaku;
 };
 
-export const getMedal = (danmaku: any) => {
+export const getMedal = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getUserInfo(danmaku).medal;
 };
 
-export const getMedalLevel = (danmaku: any) => {
+export const getMedalLevel = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getMedal(danmaku).level;
 };
 
-export const getMedalName = (danmaku: any) => {
+export const getMedalName = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getMedal(danmaku).clubName;
 };
 
-export const getAvatar = (danmaku: any) => {
+export const getAvatar = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getUserInfo(danmaku).avatar;
 };
 
-export const getNickName = (danmaku: any) => {
+export const getNickName = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getUserInfo(danmaku).nickname;
 };
 
-export const getUID = (danmaku: any) => {
+export const getUID = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getUserInfo(danmaku).userID;
 };
 
-export const getContent = (danmaku: any) => {
+export const getContent = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	if (danmaku.type !== 1000) {
 		return "";
 	}
 	return danmaku.data.content;
 };
 
-export const getGift = (danmaku: any) => {
+export const getGift = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	if (danmaku.type !== 1005) {
 		return {
 			display: false
@@ -100,19 +140,31 @@ export const getGift = (danmaku: any) => {
 		...danmaku.data
 	};
 };
-export const getDanmakuType = (danmaku: any) => {
+export const getDanmakuType = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return danmaku.type;
 };
 
-export const getGiftName = (danmaku: any) => {
+export const getGiftName = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getGift(danmaku)?.giftDetail.giftName;
 };
 
-export const getGiftCombo = (danmaku: any) => {
+export const getGiftCombo = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getGift(danmaku)?.combo;
 };
 
-export const getGiftNumber = (danmaku: any) => {
+export const getGiftNumber = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	return getGift(danmaku)?.count;
 };
 
@@ -120,14 +172,20 @@ export const setGiftNumber = (danmaku: any, number: any) => {
 	danmaku.data.count = number;
 };
 
-export const getGiftValue = (danmaku: any) => {
+export const getGiftValue = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	if (getGift(danmaku)?.giftDetail.payWalletType === 1) {
 		return getGift(danmaku)?.value;
 	}
 	return 0;
 };
 
-export const getRichText = (danmaku: any) => {
+export const getRichText = function(danmaku: any) {
+	//@ts-ignore
+
+	if (!danmaku) danmaku = this;
 	const content: Array<string> = [];
 	danmaku.data.segments.forEach((i: any) => {
 		switch (i.type) {
@@ -201,4 +259,68 @@ export const getterOptions = () => {
 			avaliable: [1006]
 		}
 	];
+};
+
+export const getContentWithEmoji = function(danmaku: any) {
+	//@ts-ignore
+	if (!danmaku) danmaku = this;
+
+	const { danmakuProfile, temp }: any = store.state;
+	let content = getContent(danmaku);
+	if (!danmakuProfile?.common?.emotion) {
+		return content;
+	}
+	let { emojiTester, emojiMatcher } = temp;
+	if (!emojiTester || !emojiMatcher) {
+		const { matcher, tester } = generateTester();
+		emojiTester = temp.emojiTester = tester;
+		emojiMatcher = temp.emojiMatcher = matcher;
+	}
+	if (isElectron()) {
+		[...content.matchAll(/(ac|AC|aC|Ac)\d+/g)].forEach(match => {
+			content = replace(
+				content,
+				match[0],
+				`<a target="_blank" href="https://www.acfun.cn/v/${match[0]}" style="color:rgb(100,238,238)">${match[0]}(点击查看)</a>`
+			);
+		});
+	}
+	const max = danmakuProfile.common.emotionMax || 3;
+	[...content.matchAll(emojiTester)].forEach((match, index) => {
+		if (!emojiMatcher[match[0]]) {
+			return;
+		}
+		let replacement = "";
+		if (index < max) {
+			replacement = `<img style="max-width:${
+				emojiMatcher[match[0]].scale
+			}px;margin-left:8px;margin-top:8px;vertical-align:bottom" src="${
+				emojiMatcher[match[0]].url
+			}" />`;
+		}
+		content = content.replace(match[0], replacement);
+	});
+	return content;
+};
+export const generateTester = function() {
+	const matcher = {};
+	const testerArr: any = [];
+
+	const { danmakuProfile, temp }: any = store.state;
+	danmakuProfile.common.emojis.forEach((emoji: any) => {
+		const regex = escapeRegExp(emoji.pattern);
+		testerArr.push(regex);
+		// @ts-ignore
+		matcher[emoji.pattern] = {
+			url: emoji.url,
+			scale: emoji.scale,
+			regex: new RegExp(regex, "g")
+		};
+	});
+	const tester = (temp.emojiTester = new RegExp(testerArr.join("|"), "g"));
+	temp.emojiMatcher = matcher;
+	return {
+		tester,
+		matcher
+	};
 };

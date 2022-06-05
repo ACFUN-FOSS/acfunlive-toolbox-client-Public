@@ -1,46 +1,143 @@
 <template>
 	<div id="home">
 		<div class="minify-bar">
-			<handler-moving class="handler">{{$route.meta.cname}}</handler-moving>
-			<div class="button el-icon-refresh-right" @click="reset()" title="重置" />
-			<div class="button el-icon-setting" v-if="hasSetting" @click="hasSetting()" title="设置" />
-			<div class="button el-icon-coordinate " :class="{active:isTop}" @click="isTop = !isTop;setTop(isTop)" title="置顶" />
-			<div class="button el-icon-minus" @click="minimize()" title="最小化" />
+			<handler-moving class="handler">{{
+				$route.query.name
+			}}</handler-moving>
+			<div
+				class="button el-icon-refresh-right"
+				@click="reset()"
+				title="刷新"
+			/>
+			<div
+				class="button el-icon-setting"
+				@click="openSetting"
+				title="设置"
+			/>
+			<div
+				class="button el-icon-monitor"
+				@click="openConsole"
+				title="控制台"
+			/>
+			<div
+				class="button el-icon-coordinate "
+				:class="{ active: isTop }"
+				@click="
+					isTop = !isTop;
+					setTop(isTop);
+				"
+				title="置顶"
+			/>
+			<div
+				class="button el-icon-minus"
+				@click="minimize()"
+				title="最小化"
+			/>
 			<div class="button el-icon-close" @click="close()" title="退出" />
 		</div>
 		<div class="content">
-			<router-view v-slot="{ Component }">
-				<transition name="fade" mode="out-in">
-					<component @hasSetting="hasSetting=$event" :is="Component" />
-				</transition>
-			</router-view>
+			<component ref="comp" :is="component" v-bind="utils" />
 		</div>
 	</div>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { setTop, minimize, close } from "@front/util_function/system";
+import {
+	setTop,
+	minimize,
+	close,
+	openConsole,
+	loadApplet,
+	saveApplet
+} from "@front/util_function/system";
+import { allApi as apis } from "@front/api";
+import * as system from "@front/util_function/system";
 import HandlerMoving from "@front/components/system/HandlerMoving.vue";
+import { loadComponent } from "./httpVue";
+import * as lodash from "lodash";
+import {
+	danmakuTesters,
+	danmakuGetters
+} from "@front/components/danmakuFlow/danmakuRow/advanceFunctions";
+import { wsevent } from "@front/api/wsbus";
+import { registerRole } from "@front/util_function/base";
+import { registerClient, closeWorker } from "@front/util_function/storeWorker";
+
 export default defineComponent({
 	name: "home",
 	components: { HandlerMoving },
 	methods: {
+		openConsole,
 		setTop,
 		minimize,
 		close,
 		reset() {
 			window.location.reload();
+		},
+		openSetting() {
+			this.$refs.comp.setting = true;
 		}
 	},
 	data() {
 		return {
-			hasSetting: false,
-			isTop: false
+			isTop: false,
+			component: null
 		};
 	},
 	mounted() {
 		document.body.classList.add("applet");
+		let { path, name, configurations } = this.$route.query;
+		registerRole(name);
+		wsevent.register(name);
+		path = decodeURIComponent(path);
+		loadComponent(path).then(res => {
+			const config = JSON.parse(configurations);
+			let obsLink = "";
+			if (config.obsPath) {
+				obsLink = `${
+					window.location.host
+				}/obs/applets/?name=${name}&path=${encodeURIComponent(
+					config.obsPath
+				)}`;
+			}
+			const { dirname } = require("path");
+			const data = {
+				configurations: JSON.parse(configurations),
+				obsLink,
+				dirPath: dirname(path)
+			};
+
+			const methods = {
+				apis,
+				lodash,
+				danmakuTesters,
+				danmakuGetters,
+				registerClient,
+				wsevent,
+				system,
+				loadSettings: () => {
+					return loadApplet(name);
+				},
+				saveSettings: data => {
+					return saveApplet(name, data);
+				}
+			};
+			for (const key in methods) {
+				data[`s_${key}`] = methods[key];
+			}
+			this.$nextTick(() => {
+				this.component = defineComponent({
+					mixins: [res],
+					data() {
+						return data;
+					}
+				});
+			});
+		});
+	},
+	beforeUnmount() {
+		closeWorker();
 	}
 });
 </script>

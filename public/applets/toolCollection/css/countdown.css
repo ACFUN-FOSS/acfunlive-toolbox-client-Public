@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "stm";
+  src: url("/applets/toolCollection/css/Share-TechMono.ttf") format("truetype");
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.countdown {
+  width: 100%;
+  position: absolute;
+  font-family: "stm";
+  color: #ffffff;
+  text-align: center;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  color: #daf6ff;
+  text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+  background: #0f3854;
+  background-size: 100%;
+}
+.countdown .time {
+  letter-spacing: 0.05em;
+  font-size: 80px;
+  padding: 5px 0;
+}
+.countdown .date {
+  letter-spacing: 0.1em;
+  font-size: 24px;
+}
+.countdown .text {
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  padding: 20px 0 0;
+}
+
+.timepicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.timepicker input {
+  margin: 0 5px;
+}
+.timepicker .btn {
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px;
+  color: #fff;
+}
+
+/*# sourceMappingURL=countdown.css.map */

@@ -36,6 +36,11 @@ import {
 const isDevelopment = process.env.NODE_ENV !== "production";
 app.commandLine.appendSwitch("disable-renderer-backgrounding");
 app.commandLine.appendSwitch("disable-backgrounding-occluded-windows");
+app.commandLine.appendSwitch("ignore-certificate-errors");
+if (process.platform === "linux") {
+	app.commandLine.appendSwitch("enable-transparent-visuals");
+	app.commandLine.appendSwitch("disable-gpu");
+}
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
 	{ scheme: "app", privileges: { secure: true, standard: true } }
@@ -57,7 +62,11 @@ async function createWindow() {
 		});
 
 		// Create myWindow, load the rest of the app, etc...
-		app.on("ready", () => {});
+		app.on("ready", async () => {
+			if (process.platform === "linux") {
+				await sleep(500);
+			}
+		});
 	}
 	win.once("ready-to-show", () => {
 		win.show();
@@ -97,7 +106,7 @@ async function createWindow() {
 	Applets.registerEvents();
 }
 
-export default function init_mainwindow() {
+export default function initMainWindow() {
 	// Quit when all windows are closed.
 	app.on("window-all-closed", () => {
 		// On macOS it is common for applications and their menu bar
@@ -118,11 +127,15 @@ export default function init_mainwindow() {
 			}
 		}
 
+		if (process.platform === "linux") {
+			await sleep(500);
+		}
+
 		createWindow();
 	});
 
 	// Exit cleanly on request from parent process in development mode.
-	if (isDevelopment) {
+	if (isDevelopment || true) {
 		if (process.platform === "win32") {
 			process.on("message", data => {
 				if (data === "graceful-exit") {
@@ -135,4 +148,8 @@ export default function init_mainwindow() {
 			});
 		}
 	}
+}
+
+function sleep(duration: number): Promise<void> {
+	return new Promise(resolve => setTimeout(resolve, duration));
 }

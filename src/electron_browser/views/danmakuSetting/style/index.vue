@@ -32,8 +32,10 @@
 			</row-span>
 			<row-span :span="8.5">
 				<row-frame width="100%" title="step2:选择类型编辑">
-					<el-radio-group @change="currentWidget={}" :disabled="!enable" size="mini" v-model="styleType">
-						<el-radio-button v-for="type in typeOptions" :label="type.value" :key="type.value">{{type.label}}
+					<el-radio-group @change="currentWidget={}" :disabled="!enable" size="mini" v-model="styleType"
+						class="setting-bar">
+						<el-radio-button v-for="type in typeOptions" :label="type.value" :key="type.value">
+							{{type.label}}
 						</el-radio-button>
 					</el-radio-group>
 				</row-frame>
@@ -68,7 +70,8 @@
 				<div v-if="!enable">么得内容，请先在上方导入样式</div>
 				<div v-else-if="!currentStyle">请先在上选择要编辑的弹幕类型</div>
 				<div v-else-if="!currentWidgets.length">请在左下添加组件</div>
-				<danmaku-row style="white-space:nowrap" v-else :setting="currentStyle" :config-mode="true" :danmaku="mockDanmaku" />
+				<danmaku-row style="white-space:nowrap" v-else :setting="currentStyle" :config-mode="true"
+					:danmaku="mockDanmaku" />
 			</zoom-frame>
 		</row-frame>
 		<row-frame :flex="true" width="100%" style="margin-bottom:0px">
@@ -79,7 +82,10 @@
 							<el-button type="text" :disabled="!currentStyle">添加</el-button>
 							<template #dropdown>
 								<el-dropdown-menu>
-									<el-dropdown-item v-show="!(widget.widgetOptions.avaliable.length&&!widget.widgetOptions.avaliable.includes(styleType))" v-for="widget in widgets" style="width:150px" :key="widget.id" @click="addWidget(widget)">
+									<el-dropdown-item
+										v-show="!(widget.widgetOptions.avaliable.length&&!widget.widgetOptions.avaliable.includes(styleType))"
+										v-for="widget in widgets" style="width:150px" :key="widget.id"
+										@click="addWidget(widget)">
 										{{widget.label}}
 									</el-dropdown-item>
 								</el-dropdown-menu>
@@ -95,10 +101,12 @@
 						当前设置对象：{{currentWidget.label}}
 					</div>
 					<div class="list-add-btn" style="top:-10px">
-						<el-button type="text" :disabled="!widgetSelected" @click="styleDialog=true;generateList()">拉取样式</el-button>
+						<el-button type="text" :disabled="!widgetSelected" @click="styleDialog=true;generateList()">拉取样式
+						</el-button>
 					</div>
 					<div class="content" style="height:290px;overflow-y:auto">
-						<vue-form :form-footer="{show:false}" v-model="currentWidget.value" v-if="widgets[currentWidget.labelEn]" :schema="widgets[currentWidget.labelEn].styleForm" />
+						<vue-form :form-footer="{show:false}" v-model="currentWidget.value"
+							v-if="widgets[currentWidget.labelEn]" :schema="widgets[currentWidget.labelEn].styleForm" />
 						<div style="position:absolute;left:50%;top:50%;transform:translateX(-50%)" v-else>右方选择组件</div>
 					</div>
 				</row-frame>
@@ -124,7 +132,7 @@ import { randomId } from "@front/util_function/base";
 import { loadAsText } from "@front/util_function/file";
 import { toJSON } from "@front/util_function/exportTo";
 import widgets from "@front/components/danmakuFlow/widgets";
-import danmakuRow from "@front/components/danmakuFlow/danmakuRow.vue";
+import danmakuRow from "@/electron_browser/components/danmakuFlow/danmakuRow/index.vue";
 import { getMockByType } from "@front/views/danmakuSetting/mock";
 import VueForm from "@lljj/vue3-form-element";
 import { ElMessage } from "element-plus";
@@ -227,7 +235,7 @@ export default defineComponent({
 			const loadFromFile = async () => {
 				const res: any = await loadAsText(".json");
 				if (res) {
-					this.styles = Object.assign(this.styles, JSON.parse(res));
+					this.styles = JSON.parse(res);
 				} else {
 					ElMessage({
 						duration: 1500,
@@ -432,6 +440,11 @@ export default defineComponent({
 @import "@front/styles/variables.scss";
 @import "@front/styles/scrollbar.scss";
 @import "@front/styles/backgrounds.scss";
+.setting-bar {
+	:deep .el-radio-button--mini .el-radio-button__inner {
+		padding: 7px 10px !important;
+	}
+}
 .zoom-frame {
 	position: relative;
 	z-index: 2;

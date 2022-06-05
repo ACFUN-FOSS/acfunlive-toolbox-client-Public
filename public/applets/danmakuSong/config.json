@@ -1,0 +1,12 @@
+{
+	"name": "歌回助手",
+	"icon": "el-icon-microphone",
+	"description": "简单的点歌记录工具，观众输入\"点歌@歌曲名@\"进行点歌，会合并同名请求，右上角设置提供冷却时间设置",
+	"configurations": {
+		"width": 350,
+		"height": 600,
+		"resizable": true,
+		"multiple": false
+	},
+	"tags": ["不可多开", "版本:1.0.0"]
+}

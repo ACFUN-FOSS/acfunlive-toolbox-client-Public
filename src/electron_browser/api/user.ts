@@ -1,59 +1,113 @@
 import { user } from "@front/datas";
-import { sleep } from "@front/util_function/base";
-import { wsPromise } from "@front/api/utils/websocket";
-import { reject } from "lodash";
-export const login = (data: user.Session | any): Promise<any> => {
+import { request } from "@front/api/utils/websocket";
+
+let logined = false;
+export let session: any = null;
+export const isLogined = (): boolean => {
+	return logined;
+};
+
+/**
+ * @name 登陆
+ * @param param
+ * @param param.account 账号
+ * @param param.password 密码
+ * @returns
+ */
+export const login = ({ account, password }: user.Data): Promise<any> => {
 	// 登陆
-	return wsPromise("login", {
-		type: 2,
-		data
+	return request({
+		method: "login",
+		timeout: 50000,
+		data: {
+			type: 2,
+			data: {
+				account,
+				password
+			}
+		}
+	})
+		.then(({ tokenInfo }: any) => {
+			session = tokenInfo;
+			logined = true;
+			return Promise.resolve(tokenInfo);
+		})
+		.catch(e => {
+			logined = false;
+			session = null;
+			return Promise.reject(e);
+		});
+};
+export const loginSession = (tokenInfo: any): void => {
+	session = tokenInfo;
+	logined = true;
+};
+
+/**
+ * @name 无需登陆设置token
+ * @returns 有token的websocket
+ */
+export const setToken = ({
+	ip,
+	timeout,
+	tokenInfo
+}: any): Promise<WebSocket> => {
+	if ((!session && !tokenInfo) || !logined) {
+		return Promise.reject(new Error());
+	}
+
+	return request({
+		method: "setToken",
+		data: {
+			type: 6,
+			data: tokenInfo || session
+		},
+		ip,
+		timeout,
+		once: false,
+		print: false
+	});
+};
+
+/**
+ * @name 带token的请求
+ * @returns
+ */
+export const requestT = ({
+	method,
+	data,
+	timeout,
+	once,
+	ip,
+	tokenInfo
+}: any) => {
+	return setToken({ ip, tokenInfo, timeout: 5000 }).then(({ ws }: any) => {
+		return request({ method, data, timeout, once, ws, ip });
 	});
 };
 
 export const streamInfo = ({ userID }: any): Promise<any> => {
 	// 获取用户直播信息
-	return wsPromise("getUserStreamInfo", {
-		type: 109,
+	return requestT({
+		method: "getUserStreamInfo",
 		data: {
-			userID
+			type: 109,
+			data: {
+				userID
+			}
 		}
 	});
 };
 
 export const isStreaming = ({ userID }: any): Promise<any> => {
 	// 获取用户直播信息
-	return wsPromise("getUserStreamInfo", {
-		type: 115,
+	return requestT({
+		method: "getUserStreamInfo",
 		data: {
-			userID
-		}
-	});
-};
-/* eslint-disable */
-export const checkIsStreaming = ({ userID }: any): Promise<any> => {
-	return new Promise(async (resolve, reject) => {
-		let isStreaming = undefined;
-		let data = undefined;
-		let retry = 0;
-		do {
-			try {
-				data = await streamInfo({ userID });
-				if (!data?.profile) {
-					throw new Error();
-				}
-				isStreaming = Boolean(data.liveID);
-			} catch (error) {
-				retry += 1;
-				await sleep(1000);
-				if (retry > 10) {
-					reject(new Error("retry to maxmium!"));
-					return;
-				}
+			type: 115,
+			data: {
+				userID
 			}
-		} while (isStreaming === undefined);
-		resolve({
-			isStreaming,
-			data
-		});
+		}
 	});
 };

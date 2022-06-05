@@ -30,7 +30,7 @@ export default () => {
 		},
 		style: {
 			verticalAlign: "middle",
-			position: "relative",
+			position: "",
 			paddingLeft: 0,
 			paddingRight: 0,
 			paddingTop: 0,

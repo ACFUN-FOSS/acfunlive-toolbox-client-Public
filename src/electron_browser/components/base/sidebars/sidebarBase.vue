@@ -5,7 +5,9 @@
 		<div class="sidebarList">
 			<div class="listBlock" v-for="item in contents" :key="item.meta.label">
 				<div class="blockTitle">{{ item.meta.label }}</div>
-				<div class="blockRow" v-for="row in item.children" :key="row.meta.label" :class="{active:$route.name==row.name,disabled:row.meta.disabled?row.meta.disabled():false}" @click="route(row)">
+				<div class="blockRow" v-for="row in item.children" :key="row.meta.label"
+					:class="{active:$route.name==row.name,disabled:row.meta.disabled?row.meta.disabled():false}"
+					@click="route(row)">
 					<span class="rowIcon" :class="row.meta.icon" />{{ row.meta.label }}
 				</div>
 			</div>
@@ -30,7 +32,7 @@ export default defineComponent({
 		footer,
 		common,
 		contents() {
-			return content.slice(1);
+			return content.slice(2).filter(i => !i.hidden);
 		}
 	},
 	methods: {
@@ -42,6 +44,7 @@ export default defineComponent({
 			if (row.meta.action === "router") {
 				this.$router.push({ name: row.name });
 			}
+
 			if (typeof row.meta.action === "function") {
 				row.meta.action();
 			}
