@@ -130,7 +130,6 @@ export default defineComponent({
 			} catch (error) {}
 			const liveID = this.$store.state.roomProfile.liveID;
 			if (!liveID) return;
-			console.log(recordList);
 			if (!recordList.find((i: any) => i.liveID === liveID)) {
 				recordList.unshift({
 					liveID,

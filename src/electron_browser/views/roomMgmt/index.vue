@@ -231,8 +231,8 @@ export default defineComponent({
 			count: 0,
 			timer,
 			roomProfile,
-			danmakuStream: `http://${window.location.host}/obs/danmaku/`,
-			magicScreen: `http://${window.location.host}/obs/screen`
+			danmakuStream: `${window.location.origin}/obs/danmaku/`,
+			magicScreen: `${window.location.origin}/obs/screen`
 		};
 	},
 	computed: {
@@ -380,7 +380,7 @@ export default defineComponent({
 			if (isUrl(str)) {
 				return str;
 			}
-			return `http://${window.location.host}${str}`;
+			return `${window.location.origin}${str}`;
 		},
 		async readyToStream() {
 			this.loading = true;

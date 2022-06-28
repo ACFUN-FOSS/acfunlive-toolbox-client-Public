@@ -7,18 +7,30 @@ import {
 	scGiftHandler,
 	scTextHandler
 } from "@front/components/superChat/utils/getter";
+import { escape } from "lodash";
 import {
 	getUID,
-	getNickName
+	getNickName,
+	getContent
 } from "@front/components/danmakuFlow/utils/getter";
 const empty = (data: any): number => {
 	return data;
+};
+const removeElementsByTagName = (div: any, tagName: string) => {
+	const collection: any = div.getElementsByTagName(tagName);
+	for (const i of collection) {
+		i.remove();
+	}
 };
 
 export const danmakuText = (e: any, store: Store<any>) => {
 	if (store.getters.superChatEnable) {
 		scTextHandler(e, store);
 	}
+};
+
+export const danmakuTextPre = (e: any, store: Store<any>) => {
+	e.data.content = escape(getContent(e));
 };
 
 export const danmakuLike = empty;
@@ -83,10 +95,9 @@ export const danmakuHistory = (e: any, store: Store<any>) => {
 	const rank = state.rank;
 	const { list } = store.state.filter.filterUpdate(
 		e.data.map((danmaku: any) => {
-			return {
-				type: 1000,
-				data: danmaku
-			};
+			danmaku = { type: 1000, data: danmaku };
+			danmakuTextPre(danmaku, store);
+			return danmaku;
 		}),
 		state.danmakuSession.filterFlow,
 		settings,
@@ -104,6 +115,10 @@ export const warning = (e: any) => {
 		message: `恁被C类警告累~${e.data.violationContent}`,
 		type: "warning"
 	});
+};
+
+export const danmakuPreHandler: any = {
+	1000: danmakuTextPre
 };
 
 export const danmakuHandler: any = {

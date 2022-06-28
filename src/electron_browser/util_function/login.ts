@@ -4,7 +4,7 @@ export const logout = (): void => {
 	sessionStorage.setItem("logined", "false");
 	localStorage.setItem("tokenInfo", "");
 	// router.push("/login");
-	window.location.replace(`http://${window.location.host}/login`);
+	window.location.replace(`${window.location.origin}/login`);
 };
 
 export const restart = () => {
@@ -18,5 +18,5 @@ export const restart = () => {
 export const restartConfirmed = () => {
 	sessionStorage.clear();
 	// router.push("/login");
-	window.location.replace(`http://${window.location.host}/login`);
+	window.location.replace(`${window.location.origin}/login`);
 };

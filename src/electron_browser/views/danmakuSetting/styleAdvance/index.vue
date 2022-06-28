@@ -1,11 +1,19 @@
 <template>
-	<content-frame align="row" class="danmaku-setting" :style="{'--brightness':brightness/100}">
+	<content-frame
+		align="row"
+		class="danmaku-setting"
+		:style="{ '--brightness': brightness / 100 }"
+	>
 		<row-span :span="12">
 			<span class="hint">
 				用之前康康Q&A：
 				<popver-help width="700px" trigger="hover">
-					<div v-for="(hin,index) in hint" :key="index" style="margin-bottom:8px">
-						Q:<span class="hint" v-html="hin.q" /><br>
+					<div
+						v-for="(hin, index) in hint"
+						:key="index"
+						style="margin-bottom:8px"
+					>
+						Q:<span class="hint" v-html="hin.q" /><br />
 						A:<span class="hint" v-html="hin.a" />
 					</div>
 				</popver-help>
@@ -14,17 +22,32 @@
 		<row-frame :flex="true" width="100%" style="margin-bottom:0px">
 			<row-span :span="2">
 				<row-frame width="100%" title="step1:导入">
-					<el-dropdown @command="loadCommand" type="primary" trigger="click" style="line-height:28px">
+					<el-dropdown
+						@command="loadCommand"
+						type="primary"
+						trigger="click"
+						style="line-height:28px"
+					>
 						<el-button size="mini" type="primary">
 							导入样式，从
 						</el-button>
 						<template #dropdown>
 							<el-dropdown-menu>
-								<el-dropdown-item command="toolBox">当前主播样式</el-dropdown-item>
-								<el-dropdown-item command="web">当前观众样式</el-dropdown-item>
-								<el-dropdown-item command="d-toolBox">默认主播样式</el-dropdown-item>
-								<el-dropdown-item command="d-web">默认观众样式</el-dropdown-item>
-								<el-dropdown-item command="file">文件</el-dropdown-item>
+								<el-dropdown-item command="toolBox"
+									>当前主播样式</el-dropdown-item
+								>
+								<el-dropdown-item command="web"
+									>当前观众样式</el-dropdown-item
+								>
+								<el-dropdown-item command="d-toolBox"
+									>默认主播样式</el-dropdown-item
+								>
+								<el-dropdown-item command="d-web"
+									>默认观众样式</el-dropdown-item
+								>
+								<el-dropdown-item command="file"
+									>文件</el-dropdown-item
+								>
 							</el-dropdown-menu>
 						</template>
 					</el-dropdown>
@@ -32,69 +55,154 @@
 			</row-span>
 			<row-span :span="8.5">
 				<row-frame width="100%" title="step2:选择类型编辑">
-					<el-radio-group @change="currentWidget={}" :disabled="!enable" size="mini" v-model="styleType"
-						class="setting-bar">
-						<el-radio-button v-for="type in typeOptions" :label="type.value" :key="type.value">
-							{{type.label}}
+					<el-radio-group
+						@change="currentWidget = {}"
+						:disabled="!enable"
+						size="mini"
+						v-model="styleType"
+						class="setting-bar"
+					>
+						<el-radio-button
+							v-for="type in typeOptions"
+							:label="type.value"
+							:key="type.value"
+						>
+							{{ type.label }}
 						</el-radio-button>
 					</el-radio-group>
 				</row-frame>
 			</row-span>
 			<row-span :span="1.5">
 				<row-frame width="100%" title="step3:保存">
-					<el-dropdown @command="saveCommand" type="primary" trigger="click" style="line-height:28px">
-						<el-button size="mini" type="primary" :disabled="!enable">
+					<el-dropdown
+						@command="saveCommand"
+						type="primary"
+						trigger="click"
+						style="line-height:28px"
+					>
+						<el-button
+							size="mini"
+							type="primary"
+							:disabled="!enable"
+						>
 							保存到
 						</el-button>
 						<template #dropdown>
 							<el-dropdown-menu>
-								<el-dropdown-item command="toolBox">主播端</el-dropdown-item>
-								<el-dropdown-item command="web">观众端</el-dropdown-item>
-								<el-dropdown-item command="both">主播&观众端</el-dropdown-item>
-								<el-dropdown-item command="file">文件</el-dropdown-item>
+								<el-dropdown-item command="toolBox"
+									>主播端</el-dropdown-item
+								>
+								<el-dropdown-item command="web"
+									>观众端</el-dropdown-item
+								>
+								<el-dropdown-item command="both"
+									>主播&观众端</el-dropdown-item
+								>
+								<el-dropdown-item command="file"
+									>文件</el-dropdown-item
+								>
 							</el-dropdown-menu>
 						</template>
 					</el-dropdown>
 				</row-frame>
 			</row-span>
-
 		</row-frame>
 		<row-frame width="100%" title="这是预览">
-			<div class="list-add-btn" style="top:-10px;display:flex; align-items:center">
-				<div class="slider">背景亮度：
-					<el-slider style="width:100px" v-model="brightness" :min="20" :max="100" :step="1" />
+			<div
+				class="list-add-btn"
+				style="top:-10px;display:flex; align-items:center"
+			>
+				<div class="slider">
+					背景亮度：
+					<el-slider
+						style="width:100px"
+						v-model="brightness"
+						:min="20"
+						:max="100"
+						:step="1"
+					/>
 				</div>
 				<el-checkbox v-model="zoomPreview">缩放</el-checkbox>
-				<el-button type="text" style="margin:0px 16px" @click="changeDanmaku">换条弹幕</el-button>
+				<el-button
+					type="text"
+					style="margin:0px 16px"
+					@click="changeDanmaku"
+					>换条弹幕</el-button
+				>
 			</div>
-			<zoom-frame :allow-zoom="zoomPreview" class="zoom-frame" :styles="{width: '100%',height: '60px'}">
+			<zoom-frame
+				:allow-zoom="zoomPreview"
+				class="zoom-frame"
+				:styles="{ width: '100%', height: '60px' }"
+			>
 				<div v-if="!enable">么得内容，请先在上方导入样式</div>
-				<div v-else-if="!currentStyle">请先在上选择要编辑的弹幕类型</div>
-				<div v-else-if="!currentStyle.advHtml">请在下方编辑代码，所见即所得</div>
-				<danmaku-row style="white-space:nowrap" v-else :setting="currentStyle" :config-mode="true"
-					:danmaku="mockDanmaku" :key="styleType" />
+				<div v-else-if="!currentStyle">
+					请先在上选择要编辑的弹幕类型
+				</div>
+				<div v-else-if="!currentStyle.advHtml">
+					请在下方编辑代码，所见即所得
+				</div>
+				<danmaku-row
+					style="white-space:nowrap"
+					v-else
+					:setting="currentStyle"
+					:config-mode="true"
+					:danmaku="mockDanmaku"
+					:key="styleType"
+				/>
 			</zoom-frame>
 		</row-frame>
-		<row-frame :flex="true" width="100%" style="margin-bottom:0px" v-if="currentStyle">
+		<row-frame
+			:flex="true"
+			width="100%"
+			style="margin-bottom:0px"
+			v-if="currentStyle"
+		>
 			<row-span :span="8">
-				<row-frame width="100%" title="HTML(VUE模板语法，最外侧不需要template)">
-					<textarea ref="editor" v-model="currentStyle.advHtml" style="height:110px;width:450px;resize: none"
-						@blur="recordSelection" @focus="recoverSelection" @change="getAdvId" />
+				<row-frame
+					width="100%"
+					title="HTML(VUE模板语法，最外侧不需要template)"
+				>
+					<textarea
+						ref="editor"
+						v-model="currentStyle.advHtml"
+						style="height:110px;width:450px;resize: none"
+						@blur="recordSelection"
+						@focus="recoverSelection"
+						@change="getAdvId"
+					/>
 				</row-frame>
 				<row-frame width="100%" title="CSS">
-					<textarea v-model="currentStyle.advCss" style="height:110px;width:450px;resize: none"
-						@change="getAdvId" />
+					<textarea
+						v-model="currentStyle.advCss"
+						style="height:110px;width:450px;resize: none"
+						@change="getAdvId"
+					/>
 				</row-frame>
 			</row-span>
 			<row-span :span="4">
 				<row-frame width="100%" title="函数列表">
-					<base-list style="height:240px" :list="functionList" :action="action" />
-					<el-button style="margin-top:8px" size="mini" type="primary" @click="openDocument">说明文档</el-button>
-					<el-button style="margin-top:8px" size="mini" type="primary" @click="openResources">素材文件夹
+					<base-list
+						style="height:240px"
+						:list="functionList"
+						:action="action"
+					/>
+					<el-button
+						style="margin-top:8px"
+						size="mini"
+						type="primary"
+						@click="openDocument"
+						>说明文档</el-button
+					>
+					<el-button
+						style="margin-top:8px"
+						size="mini"
+						type="primary"
+						@click="openResources"
+						>素材文件夹
 					</el-button>
 				</row-frame>
 			</row-span>
-
 		</row-frame>
 	</content-frame>
 </template>
@@ -230,7 +338,7 @@ export default defineComponent({
 			const loadFromFile = async () => {
 				const res: any = await loadAsText(".json");
 				if (res) {
-					this.styles = Object.assign(this.styles, JSON.parse(res));
+					this.styles = JSON.parse(res);
 				} else {
 					ElMessage({
 						duration: 1500,
@@ -317,7 +425,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import "@front/styles/variables.scss";
 @import "@front/styles/scrollbar.scss";
 @import "@front/styles/backgrounds.scss";

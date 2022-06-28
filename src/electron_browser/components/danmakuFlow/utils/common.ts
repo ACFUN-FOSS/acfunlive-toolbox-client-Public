@@ -1,6 +1,7 @@
 import { Settings, CommonSettings } from "@front/datas/danmaku";
 import { Rank } from "@front/datas/room";
 import { getContent, getUserInfo, getMedal, getUID } from "./getter";
+import { reactive } from "vue";
 import {
 	isOwner as ownerTest,
 	isManager as managerTest,
@@ -93,10 +94,10 @@ export class Filter {
 					continue;
 				} else {
 					needFreeze = false;
-					i = {
+					i = reactive({
 						...i,
 						combineCount: 1
-					};
+					});
 					this.likeList.unshift(i);
 				}
 			} else if (i.type === 1002 && filter.combineEnter) {
@@ -108,10 +109,10 @@ export class Filter {
 					continue;
 				} else {
 					needFreeze = false;
-					i = {
+					i = reactive({
 						...i,
 						combineCount: 1
-					};
+					});
 					this.enterList.unshift(i);
 				}
 			} else if (i.type === 1005 && filter.combineGift) {
@@ -129,11 +130,11 @@ export class Filter {
 					continue;
 				} else {
 					needFreeze = false;
-					i = {
+					i = reactive({
 						...i,
 						expire: now + 5000,
 						count: i.data.count
-					};
+					});
 					this.giftList.unshift(i);
 				}
 			}

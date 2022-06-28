@@ -23,9 +23,11 @@ export const getUrl = (): string => {
 		: "localhost";
 };
 
-export const setHeartBeat = (ws: any) => {
+export const setHeartBeat = (ws: any, options: any = {}) => {
 	if (!ws) return;
+	const { once }: any = options;
 	clearTimeout(ws.timer);
+	console.log("心跳");
 	if (ws.readyState === 1) {
 		ws.send(
 			JSON.stringify({
@@ -38,6 +40,7 @@ export const setHeartBeat = (ws: any) => {
 		clearTimeout(ws.timer);
 		return;
 	}
+	if (once) return;
 	ws.timer = setTimeout(() => {
 		setHeartBeat(ws);
 	}, 3000);

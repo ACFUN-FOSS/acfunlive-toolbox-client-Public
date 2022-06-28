@@ -62,13 +62,14 @@ export default defineComponent({
 		content(): any {
 			const prefix = this.setting?.config?.preffix || "";
 			const affix = this.setting?.config?.affix || "";
-			return `${prefix}${getContent(this.danmaku)}${affix}`;
+			const danmaku: any = this.danmaku;
+			return `${prefix}${getContent(danmaku)}${affix}`;
 		}
 	},
 	methods: {}
 });
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .content {
 	display: inline;
 	position: relative;

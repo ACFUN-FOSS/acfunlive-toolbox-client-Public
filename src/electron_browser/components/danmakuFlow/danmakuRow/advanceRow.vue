@@ -1,11 +1,11 @@
 <template>
 	<div class="danmaku-row" v-if="!configMode">
-		<component :is="templateComponent" :danmaku="danmaku" />
+		<component :is="templateComponent" :danmaku="danmaku" :key="key" />
 	</div>
 	<div class="danmaku-row" v-else></div>
 </template>
 
-<script >
+<script>
 import { defineComponent, createApp } from "vue/dist/vue.esm-bundler.js";
 import advFunctions from "./advanceFunctions";
 import { getDanmakuType } from "@front/components/danmakuFlow/utils/getter";
@@ -21,6 +21,11 @@ export default defineComponent({
 		configMode: {
 			default: false
 		}
+	},
+	data() {
+		return {
+			key: 1
+		};
 	},
 	mounted() {
 		this.handleChanges();
@@ -97,7 +102,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .danmaku-row {
 	&.config {
 		min-width: 300px;

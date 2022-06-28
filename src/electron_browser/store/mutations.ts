@@ -7,7 +7,7 @@ import cloneDeep from "lodash/cloneDeep";
 import { saveConfig } from "@front/util_function/system";
 import { ElMessage } from "element-plus";
 import { isElectron } from "../util_function/electron";
-import { danmakuHandler } from "./danmaku/danmaku";
+import { danmakuHandler, danmakuPreHandler } from "./danmaku/danmaku";
 import { read } from "@front/api/robot";
 import {
 	getUserInfo,
@@ -16,7 +16,8 @@ import {
 import {
 	isOwner,
 	isNormalDanmaku,
-	hasGift
+	hasGift,
+	hasContent
 } from "@front/components/danmakuFlow/utils/tester";
 export const mutations: any = {
 	reset() {
@@ -290,6 +291,10 @@ export const mutations: any = {
 	},
 	addNewDanmaku(state: RootState, danmaku: any) {
 		const filter = state.filter;
+		const preHandler = danmakuPreHandler[String(danmaku.type)];
+		if (preHandler) {
+			preHandler(danmaku, store);
+		}
 		if (isNormalDanmaku(danmaku)) {
 			const settings: any = isElectron()
 				? state.danmakuProfile.toolBox
@@ -327,11 +332,12 @@ export const mutations: any = {
 						Array.isArray(enable) &&
 						enable.includes(danmaku.type)
 					) {
+						shouldRead = true;
 						if (hasGift(filtered[0])) {
 							shouldRead =
+								!hasGift(filtered[0]) ||
 								getGiftValue(filtered[0]) / 100 >=
-								(settings?.robotSetting?.giftLevel || 0);
-							console.log(shouldRead);
+									(settings?.robotSetting?.giftLevel || 0);
 						}
 					}
 					if (!shouldRead) break;

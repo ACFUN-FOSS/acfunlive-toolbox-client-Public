@@ -17,15 +17,17 @@ export const startDanmaku = ({ onOpen, onDanmaku, onClose }: any): any => {
 	// 开始弹幕流获取
 	return start(session)
 		.then(res => {
-			const heartBeat = throttle(setHeartBeat, 1000);
 			let timer: any = null;
 			const { ws }: any = res;
+			const heartBeat = throttle(function() {
+				setHeartBeat(ws, { once: true });
+			}, 5000);
 			(window as any).danmakuWS = ws;
-			heartBeat(ws);
+			heartBeat();
 			const judge = (e: any) => {
 				const data = JSON.parse(e.data);
 				if (data.type !== 1) {
-					heartBeat(ws);
+					heartBeat();
 					clearTimeout(timer);
 					timer = setTimeout(onClose, 10000);
 				}

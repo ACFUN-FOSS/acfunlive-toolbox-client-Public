@@ -102,7 +102,7 @@ export const streamInfo = ({ userID }: any): Promise<any> => {
 export const isStreaming = ({ userID }: any): Promise<any> => {
 	// 获取用户直播信息
 	return requestT({
-		method: "getUserStreamInfo",
+		method: "isStreaming",
 		data: {
 			type: 115,
 			data: {

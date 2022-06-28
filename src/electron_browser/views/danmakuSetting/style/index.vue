@@ -1,11 +1,19 @@
 <template>
-	<content-frame align="row" class="danmaku-setting" :style="{'--brightness':brightness/100}">
+	<content-frame
+		align="row"
+		class="danmaku-setting"
+		:style="{ '--brightness': brightness / 100 }"
+	>
 		<row-span :span="12">
 			<span class="hint">
 				用之前康康Q&A：
 				<popver-help width="700px" trigger="hover">
-					<div v-for="(hin,index) in hint" :key="index" style="margin-bottom:8px">
-						Q:<span class="hint" v-html="hin.q" /><br>
+					<div
+						v-for="(hin, index) in hint"
+						:key="index"
+						style="margin-bottom:8px"
+					>
+						Q:<span class="hint" v-html="hin.q" /><br />
 						A:<span class="hint" v-html="hin.a" />
 					</div>
 				</popver-help>
@@ -14,17 +22,32 @@
 		<row-frame :flex="true" width="100%" style="margin-bottom:0px">
 			<row-span :span="2">
 				<row-frame width="100%" title="step1:导入">
-					<el-dropdown @command="loadCommand" type="primary" trigger="click" style="line-height:28px">
+					<el-dropdown
+						@command="loadCommand"
+						type="primary"
+						trigger="click"
+						style="line-height:28px"
+					>
 						<el-button size="mini" type="primary">
 							导入样式，从
 						</el-button>
 						<template #dropdown>
 							<el-dropdown-menu>
-								<el-dropdown-item command="toolBox">当前主播样式</el-dropdown-item>
-								<el-dropdown-item command="web">当前观众样式</el-dropdown-item>
-								<el-dropdown-item command="d-toolBox">默认主播样式</el-dropdown-item>
-								<el-dropdown-item command="d-web">默认观众样式</el-dropdown-item>
-								<el-dropdown-item command="file">文件</el-dropdown-item>
+								<el-dropdown-item command="toolBox"
+									>当前主播样式</el-dropdown-item
+								>
+								<el-dropdown-item command="web"
+									>当前观众样式</el-dropdown-item
+								>
+								<el-dropdown-item command="d-toolBox"
+									>默认主播样式</el-dropdown-item
+								>
+								<el-dropdown-item command="d-web"
+									>默认观众样式</el-dropdown-item
+								>
+								<el-dropdown-item command="file"
+									>文件</el-dropdown-item
+								>
 							</el-dropdown-menu>
 						</template>
 					</el-dropdown>
@@ -32,46 +55,89 @@
 			</row-span>
 			<row-span :span="8.5">
 				<row-frame width="100%" title="step2:选择类型编辑">
-					<el-radio-group @change="currentWidget={}" :disabled="!enable" size="mini" v-model="styleType"
-						class="setting-bar">
-						<el-radio-button v-for="type in typeOptions" :label="type.value" :key="type.value">
-							{{type.label}}
+					<el-radio-group
+						@change="currentWidget = {}"
+						:disabled="!enable"
+						size="mini"
+						v-model="styleType"
+						class="setting-bar"
+					>
+						<el-radio-button
+							v-for="type in typeOptions"
+							:label="type.value"
+							:key="type.value"
+						>
+							{{ type.label }}
 						</el-radio-button>
 					</el-radio-group>
 				</row-frame>
 			</row-span>
 			<row-span :span="1.5">
 				<row-frame width="100%" title="step3:保存">
-					<el-dropdown @command="saveCommand" type="primary" trigger="click" style="line-height:28px">
-						<el-button size="mini" type="primary" :disabled="!enable">
+					<el-dropdown
+						@command="saveCommand"
+						type="primary"
+						trigger="click"
+						style="line-height:28px"
+					>
+						<el-button
+							size="mini"
+							type="primary"
+							:disabled="!enable"
+						>
 							保存到
 						</el-button>
 						<template #dropdown>
 							<el-dropdown-menu>
-								<el-dropdown-item command="toolBox">主播端</el-dropdown-item>
-								<el-dropdown-item command="web">观众端</el-dropdown-item>
-								<el-dropdown-item command="both">主播&观众端</el-dropdown-item>
-								<el-dropdown-item command="file">文件</el-dropdown-item>
+								<el-dropdown-item command="toolBox"
+									>主播端</el-dropdown-item
+								>
+								<el-dropdown-item command="web"
+									>观众端</el-dropdown-item
+								>
+								<el-dropdown-item command="both"
+									>主播&观众端</el-dropdown-item
+								>
+								<el-dropdown-item command="file"
+									>文件</el-dropdown-item
+								>
 							</el-dropdown-menu>
 						</template>
 					</el-dropdown>
 				</row-frame>
 			</row-span>
-
 		</row-frame>
 		<row-frame width="100%" title="这是预览">
 			<div class="list-add-btn" style="top:0px">
-				<div class="slider">背景亮度：
-					<el-slider style="width:100px" v-model="brightness" :min="20" :max="100" :step="1" />
+				<div class="slider">
+					背景亮度：
+					<el-slider
+						style="width:100px"
+						v-model="brightness"
+						:min="20"
+						:max="100"
+						:step="1"
+					/>
 				</div>
 				<el-checkbox v-model="zoomPreview">缩放</el-checkbox>
 			</div>
-			<zoom-frame :allow-zoom="zoomPreview" class="zoom-frame" :styles="{width: '100%',height: '60px'}">
+			<zoom-frame
+				:allow-zoom="zoomPreview"
+				class="zoom-frame"
+				:styles="{ width: '100%', height: '60px' }"
+			>
 				<div v-if="!enable">么得内容，请先在上方导入样式</div>
-				<div v-else-if="!currentStyle">请先在上选择要编辑的弹幕类型</div>
+				<div v-else-if="!currentStyle">
+					请先在上选择要编辑的弹幕类型
+				</div>
 				<div v-else-if="!currentWidgets.length">请在左下添加组件</div>
-				<danmaku-row style="white-space:nowrap" v-else :setting="currentStyle" :config-mode="true"
-					:danmaku="mockDanmaku" />
+				<danmaku-row
+					style="white-space:nowrap"
+					v-else
+					:setting="currentStyle"
+					:config-mode="true"
+					:danmaku="mockDanmaku"
+				/>
 			</zoom-frame>
 		</row-frame>
 		<row-frame :flex="true" width="100%" style="margin-bottom:0px">
@@ -79,42 +145,88 @@
 				<row-frame width="100%" title="组件列表">
 					<div class="list-add-btn" style="top:-10px">
 						<el-dropdown :max-height="200" trigger="hover">
-							<el-button type="text" :disabled="!currentStyle">添加</el-button>
+							<el-button type="text" :disabled="!currentStyle"
+								>添加</el-button
+							>
 							<template #dropdown>
 								<el-dropdown-menu>
 									<el-dropdown-item
-										v-show="!(widget.widgetOptions.avaliable.length&&!widget.widgetOptions.avaliable.includes(styleType))"
-										v-for="widget in widgets" style="width:150px" :key="widget.id"
-										@click="addWidget(widget)">
-										{{widget.label}}
+										v-show="
+											!(
+												widget.widgetOptions.avaliable
+													.length &&
+												!widget.widgetOptions.avaliable.includes(
+													styleType
+												)
+											)
+										"
+										v-for="widget in widgets"
+										style="width:150px"
+										:key="widget.id"
+										@click="addWidget(widget)"
+									>
+										{{ widget.label }}
 									</el-dropdown-item>
 								</el-dropdown-menu>
 							</template>
 						</el-dropdown>
 					</div>
-					<base-list style="height:290px" :list="currentWidgets" :selected="currentWidget" :action="action" />
+					<base-list
+						style="height:290px"
+						:list="currentWidgets"
+						:selected="currentWidget"
+						:action="action"
+					/>
 				</row-frame>
 			</row-span>
 			<row-span :span="8">
 				<row-frame width="100%" title="设置参数">
-					<div v-show="widgetSelected" class="list-add-btn" style="top:0px;left:60px">
-						当前设置对象：{{currentWidget.label}}
+					<div
+						v-show="widgetSelected"
+						class="list-add-btn"
+						style="top:0px;left:60px"
+					>
+						当前设置对象：{{ currentWidget.label }}
 					</div>
 					<div class="list-add-btn" style="top:-10px">
-						<el-button type="text" :disabled="!widgetSelected" @click="styleDialog=true;generateList()">拉取样式
+						<el-button
+							type="text"
+							:disabled="!widgetSelected"
+							@click="
+								styleDialog = true;
+								generateList();
+							"
+							>拉取样式
 						</el-button>
 					</div>
 					<div class="content" style="height:290px;overflow-y:auto">
-						<vue-form :form-footer="{show:false}" v-model="currentWidget.value"
-							v-if="widgets[currentWidget.labelEn]" :schema="widgets[currentWidget.labelEn].styleForm" />
-						<div style="position:absolute;left:50%;top:50%;transform:translateX(-50%)" v-else>右方选择组件</div>
+						<vue-form
+							:form-footer="{ show: false }"
+							v-model="currentWidget.value"
+							v-if="widgets[currentWidget.labelEn]"
+							:schema="widgets[currentWidget.labelEn].styleForm"
+						/>
+						<div
+							style="position:absolute;left:50%;top:50%;transform:translateX(-50%)"
+							v-else
+						>
+							右方选择组件
+						</div>
 					</div>
 				</row-frame>
 			</row-span>
 		</row-frame>
 	</content-frame>
-	<el-dialog title="样式拉取(尽量用于拉取相同组件的样式，对于不同组件可能会出错)" v-model="styleDialog">
-		<el-cascader :options="styleOption" v-model="styleOptionValue" @change="getStyle" placeholder="请选择拉取样式" />
+	<el-dialog
+		title="样式拉取(尽量用于拉取相同组件的样式，对于不同组件可能会出错)"
+		v-model="styleDialog"
+	>
+		<el-cascader
+			:options="styleOption"
+			v-model="styleOptionValue"
+			@change="getStyle"
+			placeholder="请选择拉取样式"
+		/>
 	</el-dialog>
 </template>
 
@@ -436,7 +548,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import "@front/styles/variables.scss";
 @import "@front/styles/scrollbar.scss";
 @import "@front/styles/backgrounds.scss";

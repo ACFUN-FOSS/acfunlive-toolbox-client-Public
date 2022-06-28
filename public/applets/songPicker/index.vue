@@ -383,7 +383,7 @@ export default {
 	},
 	mounted() {
 		const startSong = this.startSong;
-		this.startSong = this.s_lodash.throttle(startSong, 1000);
+		this.startSong = this.s_lodash.throttle(startSong, 5000);
 		this.s_registerClient(
 			["changedDanmaku", "userProfile", "roomProfile", "userSession"],
 			({ changedDanmaku, userProfile, roomProfile, userSession }) => {
@@ -464,7 +464,9 @@ export default {
 			const xhr = new XMLHttpRequest();
 			xhr.open(
 				"GET",
-				`https://netease-cloud-music-api-iota-black.vercel.app/playlist/track/all?id=${this.songListID}`
+				`https://${this.getSongApiUrl()}/playlist/track/all?id=${
+					this.songListID
+				}`
 			);
 			xhr.onloadend = () => {
 				const result = JSON.parse(xhr.responseText);
@@ -493,10 +495,7 @@ export default {
 			this.lyricloading = true;
 			const id = this.playingSingle.id || this.playingSingle.songid;
 			const xhr = new XMLHttpRequest();
-			xhr.open(
-				"GET",
-				`https://netease-cloud-music-api-iota-black.vercel.app/lyric?id=${id}`
-			);
+			xhr.open("GET", `https://${this.getSongApiUrl()}/lyric?id=${id}`);
 			xhr.onloadend = () => {
 				const res = JSON.parse(xhr.responseText);
 				let lrc = res?.lrc?.lyric;
@@ -636,7 +635,7 @@ export default {
 		getSong(songName) {
 			return new Promise((resolve, reject) => {
 				fetch(
-					`https://netease-cloud-music-api-iota-black.vercel.app/cloudsearch?keywords=${encodeURIComponent(
+					`https://${this.getSongApiUrl()}/cloudsearch?keywords=${encodeURIComponent(
 						songName
 					)}&limit=3`
 				).then(res =>
@@ -649,7 +648,7 @@ export default {
 		getSongUrl(songId) {
 			return new Promise((resolve, reject) => {
 				fetch(
-					`https://netease-cloud-music-api-iota-black.vercel.app/song/url?id=${songId}`
+					`https://${this.getSongApiUrl()}/song/url?id=${songId}`
 				).then(res =>
 					res.json().then(res => {
 						resolve(
@@ -660,7 +659,14 @@ export default {
 				);
 			});
 		},
-
+		getSongApiUrl() {
+			const list = [
+				"netease-cloud-music-api-iota-black.vercel.app",
+				"netease-cloud-music-api-2-lake.vercel.app",
+				"netease-cloud-music-api-3-three.vercel.app"
+			];
+			return list[Math.floor(Math.random() * 3)];
+		},
 		addSongSearch() {
 			if (this.loading) {
 				return;

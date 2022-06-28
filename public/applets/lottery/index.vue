@@ -91,6 +91,7 @@
 				>
 			</div>
 		</div>
+		设置抽奖参数
 		<div class="votePanel" v-show="status === 'InProgress'">
 			<div class="row">
 				<span class="shadow" v-if="settings.lotteryType === 'keyword'"
@@ -106,9 +107,9 @@
 				>
 			</div>
 			<div class="row" v-if="settings.showPoolName">
-				<div class="shadow" style="word-break: break-all;width:100%">{{
-					lotteryPool.map(i => i.nickName).join("、")
-				}}</span>
+				<div class="shadow" style="word-break: break-all; width: 100%">
+					{{ lotteryPool.map(i => i.nickName).join("、") }}
+				</div>
 			</div>
 			<div class="row">
 				<span class="shadow" v-show="settings.showChance"
@@ -130,7 +131,7 @@
 					size="mini"
 					type="primary"
 					@click="getLucky()"
-					style="width:100%"
+					style="width: 100%"
 					>开奖</el-button
 				>
 			</div>
@@ -139,10 +140,13 @@
 			class="votePanel"
 			v-show="['Resulting', 'Resulted'].indexOf(status) > -1"
 		>
-			<div class="row" style="height:calc(100% - 54px);position:relative">
-				<div style="height:100%;width:100%;overflow-y:auto;">
+			<div
+				class="row"
+				style="height: calc(100% - 54px); position: relative"
+			>
+				<div style="height: 100%; width: 100%; overflow-y: auto">
 					<div
-						style="display:flex;justify-content:space-between;width:100%;margin-bottom:8px"
+						style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 8px"
 						v-for="user in luckyPool"
 						:key="user.userID"
 					>
@@ -163,7 +167,7 @@
 					type="primary"
 					@click="reset"
 					:disabled="status == 'Resulting'"
-					style="width:100%"
+					style="width: 100%"
 				>
 					{{ status == "Resulting" ? "开奖中" : "重新抽" }}</el-button
 				>
@@ -172,7 +176,7 @@
 					type="primary"
 					@click="save(luckyPool)"
 					:disabled="status == 'Resulting'"
-					style="width:100%"
+					style="width: 100%"
 				>
 					保存结果</el-button
 				>
@@ -241,14 +245,14 @@
 					size="mini"
 					type="primary"
 					@click="reset"
-					style="width:100%"
+					style="width: 100%"
 					>重新抽</el-button
 				>
 				<el-button
 					size="mini"
 					type="primary"
 					@click="save(battleRoyaleSettings.list)"
-					style="width:100%"
+					style="width: 100%"
 					>保存结果</el-button
 				>
 			</div>
@@ -511,7 +515,7 @@ export default {
 				if (this.lotteryPool.find(user => user.userID === uid)) {
 					return;
 				}
-				if (this.$store.state.userProfile?.userID === uid) return;
+				// if (this.$store.state.userProfile?.userID === uid) return;
 				let shouldadd = false;
 				switch (this.settings.lotteryType) {
 					case "gift":
@@ -538,7 +542,7 @@ export default {
 					this.lotteryPool = [
 						...this.lotteryPool,
 						{
-							userID: uid,
+							userID: getUID(danmaku),
 							nickName: getNickName(danmaku),
 							danmaku: getContent(danmaku)
 						}
@@ -678,7 +682,7 @@ export default {
 }
 .votePanel {
 	width: 100%;
-	height: calc(100% - 53px);
+	height: calc(100% - 70px);
 	overflow-y: auto;
 }
 .result-list {

@@ -1,7 +1,12 @@
 <template>
 	<div class="danmaku">
-		<danmaku-row v-if="setting&&danmakuWithEmoji" style="white-space:nowrap" :setting="setting" :configMode="true"
-			:danmaku="danmakuWithEmoji" />
+		<danmaku-row
+			v-if="setting && danmakuWithEmoji"
+			style="white-space:nowrap"
+			:setting="setting"
+			:configMode="true"
+			:danmaku="danmakuWithEmoji"
+		/>
 	</div>
 </template>
 
@@ -80,7 +85,7 @@ export default defineComponent({
 	}
 });
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .danmaku {
 	width: 400px;
 	padding: 5px;

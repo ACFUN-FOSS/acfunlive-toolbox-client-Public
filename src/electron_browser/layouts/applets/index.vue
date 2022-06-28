@@ -96,7 +96,7 @@ export default defineComponent({
 			let obsLink = "";
 			if (config.obsPath) {
 				obsLink = `${
-					window.location.host
+					window.location.origin
 				}/obs/applets/?name=${name}&path=${encodeURIComponent(
 					config.obsPath
 				)}`;

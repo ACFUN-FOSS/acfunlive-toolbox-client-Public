@@ -1,9 +1,8 @@
 <template>
 	<div style="width:100%;height:100%;position:relative">
 		<super-chat-list class="super-chat" v-if="superChatEnable" />
-		<iframe :class="{superChatEnable}" class="danmaku-self" :src="url" />
+		<iframe :class="{ superChatEnable }" class="danmaku-self" :src="url" />
 	</div>
-
 </template>
 
 <script lang="ts">
@@ -13,9 +12,9 @@ import { mapState, mapGetters } from "vuex";
 import { registerRole, isDev } from "@front/util_function/base";
 import { getMockByType } from "@front/views/danmakuSetting/mock/index";
 import { loginSession } from "@front/api/user";
-import superChatList from "@front/components/superChat/index.vue";
-import { danmakuGift } from "@front/store/danmaku/danmaku";
+import { danmakuGift, danmakuPreHandler } from "@front/store/danmaku/danmaku";
 import { commonSettings } from "@front/datas/danmaku";
+import superChatList from "@front/components/superChat/index.vue";
 export default defineComponent({
 	name: "webDanmaku",
 	components: { superChatList },
@@ -50,8 +49,8 @@ export default defineComponent({
 		]),
 		url() {
 			const file = this.$route.query.file || "index.html";
-			let link = `http://${window.location.host}/configFiles/selfDanmaku/${file}`;
-			if (isDev()) link = `http://${window.location.host}/liveChat`;
+			let link = `${window.location.origin}/configFiles/selfDanmaku/${file}`;
+			if (isDev()) link = `${window.location.origin}/liveChat`;
 			// @ts-ignore
 			return `${link}?liverUID=${this.userSession?.userID}&liveID=${this.roomProfile?.liveID}&clubName=${this.rank.clubName}`;
 		}
@@ -130,6 +129,10 @@ export default defineComponent({
 			if (danmaku.type === 1005) {
 				danmakuGift(danmaku, this.$store);
 			}
+			const preHandler = danmakuPreHandler[String(danmaku.type)];
+			if (preHandler) {
+				preHandler(danmaku, this.$store);
+			}
 			// @ts-ignore
 			document
 				.querySelector(".danmaku-self")
@@ -139,7 +142,7 @@ export default defineComponent({
 	}
 });
 </script>
-<style lang='scss'>
+<style lang="scss">
 @import "@front/styles/variables.scss";
 html,
 body,

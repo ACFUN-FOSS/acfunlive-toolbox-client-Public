@@ -24,10 +24,12 @@ export const welcome = (): any => {
 				title: "本次更新内容",
 				type: "list",
 				value: [
-					"解决无法充值点歌",
-					"抽奖鸡新增大逃杀模式",
-					"完播复盘链接网页中心",
-					"新增直播录制与说明"
+					"修复导入样式偶尔无法保存的问题",
+					"点歌鸡降低爆炸概率",
+					"修复鸡鸡人使用讯飞时音量不能调整",
+					"完善外挂弹幕鸡",
+					"抽奖新增用户显示",
+					"修复弹幕可能会导致XSS攻击的问题"
 				]
 			},
 			{
@@ -36,6 +38,7 @@ export const welcome = (): any => {
 				value: [
 					"logo by <a href='https://www.acfun.cn/u/1447414' target='_blank'>木羽熊藏</a>",
 					"产品设计：<a href='https://www.acfun.cn/u/173620' target='_blank'>林梦仙</a>",
+					"感谢<a href='https://www.acfun.cn/u/1617216' target='_blank'>丶菜籽丶</a>提供代码级样式编辑模板",
 					"所有参与测试或提出意见的主播们",
 					"感谢不愿透露姓名的网页版数据中心制作者"
 				]

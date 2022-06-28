@@ -1,4 +1,3 @@
-import { danmaku } from "@/electron_browser/datas";
 import replace from "lodash/replace";
 import { isElectron } from "@front/util_function/electron";
 import { escapeRegExp } from "@front/util_function/base";
@@ -123,7 +122,7 @@ export const getContent = function(danmaku: any) {
 	if (danmaku.type !== 1000) {
 		return "";
 	}
-	return danmaku.data.content;
+	return danmaku?.data?.content;
 };
 
 export const getGift = function(danmaku: any) {
