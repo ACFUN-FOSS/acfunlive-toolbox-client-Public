@@ -55,6 +55,12 @@
 			</row-span>
 			<row-span :span="12"><span class="hint">房间管理里的设置无法保存或出现混乱时试试清理账号缓存</span></row-span>
 		</row-frame>
+		<row-frame style="width:100%" title="清理缓存" flex>
+			<row-span :span="2">
+				<el-button size="mini" type="primary" @click="clearStorage">点击清理</el-button>
+			</row-span>
+			<row-span :span="12"><span class="hint">房间管理里的设置无法保存或出现混乱时试试清理缓存</span></row-span>
+		</row-frame>
 	</content-frame>
 </template>
 
