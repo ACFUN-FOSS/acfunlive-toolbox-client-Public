@@ -46,6 +46,8 @@ getGiftCombo
 getGiftNumber
 getGiftValue
 getRichText
+getBackendMsgType
+getBackendMsgDataAsBackendPushDanmakuMsgData
 getContentWithEmoji
 ###日期格式化类
 dateFormat

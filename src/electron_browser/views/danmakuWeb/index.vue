@@ -1,14 +1,18 @@
 <template>
 	<div style="width:100%;height:100%;position:relative">
 		<super-chat-list class="super-chat" v-if="superChatEnable" />
-		<flow :class="{superChatEnable}" :settings="danmakuProfile.web" :danmakuList="flow" />
+		<flow
+			:class="{ superChatEnable }"
+			:settings="danmakuProfile.web"
+			:danmakuList="flow"
+		/>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { wsevent } from "@front/api";
-import { commonSettings } from "@front/datas/danmaku";
+import { commonSettings } from "@/electron_browser/datas/aboutDanmaku";
 import { tempInfo } from "@front/datas/temp";
 import flow from "@front/components/danmakuFlow/index.vue";
 import { mapState, mapGetters } from "vuex";
@@ -93,22 +97,18 @@ export default defineComponent({
 		registerEvents() {
 			wsevent.on("update-style", this.updateSettings);
 			wsevent.on("sendMockDanmaku", this.setMock);
+			wsevent.on("sendDanmaku", this.sendDanmaku);
 			wsevent.on("server-response", this.handleResponse);
 			wsevent.on("requireRegister", this.subscribeData);
-			wsevent.on("restartDanmaku", this.restartDanmaku);
 		},
 		unRegisterEvents() {
 			wsevent.off("update-style", this.updateSettings);
 			wsevent.off("sendMockDanmaku", this.setMock);
 			wsevent.off("server-response", this.handleResponse);
 			wsevent.off("requireRegister", this.subscribeData);
-			wsevent.off("restartDanmaku", this.restartDanmaku);
 		},
-		restartDanmaku() {
-			this.$store.dispatch("restartDanmaku");
-			(this as any).$message.success({
-				message: "重启弹幕中"
-			});
+		sendDanmaku(danmaku: any) {
+			this.$store.commit("addNewDanmaku", danmaku);
 		},
 		handleResponse(e: any) {
 			for (const key in e) this.$store.state[key] = e[key];
@@ -116,18 +116,13 @@ export default defineComponent({
 		},
 		async chechEveryThing() {
 			try {
-				await wsevent.register(this.appID);
+				await wsevent.register(
+					this.appID,
+					this.danmakuProfile?.general?.socket || 4396
+				);
 				this.subscribeData();
 			} catch (error) {
 				console.log(error);
-			}
-			console.log(this.streamStatus.step);
-			if (
-				this.roomProfile.liveID &&
-				!["danmakuing", "streaming"].includes(this.streamStatus.step)
-			) {
-				this.streamStatus.step = "streaming";
-				this.$store.dispatch("streaming");
 			}
 		},
 		subscribeData() {
@@ -173,7 +168,7 @@ export default defineComponent({
 	}
 });
 </script>
-<style lang='scss'>
+<style lang="scss">
 @import "@front/styles/variables.scss";
 html,
 body,

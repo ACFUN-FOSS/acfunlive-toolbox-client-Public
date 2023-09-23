@@ -1,3 +1,9 @@
+/**
+ * 为所有的 acfunlive-backend websocket 传来的消息提供通用的处理函数。
+ * 此处仅放置用以判断消息是否符合某条件的函数。用以获取信息的函数在同目录的 getter.ts 文件中。
+ * 增加 / 移除 / 改动函数名称时，请一同修改 `/documents/高级样式定制说明.txt`。
+ * 增加 / 移除 / 改动函数名称时，请一同修改 {@link AdvanceFunctions}。
+ */
 import {
 	getTime,
 	getMedal,
@@ -9,6 +15,10 @@ import {
 } from "./getter";
 import { RootState } from "@front/store/state";
 import { danmaku } from "@/electron_browser/datas";
+// tsdoc imports =====
+import * as AdvanceFunctions from "@front/components/danmakuFlow/danmakuRow/advanceFunctions";
+// ===================
+
 export const hasTime = function(danmaku: any) {
 	//@ts-ignore
 	if (!danmaku) danmaku = this;

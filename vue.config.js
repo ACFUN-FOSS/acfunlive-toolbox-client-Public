@@ -1,6 +1,6 @@
 const path = require("path");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-	.BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+	require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 module.exports = {
 	productionSourceMap: true,
 	pages: {
@@ -44,7 +44,7 @@ module.exports = {
 			}
 		}
 	},
-	chainWebpack: config => {
+	chainWebpack: (config) => {
 		config.module.rule("js").exclude.add(/\.worker\.js$/);
 	},
 	configureWebpack: {
@@ -63,9 +63,9 @@ module.exports = {
 				}
 			},
 			watchOptions: {
-				ignored: /public/
+				//ignored: /public/
 			},
-			after: function(devServer) {
+			after: function (devServer) {
 				const {
 					startSocket
 				} = require("./src/electron_nodejs/utils/socket.js");

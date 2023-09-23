@@ -47,7 +47,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { displayType } from "./data";
-import { superChat } from "@front/datas/danmaku";
+import { superChat } from "@/electron_browser/datas/aboutDanmaku";
 import { mapState } from "vuex";
 import { ElMessage } from "element-plus";
 import cloneDeep from "lodash/cloneDeep";

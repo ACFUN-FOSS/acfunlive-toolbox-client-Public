@@ -127,7 +127,7 @@ export default defineComponent({
 			loginFailedText: "",
 			welcome: false,
 			welcomeLogoKey: "111"
-		};
+		} as Record<string, any>;
 	},
 	computed: {
 		loginTexts,
@@ -199,6 +199,8 @@ export default defineComponent({
 					this.logining = false;
 					this.welcome = false;
 					console.log(error);
+					// @ts-ignore
+					// TODO: Confirm the type of error, loginFailedText.
 					this.loginFailedText = error;
 					return;
 				}

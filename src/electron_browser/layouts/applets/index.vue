@@ -49,7 +49,8 @@ import {
 	close,
 	openConsole,
 	loadApplet,
-	saveApplet
+	saveApplet,
+	loadConfig
 } from "@front/util_function/system";
 import { allApi as apis } from "@front/api";
 import * as system from "@front/util_function/system";
@@ -86,10 +87,18 @@ export default defineComponent({
 		};
 	},
 	mounted() {
+		loadConfig().then(res => {
+			if (res) {
+				Object.assign(this.$store.state.danmakuProfile, res);
+			}
+		});
 		document.body.classList.add("applet");
 		let { path, name, configurations } = this.$route.query;
 		registerRole(name);
-		wsevent.register(name);
+		wsevent.register(
+			this.appID,
+			this.$store.state.danmakuProfile?.general?.socket || 4396
+		);
 		path = decodeURIComponent(path);
 		loadComponent(path).then(res => {
 			const config = JSON.parse(configurations);

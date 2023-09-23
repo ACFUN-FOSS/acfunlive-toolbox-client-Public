@@ -4,7 +4,7 @@ import {
 	unixTimeFormatter,
 	thousandFormatter
 } from "@front/util_function/formatter";
-import OBS from "@front/util_function/obs";
+import OBSWebSocket from "obs-websocket-js";
 export const closeStream: ComponentOptionsMixin = {
 	methods: {
 		closeStream() {
@@ -28,16 +28,18 @@ export const closeStream: ComponentOptionsMixin = {
 				.finally(async () => {
 					// this.$store.commit("stopDanmaku");
 					let obsclosed = "";
+					const obs = new OBSWebSocket();
 					try {
-						await OBS.connect();
+						await obs.connect();
 					} catch {
 						obsclosed = "OBS未能成功关闭，请手动关闭推流";
 					}
 					try {
-						await OBS.stopStream();
+						await obs.call("StopStream");
 					} catch (error) {
 						console.error(error);
 					}
+					obs?.disconnect();
 					ElMessageBox({
 						title: "下播提醒",
 						message: `主播辛苦啦！本次直播时长为 ${result.duration ||

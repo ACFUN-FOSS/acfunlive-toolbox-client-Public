@@ -1,4 +1,4 @@
-const OBSWebSocket = require("obs-websocket-js");
+import OBSWebSocket from "obs-websocket-js";
 
 interface streamSettings {
 	server: string;
@@ -6,23 +6,28 @@ interface streamSettings {
 }
 
 export class OBS {
-	obs = null;
+	obs: any = null;
 	constructor() {
 		this.connect();
 	}
 
+	clearObs() {
+		this.obs = null;
+	}
+
 	connect() {
 		return new Promise((resolve, reject) => {
-			let obs: any = this.obs;
-			this.obs = null;
-			obs = new OBSWebSocket();
-			obs.on("error", (e: any) => {
-				console.log("socket error:", e);
-			});
+			if (this.obs) {
+				resolve(this.obs);
+				return;
+			}
+			const obs = new OBSWebSocket();
+			obs.on("ConnectionClosed", this.clearObs);
+			obs.on("ConnectionError", this.clearObs);
 			obs.connect()
-				.then(() => {
+				.then((res: any) => {
 					this.obs = obs;
-					resolve(obs);
+					resolve(res);
 				})
 				.catch((e: Error) => {
 					reject(e);
@@ -30,33 +35,45 @@ export class OBS {
 		});
 	}
 
-	send(requestName: string, args?: any) {
-		return this.connect()
-			.then((obs: any) => {
-				return obs.send(requestName, args);
-			})
-			.catch((e: any) => {
-				return e;
-			});
+	disconnect() {
+		this.obs.disconnect();
+		this.clearObs();
+	}
+
+	getStreamStatus() {
+		return this.reply("GetStreamStatus");
+	}
+
+	reply(command: string, params = {}) {
+		return new Promise((resolve, reject) => {
+			this.obs
+				.call(command, params)
+				.then(resolve)
+				.catch(reject);
+		});
 	}
 
 	setStreamSettings(settings: streamSettings) {
-		return this.send("SetStreamSettings", {
-			type: "rtmp_custom",
-			settings
+		return this.reply("SetStreamServiceSettings", {
+			streamServiceType: "rtmp_custom",
+			streamServiceSettings: {
+				...settings,
+				bwtest: false,
+				use_auth: false
+			}
 		});
 	}
 
 	startStream() {
-		return this.send("StartStreaming");
+		return this.reply("StartStream");
 	}
 
 	stopStream() {
-		return this.send("StopStreaming");
+		return this.reply("StopStream");
 	}
 
 	checkStatus() {
-		return this.send("GetStreamingStatus");
+		return this.reply("GetStreamStatus");
 	}
 }
 

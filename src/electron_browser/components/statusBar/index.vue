@@ -1,7 +1,16 @@
 <template>
-	<div id="statusBar" :class="{unfold:isUnfold}" element-loading-background="rgba(0, 0, 0, 0)">
-		<div class="switch" @click="unfold" v-if="streamStatus.step=='danmakuing'"><span
-				class="el-icon-arrow-up" />{{isUnfold?'折叠':'展开'}}</div>
+	<div
+		id="statusBar"
+		:class="{ unfold: isUnfold }"
+		element-loading-background="rgba(0, 0, 0, 0)"
+	>
+		<div
+			class="switch"
+			@click="unfold"
+			v-if="streamStatus.step == 'danmakuing'"
+		>
+			<span class="el-icon-arrow-up" />{{ isUnfold ? "折叠" : "展开" }}
+		</div>
 		<transition name="fade">
 			<component :is="currentComp" />
 		</transition>
@@ -34,7 +43,8 @@ export default defineComponent({
 	data() {
 		return {
 			isUnfold: false,
-			clients: {}
+			clients: {},
+			count: 0
 		};
 	},
 	mounted() {
@@ -102,6 +112,10 @@ export default defineComponent({
 			switch (step) {
 				case "danmakuing":
 					msg = "直播已开启";
+					this.count++;
+					if (this.count > 5) {
+						msg += "(获取不到弹幕？试试点击右上角头像重新登陆)";
+					}
 					this.isUnfold = true;
 					this.updateRecordList();
 					break;
@@ -142,7 +156,10 @@ export default defineComponent({
 			});
 		},
 		registerWS() {
-			wsevent.register("server");
+			wsevent.register(
+				"server",
+				this.danmakuProfile?.general?.socket || 4396
+			);
 		},
 		sendApi({ sourceID, method }: any) {
 			const apis: any = allApi;
@@ -180,7 +197,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import "@front/styles/variables.scss";
 #statusBar {
 	width: 100%;

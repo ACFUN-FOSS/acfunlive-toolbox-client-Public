@@ -1,4 +1,4 @@
-import * as danmaku from "./danmaku";
+import * as danmaku from "./aboutDanmaku";
 import * as room from "./room";
 import * as stream from "./stream";
 import * as user from "./user";

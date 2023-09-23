@@ -13,7 +13,7 @@ import { registerRole, isDev } from "@front/util_function/base";
 import { getMockByType } from "@front/views/danmakuSetting/mock/index";
 import { loginSession } from "@front/api/user";
 import { danmakuGift, danmakuPreHandler } from "@front/store/danmaku/danmaku";
-import { commonSettings } from "@front/datas/danmaku";
+import { commonSettings } from "@/electron_browser/datas/aboutDanmaku";
 import superChatList from "@front/components/superChat/index.vue";
 export default defineComponent({
 	name: "webDanmaku",
@@ -85,7 +85,10 @@ export default defineComponent({
 		async chechEveryThing() {
 			try {
 				if (!wsevent.registered) {
-					await wsevent.register(this.appID);
+					await wsevent.register(
+						this.appID,
+						this.danmakuProfile?.general?.socket || 4396
+					);
 				}
 				this.subscribeData();
 			} catch (error) {

@@ -120,7 +120,7 @@ export default [
 					icon: "el-icon-pie-chart",
 					action: () => {
 						window.open(
-							`https://www.sizzwoo.cc/u/${store.state.userProfile.userID}`,
+							`http://ac.sizzwoo.cc/rank/u/${store.state.userProfile.userID}`,
 							"_blank"
 						);
 					},

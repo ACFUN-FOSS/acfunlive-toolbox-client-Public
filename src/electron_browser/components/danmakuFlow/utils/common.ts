@@ -1,4 +1,4 @@
-import { Settings, CommonSettings } from "@front/datas/danmaku";
+import { Settings, CommonSettings } from "@/electron_browser/datas/aboutDanmaku";
 import { Rank } from "@front/datas/room";
 import { getContent, getUserInfo, getMedal, getUID } from "./getter";
 import { reactive } from "vue";

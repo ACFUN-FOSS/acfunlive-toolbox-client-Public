@@ -28,7 +28,7 @@
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import cloneDeep from "lodash/cloneDeep";
-import { robotSetting } from "@front/datas/danmaku";
+import { robotSetting } from "@/electron_browser/datas/aboutDanmaku";
 import { typeOptions } from "@front/components/danmakuFlow/utils/data";
 import { read } from "@front/api/robot";
 import { getVoiceList, openFolder } from "@front/util_function/system";

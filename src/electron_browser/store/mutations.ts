@@ -145,7 +145,7 @@ export const mutations: any = {
 		}
 		saveConfig(state.danmakuProfile);
 		setTimeout(() => {
-			wsevent.wsEmit("update-style", {}, "");
+			wsevent.wsEmit("update-style", {}, "danmakuWeb");
 		}, 500);
 	},
 	updateSettings(state: RootState, { settingType, setting }: any) {
@@ -209,7 +209,8 @@ export const mutations: any = {
 	},
 	checkLikeStreaming(state: RootState) {
 		const tempLike = state.temp.likeList;
-		const likeList = state.danmakuProfile.common.likeList;
+		// const likeList = state.danmakuProfile.common.likeList;
+		const likeList: any = [];
 		if (!likeList || !likeList.length) {
 			return;
 		}
@@ -290,6 +291,9 @@ export const mutations: any = {
 		state.changedDanmaku = [];
 	},
 	addNewDanmaku(state: RootState, danmaku: any) {
+		if (isElectron()) {
+			wsevent.wsEmit("sendDanmaku", danmaku, "danmakuWeb");
+		}
 		const filter = state.filter;
 		const preHandler = danmakuPreHandler[String(danmaku.type)];
 		if (preHandler) {

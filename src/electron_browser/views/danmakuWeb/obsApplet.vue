@@ -14,6 +14,7 @@ import {
 } from "@front/components/danmakuFlow/danmakuRow/advanceFunctions";
 import { wsevent } from "@front/api/wsbus";
 import { registerRole } from "@front/util_function/base";
+
 export default defineComponent({
 	name: "obsApplet",
 	methods: {
@@ -29,8 +30,16 @@ export default defineComponent({
 	mounted() {
 		document.body.classList.add("applet");
 		const { path, name } = this.$route.query;
-		registerRole(`${name}-obs`);
-		wsevent.register(`${name}-obs`);
+		fetch("/configFiles/config.json", {
+			cache: "no-cache"
+		})
+			.then(res => res.json())
+			.then(json => {
+				this.socket = json.general.socket;
+				registerRole(`${name}-obs`);
+				wsevent.register(`${name}-obs`, this.socket);
+			});
+
 		loadComponent(decodeURIComponent(path)).then(res => {
 			const data = {};
 

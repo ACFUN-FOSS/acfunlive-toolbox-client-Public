@@ -40,7 +40,7 @@ import cloneDeep from "lodash/cloneDeep";
 import random from "lodash/random";
 import { toANY } from "@front/util_function/type";
 import { rank } from "@front/datas/room";
-import { settings, commonSettings } from "@front/datas/danmaku";
+import { settings, commonSettings } from "@/electron_browser/datas/aboutDanmaku";
 import { settingBlocks } from "./settingBlocks";
 import { Filter } from "@front/components/danmakuFlow/utils/common";
 import { ElMessage } from "element-plus";

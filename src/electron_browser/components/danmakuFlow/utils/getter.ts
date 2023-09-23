@@ -1,10 +1,24 @@
-import replace from "lodash/replace";
+/**
+ * 为所有的 acfunlive-backend websocket 传来的消息提供通用的处理函数。
+ * 此处仅放置用以获取信息的函数。用以判断消息是否符合某条件的函数在同目录的 tester.ts 文件中。
+ * 增加 / 移除 / 改动函数名称时，请一同修改 `/documents/高级样式定制说明.txt`。
+ * 增加 / 移除 / 改动函数名称时，请一同修改 {@link AdvanceFunctions}。
+ */
+import * as Lodash from "lodash";
 import { isElectron } from "@front/util_function/electron";
 import { escapeRegExp } from "@front/util_function/base";
 import store from "@front/store/index";
+import {
+	BackendMsg,
+	BackendMsgPushDanmakuData as BackendPushDanmakuMsgData,
+	BackendMsgType
+} from "@/electron_browser/datas/dto/acfunlive-backend/msg";
+// tsdoc imports =====
+import * as AdvanceFunctions from "@front/components/danmakuFlow/danmakuRow/advanceFunctions";
+// ===================
+
 export const getDanmuInfo = function(danmaku: any) {
 	//@ts-ignore
-
 	if (!danmaku) danmaku = this;
 	const type = danmaku?.type;
 	switch (type) {
@@ -125,6 +139,16 @@ export const getContent = function(danmaku: any) {
 	return danmaku?.data?.content;
 };
 
+/**
+ * 获取经过 unscaped 的推送弹幕消息的 content。
+ * 例：传入推送弹幕消息，其 content 为 "You&#39;re beautiful"；返回 "You're beautiful"。
+ */
+export function getUnscapedContent(
+	danmakuMsg: BackendMsg<BackendPushDanmakuMsgData>
+) {
+	return Lodash.unescape(danmakuMsg.data.content);
+}
+
 export const getGift = function(danmaku: any) {
 	//@ts-ignore
 
@@ -197,6 +221,33 @@ export const getRichText = function(danmaku: any) {
 	});
 	return content.join(" ");
 };
+
+/**
+ * 获取一个 acfunlive-backend websocket 发送的消息的分类（type）
+ * @param resp 一个 acfunlive-backend websocket 发送的消息
+ * @returns MsgFromBackendType
+ */
+// TODO: 根据所有后端的消息类型，完善该函数
+export function getBackendMsgType(
+	resp: BackendMsg<any>
+): BackendMsgType | undefined {
+	return new Map<number, BackendMsgType>([
+		[1000, BackendMsgType.PUSH_DANMAKU]
+	]).get(resp.type);
+}
+
+/**
+ * 如果传入的 acfunlive-backend 消息是推送弹幕的消息，以 MsgFromBackend_PushDanmakuData 类型返回之。
+ * 否则返回 null。
+ * @param msg 传入的 acfunlive-backend websocket 消息
+ */
+export function getBackendMsgDataAsBackendPushDanmakuMsgData(
+	msg: BackendMsg<any>
+): BackendPushDanmakuMsgData | undefined {
+	if (getBackendMsgType(msg) === BackendMsgType.PUSH_DANMAKU) {
+		return msg.data as BackendPushDanmakuMsgData;
+	}
+}
 
 export const robotGetters = {
 	getTime,
@@ -277,7 +328,7 @@ export const getContentWithEmoji = function(danmaku: any) {
 	}
 	if (isElectron()) {
 		[...content.matchAll(/(ac|AC|aC|Ac)\d+/g)].forEach(match => {
-			content = replace(
+			content = Lodash.replace(
 				content,
 				match[0],
 				`<a target="_blank" href="https://www.acfun.cn/v/${match[0]}" style="color:rgb(100,238,238)">${match[0]}(点击查看)</a>`
@@ -301,6 +352,7 @@ export const getContentWithEmoji = function(danmaku: any) {
 	});
 	return content;
 };
+
 export const generateTester = function() {
 	const matcher = {};
 	const testerArr: any = [];

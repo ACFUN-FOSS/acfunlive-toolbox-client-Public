@@ -1,19 +1,19 @@
 import { Event } from "@front/util_function/eventBus";
 import { io, Socket } from "socket.io-client";
-import debounce from "lodash/debounce";
 class WsEvent extends Event {
 	registered = false;
 	io: Socket | undefined;
 	id = "";
+	socket = 4396;
 	constructor() {
 		super();
 		this.id = "";
 	}
 
-	register(id: string) {
+	register(id: string, socket = 4396) {
 		this.id = id;
 		if (!this.checkRegister()) {
-			this.io = io(`http://${window.location.hostname}:4396`, {
+			this.io = io(`http://${window.location.hostname}:${socket}`, {
 				transports: ["websocket", "polling"],
 				query: {
 					id
@@ -23,6 +23,7 @@ class WsEvent extends Event {
 			this.io.on("connect", () => {
 				this.registered = true;
 				this.id = id;
+				this.socket = socket;
 				this.emit("registered");
 			});
 			this.io.on("transmit", (data: any) => {
@@ -39,7 +40,7 @@ class WsEvent extends Event {
 				if (num > 10) {
 					this.io?.close();
 					close();
-					this.register(this.id);
+					this.register(this.id, this.socket || 4396);
 				}
 			});
 		}

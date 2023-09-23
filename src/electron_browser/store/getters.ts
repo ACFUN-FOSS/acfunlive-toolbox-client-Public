@@ -12,7 +12,10 @@ export const getters = {
 		if (isElectron()) {
 			return state.danmakuProfile?.common?.superChat?.enable;
 		}
-		return state.danmakuProfile?.common?.superChat?.webEnable;
+		return (
+			state.danmakuProfile?.common?.superChat?.enable &&
+			state.danmakuProfile?.common?.superChat?.webEnable
+		);
 	},
 	streamable(state: RootState) {
 		return state.streamStatus.step !== "nostreamable";

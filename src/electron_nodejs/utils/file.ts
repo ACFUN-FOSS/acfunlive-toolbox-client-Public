@@ -79,7 +79,7 @@ class File {
 	static loadFile(url: string) {
 		try {
 			const data = fs.readFileSync(url, "utf8");
-			console.log(data);
+			// console.log(data);
 			return data;
 		} catch (error) {
 			console.log(error);
@@ -163,7 +163,7 @@ class File {
 		}
 	}
 
-	static loadConfig(event: any) {
+	static loadConfig(event: any | null) {
 		// @ts-ignore
 		const url = path.join(configStatic, "config.json");
 		try {
@@ -172,7 +172,11 @@ class File {
 			// @ts-ignore
 			fs.copyFileSync(path.join(__static, "default.json"), url, 0);
 		}
-		event.reply("load_config_complete", File.loadFile(url));
+		const reply = File.loadFile(url);
+		if (event) {
+			event.reply("load_config_complete", reply);
+		}
+		return reply;
 	}
 
 	static saveConfig(event: any, res: any) {

@@ -325,7 +325,6 @@
 <script>
 export default {
 	name: "danmakuSongPicker",
-
 	data() {
 		return {
 			sendedGift: new Set(),

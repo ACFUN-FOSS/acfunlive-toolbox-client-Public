@@ -86,7 +86,8 @@ export default {
 				Object.assign(this.$store.state, { userProfile });
 				this.addSong(
 					changedDanmaku.filter(danmaku =>
-						this.s_danmakuTesters.hasContent(danmaku)
+						this.s_danmakuGetters.getBackendMsgType(danmaku) === "PUSH_DANMAKU"
+						&& this.s_danmakuTesters.hasContent(danmaku)
 					)
 				);
 			}
@@ -141,8 +142,8 @@ export default {
 				if (this.cooling.find(i => i.userID === uid)) {
 					return;
 				}
-
-				const content = this.s_danmakuGetters.getContent(danmaku);
+				const content = this.s_danmakuGetters.getUnscapedContent(danmaku);
+				console.log(content);
 				const nickname = this.s_danmakuGetters.getNickName(danmaku);
 				if (!content || !content.includes("点歌")) return;
 				let songName = content.split(/@/)[1];

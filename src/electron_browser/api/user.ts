@@ -14,7 +14,10 @@ export const isLogined = (): boolean => {
  * @param param.password 密码
  * @returns
  */
-export const login = ({ account, password }: user.Data): Promise<any> => {
+export const login = (
+	{ account, password }: user.Data,
+	isVisitor = false
+): Promise<any> => {
 	// 登陆
 	return request({
 		method: "login",
@@ -28,8 +31,10 @@ export const login = ({ account, password }: user.Data): Promise<any> => {
 		}
 	})
 		.then(({ tokenInfo }: any) => {
-			session = tokenInfo;
-			logined = true;
+			if (!isVisitor) {
+				session = tokenInfo;
+				logined = true;
+			}
 			return Promise.resolve(tokenInfo);
 		})
 		.catch(e => {

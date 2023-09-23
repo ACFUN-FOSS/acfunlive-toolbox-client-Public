@@ -90,7 +90,7 @@ export default defineComponent({
 			return 0;
 		},
 		getStops(gradientString: string) {
-			let matchs = gradientString.match(/(?<=\()[\s\S]+(?=\))/g);
+			let matchs: string[] | null = gradientString.match(/(?<=\()[\s\S]+(?=\))/g);
 			if (!matchs) {
 				return [];
 			}

@@ -3,6 +3,7 @@ import MainWin from "./mainwin";
 import { shell } from "electron";
 import File from "./file";
 import { appStatic, isDev } from "./paths";
+import { port } from "./http";
 const path = require("path");
 const fs = require("fs");
 class Applets {
@@ -42,7 +43,7 @@ class Applets {
 		let url: any = `${
 			isDev
 				? <string>process.env.WEBPACK_DEV_SERVER_URL
-				: `http://${ip.address()}:1299`
+				: `http://${ip.address()}:${port}`
 		}/applets`;
 		url = new URL(url);
 		url += `?name=${encodeURIComponent(name)}&path=${encodeURIComponent(

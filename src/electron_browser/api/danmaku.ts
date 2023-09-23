@@ -1,4 +1,4 @@
-import { session, requestT } from "@front/api/user";
+import { session, requestT, login } from "@front/api/user";
 import { setHeartBeat } from "@front/api/utils/websocket";
 import { user } from "@front/datas";
 import { throttle } from "lodash";
@@ -54,7 +54,8 @@ export const startDanmaku = ({ onOpen, onDanmaku, onClose }: any): any => {
 		});
 };
 
-export const start = (data: user.Session): Promise<any> => {
+export const start = async (data: user.Session): Promise<any> => {
+	const tokenInfo = await login({ account: "", password: "" }, true);
 	// 开始弹幕获取
 	return requestT({
 		method: "startDanmakuFlow",
@@ -66,6 +67,7 @@ export const start = (data: user.Session): Promise<any> => {
 		},
 		timeout: 20000,
 		once: false,
+		tokenInfo,
 		ip: "localhost"
 	}).catch(() => {
 		return Promise.reject(new Error("startDanmakuFlow Failed!"));

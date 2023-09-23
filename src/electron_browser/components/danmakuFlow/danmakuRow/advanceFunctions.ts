@@ -17,7 +17,9 @@ import {
 	getGiftNumber,
 	getGiftValue,
 	getRichText,
-	getContentWithEmoji
+	getContentWithEmoji,
+	getBackendMsgDataAsBackendPushDanmakuMsgData,
+	getUnscapedContent
 } from "@front/components/danmakuFlow/utils/getter";
 
 import {
@@ -63,36 +65,13 @@ export const danmakuGetters = {
 	getGiftNumber,
 	getGiftValue,
 	getRichText,
-	getContentWithEmoji
+	getContentWithEmoji,
+	getBackendMsgDataAsBackendPushDanmakuMsgData,
+	getUnscapedContent
 };
 export default {
-	hasTime,
-	hasMedal,
-	hasAvatar,
-	hasNickName,
-	hasContent,
-	hasGift,
-	isManager,
-	isOwner,
-	getDanmuInfo,
-	getUserInfo,
-	getTime,
-	setTime,
-	getMedal,
-	getMedalLevel,
-	getMedalName,
-	getAvatar,
-	getNickName,
-	getUID,
-	getContent,
-	getGift,
-	getDanmakuType,
-	getGiftName,
-	getGiftCombo,
-	getGiftNumber,
-	getGiftValue,
-	getRichText,
-	getContentWithEmoji,
+	...danmakuTesters,
+	...danmakuGetters,
 	dateFormat,
 	...lodash
 };

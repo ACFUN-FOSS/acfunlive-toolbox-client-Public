@@ -109,7 +109,7 @@ class MainWin {
 			minHeight: 200,
 			frame: false,
 			show: false,
-			resizable: false,
+			resizable: process.env.NODE_ENV !== "production",
 			transparent: true,
 			hasShadow: false,
 			webPreferences: {

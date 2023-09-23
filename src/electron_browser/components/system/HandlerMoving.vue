@@ -38,7 +38,6 @@ export default defineComponent({
 				"mouseup",
 				() => {
 					window.removeEventListener("mousemove", setPosition);
-					this.size = null;
 				},
 				{
 					once: true
@@ -49,7 +48,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .handleMoving {
 	width: 100%;
 	height: 100%;

@@ -103,21 +103,21 @@
 			</row-span>
 			<row-span
 				v-if="obsSync"
-				:class="OBS.obs ? 'online' : 'offline'"
+				:class="obsOnline ? 'online' : 'offline'"
 				:span="4"
 			>
-				{{ OBS.obs ? "OBS已连接" : "OBS未连接" }}
+				{{ obsOnline ? "OBS已连接" : "OBS未连接" }}
 			</row-span>
 			<row-span v-if="obsSync" :span="3">
 				<el-button
 					type="primary"
 					size="mini"
 					class="btnBase"
-					@click="OBS.connect()"
+					@click="connectOBS()"
 					>连接OBS
 				</el-button>
 			</row-span>
-			<div v-if="obsSync" class="hint">
+			<div v-if="obsOnline" class="hint">
 				（如上方显示OBS未连接，请根据文件夹中的说明检查是否正确配置）
 			</div>
 			<div v-else class="hint">
@@ -209,8 +209,9 @@ import { closeStream } from "@front/mixins/methods";
 import { event } from "@front/util_function/eventBus";
 import { sleep, isUrl } from "@front/util_function/base";
 import { copy } from "@front/util_function/clipboard";
-import OBS from "@front/util_function/obs";
+import OBSWebSocket from "obs-websocket-js";
 import { getCutStatus, setCutStatus } from "@front/api/room";
+let OBS: any = null;
 export default defineComponent({
 	name: "roomMgmt",
 	mixins: [closeStream],
@@ -224,8 +225,8 @@ export default defineComponent({
 		}
 		const timer: any = null;
 		return {
-			OBS,
 			obsSync: false,
+			obsOnline: false,
 			loading: false,
 			canCut: false,
 			count: 0,
@@ -275,6 +276,7 @@ export default defineComponent({
 		}
 	},
 	mounted() {
+		this.connectOBS();
 		this.$store.commit("getCategory");
 		this.$store.commit("getStreamSession"); // get rtmp key when no streaming
 		this.loadCache();
@@ -286,11 +288,32 @@ export default defineComponent({
 	},
 	beforeUnmount() {
 		this.saveCache();
+		OBS.disconnect();
 		event.off("openStream", this.openStream);
 		event.emit("openStreamEnd");
 		clearInterval(this.timer);
 	},
 	methods: {
+		connectOBS() {
+			const clearObs = () => {
+				OBS?.disconnect();
+				OBS = null;
+				this.obsOnline = false;
+			};
+			clearObs();
+			const obs = new OBSWebSocket();
+			obs.connect()
+				.then(() => {
+					OBS = obs;
+					this.obsOnline = true;
+				})
+				.catch(() => {
+					this.obsOnline = false;
+				});
+
+			obs.on("ConnectionClosed", clearObs);
+			obs.on("ConnectionError", clearObs);
+		},
 		getCutStatus() {
 			getCutStatus().then(({ canCut }) => {
 				this.canCut = canCut;
@@ -353,17 +376,22 @@ export default defineComponent({
 				return;
 			}
 			if (this.obsSync) {
-				const status = await this.OBS.checkStatus();
+				const status: any = await OBS.call("GetStreamStatus");
 				try {
-					if (status?.streaming) {
-						await this.OBS.stopStream();
+					if (status?.outputActive) {
+						await OBS.call("StopStream");
 					}
 					await sleep(2000);
-					await this.OBS.setStreamSettings({
-						server: this.streamSession.rtmpServer,
-						key: this.streamSession.streamKey
+					await OBS.call("SetStreamServiceSettings", {
+						streamServiceType: "rtmp_custom",
+						streamServiceSettings: {
+							server: this.streamSession.rtmpServer,
+							key: this.streamSession.streamKey,
+							bwtest: false,
+							use_auth: false
+						}
 					});
-					await this.OBS.startStream();
+					await OBS.call("StartStream");
 					this.readyToStream();
 				} catch (error) {
 					console.error(error);
@@ -439,7 +467,7 @@ export default defineComponent({
 			) {
 				errmsg += "房间封面无效，请重新上传 ";
 			}
-			if (this.obsSync && !OBS.obs) {
+			if (this.obsSync && !OBS) {
 				errmsg += "OBS未能连接，请刷新OBS状态或确认插件是否安装 ";
 			}
 			if (errmsg) {
