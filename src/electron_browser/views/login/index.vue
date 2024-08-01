@@ -6,21 +6,19 @@
 				<hero-base class="hero" />
 				<div class="form">
 					<div class="row">
-						<el-input
-							v-model="userData.account"
-							:disabled="logining"
-							@keypress.enter="login()"
-							placeholder="A站账号手机号/邮箱"
-						/>
-					</div>
-					<div class="row">
-						<el-input
-							type="password"
-							v-model="userData.password"
-							:disabled="logining"
-							@keypress.enter="login()"
-							placeholder="A站密码"
-						/>
+						<el-button
+							type="primary"
+							:disabled="loginDisabled"
+							class="logBtn"
+							@click="qrLogin()"
+							:style="{
+								background: `url(data:image/png;base64,${qrImg})`
+							}"
+						>
+							<div v-if="!qrImg">
+								选择同意后，点击此处获取二维码
+							</div>
+						</el-button>
 					</div>
 					<div class="row sep">
 						<div>
@@ -37,23 +35,6 @@
 								>免责声明
 							</el-button>
 						</div>
-						<div>
-							<el-checkbox
-								class="logCheck"
-								v-model="userData.keepLogined"
-								:disabled="logining"
-							/>
-							保持登录
-						</div>
-					</div>
-					<div class="row">
-						<el-button
-							type="primary"
-							:disabled="loginDisabled"
-							class="logBtn"
-							@click="login(true)"
-							>登陆
-						</el-button>
 					</div>
 					<div class="row logText">
 						<transition name="fade" mode="out-in">
@@ -100,7 +81,7 @@ import Cookies from "@front/util_function/cookies";
 import topbarBase from "@front/components/system/topbars/base.vue";
 import { loadConfig, launch } from "@front/util_function/system";
 import { assign } from "@front/util_function/base";
-import { login, loginSession } from "@front/api/user";
+import { qrLogin, loginSession } from "@front/api/user";
 import { getManagerList } from "@front/api/room";
 import { isOnline } from "@front/api/utils/websocket";
 import { login as loginTexts, common } from "@front/texts";
@@ -114,11 +95,12 @@ export default defineComponent({
 		const checkTimer: any = null;
 		return {
 			userData: {
-				account: "",
-				password: "",
-				keepLogined: false,
+				keepLogined: true,
 				disclaimerCheck: false
 			},
+			qrImg: "",
+			qrWs: "",
+			qrTimer: "",
 			common: common(),
 			disclaimerDialog: false,
 			logining: false,
@@ -132,12 +114,7 @@ export default defineComponent({
 	computed: {
 		loginTexts,
 		loginDisabled(): boolean {
-			return (
-				!this.userData.account ||
-				!this.userData.password ||
-				!this.userData.disclaimerCheck ||
-				this.logining
-			);
+			return !this.userData.disclaimerCheck;
 		},
 		loginText(): string {
 			if (this.logining) {
@@ -182,28 +159,45 @@ export default defineComponent({
 				this.login();
 			}
 		},
+		clearQR() {
+			this.qrWs.close();
+			this.qeWs = "";
+			this.qrImg = "";
+			clearInterval(this.qrTimer);
+			this.qrTimer = "";
+		},
+		qrLogin() {
+			if (this.qrWs) {
+				this.clearQR();
+			}
+			const that = this;
+			qrLogin().then(({ ws, imageData, expireTime }) => {
+				that.qrImg = imageData;
+				that.qrTimer = setInterval(() => {
+					if (Date.now() > expireTime) {
+						that.clearQR();
+					}
+				}, 10000);
+				that.qrWs = ws;
+				ws.onmessage = (e: any) => {
+					const data = JSON.parse(e.data);
+					if (data?.data?.tokenInfo) {
+						that.$store.state.userSession = data.data.tokenInfo;
+						that.login();
+						that.clearQR();
+					}
+				};
+			});
+		},
 		async login() {
 			this.logining = true;
-			if (!this.validation()) {
-				this.logining = false;
-				return;
-			}
-			let tokenInfo: any = this.$store.state.userSession;
+			const tokenInfo: any = this.$store.state.userSession;
 			loginSession(tokenInfo);
 			try {
 				await getManagerList();
 			} catch (error) {
-				try {
-					tokenInfo = await login(this.userData);
-				} catch (error) {
-					this.logining = false;
-					this.welcome = false;
-					console.log(error);
-					// @ts-ignore
-					// TODO: Confirm the type of error, loginFailedText.
-					this.loginFailedText = error;
-					return;
-				}
+				this.logining = false;
+				this.welcome = false;
 			}
 			this.$store.state.userData = this.userData;
 			this.$store.state.userSession = tokenInfo;
@@ -301,9 +295,12 @@ export default defineComponent({
 			.row {
 				padding: 6px 0px;
 				.logBtn {
-					width: 300px;
-					height: 42px;
+					width: 250px;
+					height: 250px;
 					background-color: $--color-primary-light-3;
+					background-size: 100% 100% !important;
+					background-repeat: no-repeat !important;
+					border-radius: 5px;
 					&:hover {
 						background-color: $--color-primary-light-5;
 					}

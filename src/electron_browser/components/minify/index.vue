@@ -1,13 +1,37 @@
 <template>
 	<div class="minify-bar">
-		<div class="button el-icon-setting" @click="setting=true" title="设置" />
-		<div class="button el-icon-coordinate " :class="{active:isTop}" @click="isTop = !isTop;setTop(isTop)"
-			title="置顶" />
-		<div class="button el-icon-paperclip " :class="{active:isBlur}" title="背景模式" @click="blurConfirm=true" />
+		<div
+			class="button el-icon-setting"
+			@click="setting = true"
+			title="设置"
+		/>
+		<div
+			class="button el-icon-coordinate "
+			:class="{ active: isTop }"
+			@click="
+				isTop = !isTop;
+				setTop(isTop);
+			"
+			title="置顶"
+		/>
+		<div
+			class="button el-icon-paperclip "
+			:class="{ active: isBlur }"
+			title="背景模式"
+			@click="blurConfirm = true"
+		/>
 		<div class="button el-icon-minus" @click="minimize()" />
-		<div class="button el-icon-full-screen" @click="$store.commit('minify')" title="完整化" />
+		<div
+			class="button el-icon-full-screen"
+			@click="$store.commit('minify')"
+			title="完整化"
+		/>
 	</div>
-	<el-dialog custom-class="setting" v-model="setting" :close-on-click-modal="false">
+	<el-dialog
+		custom-class="setting"
+		v-model="setting"
+		:close-on-click-modal="false"
+	>
 		<div class="block">
 			<span class="label">背景颜色</span>
 			<el-color-picker show-alpha v-model="settings.color" />
@@ -17,13 +41,28 @@
 			<el-slider :min="10" :max="200" v-model="settings.zoom" />
 		</div>
 	</el-dialog>
-	<el-dialog custom-class="blurConfirm" title="重要提示" v-model="blurConfirm" :show-close="false"
-		:close-on-click-modal="false">
+	<el-dialog
+		custom-class="blurConfirm"
+		title="重要提示"
+		v-model="blurConfirm"
+		:show-close="false"
+		:close-on-click-modal="false"
+	>
 		背景模式下窗口将会置顶，并且鼠标操作会穿透，ctrl+F1退出,CTRL+F2回消息。确认进入？
 		<template #footer>
 			<span class="dialog-footer">
-				<el-button size="mini" @click="blurConfirm = false">我不</el-button>
-				<el-button size="mini" type="primary" @click="setIgnore();blurConfirm = false">好的</el-button>
+				<el-button size="mini" @click="blurConfirm = false"
+					>我不</el-button
+				>
+				<el-button
+					size="mini"
+					type="primary"
+					@click="
+						setIgnore();
+						blurConfirm = false;
+					"
+					>好的</el-button
+				>
 			</span>
 		</template>
 	</el-dialog>
@@ -80,6 +119,7 @@ export default defineComponent({
 		localStorage.setItem("miniSetting", JSON.stringify(this.settings));
 		ipcRenderer.off("switch-ignore-mode", this.setIgnore);
 		ipcRenderer.off("switch-ignore-mode-temp", this.setIgnoreTemp);
+
 		ipcRenderer.off("hover", this.setHover);
 		event.off("send-message", this.renterIgnore);
 	},
@@ -94,6 +134,7 @@ export default defineComponent({
 	},
 	methods: {
 		minimize,
+
 		setTop(isTop: boolean) {
 			setTop(isTop);
 			if (isTop) {
@@ -176,7 +217,7 @@ export default defineComponent({
 	}
 });
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .minify-bar {
 	height: 24px;
 	display: flex;

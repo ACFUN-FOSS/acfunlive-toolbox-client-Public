@@ -49,6 +49,31 @@ export const loginSession = (tokenInfo: any): void => {
 };
 
 /**
+ * @name 二维码登陆
+ * @param param
+ * @returns
+ */
+export const qrLogin = (): Promise<any> => {
+	// 登陆
+	return request({
+		method: "qrLogin",
+		timeout: 300000,
+		once: false,
+		data: {
+			type: 7
+		}
+	})
+		.then((data: any) => {
+			return Promise.resolve(data);
+		})
+		.catch(e => {
+			logined = false;
+			session = null;
+			return Promise.reject(e);
+		});
+};
+
+/**
  * @name 无需登陆设置token
  * @returns 有token的websocket
  */

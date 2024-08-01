@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { win } from "@front/util_function/system";
+import { win, ipcRenderer } from "@front/util_function/system";
 export default defineComponent({
 	name: "handleMoving",
 	data() {
@@ -15,7 +15,22 @@ export default defineComponent({
 			size
 		};
 	},
+	mounted() {
+		ipcRenderer.on("resize", this.setResize);
+	},
+	beforeUnmount() {
+		ipcRenderer.off("resize", this.setResize);
+	},
 	methods: {
+		setResize() {
+			const winPosition = win.getPosition();
+			win.setBounds({
+				width: 1048,
+				height: 724,
+				x: winPosition[0],
+				y: winPosition[1]
+			});
+		},
 		addMovingListener(e: MouseEvent): void {
 			const startX = e.screenX;
 			const startY = e.screenY;

@@ -1,7 +1,7 @@
 <template>
 	<div class="danmaku">
 		<!-- <el-input type="number" v-model="uid" /> -->
-		<el-button @click="test()">发送数据</el-button>
+		<el-button @click="test">发送数据</el-button>
 	</div>
 </template>
 
@@ -21,26 +21,17 @@ export default defineComponent({
 	watch: {},
 	methods: {
 		test() {
-			const xhr = new XMLHttpRequest();
-
-			xhr.open(
-				"GET",
-				"http://music.163.com/api/playlist/detail?id=2557908184"
+			const evtSource = new EventSource(
+				"http://localhost:1299/api/login"
 			);
-			// xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-			// xhr.setRequestHeader(
-			// 	"Content-Type",
-			// 	"application/x-www-form-urlencoded; charset=UTF-8"
-			// );
-			xhr.onloadend = () => {
-				console.log(JSON.parse(xhr.responseText));
+			evtSource.onmessage = e => {
+				console.log(JSON.parse(e.data));
 			};
-			xhr.send(null);
 		}
 	}
 });
 </script>
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .danmaku {
 	width: 400px;
 	padding: 5px;

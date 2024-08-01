@@ -1,10 +1,29 @@
 <template>
 	<div class="super-chat-list">
 		<div class="super-chat-list-row">
-			<list-block :selectedID="temp.superChatID" @click="select(scBlock,5000)" :displayType="displayType" v-for="scBlock in temp.superChatArray" :key="scBlock.uid" :sc-block="scBlock" :currentTime="currentTime" @end="remove(scBlock)" />
+			<list-block
+				:selectedID="temp.superChatID"
+				:class="`list-block-${scBlock.ruleIndex}`"
+				@click="select(scBlock, 5000)"
+				:displayType="displayType"
+				v-for="scBlock in temp.superChatArray"
+				:key="scBlock.uid"
+				:sc-block="scBlock"
+				:currentTime="currentTime"
+				@end="remove(scBlock)"
+			/>
 		</div>
 		<transition name="fade" mode="out-in">
-			<list-panel class="super-chat-panel" :displayType="displayType" :key="temp.superChatID" v-if="temp.superChatBlock" :sc-block="temp.superChatBlock" :currentTime="currentTime" @next="next()" />
+			<list-panel
+				class="super-chat-panel"
+				:displayType="displayType"
+				:key="temp.superChatID"
+				v-if="temp.superChatBlock"
+				:class="`list-panel-${temp.superChatBlock?.ruleIndex}`"
+				:sc-block="temp.superChatBlock"
+				:currentTime="currentTime"
+				@next="next()"
+			/>
 		</transition>
 	</div>
 </template>
@@ -91,7 +110,7 @@ export default defineComponent({
 });
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import "@front/styles/variables.scss";
 .super-chat-list {
 	position: relative;

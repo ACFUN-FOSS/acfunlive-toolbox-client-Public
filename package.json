@@ -1,6 +1,6 @@
 {
 	"name": "acfunlive-toolbox",
-	"version": "1.6.33",
+	"version": "1.6.37",
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
@@ -52,6 +52,7 @@
 		"spark-md5": "^3.0.2",
 		"stream": "^0.0.2",
 		"tinycolor2": "^1.4.2",
+		"ts-loader": "~8.2.0",
 		"unzipper": "^0.10.11",
 		"utf8": "^3.0.0",
 		"vue": "^3.0.3",

@@ -8,9 +8,22 @@
 				</div>
 
 				<el-button-group>
-					<el-button class="btn" size="mini" @click="copy(song.title);" type="primary">复制</el-button>
-					<el-button class="btn" size="mini" @click="addToBlackList(song)">不想唱</el-button>
-					<el-button class="btn" size="mini" @click="pass(song)">唱过了</el-button>
+					<el-button
+						class="btn"
+						size="mini"
+						@click="copy(song.title)"
+						type="primary"
+						>复制</el-button
+					>
+					<el-button
+						class="btn"
+						size="mini"
+						@click="addToBlackList(song)"
+						>不想唱</el-button
+					>
+					<el-button class="btn" size="mini" @click="pass(song)"
+						>唱过了</el-button
+					>
 				</el-button-group>
 			</div>
 		</row-frame>
@@ -21,7 +34,12 @@
 					<title-scrolling :label="song.nickname" />
 				</div>
 				<el-button-group>
-					<el-button class="btn" size="mini" @click="sang = sang.filter(i=>i!==song)">移出</el-button>
+					<el-button
+						class="btn"
+						size="mini"
+						@click="sang = sang.filter(i => i !== song)"
+						>移出</el-button
+					>
 				</el-button-group>
 			</div>
 		</row-frame>
@@ -31,7 +49,15 @@
 					<title-scrolling :label="song" />
 				</div>
 				<el-button-group>
-					<el-button class="btn" size="mini" @click="settings.nosing = settings.nosing.filter(i=>i!==song)">移出
+					<el-button
+						class="btn"
+						size="mini"
+						@click="
+							settings.nosing = settings.nosing.filter(
+								i => i !== song
+							)
+						"
+						>移出
 					</el-button>
 				</el-button-group>
 			</div>
@@ -47,7 +73,11 @@
 				<el-row>
 					<el-col :span="6">冷却时间</el-col>
 					<el-col :span="18" style="text-align:right">
-						<el-input-number size="mini" v-model="settings.coolingTime" :min="0" />
+						<el-input-number
+							size="mini"
+							v-model="settings.coolingTime"
+							:min="0"
+						/>
 					</el-col>
 				</el-row>
 				<div class="row">
@@ -55,7 +85,6 @@
 				</div>
 			</div>
 		</el-dialog>
-
 	</div>
 </template>
 
@@ -84,10 +113,12 @@ export default {
 			["changedDanmaku", "userProfile"],
 			({ changedDanmaku, userProfile }) => {
 				Object.assign(this.$store.state, { userProfile });
+
 				this.addSong(
-					changedDanmaku.filter(danmaku =>
-						this.s_danmakuGetters.getBackendMsgType(danmaku) === "PUSH_DANMAKU"
-						&& this.s_danmakuTesters.hasContent(danmaku)
+					changedDanmaku.filter(
+						danmaku =>
+							this.s_danmakuGetters.getBackendMsgType(danmaku) ===
+								0 && this.s_danmakuTesters.hasContent(danmaku)
 					)
 				);
 			}
@@ -142,7 +173,9 @@ export default {
 				if (this.cooling.find(i => i.userID === uid)) {
 					return;
 				}
-				const content = this.s_danmakuGetters.getUnscapedContent(danmaku);
+				const content = this.s_danmakuGetters.getUnscapedContent(
+					danmaku
+				);
 				console.log(content);
 				const nickname = this.s_danmakuGetters.getNickName(danmaku);
 				if (!content || !content.includes("点歌")) return;

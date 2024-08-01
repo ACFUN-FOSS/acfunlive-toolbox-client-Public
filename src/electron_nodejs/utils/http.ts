@@ -1,5 +1,6 @@
 import { appStatic, configStatic } from "./paths";
 import File from "./file";
+import { qrLogin, loginMsg } from "./login";
 const settings = JSON.parse(File.loadConfig(null) || "{}");
 export const port =
 	settings && settings.general && settings.general.port
@@ -51,6 +52,9 @@ export const startHttp = () => {
 				immutable: true
 			})
 		);
+
+		server.get("/login", qrLogin);
+		server.get("/loginMsg", loginMsg);
 		server.get("/", function(req: any, res: any) {
 			res.render(path.join(dirname, "/app/index.html"));
 		});

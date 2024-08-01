@@ -19,7 +19,8 @@ import {
 	getRichText,
 	getContentWithEmoji,
 	getBackendMsgDataAsBackendPushDanmakuMsgData,
-	getUnscapedContent
+	getUnscapedContent,
+	getBackendMsgType
 } from "@front/components/danmakuFlow/utils/getter";
 
 import {
@@ -67,7 +68,8 @@ export const danmakuGetters = {
 	getRichText,
 	getContentWithEmoji,
 	getBackendMsgDataAsBackendPushDanmakuMsgData,
-	getUnscapedContent
+	getUnscapedContent,
+	getBackendMsgType
 };
 export default {
 	...danmakuTesters,

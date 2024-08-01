@@ -28,16 +28,18 @@ export const getRule = (value: number, rules: Array<SCBS>) => {
 	}
 	return {
 		rule: rules[ruleIndex],
-		nextLevel
+		nextLevel,
+		ruleIndex: rules.length - ruleIndex
 	};
 };
 
 export const scFromDanmaku = (danmaku: any, ruleData: any): SCB => {
 	const timestamp = Date.now();
-	const { rule, nextLevel } = ruleData;
+	const { rule, nextLevel, ruleIndex } = ruleData;
 	return {
 		...superChatBlock(),
 		...rule,
+		ruleIndex,
 		value: getGiftValue(danmaku),
 		number: getGiftNumber(danmaku),
 		nickName: getNickName(danmaku),
@@ -54,7 +56,7 @@ export const scFromDanmaku = (danmaku: any, ruleData: any): SCB => {
 export const scAdd = (block: SCB, danmaku: any, rules: Array<SCBS>) => {
 	const newValue = getGiftValue(danmaku) + block.value;
 	const newNumber = getGiftNumber(danmaku) + block.number;
-	const { rule, nextLevel } = getRule(newValue, rules);
+	const { rule, nextLevel, ruleIndex } = getRule(newValue, rules);
 	if (rule && rule.triggerValue > block.triggerValue) {
 		block.listEndTime = block.createTime + rule.listDuration;
 	}
@@ -62,6 +64,7 @@ export const scAdd = (block: SCB, danmaku: any, rules: Array<SCBS>) => {
 	block.number = newNumber;
 	block.nextLevel = nextLevel;
 	block.panelEndTime += 10000;
+	block.ruleIndex = ruleIndex;
 	Object.assign(block, rule);
 	return block;
 };
@@ -72,7 +75,7 @@ export const scGiftHandler = (danmaku: any, store: any) => {
 	}
 	const superChatSetting = store.state.danmakuProfile.common.superChat;
 	const temp = store.state.temp;
-	const { rule, nextLevel } = getRule(
+	const { rule, nextLevel, ruleIndex } = getRule(
 		getGiftValue(danmaku),
 		superChatSetting.rules
 	);
@@ -91,7 +94,9 @@ export const scGiftHandler = (danmaku: any, store: any) => {
 		(scBlock: SCB) => scBlock.uid === getUID(danmaku)
 	);
 	if (!exist) {
-		temp.superChatArray.push(scFromDanmaku(danmaku, { rule, nextLevel }));
+		temp.superChatArray.push(
+			scFromDanmaku(danmaku, { rule, nextLevel, ruleIndex })
+		);
 	} else {
 		scAdd(exist, danmaku, superChatSetting.rules);
 		temp.superChatArray = [...temp.superChatArray];

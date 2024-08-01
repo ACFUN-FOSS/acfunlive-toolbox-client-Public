@@ -56,6 +56,7 @@ export interface SuperChatBlock extends SuperChatBlockSetting {
 	number: number;
 	nextLevel: number;
 	uid: number;
+	ruleIndex: number;
 }
 
 export const superChatBlock = (): SuperChatBlock => {
@@ -71,6 +72,7 @@ export const superChatBlock = (): SuperChatBlock => {
 		showed: false,
 		number: 0,
 		nextLevel: 0,
-		uid: 0
+		uid: 0,
+		ruleIndex: 0
 	};
 };

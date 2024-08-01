@@ -1,16 +1,4 @@
 # acfunlive-toolbox-client
-
-**工具箱 1.x 已停止维护。**
-
-**2.x 仓库：** <https://github.com/ACFUN-FOSS/acfun-live-toolbox-MKII>
-
-## 停止维护说明
-本次停止维护没有缓冲期。
-
-1.x 因依赖库老旧、构建过程杂乱，除某人外没有任何其他人能够安装编译运行，导致项目难以继续开发。再者，因为某人不小心把私人数据 push 上去了，造成一个仓库分裂成两个，一个供内部使用，一个供非组织的成员使用，使社区内外隔阂加深，还让仓库维护变得复杂而且公开仓库经常落后于私有仓库。因为以上种种烂摊子，我们决定更换项目工具链并创立新的仓库，直接开始 2.x 版本的开发。
-
-------------
-
 ![location](./readme_start_work.jpg)
 ![location](./readme_acfunlogo.svg)
 ![location](./readme_agpllogo1.png)
